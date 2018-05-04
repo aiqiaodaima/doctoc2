@@ -1,0 +1,36 @@
+.page__bd{
+    overflow: hidden;
+}
+.ioco-refuse{
+    width:5.88rem;
+    height:5.88rem;
+    margin: 3rem auto 0;
+}
+.refuse_hr{
+    width:21.44rem;
+    border-bottom: 1px solid #eaeaea;
+    margin: 1rem auto;
+}
+.refuse_word{
+    height:1.38rem;
+    font-size:1rem;
+    text-align: center;
+    font-family:PingFangSC-Regular;
+    color:rgba(102,102,102,1);
+    line-height:1.38rem;
+    margin: 1rem auto 0;
+}
+.refuse_btn{
+    width:10.25rem;
+    height:2.25rem;
+    border-radius: 0.25rem ; 
+    position: fixed;
+    bottom: 2.5rem;
+    left: 6.63rem; 
+}
+.agree_photo img{
+    width: 11.81rem;
+    height: 11.44rem;
+    display: block;
+    margin: 0 auto;
+}

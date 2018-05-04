@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="189px" height="183px" viewBox="0 0 189 183" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="同意结果" transform="translate(-32.000000, -273.000000)">
+            <g id="Group-24" transform="translate(32.000000, 273.000000)">
+                <circle id="Oval-37" fill="#15AEF2" cx="19" cy="91" r="19"></circle>
+                <circle id="Oval" fill="#17AE19" cx="19.5" cy="13.5" r="6.5"></circle>
+                <circle id="Oval" fill="#DBDBDB" cx="19.5" cy="167.5" r="6.5"></circle>
+                <text id="同意患者预约请求" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal" line-spacing="16" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="59" y="22">同意患者预约请求</tspan>
+                </text>
+                <text id="等待患者确认付款" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal" line-spacing="16" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="59" y="100">等待患者确认付款</tspan>
+                </text>
+                <text id="预约成功" font-family="PingFangSC-Regular, PingFang SC" font-size="16" font-weight="normal" line-spacing="16" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="59" y="176">预约成功</tspan>
+                </text>
+                <path d="M19.5,20.5 L19.5,71.509803" id="Line-15" stroke="#17AE19" stroke-linecap="square" stroke-dasharray="2,2"></path>
+                <path d="M19.5,110.5 L19.5,161.509803" id="Line-15" stroke="#DBDBDB" stroke-linecap="square" stroke-dasharray="2,2"></path>
+                <polygon id="Path-93" fill="#FFFFFF" points="17 78 19.7369251 78 19.7369251 90.7981887 27.6910287 96.0507701 26.2980563 97.6571817 17 93.2675487"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

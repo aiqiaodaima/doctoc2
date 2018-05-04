@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> </title>
+    <title>拒绝请求</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
@@ -13,11 +13,25 @@
     <link rel="stylesheet" href="../css/ydui.css">
     <!-- 通用样式 -->
     <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/refuse.css">
 </head>
 
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
-        
+       <div class="ioco-refuse">
+            <i class="weui-icon-success weui-icon_msg"></i>
+       </div>
+       <div class="refuse_word">
+            您已同意该预约请求，等待患者付款即可生效。
+       </div>
+       <div class="refuse_hr">
+       </div>
+        <div class="agree_photo">
+            <img src="../image/group.svg" alt="">
+        </div>
+       <div class="refuse_btn">
+            <a href="booking.html" class="weui-btn weui-btn_plain-primary">完成</a>
+       </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
