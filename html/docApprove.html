@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD
+    <title>医生集团</title>
+=======
+    <title>医师身份认证</title>
+>>>>>>> 这是新版本
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/docApprove.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+<<<<<<< HEAD
+        <div class="weui-flex">
+            <div class="weui-flex__item weui-flex_top">top</div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item weui-flex_head">
+                <div class="logo">医师身份认证</div>
+            </div>
+        </div>
+=======
+>>>>>>> 这是新版本
+        <div class="docApprove_header">
+            第一步 医生基本信息
+        </div>
+        <div class="docApprove_body">
+            <div class="body_title">
+                <span>*</span>
+                <span>您的真实姓名</span>
+            </div>
+            <input type="text" placeholder="请输入姓名" class="name_input" id="doc_name">
+            <div class="body_title">
+                <span>*</span>
+                <span>出生地</span>
+            </div>
+            <input type="text" readonly id="J_Address" placeholder="请选择出生地" class="name_input address_input">
+            <div class="two_title">
+                <div class="title_one">
+                    <div class="body_title">
+                        <span>*</span>
+                        <span>性别</span>
+                    </div>
+                    <select id="doc_sex">
+                        <option selected="selected" disabled="disabled">请选择性别</option>
+                        <option>男</option>
+                        <option>女</option>
+                    </select>
+                </div>
+                <div class="title_two">
+                    <div class="body_title">
+                        <span>*</span>
+                        <span>年龄</span>
+                    </div>
+                    <input type="text" placeholder="请输入年龄" id="doc_age"> 
+                </div>
+            </div>
+            <div class="two_title">               
+                <div class="title_one">
+                    <div class="body_title">
+                        <span>*</span>
+                        <span>学历</span>
+                    </div>
+                    <select id="education_background">
+                        <option selected="selected" disabled="disabled">请选择学历</option>
+                        <option>本科</option>
+                        <option>硕士</option>
+                        <option>博士</option>
+                    </select>
+                </div>
+                <div class="title_two">
+                    <div class="body_title">
+                        <span>*</span>
+                        <span>最高学位</span>
+                    </div>
+                    <select id="highestdegree">
+                        <option selected="selected" disabled="disabled">请选择最高学位</option>
+                        <option>学士</option>
+                        <option>硕士</option>
+                        <option>博士</option>
+                    </select>
+                </div>
+            </div>
+            <div class="body_title" style="margin-top: 1rem">
+                <span>*</span>
+                <span>最高学位授予院校</span>
+            </div>
+            <input type="text" placeholder="请输入最高学位授予院校" class="name_input" id="academy">
+        </div>
+        <div class="submit_button">
+<<<<<<< HEAD
+            <!-- <a href="docApprove2.html">下一步</a> -->
+            <a href="javascript:void(0)">下一步</a>
+=======
+            <a href="docApprove2.html">下一步</a>
+            <!-- <a href="javascript:void(0)">下一步</a> -->
+>>>>>>> 这是新版本
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/ydui.citys.js"></script>
+<script src="../js/ydui.js"></script>
+<script>
+    $(function(){
+        var $address = $('#J_Address');
+
+        $address.citySelect();
+
+        $address.on('click', function () {
+            $address.citySelect('open');
+        });
+
+        let name_object = {};
+        $address.on('done.ydui.cityselect', function (ret) {
+            /* 省：ret.provance */
+            /* 市：ret.city */
+            /* 县：ret.area */
+            $(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+            name_object.birthplace = ret.provance + ' ' + ret.city + ' ' + ret.area;
+        });
+
+        $("#doc_name").on("keyup",function (event) {
+            name_object.name = event.target.value
+        })
+       
+        $("#education_background").blur(function (event) {
+            name_object.education_background = event.target.value
+        })
+        
+        $("#doc_sex").blur(function (event) {
+            name_object.sex = event.target.value
+        })
+        $("#highestdegree").blur(function (event) {
+            name_object.highestdegree = event.target.value
+        })
+        $("#academy").blur(function (event) {
+            name_object.academy = event.target.value
+        })
+        $("#doc_age").on("keyup",function (event) {
+            name_object.age = event.target.value
+        })
+
+        $(".submit_button").on("click",function () {
+            $.ajax({
+                url:"http://192.168.1.58:9966/doctor/insertSelective?",
+                type: "POST",
+                dataType: "text",
+                data:name_object,
+                success:function (res) {
+                    console.log(res)
+                    localStorage.setItem("uid",res);
+                    window.location.href = "docApprove2.html";
+                },
+                error:function(res){
+                    console.log(res)
+                }
+            })
+        })       
+    });
+</script>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<<<<<<< HEAD
+    <title>医生集团</title>
+=======
+    <title>档案管理</title>
+>>>>>>> 这是新版本
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+    <meta content="yes" name="apple-mobile-web-app-capable"/>
+    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/record.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+<<<<<<< HEAD
+        <div class="weui-flex">
+            <div class="weui-flex__item weui-flex_top">top</div>
+        </div>
+        <div class="weui-flex">
+            <div class="weui-flex__item weui-flex_head">
+                <div class="logo">档案管理</div>
+            </div>
+        </div>
+=======
+       
+>>>>>>> 这是新版本
+        <div class="record_search">
+            <div class="search_item">
+                <img src="../image/ico_saerch.png" alt="">
+                <input class="my_input" type="search">
+            </div>
+            <div class="search_sort">
+                <img src="../image/ico_list.svg" alt="">
+            </div>
+        </div>
+        <div class="record_content">
+            <ul>
+                <li class="content_item">
+                    <div class="content_img"><img src="../image/ico_file.svg" alt=""></div>
+                    <div class="content_word">患者档案</div>
+                    <div class="content_touch" id="J_ShowActionSheet"></div>
+                </li>
+                <li class="content_item">
+                    <div class="content_img">
+                        <img src="../image/ico_file.svg" alt="">
+                    </div>
+                    <div class="content_word">科研档案</div>
+                    <div class="content_touch" id="J_ShowActionSheet"></div>
+                </li>
+                <li class="content_item">
+                    <div class="content_img">
+                        <img src="../image/ico_file.svg" alt="">
+                    </div>
+                    <div class="content_word">学术档案</div>
+                    <div class="content_touch" id="J_ShowActionSheet"></div>
+                </li>
+                <li class="content_item">
+                    <div class="content_img">
+                        <img src="../image/ico_file.svg" alt="">
+                    </div>
+                    <div class="content_word">协议档案</div>
+                    <div class="content_touch" id="J_ShowActionSheet"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="record_footer">
+            <div class="footer_item footer_add">
+                <img src="../image/ico_add.svg" alt="">
+                <span>添加</span>
+            </div>
+            <div class="footer_item footer_upload">
+                <img src="../image/ico_Upload.svg" alt="">
+                <span>上传</span>
+            </div>
+        </div>
+        <div class="m-actionsheet" id="J_ActionSheet">
+            <a href="#" class="actionsheet-item">上传</a>
+            <a href="#" class="actionsheet-item">下载</a>
+            <a href="#" class="actionsheet-item">更名</a>
+            <!-- <a href="#" class="actionsheet-item">示例菜单 - Javascript API</a> -->
+            <a href="javascript:;" class="actionsheet-action" id="J_Cancel">取消</a>
+        </div>
+
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/ydui.flexible.js"></script>
+<script src="../js/ydui.js"></script>
+<script>
+    $(function(){
+        var $myAs = $('#J_ActionSheet');
+
+        $('#J_ShowActionSheet').on('click', function () {
+            $myAs.actionSheet('open');
+        });
+
+        $('#J_Cancel').on('click', function () {
+            $myAs.actionSheet('close');
+        });
+        
+        // 自定义事件
+        $myAs.on('open.ydui.actionsheet', function () {
+            console.log('打开了');
+        }).on('close.ydui.actionsheet', function () {
+            console.log('关闭了');
+        });
+    });
+</script>
+</html>
