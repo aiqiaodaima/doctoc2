@@ -10,7 +10,7 @@ body{
     background:rgba(0,0,0,1);
 }
 .weui-navbar{
-    top: 1.25rem;
+    /* top: 1.25rem; */
     height:2.75rem;
     background:rgba(0,0,0,1);   
 }
