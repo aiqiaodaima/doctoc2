@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/conference-item.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="item_header">
+            丝绸之路国际口腔医学论坛 暨丝绸之路口腔器材设备药品展览会
+        </div>
+        <div class="item_title">
+            <ul>
+                <li class="title_one">
+                    <img src="" alt="">
+                    <span>医生集团</span>
+                </li>
+                <li class="title_two">
+                    <div>
+                        <img src="../image/ico_clock.svg" alt="" class="img_time">
+                        <span class="word_time">2018年09月27日-09月29日</span>
+                        <img src="../image/ico_star.svg" alt="" class="img_star">
+                        <span class="word_star">全国大型会议</span>
+                    </div>
+                </li>
+                <li class="title_three">
+                    <div>
+                        <img src="../image/ico_ pos.svg" alt="" class="img_pos">
+                        <span class="word_pos">北京国家会议中心</span>
+                        <img src="../image/ico_people.svg" alt="" class="img_people">
+                        <span class="word_people">387人已报名</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="item_carousel" style="margin: 1rem 0;">
+            <div class="m-slider" id="J_Slider">
+                <div class="slider-wrapper">
+                    <div class="slider-item">
+                        <a href="#">
+                            <img src="../image/banner.png" alt="">
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a href="#">
+                            <img src="../image/banner.png" alt="">
+                            
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a href="#">
+                            <img src="../image/banner.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="slider-pagination"></div><!-- 分页标识 -->
+            </div>
+        </div>
+        <div class="item_content">
+            <div class="content_title">会议简介</div>
+            <img src="../image/figure1.png" alt="">
+        </div>
+        <!-- <div class="item——content">
+            <div class="content_title">会议简介</div>
+            <div class="content_word">由陕、甘、宁、青、新、晋、豫、蒙8省（自治区）口腔医学会共同发起主办，空军军医大学口腔医院、西安交通大学口腔医院联合协办的2018第三届丝绸之路国际口腔医学论坛暨丝绸之路口腔器材设备药品展览会，将于2018年9月27日—29日在西安曲江国际会议中心盛大启幕。 在社会各界人士的鼎力支持下，第一届及第二届丝绸之路口腔国际医学论坛暨丝绸之路口腔器材设备药品展览会取得了圆满成功，参展企业、参会人员数量稳步提高。我们正在向更具专业化、国际化的口腔医学盛会的道路上不断前行。2018丝绸之路国际口腔医学论坛暨丝绸之路口腔器材设备药品展览会在各界人士的关注下，即将召开，今年我们将邀请更多的国内外知名企业参展，展示最新最前沿的技术，发布最新的医疗器械，打造一站式全产业链采购平台。我们邀请了中外著名的专家学者，全面讲授口腔医学领域中的新技术及新进展。本次活动还将首次举办“民营口腔发展论坛”，共同探讨在新形势下民营口腔的发展状况。我们相信，本次盛会必定会成为中西部地区口腔医学工作者开展学术交流、增进友谊、加强合作、共同发展的最佳平台，同时也成为展示口腔医疗设备器材发展成果、促进行业装备水平提升的良好契机。 我们热忱的欢迎您来西安，参与本次盛会，共同见证丝绸之路国际口腔医学论坛暨丝绸之路口腔器材设备药品展览会的成长，期待您的参与。</div>
+        </div> -->
+        <div class="item_patient">
+            <div class="patient_title">特邀嘉宾</div>
+            <div class="patient_photo">
+                <ul>
+                    <li>
+                        <img src="../image/Mask1.png" alt="">
+                    </li>
+                    <li>
+                        <img src="../image/Mask2.png" alt="">
+                    </li>
+                    <li>
+                        <img src="../image/Mask3.png" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="meeting_item">
+            <img src="../image/Group 5.png" alt="">
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/ydui.js"></script>
+<script>
+    $(function(){
+        $('#J_Slider').slider({
+            speed: 500,
+            autoplay: 2000,
+            lazyLoad: true
+        });
+    });
+</script>
+</html>

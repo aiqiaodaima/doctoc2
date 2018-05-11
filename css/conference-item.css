@@ -1,0 +1,86 @@
+body{
+    background: #ffffff;
+    overflow-x: hidden;
+}
+.item_header{
+    width:21.44rem;
+    height:3rem;
+    margin: 1rem 1rem 0.5rem 1rem;
+    font-size:0.94rem;
+    font-family:PingFangSC-Medium;
+    color:rgba(51,51,51,1);
+    line-height:1.5rem;
+}
+.item_title{
+    width:22.44rem;
+    height: auto;
+    margin-left : 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eaeaea;
+}
+.item_title ul li{
+    list-style: none;
+}
+.title_one,.title_two>div,.title_three>div{
+    display: flex;
+}
+.title_one span{
+    margin-left: 0.5rem;
+    line-height: 2rem;
+}
+.item_title ul li img{
+    display: block;
+}
+.title_one img{
+    width:2rem;
+    height:2rem;
+    background:rgba(244,244,244,1);
+    border-radius: 50%;
+}
+.title_two{
+    margin-top: 0.63rem;
+}
+.word_time,.word_pos{
+    margin-left: 0.63rem;
+}
+.img_star{
+    margin-left: 1.06rem;
+}
+.img_people{
+    margin-left: 4.05rem;
+}
+.word_star,.word_people{
+    margin-left: 0.49rem;
+}
+.item_content img{
+    display: block;
+    width: 21.44rem;
+    margin: 0.75rem auto 0;
+}
+.content_title,.patient_title{
+    margin-left: 1rem;
+    width:3.81rem;
+    height:0.94rem;
+    font-size:0.94rem;
+    font-family:PingFangSC-Medium;
+    color:rgba(51,51,51,1);
+    line-height:0.94rem;
+}
+.item_patient{
+    margin-top: 1rem;
+}
+.patient_title{
+    margin-bottom: 0.5rem;
+}
+.patient_photo ul{
+    display: flex;
+    overflow-y: scroll;
+}
+.patient_photo ul li{
+    margin: 0 1rem 1rem 1rem;
+}
+.meeting_item img{
+    margin: 1rem auto 1.25rem;
+    width: 21.31rem;
+    height: auto;
+}
