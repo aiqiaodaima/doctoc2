@@ -127,8 +127,8 @@
 
                 <!-- 页面二 -->
                 <div id="tab2" class="weui-tab__bd-item">
-                    <div class="my_card">
-                        <div class="card_item">
+                    <div class="my_card item_success">
+                        <div class="card_item ">
                             <label for="" class="card_Scientific">第十四届全国营养科学大会 暨全球华人营养科学家大会</label>
                             <span class="card_circle green">
                                 <i>已成功</i> 
@@ -176,7 +176,7 @@
                         <div class="card_item">
                             <label class="card_Scientific">第十四届全国营养科学大会 暨全球华人营养科学家大会</label>
                             <span class="card_circle blue">
-                                <i>待确认</i>    
+                                <i>已失败</i>    
                             </span>
                             <div class="scientific_hr"></div>
                             <!-- 图标上移了一点 -->
@@ -210,6 +210,13 @@
             autoplay: 2000,
             lazyLoad: true
         });
+        $('.item_success').on("click",function(){
+            window.location.href="invitation.html"
+        })
+        $('.weui-panel__bd').on('click',function(){
+            window.location.href = 'conference-item.html'
+        })
+        
     });
 </script>
 </html>

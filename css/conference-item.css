@@ -84,3 +84,15 @@ body{
     width: 21.31rem;
     height: auto;
 }
+.item_btn a{
+    position: fixed;
+    bottom: 0;
+    display: block;
+    width:23.44rem;
+    height:3.06rem;
+    background:rgba(91,134,229,1);
+    text-align: center;
+    line-height: 3.06rem;
+    font-size: 1.125rem;
+    color: #fff;
+}
