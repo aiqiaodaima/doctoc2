@@ -1,11 +1,13 @@
 .m-slider{
-    height: 10rem;
 }
 .diagnosis_helper{
     display: flex;
+    width: 100%;
 }
 .helper_four>ul{
-    width:17.38rem;
+    /* width: 74.16%; */
+    min-width: 14.83rem;
+    /* width:17.38rem; */
     height:16.5rem;
     background:rgba(255,255,255,1);
     display: flex;
@@ -13,7 +15,8 @@
 }
 .helper_four ul li,.helper_four ul li a{
     display: block;
-    width: 8.69rem;
+    min-width: 7.4rem;
+    width: 50%;
     height: 8.25rem;
     box-sizing: border-box;
 }
@@ -41,7 +44,7 @@
     line-height:0.94rem;
 }
 .helper_items{
-    width:6.06rem;
+    min-width: 6.06rem;
     height:16.5rem;
     background:rgba(234,234,234,1);
 }
