@@ -30,7 +30,7 @@
 .helper_four ul li:nth-child(3){
     border-right: 1px solid #eaeaea;
 }
-.helper_four ul li div.four_img{
+.helper_four ul li div.four_img,.helper_four ul li div.four_img img{
     width: 3.44rem;
     height: 3.38rem;
     margin: 1.13rem auto 1.25rem;

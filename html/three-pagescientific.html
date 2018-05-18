@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <title>档案管理</title>
+    <title>科研课题</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="../css/ydui.css">
     <!-- 通用样式 -->
     <link rel="stylesheet" href="../css/public.css">
-    <link rel="stylesheet" href="../css/two-page.css">
+    <link rel="stylesheet" href="../css/two-pagescientific.css">
 </head>
 
 <body ontouchstart>
@@ -42,45 +42,72 @@
         </div>
         <div class="diagnosis_helper">
             <div class="helper_four">
-                <ul>
-                    <li>
-                        <a href="record-patient.html">
-                            <div class="four_img">
-                                <img src="../image/two-pagerecord1.png" alt="">
-                            </div>
-                            <div class="four_word">医疗档案</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="four_img">
-                                    <img src="../image/two-pagerecord2.png" alt="">
-                            </div>
-                            <div class="four_word">科研档案</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="four_img">
-                                    <img src="../image/two-pagerecord3.png" alt="">
-                            </div>
-                            <div class="four_word">教学档案</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="four_img">
-                                    <img src="../image/two-pagerecord4.png" alt="">
-                            </div>
-                            <div class="four_word">其他档案</div>
-                        </a>
-                    </li>
-                </ul>
+                <div class="four_top">
+                    <ul>
+                        <li>
+                            <div class="green">成功</div>
+                            <a href="scientific-resultpass.html">
+                                <span class="span_1">口腔癌的病理研究。</span>
+                                <span class="span_2">新增 市重点 7万元</span>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="red">失败</div>
+                            <a href="scientific-resultpassfail.html">
+                                <span class="span_1">口腔癌的病理研究。</span>
+                                <span class="span_2">新增 市重点 7万元</span>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="blue">审核中</div>
+                            <a href="">
+                                <span class="span_1">口腔癌的病理研究。</span>
+                                <span class="span_2">新增 市重点 7万元</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="four_bottom">
+                    <ul>
+                        <li>
+                            <a href="three-pagescientific.html">
+                                <div class="four_img">
+                                    <img src="../image/scisub_ico_scisub_pre.png" alt="">
+                                </div>
+                                <div class="four_word active">资助申请</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="four_img">
+                                    <img src="../image/scisub_ico_receipts_nor.png" alt="">
+                                </div>
+                                <div class="four_word">单据上传</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="three-pagescientific3.html">
+                                <div class="four_img">
+                                    <img src="../image/scisub_ico_plan_nor.png" alt="">
+                                </div>
+                                <div class="four_word">科研计划</div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <div class="four_img">
+                                    <img src="../image/two-pagemy.png" alt="">
+                                </div>
+                                <div class="four_word">信息更新</div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="helper_items">
                 <ul>
                     <li>
-                        <a href="two-pagescientific.html">科研课题</a>
+                        <a href="two-pagescientific.html" class="active">科研课题</a>
                     </li>
                     <li>
                         <a href="two-pagelearning.html">学术会议</a>
@@ -92,22 +119,22 @@
                         <a href="two-pagepractice.html">实习带教</a>
                     </li>
                     <li>
-                        <a href="two-pagerecord.html" class="active">档案管理</a>
+                        <a href="two-pagerecord.html">档案管理</a>
                     </li>
                     <li>
-                        <a href="two-pagediagnosis.html" >诊疗助手</a>
+                        <a href="two-pagediagnosis.html">诊疗助手</a>
                     </li>
                     <li>
                         <a href="two-pageshare.html">分享交流</a>
                     </li>
                     <li>
-                        <a href="two-pagegroup.html" >患群管理</a>
+                        <a href="two-pagegroup.html">患群管理</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="weui-tabbar">
-           
+
             <a href="index.html" class="weui-tabbar__item">
                 <div class="weui-tabbar__icon">
                     <img src="../image/tabbar_ico_home_nor.png" alt="">

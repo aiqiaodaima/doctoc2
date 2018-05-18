@@ -12,23 +12,6 @@ html {
 .weui-tabbar{
     background:rgba(255,255,255,1);
 }
-.weui-flex .weui-flex_top{
-    height:1.25rem;
-    background:rgba(0,0,0,1);
-}
-.weui-flex .weui-flex_head{
-    height:2.75rem;;
-    background:rgba(0,0,0,1);
-}
-.logo{
-    height:1.13rem;
-    font-size:1.13rem;
-    font-family:PingFangSC-Medium;
-    color:rgba(255,255,255,1);
-    line-height:1.13rem;
-    margin: 0.75rem auto;
-    text-align: center;
-}
 .weui-flex_Carousel{
     /* 响应式 */
     /* height:13rem; */   
@@ -42,7 +25,11 @@ html {
 .weui-tabbar__item.weui-bar__item--on .weui-tabbar__label {
     color:#5B86E5;
 }
-
+.weui-grids{
+    margin-top: 0.625rem;
+    background: #fff;
+    padding-bottom: 2.1875rem;
+}
 /* 八宫格样式 */
 /* .big_gongGe{
     margin: 0 0.5rem;
@@ -56,11 +43,12 @@ html {
 }
 .weui-grid__icon+.weui-grid__label{
     margin-top:4px;
-    color: #333333;
+    color: #666;
+   
 }
 .weui-grid{
     width: 25%;
-    padding: 16px 8px 0;
+    padding: 10px 8px 0;
 }
 .weui-grid__icon{
     width: 4.88rem;
@@ -72,28 +60,31 @@ html {
 
 /* 个人的CSS */
 .weui-flex_me{
-    width:23.44rem;
-    height:10.63rem;
-    background:linear-gradient(180deg,rgba(28,181,224,1),rgba(91,134,229,1));
+    /* width:23.44rem; */
+    height:9.375rem;
+    background:linear-gradient(180deg, #fff,#f7f7f7);
     display: flex;
     /* justify-content: center; */
     align-items: center;
     flex-direction: column;
 }
-.photo{
+.photo img{
+    display: block;
     width:5rem;
     height:5rem;
     border-radius: 50%;
     background-color: #fff;
     margin-top: 1rem;
+    overflow: hidden;
 }
 .name{
-    margin-top: 0.5rem;
-    width:1.94rem;
-    height:0.94rem;
-    font-size:0.94rem;
-    font-family:PingFangSC-Medium;
-    color:rgba(255,255,255,1);
+    margin-top: 1.25rem;
+    text-align: center;
+    height:1.0625rem;
+    font-size:1.0625rem;
+    font-family:PingFang-SC-Bold;
+    font-weight: 800;
+    color:#666;
     line-height:0.94rem;
 }
 .attestation{
@@ -107,10 +98,22 @@ html {
 }
 .me_message{
     margin: 0.5rem 0;
-    width: 33.3333%;
+    width: 33.33%;
     height:3.06rem;
     background:rgba(255,255,255,1);
     padding: 0.363rem 0 0.5rem;
+    /* border-right: 1px solid #eaeaea; */
+    /* transform-origin: 0 0;
+    transform: scale(0.5, 0.5); */
+}
+.my_weuigridshr{
+    width: 1px;
+    height: 25px;
+    background: #eaeaea;
+    margin-top: 22.5px;
+}
+.me_message:nth-last-child(1){
+    border: none;
 }
 .me_message .me_messageTop{
     text-align: center;
@@ -122,6 +125,7 @@ html {
     margin-bottom: 0.25rem;
 }
 .me_message .me_messageBot{
+    margin-top: 1rem;
     text-align: center;
     font-size:0.94rem;
     font-family:PingFangSC-Regular;
@@ -151,13 +155,13 @@ html {
 .autonym{
     height:0.94rem;
     font-size:0.81rem;
-    font-family:PingFangSC-Regular;
-    color:rgba(255,0,0,1);
+    font-family:PingFang-SC-Blod;
+    color:#ff53a0;
     line-height:0.94rem;
     padding-right: 1.25rem !important;
 }
-/* .me_message:after,.me_message:before{
-    top: 0;
-    width: 8px;
-    background:rgba(247,247,247,1);
-} */
+.my_weuigrids{
+    display: flex;
+    height: 4.375rem;
+    margin-bottom: 10px;
+}

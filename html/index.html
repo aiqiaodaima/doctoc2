@@ -22,27 +22,27 @@
                 <div class="m-slider" id="J_Slider">
                     <div class="slider-wrapper">
                         <div class="slider-item">
-                            <a href="#">
+                            <a href="banner-intro.html">
                                 <img src="../image/banner.png" alt="">
                             </a>
                         </div>
                         <div class="slider-item">
-                            <a href="#">
-                                <img src="../image/banner.png" alt="">
-                                
+                            <a href="banner-intro.html">
+                                <img src="../image/banner2.png" alt="">
                             </a>
                         </div>
                         <div class="slider-item">
-                            <a href="#">
-                                <img src="../image/banner.png" alt="">
+                            <a href="banner-intro.html">
+                                <img src="../image/banner3.png" alt="">
                             </a>
                         </div>
                     </div>
-                    <div class="slider-pagination"></div><!-- 分页标识 -->
+                    <div class="slider-pagination"></div>
+                    <!-- 分页标识 -->
                 </div>
                 <!-- 九宫格 -->
                 <div class="weui-grids">
-                    <a href="scientific.html" class="weui-grid js_grid">
+                    <a href="two-pagescientific.html" class="weui-grid js_grid">
                         <div class="weui-grid__icon">
                             <img src="../image/bagong1.png" alt="">
                         </div>
@@ -50,7 +50,7 @@
                             科研课题
                         </p>
                     </a>
-                    <a href="academic-conference.html" class="weui-grid js_grid">
+                    <a href="two-pagelearning.html" class="weui-grid js_grid">
                         <div class="weui-grid__icon">
                             <img src="../image/bagong2.png" alt="">
                         </div>
@@ -58,7 +58,7 @@
                             学术会议
                         </p>
                     </a>
-                    <a href="develop.html" class="weui-grid js_grid">
+                    <a href="two-pagebasics.html" class="weui-grid js_grid">
                         <div class="weui-grid__icon">
                             <img src="../image/bagong3.png" alt="">
                         </div>
@@ -66,7 +66,7 @@
                             基础教学
                         </p>
                     </a>
-                    <a href="develop.html" class="weui-grid js_grid">
+                    <a href="two-pagepractice.html" class="weui-grid js_grid">
                         <div class="weui-grid__icon">
                             <img src="../image/bagong4.png" alt="">
                         </div>
@@ -74,7 +74,7 @@
                             实习带教
                         </p>
                     </a>
-                    <a href="record.html" class="weui-grid js_grid">
+                    <a href="two-pagerecord.html" class="weui-grid js_grid">
                         <div class="weui-grid__icon">
                             <img src="../image/bagong5.png" alt="">
                         </div>
@@ -90,7 +90,7 @@
                             诊断助手
                         </p>
                     </a>
-                    <a href="develop.html" class="weui-grid js_grid">
+                    <a href="two-pageshare.html" class="weui-grid js_grid">
                         <div class="weui-grid__icon">
                             <img src="../image/bagong7.png" alt="">
                         </div>
@@ -98,7 +98,7 @@
                             分享交流
                         </p>
                     </a>
-                    <a href="develop.html" class="weui-grid js_grid">
+                    <a href="two-pagegroup.html" class="weui-grid js_grid">
                         <div class="weui-grid__icon">
                             <img src="../image/bagong8.png" alt="">
                         </div>
@@ -125,6 +125,13 @@
                 </div>
                 <p class="weui-tabbar__label">首页</p>
             </a>
+            <a href="javascript:;" class="weui-tabbar__item">
+                <!-- <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span> -->
+                <div class="weui-tabbar__icon">
+                    <img src="../image/ico_cloud.png" alt="">
+                </div>
+                <p class="weui-tabbar__label">云盘</p>
+            </a>
             <a href="my.html" class="weui-tabbar__item">
                 <div class="weui-tabbar__icon">
                     <img src="../image/tabbar_ico_me_nor.png" alt="">
@@ -138,22 +145,7 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
 <script>    
-    $(function(){
-        /**
-        * 改变底部图标颜色 应该给每个图标增加calss
-        *
-        */
-        // console.log( $('.weui-tabbar__item')[0])
-        // $('.weui-tabbar__item').on('click', function () {
-        //     if (this == $('.weui-tabbar__item')[0]) {
-        //         $(this).find('img').attr('src','../image/tabbar_ico_home_pre.png');
-        //         $(this).siblings().find('img').attr('src','../image/tabbar_ico_me_nor.png');
-        //     } else {
-        //         console.log($(this))
-        //         $(this).find('img').attr('src','../image/tabbar_ico_me_pre.png');
-        //         $(this).siblings().find('img').attr('src','../image/tabbar_ico_home_nor.png');
-        //     }
-        // });
+    $(function () {
         $('#J_Slider').slider({
             speed: 500,
             autoplay: 2000,
@@ -162,4 +154,5 @@
     });
 
 </script>
+
 </html>

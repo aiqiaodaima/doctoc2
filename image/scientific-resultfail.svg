@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="332px" viewBox="0 0 375 332" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
+    <title>sciplan_audit_result_defeated</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="科研课题-科研计划-失败" transform="translate(0.000000, -64.000000)">
+            <g id="Group-2" transform="translate(0.000000, 63.000000)">
+                <rect id="Rectangle-4" fill="#FFFFFF" x="0" y="0" width="375" height="332"></rect>
+                <text id="课题名称" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="73">课题名称</tspan>
+                </text>
+                <text id="申请资助" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="130">申请资助</tspan>
+                </text>
+                <text id="资金用途" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="187">资金用途</tspan>
+                </text>
+                <text id="审核结果" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="262">审核结果</tspan>
+                </text>
+                <text id="肿瘤基因的表达。" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.1733333" fill="#666666">
+                    <tspan x="16" y="94">肿瘤基因的表达。</tspan>
+                </text>
+                <text id="5万元" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.1733333" fill="#666666">
+                    <tspan x="16" y="151">5万元</tspan>
+                </text>
+                <text id="实验器材的购买，试剂的购买，图书的购买，" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="208">实验器材的购买，试剂的购买，图书的购买，办公用品等</tspan>
+                    <tspan x="16" y="226">实验必须的用品购买</tspan>
+                    <tspan x="134.8" y="226">。</tspan>
+                </text>
+                <text id="非常抱歉，您的申请未能获得批复，您可以再" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="283">非常抱歉，您的申请未能获得批复，您可以再次选择其他</tspan>
+                    <tspan x="16" y="301">课题申报。</tspan>
+                </text>
+                <rect id="Rectangle-130" fill="#EE0000" x="0" y="1" width="375" height="40"></rect>
+                <text id="很抱歉，您的审核未通过。" font-family="PingFangSC-Regular, PingFang SC" font-size="15" font-weight="normal" line-spacing="15" letter-spacing="0.200000003" fill="#FFFFFF">
+                    <tspan x="96" y="30">很抱歉，您的审核未通过。</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
