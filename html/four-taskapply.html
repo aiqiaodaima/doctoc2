@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> </title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <!-- <link rel="stylesheet" href="../css/ydui.css"> -->
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/four-taskapply.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="" class="weui-label">分类</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select2">
+                        <option value="0">请选择</option>
+                        <option value="1">临床</option>
+                        <option value="2">临床2</option>
+                        <option value="3">临床3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">课题名称</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入课题名称">
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="select3" class="weui-label">拟申报/已有级别</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select3">
+                        <option value="0">请选择</option>
+                        <option value="1">院内</option>
+                        <option value="2">院内2</option>
+                        <option value="3">院内3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="select4" class="weui-label">性质</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select4">
+                        <option value="0">请选择</option>
+                        <option value="1">面上</option>
+                        <option value="2">面上2</option>
+                        <option value="3">面上3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="select5" class="weui-label">研究水平</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select5">
+                        <option value="0">请选择</option>
+                        <option value="1">初级</option>
+                        <option value="2">初级2</option>
+                        <option value="3">初级3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">预算金额</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入预算金额">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">已获取资助金额</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入已获取资助金额">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">资金用途说明</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入资金用途说明">
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_switch">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">流动站</label>
+                </div>
+                <div class="weui-cell__ft">
+                    <label for="switchCP" class="weui-switch-cp">
+                        <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked">
+                        <div class="weui-switch-cp__box"></div>
+                    </label>
+                </div>
+            </div>
+            <div class="weui-cell">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">流动站名称</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="text" placeholder="请输入流动站名称">
+                    </div>
+                </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">开题时间</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" id='datetime-picker' placeholder="请选择" />
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">结题时间</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" id='datetime-picker2' placeholder="请选择" />
+                </div>
+            </div>
+        </div>
+        <div class="apply_btn">
+            <a href="audit.html">提交申请</a>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $(function () {
+        $("#datetime-picker").datetimePicker();
+        $("#datetime-picker2").datetimePicker();
+    });
+</script>
+
+</html>

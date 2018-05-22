@@ -10,3 +10,7 @@ body{
     width: 23px;
     height: 23px;
 }
+img{
+    width: 100%;
+    display: block;
+}

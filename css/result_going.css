@@ -1,0 +1,39 @@
+.result_going{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #ffbf44;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+}
+.result_fail{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    background: #ff6c2b;
+    color: #fff;
+    font-size: 12px;
+    text-align: center;
+}
+.weui-cells{
+    margin: 0;
+}
+.weui-cell_switch{
+    display: flex;
+    justify-content: space-between;
+}
+.second_item{
+    display: flex;
+    flex-direction: column;
+}
+.first_item{
+    width: 100%;
+}
+.next_item{
+    width: 100%;
+    margin: 22px auto;
+    line-height: 22px;
+    font-size: 14px;
+    color: #666;
+}

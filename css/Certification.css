@@ -24,19 +24,19 @@ body{
 }
 .cert_1{
     display: block;
-    width: 22.44rem;
+    width: 100%;
     height: 10rem;
     margin: 1rem auto 1rem;
 }
 .cert_2{
     display: block;
-    width: 22.44rem;
+    width: 100%;
     height: 10rem;
     margin: 0 auto 0.5rem;
 }
 .font_content{
-    width: 22.44rem;
-    height: 10.5rem;
+    width: 100%;
+    height: 9.5rem;
     margin: 0 auto;
     font-size:0.81rem;
     font-family:PingFangSC-Regular;
@@ -51,6 +51,11 @@ body{
     font-family:PingFangSC-Regular;
     color:rgba(102,102,102,1);
     line-height:1.25rem;
+}
+.certification_bottom{
+    position: fixed;
+    bottom: 1.5rem;
+    width: 100%;
 }
 .cert_button{
     display: block;

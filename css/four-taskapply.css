@@ -1,0 +1,38 @@
+.weui-cells{
+    margin: 0;
+}
+.weui-cells:after, .weui-cells:before{
+    content: none;
+}
+.weui-cell{
+    height: 60px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+}
+.weui-cell__hd .weui-label{
+    width: auto;
+    font-size: 16px;
+    color: #333;
+    font-family: "微软雅黑";
+}
+.weui-cell__bd{
+    direction: rtl;
+    font-size: 14px;
+    color: #cccccc !important ;
+    /* flex-direction: column-reverse; */
+}
+.apply_btn a{
+   margin: 20px auto;
+   width: 92%;
+   height: 43px;
+   line-height: 43px;
+   text-align: center;
+   display: block;
+   font-weight: 600;
+   font:1rem;
+   color: #fff;
+   border-radius: 4px;
+   background: #5f98ff;
+   letter-spacing:2px;
+}
