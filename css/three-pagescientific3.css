@@ -1,0 +1,22 @@
+ul li{
+    margin-bottom: 5px;
+}
+.scientific_item{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0.94rem 1.06rem 1rem 0.91rem;
+}
+.scientific_item .item_title{
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1rem;
+    color: #333333;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.scientific_item .item_first,.scientific_item .item_second{
+    font-family: MicrosoftYaHei;
+    font-size: 0.75rem;
+    color: #999999;
+}

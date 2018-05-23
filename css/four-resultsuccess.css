@@ -1,0 +1,66 @@
+.resultsuccess{
+    width: 100%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+    background-color: #1fc7a1;   
+    color: #ffffff;
+    font-family: MicrosoftYaHei;
+	font-size: 0.75rem;
+}
+.content_top ul{
+    width: 100%;
+    padding: 1.25rem 0.94rem;
+    background: #fff;
+}
+.success_item{
+    display: flex;
+    margin-bottom: 1.25rem;
+}
+.success_item:nth-last-child(1){
+    margin-bottom: 0;
+}
+.success_item .item_left{
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 0.88rem;
+    margin-right: 0.78rem;
+    height: 0.84rem;
+    color: #333333;
+    white-space:nowrap;
+    font-weight: 600;
+}
+.success_item .item_right{
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    line-height: 1.18rem;
+    color: #666666;
+    letter-spacing: 0.03rem;
+}
+.content_bottom{
+    background: #fff;
+    margin-top: 5px;
+}
+.content_bottom ul{
+    padding: 1.25rem 0.94rem 0; 
+}
+.bottom_item{
+    margin-bottom: 1.25rem;
+}
+.bottom_item .item_title{
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 0.88rem;
+    letter-spacing: 0.03rem;
+    color: #333333;
+    margin-bottom: 0.63rem;
+    font-weight: 600;
+}
+.bottom_item .item_bottom{
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    letter-spacing: 0.03rem;
+    color: #666666;
+    line-height: 1.25rem;
+}
+.multilayer{
+    margin-bottom: 1rem;
+}
