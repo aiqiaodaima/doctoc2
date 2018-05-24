@@ -1,0 +1,106 @@
+.scientific_title,.scientific_title2{
+    /* width: 23.44rem; */
+    height: 3.13rem;
+    padding: 0.94rem;
+    display: flex;
+    justify-content: space-between;
+}
+.title_left{
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1rem;
+    color: #333333;
+    font-weight: 600;
+}
+.title_right{
+    font-family: MicrosoftYaHei;
+    font-size: 0.75rem;
+    color: #999999;
+    line-height: 1.5rem;
+}
+.scientific_title2{
+    background: #fff;
+    border-bottom: 1px solid #eaeaea;
+    border-left: 0.13rem solid #5f98ff;
+}
+.title_left2,.title_right2{
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    color: #666666;
+}
+.scientific_content{
+    width: 100%;
+    height: 8.13rem;
+    padding: 0.94rem;
+    display: flex;
+    margin-bottom: 5px;
+    background: #fff;
+}
+.content_left img{
+    width: 6.25rem;
+    height: 6.25rem;
+    margin-right: 0.94rem;
+}
+.content_right span{
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    margin-bottom: 0.63rem;
+}
+.content_right textarea{
+    margin-top: 0.43rem;
+    color: #6c6c6c;
+    padding: 0.34rem;
+    width: 100%;
+    min-width: 10rem;
+    height: 4.69rem;
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    letter-spacing: 0.03rem;
+    background-color: #fcfcfc;
+    border: solid 0.03rem #f7f7f7;
+}
+.scientific_upload{
+    width: 100%;
+    background: #fff;
+    margin-top: 5px;
+}
+.upload_input{  
+    display: flex;
+    justify-content: space-between;
+    height: 3.13rem;
+    line-height: 3.13rem;
+    padding: 0 0.94rem;
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    color: #666666;
+    border-bottom: 1px solid #eaeaea;
+    border-left: 0.13rem solid #5f98ff;
+}
+.upload_input input{
+    outline: none;
+    border: 0px;
+    direction: rtl;
+    color: #666;
+}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{
+    color: #cccccc;
+}
+img{
+    width: 100%;
+    height: 100%;
+}
+.scientific_btn{
+    padding: 1.25rem 0.97rem 0 0.97rem;
+}
+.scientific_btn a{
+    display: block;
+	height: 2.69rem;
+	background-color: #5f98ff;
+    border-radius: 0.31rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+    color: #ffffff;
+    text-align: center;
+    line-height: 2.69rem;
+    margin: 0 auto;   
+}

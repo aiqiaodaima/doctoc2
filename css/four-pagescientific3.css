@@ -76,13 +76,34 @@
 }
 .scientific_bottom{
     padding: 0.94rem;
+    background: #fff;
+    margin-top: 5px;
+    overflow: scroll;
+    /* height: 300px; */
 }
 .scientific_bottom .bottom_title{
     font-family: MicrosoftYaHei-Bold;
     font-size: 0.88rem;
     color: #333333;
-    /* padding: 0.94rem 0; */
+    font-weight: 600;
+    padding-bottom: 0.94rem;
 }
-.scientific_bottom .bottom_content{
-
+.scientific_bottom .bottom_content .content_item{
+    display: flex;
+    margin-bottom: 0.91rem;
+}
+.scientific_bottom .bottom_content .content_item .content_right{
+    padding: 0.94rem 0 0 0.94rem;
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    color: #666666;
+}
+.scientific_bottom .bottom_content .content_item .content_right span{
+    display: block;
+    line-height: 1rem;
+    margin-bottom: 0.6rem;
+}
+.scientific_bottom .bottom_content img{
+    width: 6.25rem;
+	height: 6.25rem;
 }
