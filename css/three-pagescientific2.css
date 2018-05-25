@@ -1,0 +1,63 @@
+.scientific_card{
+    margin-bottom: 5px;
+    width: 100%;
+    background: #fff;
+}
+.scientific_card .card_title{
+    padding: 1.06rem 0.97rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1rem;
+    letter-spacing: 0.04rem;
+	color: #333333;
+    font-weight: 600;
+    border-left: 0.13rem solid #5f98ff;
+    border-bottom: 1px solid #eaeaea;
+}
+.scientific_card .card_content{
+    padding: 0.91rem 0.97rem;
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    color: #999999;
+    letter-spacing: 0.03rem;
+}
+.content_bottom{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.bottom_left{
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.04rem;
+}
+.left_going{
+    color: #ffbf44;
+}
+.left_success{
+    color: #1fc7a1;
+}
+.left_fail{
+    color: #ff6c2b;
+}
+.scientific_btn{
+    width: 100%;
+    margin-top: 0.8rem;
+    /* margin-bottom: 2.53rem; */
+    position: fixed;
+    bottom: 1rem;
+}
+.scientific_btn a{
+    display: block;
+    height: 2.69rem;
+    line-height: 2.69rem;
+	background-color: #5f98ff;
+	border-radius: 0.31rem;
+    margin: 0 0.94rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    color: #ffffff;
+    text-align: center;
+}

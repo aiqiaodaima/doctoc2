@@ -1,0 +1,20 @@
+.result_title{
+	font-family: MicrosoftYaHei-Bold;
+    font-size: 1.13rem;
+    letter-spacing: 0.04rem;
+    color: #333333;
+    padding: 1.88rem 0 0 0.94rem;
+    font-weight: 600;
+    overflow: hidden;
+}
+.result_content{
+    padding: 1.88rem 0 0 0.94rem;
+    font-family: MicrosoftYaHei;
+    font-size: 1rem;
+    letter-spacing: 0.04rem;
+	color: #666666;
+}
+.result_content .content_result{
+    display: block;
+    margin-bottom: 0.66rem;
+}

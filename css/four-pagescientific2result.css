@@ -1,0 +1,60 @@
+.scientific_title {
+    height: 2.5rem; 
+    line-height: 2.5rem;
+    font-family: MicrosoftYaHei;
+    font-size: 0.75rem;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+.title_fail{
+    background-color: #ff6c2b;
+}
+.title_success{
+    background-color: #1fc7a1;
+}
+.title_going{
+    background-color: #ffbf44;
+}
+.title_word{
+    display: block;
+    width: 100%;
+    text-align: center;
+    height: 100%;
+}
+.scientific_title a{
+    position: absolute;
+    top: 0.5rem;
+    right: 0.94rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 0.63rem;
+    display: block;
+    width: 4.75rem;
+    height: 1.5rem;
+    line-height: 1.4rem;
+    border-radius: 0.13rem;
+    border: solid 0.06rem #ffffff;
+}
+.science_content{
+    padding: 1.25rem 0.88rem 0.25rem 0.91rem;
+    background: #fff;
+    margin-bottom: 5px;
+}
+.content_item{
+    margin-bottom: 1rem;
+    display: flex;
+}
+.item_left{
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.03rem;
+    color: #333333;
+    white-space: nowrap;
+}
+.item_right{
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;	
+    letter-spacing: 0.03rem;
+	color: #666666;
+}

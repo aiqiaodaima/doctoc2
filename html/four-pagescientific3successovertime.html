@@ -14,21 +14,53 @@
     <!-- 通用样式 -->
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/four-pagescientific3.css">
+    <style>
+        .scientific_top ul li:nth-of-type(1) {
+            height: 0;
+            /* border: none; */
+        }
+
+        .scientific_title {
+            height: 2.5rem;
+            background-color: #ff6c2b !important;
+            line-height: 2.5rem;
+            font-family: MicrosoftYaHei;
+            font-size: 0.75rem;
+            color: #fff;
+            text-align: center;
+            position: relative;
+        }
+        .title_word{
+            display: block;
+            width: 100%;
+            text-align: center;
+            height: 100%;
+        }
+        .scientific_title a{
+            position: absolute;
+            top: 0.5rem;
+            right: 0.94rem;
+            font-family: MicrosoftYaHei-Bold;
+	        font-size: 0.63rem;
+            display: block;
+            width: 4.75rem;
+            height: 1.5rem;
+            line-height: 1.4rem;
+            border-radius: 0.13rem;
+            border: solid 0.06rem #ffffff;
+        }
+    </style>
 </head>
 
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
+        <div class="scientific_title">
+            <span class="title_word">您的单据超时未上传，已锁定您的账户</span>
+            <a href="pagescientific3result.html">查看详情</a>
+        </div>
         <div class="scientific_top">
             <ul>
-                <li>
-                    <a class="weui-cell weui-cell_access" href="five-pagescientific3.html">
-                        <div class="weui-cell__bd">
-                            <p>待上传单据：1.5万元</p>
-                        </div>
-                        <div class="weui-cell__ft">
-                        </div>
-                    </a>
-                </li>
+                <li></li>
                 <li>
                     <div class="item_title">
                         <span class="title_left">课题名称：</span>
