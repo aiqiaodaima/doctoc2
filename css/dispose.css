@@ -18,6 +18,8 @@ ul li{
     font-family:PingFangSC-Regular;
     color:rgba(102,102,102,1);
     line-height:1.13rem;
+    white-space: nowrap;
+    /* font-weight: 600; */
 }
 .dispose_hospital .hospital_right{
     margin-left: 1.38rem;
@@ -49,6 +51,9 @@ ul li{
     background:rgba(255,255,255,1);
     margin-top: 1rem;
 }
+.dispose_content .hospital_left,.dispose_note .hospital_left{
+    white-space: nowrap;
+}
 .dispose_content .content_right{
     margin-left: 1.38rem;
     width:18.13rem;
@@ -72,18 +77,18 @@ ul li{
 }
 .note_word,.more_image{
     display: block;
+    width: 100%;
     margin-left: 1.75rem;
     font-size:0.94rem;
     font-family:PingFangSC-Regular;
     color:rgba(153,153,153,1);
     line-height:0.94rem;
 }
-.dispose_content .more_image{
-    margin-left: 18.75rem;
-}
-.note_word img{
+.note_word img,.more_image img{
     float: right;
-    margin-left: 8.81rem;
+    margin-right: 0.5rem;
+    width: 1.25rem;
+    height: 1.25rem;
 }
 .dispose_button{
     position: fixed;

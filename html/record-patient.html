@@ -37,38 +37,39 @@
         <!-- 病人列表 -->
         <div class="weui-panel weui-panel_access">
             <div class="weui-panel__bd">
+                <!-- <a href="javascript:void(0)" class="weui-media-box weui-media-box_appmsg"> -->
                 <a href="patient-record.html" class="weui-media-box weui-media-box_appmsg">
                     <div class="weui-media-box__hd">
-                        <img class="weui-media-box__thumb" src="../image/patient.jpg" alt="">
+                        <img class="weui-media-box__thumb" src="../image/patient_1.png" alt="">
                     </div>
                     <div class="weui-media-box__bd">
                         <h4 class="weui-media-box__title">
-                        张三
-                        <span class="weui-media-box__title-after">2018/5/8</span>
+                            王倩 
+                        <span class="weui-media-box__title-after">2018/5/10</span>
                         </h4>
-                        <p class="weui-media-box__desc">口腔正畸</p>
+                        <p class="weui-media-box__desc">黏膜病变</p>
                     </div>
                 </a>
                 <a href="patient-record.html" class="weui-media-box weui-media-box_appmsg">
                     <div class="weui-media-box__hd">
-                        <img class="weui-media-box__thumb" src="../image/patient.jpg" alt="">
+                            <img class="weui-media-box__thumb" src="../image/patient_2.png" alt="">
                     </div>
                     <div class="weui-media-box__bd">
                         <h4 class="weui-media-box__title">
-                        张三
-                        <span class="weui-media-box__title-after">2018/5/8</span>
+                                张晓露
+                        <span class="weui-media-box__title-after">2018/5/15</span>
                         </h4>
-                        <p class="weui-media-box__desc">口腔正畸</p>
+                        <p class="weui-media-box__desc">颌面外科</p>
                     </div>
                 </a>
                 <a href="patient-record.html" class="weui-media-box weui-media-box_appmsg">
                     <div class="weui-media-box__hd">
-                        <img class="weui-media-box__thumb" src="../image/patient.jpg" alt="">
+                            <img class="weui-media-box__thumb" src="../image/patient_3.png" alt="">
                     </div>
                     <div class="weui-media-box__bd">
                         <h4 class="weui-media-box__title">
-                        张三
-                        <span class="weui-media-box__title-after">2018/5/8</span>
+                            朱佩琦
+                        <span class="weui-media-box__title-after">2018/5/18</span>
                         </h4>
                         <p class="weui-media-box__desc">口腔正畸</p>
                     </div>
@@ -81,7 +82,14 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function(){
-       
+        $('.weui-media-box').on('click',function () {
+            const patient = $(this)[0].lastElementChild.firstElementChild.innerText.split(" ");
+            const patient2 = $(this)[0].lastElementChild.lastElementChild.innerText;
+            localStorage.setItem('patient_name',patient[0]);
+            
+            localStorage.setItem('patient_date',Math.floor(Math.random()*10+20));
+            localStorage.setItem('patient_content',patient2);
+        })
     });
 </script>
 </html>

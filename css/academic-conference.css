@@ -33,8 +33,12 @@
 .scientific_hr{
     margin-top: 1.5rem;
 }
+#tab2{
+    width: 100%;
+    padding: 1rem 0.5rem;
+}
 .my_card{
-    width:22.44rem;
+    /* width:22.44rem; */
     height:11.38rem;
     background:rgba(255,255,255,1);
     border-radius: 0.5rem ; 

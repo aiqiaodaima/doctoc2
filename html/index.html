@@ -17,12 +17,13 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
 <script>    
-    $(function () {
+    $(function () {     
         const login = localStorage.getItem('login')
         console.log(login)
         if(!login){
             window.location.href = 'login.html'
         }
+        localStorage.clear('login')
         $('#J_Slider').slider({
             speed: 500,
             autoplay: 2000,

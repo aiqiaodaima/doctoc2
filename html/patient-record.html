@@ -22,7 +22,7 @@
                 <div class="weui-cell__bd">
                     <p>姓名</p>
                 </div>
-                <div class="weui-cell__ft">张三</div>
+                <div class="weui-cell__ft patient_name"></div>
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__bd">
@@ -34,13 +34,13 @@
                 <div class="weui-cell__bd">
                     <p>年龄</p>
                 </div>
-                <div class="weui-cell__ft">25</div>
+                <div class="weui-cell__ft patient_date"></div>
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__bd">
                     <p>病种</p>
                 </div>
-                <div class="weui-cell__ft">口腔正畸</div>
+                <div class="weui-cell__ft patient_content"></div>
             </div>
         </div>
 
@@ -162,7 +162,9 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function () {
-
+        $('.patient_name').html(localStorage.getItem('patient_name'));
+        $('.patient_content').html(localStorage.getItem('patient_content'));
+        $('.patient_date').html(localStorage.getItem('patient_date'));
     });
 </script>
 

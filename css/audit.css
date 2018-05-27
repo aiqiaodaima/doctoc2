@@ -1,6 +1,12 @@
 .audit_image{
+    width: 100%;
+    height: 6.57rem;
+    overflow: hidden;
+}
+.audit_image img{
     width: 2.94rem;
     height: 4.13rem;
+    display: block;
     margin: 2.44rem auto 0;
 }
 .audit_word{
@@ -14,8 +20,8 @@
     text-align: center;
 }
 .audit_word2{
-    margin: 0.25rem auto 0;
-    width:21.44rem;
+    margin: 0.5rem auto 0;
+    padding: 0 1rem;
     font-size:1.13rem;
     font-family:PingFangSC-Regular;
     color:rgba(51,51,51,1);

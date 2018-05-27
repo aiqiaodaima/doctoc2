@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="375px" height="2548px" viewBox="0 0 375 2548" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>all</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="会议邀请函" transform="translate(0.000000, -64.000000)">
+            <g id="Group-5" transform="translate(28.000000, 1997.000000)"></g>
+            <g id="Group-6" transform="translate(0.000000, -7.000000)">
+                <rect id="bg" fill="#FFFFFF" x="0" y="0" width="375" height="2619"></rect>
+                <circle id="Oval-2" fill="#666666" cx="31" cy="1460" r="3"></circle>
+                <rect id="Rectangle-117" fill="#6ED643" x="0" y="71" width="375" height="40"></rect>
+                <text id="您已成功报名该会议" font-family="PingFangSC-Regular, PingFang SC" font-size="15" font-weight="normal" line-spacing="15" letter-spacing="0.200000033" fill="#FFFFFF">
+                    <tspan x="119" y="100">您已成功报名该会议</tspan>
+                </text>
+                <text id="邀请函" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="165" y="143">邀请函</tspan>
+                </text>
+                <text id="会议时间" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="853">会议时间</tspan>
+                </text>
+                <text id="会议地点" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="910">会议地点</tspan>
+                </text>
+                <text id="组织机构" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="967">组织机构</tspan>
+                </text>
+                <text id="联系方式" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="1114">联系方式</tspan>
+                </text>
+                <text id="会议内容及交流形式" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="1261">会议内容及交流形式</tspan>
+                </text>
+                <text id="会议安排" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="20" y="1426">会议安排</tspan>
+                </text>
+                <g id="Group-2" transform="translate(25.000000, 1432.000000)">
+                    <text id="9月27日（周六）" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                        <tspan x="21" y="14">9月27</tspan>
+                        <tspan x="57.511" y="14">日（周六）</tspan>
+                    </text>
+                    <text id="全天报到" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="21" y="35">全天报到</tspan>
+                    </text>
+                    <circle id="Oval" stroke="#5B86E5" cx="6" cy="7" r="6"></circle>
+                </g>
+                <g id="Group-2" transform="translate(25.000000, 1482.000000)">
+                    <g id="Group-4" transform="translate(3.000000, 21.000000)">
+                        <circle id="Oval-2" fill="#666666" cx="3" cy="7" r="3"></circle>
+                        <text id="08:00-08:20" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                            <tspan x="18" y="14">08:00-08:20</tspan>
+                        </text>
+                        <text id="开幕式" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                            <tspan x="18" y="35">开幕式</tspan>
+                        </text>
+                        <text id="赵毅敏、李长仪" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                            <tspan x="74" y="35">赵毅敏、李长仪</tspan>
+                        </text>
+                    </g>
+                    <g id="Group-3">
+                        <text id="9月28日（周日）" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                            <tspan x="21" y="14">9月28日（周日）</tspan>
+                        </text>
+                        <circle id="Oval" stroke="#5B86E5" cx="6" cy="7" r="6"></circle>
+                    </g>
+                </g>
+                <g id="Group-5" transform="translate(28.000000, 1545.000000)">
+                    <circle id="Oval-2" fill="#666666" cx="3" cy="7" r="3"></circle>
+                    <text id="08:20-08:50" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="14">08:20-08:50</tspan>
+                    </text>
+                    <text id="待定" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="35">待定</tspan>
+                    </text>
+                    <text id="赵毅敏" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="61" y="35">赵毅敏</tspan>
+                    </text>
+                </g>
+                <g id="Group-5" transform="translate(28.000000, 1587.000000)">
+                    <text id="赵毅敏" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="259" y="35">赵毅敏</tspan>
+                    </text>
+                    <circle id="Oval-2" fill="#666666" cx="3" cy="7" r="3"></circle>
+                    <text id="08:50-09:35" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="14">08:50-09:35</tspan>
+                    </text>
+                    <text id="根管治疗技术指南解读与操作视频讲解" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="35">根管治疗技术指南解读与操作视频讲解</tspan>
+                    </text>
+                </g>
+                <g id="Group-5" transform="translate(28.000000, 1629.000000)">
+                    <text id="高学军" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="291" y="35">高学军</tspan>
+                    </text>
+                    <circle id="Oval-2" fill="#666666" cx="3" cy="7" r="3"></circle>
+                    <text id="09:35-10:20" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="14">09:35-10:20</tspan>
+                    </text>
+                    <text id="复合树脂直接粘接牙体修复技术之按钮讲解与" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="31">复合树脂直接粘接牙体修复技术之按钮讲解</tspan>
+                        <tspan x="18" y="51">与操作</tspan>
+                    </text>
+                </g>
+                <g id="Group-5" transform="translate(28.000000, 1694.000000)">
+                    <text id="秦满" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="219" y="35">秦满</tspan>
+                    </text>
+                    <circle id="Oval-2" fill="#666666" cx="3" cy="7" r="3"></circle>
+                    <text id="10:20-11:05" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="14">10:20-11:05</tspan>
+                    </text>
+                    <text id="美国儿童牙科学会最新指南解读" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="31">美国儿童牙科学会最新指南解读</tspan>
+                    </text>
+                </g>
+                <g id="Group-5" transform="translate(28.000000, 1739.000000)">
+                    <text id="孟唤新" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="291" y="35">孟唤新</tspan>
+                    </text>
+                    <circle id="Oval-2" fill="#666666" cx="3" cy="7" r="3"></circle>
+                    <text id="10:20-11:05" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="14">10:20-11:05</tspan>
+                    </text>
+                    <text id="重度牙周炎诊断及特殊人群牙周病治疗原则的" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="31">重度牙周炎诊断及特殊人群牙周病治疗原则</tspan>
+                        <tspan x="18" y="51">的中国专家共识解读与操作视频讲解</tspan>
+                    </text>
+                </g>
+                <g id="Group-5" transform="translate(28.000000, 1804.000000)">
+                    <circle id="Oval-2" fill="#666666" cx="3" cy="7" r="3"></circle>
+                    <text id="12:00-13:30" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="14">12:00-13:30</tspan>
+                    </text>
+                    <text id="午餐" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="31">午餐</tspan>
+                    </text>
+                </g>
+                <g id="Group-5" transform="translate(28.000000, 1849.000000)">
+                    <circle id="Oval-2" fill="#666666" cx="3" cy="7" r="3"></circle>
+                    <text id="13:30-14:15" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="14">13:30-14:15</tspan>
+                    </text>
+                    <text id="待定" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="31">待定</tspan>
+                    </text>
+                    <text id="刘洪城" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="61" y="31">刘洪城 </tspan>
+                    </text>
+                </g>
+                <g id="Group-5" transform="translate(28.000000, 1894.000000)">
+                    <circle id="Oval-2" fill="#666666" cx="3" cy="7" r="3"></circle>
+                    <text id="14:15-15:00" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="14">14:15-15:00</tspan>
+                    </text>
+                    <text id="口腔美学临床摄影专家共识解读与操作视频讲" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="31">口腔美学临床摄影专家共识解读与操作视频</tspan>
+                        <tspan x="18" y="51">讲解</tspan>
+                    </text>
+                    <text id="刘洪城" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="286" y="31">刘洪城 </tspan>
+                    </text>
+                </g>
+                <g id="Group-5" transform="translate(28.000000, 1959.000000)">
+                    <circle id="Oval-2" fill="#666666" cx="3" cy="7" r="3"></circle>
+                    <text id="15:00-116:45" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="10" y="14">15:00-116:45</tspan>
+                    </text>
+                    <text id="执业医师维权与自律" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="18" y="35">执业医师维权与自律</tspan>
+                    </text>
+                    <text id="沈曙铭" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                        <tspan x="153" y="31">沈曙铭</tspan>
+                    </text>
+                </g>
+                <circle id="Oval-2" fill="#666666" cx="31" cy="2011" r="3"></circle>
+                <text id="16:45后" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="38" y="2018">16:45后</tspan>
+                </text>
+                <text id="离场" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="46" y="2035">离场</tspan>
+                </text>
+                <text id="沈曙铭" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="89" y="2035">沈曙铭</tspan>
+                </text>
+                <text id="缴费须知" font-family="PingFangSC-Medium, PingFang SC" font-size="15" font-weight="400" line-spacing="15" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="2073">缴费须知</tspan>
+                </text>
+                <text id="尊敬的" font-family="PingFangSC-Regular, PingFang SC" font-size="15" font-weight="normal" line-spacing="15" letter-spacing="0.2" fill="#666666">
+                    <tspan x="20" y="182">尊敬的</tspan>
+                </text>
+                <text id="由陕、甘、宁、青、新、晋、豫、蒙8省（自" font-family="PingFangSC-Regular, PingFang SC" font-size="15" font-weight="normal" line-spacing="24" letter-spacing="0.2" fill="#666666">
+                    <tspan x="16" y="213">       由陕、甘、宁、青、新、晋、豫、蒙8省（自</tspan>
+                    <tspan x="16" y="237">治区）口腔医学会共同发起主办，空军军医大学口</tspan>
+                    <tspan x="16" y="261">腔医院、西安交通大学口腔医院联合协办的2018第</tspan>
+                    <tspan x="16" y="285">三届丝绸之路国际口腔医学论坛暨丝绸之路口腔器</tspan>
+                    <tspan x="16" y="309">材设备药品展览会，将于2018年9月27日—29日在</tspan>
+                    <tspan x="16" y="333">西安曲江国际会议中心盛大启幕。</tspan>
+                    <tspan x="16" y="357">       在社会各界人士的鼎力支持下，第一届及第二</tspan>
+                    <tspan x="16" y="381">届丝绸之路口腔国际医学论坛暨丝绸之路口腔器材</tspan>
+                    <tspan x="16" y="405">设备药品展览会取得了圆满成功，参展企业、参会</tspan>
+                    <tspan x="16" y="429">人员数量稳步提高。我们正在向更具专业化、国际</tspan>
+                    <tspan x="16" y="453">化的口腔医学盛会的道路上不断前行。2018丝绸之</tspan>
+                    <tspan x="16" y="477">路国际口腔医学论坛暨丝绸之路口腔器材设备药品</tspan>
+                    <tspan x="16" y="501">展览会在各界人士的关注下，即将召开，今年我们</tspan>
+                    <tspan x="16" y="525">将邀请更多的国内外知名企业参展，展示最新最前</tspan>
+                    <tspan x="16" y="549">沿的技术，发布最新的医疗器械，打造一站式全产</tspan>
+                    <tspan x="16" y="573">业链采购平台。我们邀请了中外著名的专家学者，</tspan>
+                    <tspan x="16" y="597">全面讲授口腔医学领域中的新技术及新进展。本次</tspan>
+                    <tspan x="16" y="621">活动还将首次举办“民营口腔发展论坛”，共同探讨</tspan>
+                    <tspan x="16" y="645">在新形势下民营口腔的发展状况。我们相信，本次</tspan>
+                    <tspan x="16" y="669">盛会必定会成为中西部地区口腔医学工作者开展学</tspan>
+                    <tspan x="16" y="693">术交流、增进友谊、加强合作、共同发展的最佳平</tspan>
+                    <tspan x="16" y="717">台，同时也成为展示口腔医疗设备器材发展成果、</tspan>
+                    <tspan x="16" y="741">促进行业装备水平提升的良好契机。</tspan>
+                    <tspan x="16" y="765">       我们热忱的欢迎您来西安，参与本次盛会，共</tspan>
+                    <tspan x="16" y="789">同见证丝绸之路国际口腔医学论坛暨丝绸之路口腔</tspan>
+                    <tspan x="16" y="813">器材设备药品展览会的成长，期待您的参与。</tspan>
+                </text>
+                <text id="张章" font-family="PingFangSC-Regular, PingFang SC" font-size="15" font-weight="normal" line-spacing="15" letter-spacing="0.2" fill="#333333">
+                    <tspan x="82" y="182">张章</tspan>
+                </text>
+                <text id="先生/女士" font-family="PingFangSC-Regular, PingFang SC" font-size="15" font-weight="normal" line-spacing="15" letter-spacing="0.2" fill="#666666">
+                    <tspan x="128" y="182">先生/女士</tspan>
+                </text>
+                <text id="2018年09月27日-09月29日" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.1733333" fill="#666666">
+                    <tspan x="16" y="874">2018年09月27日-09月29日</tspan>
+                </text>
+                <text id="广州市会展中心" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.1733333" fill="#666666">
+                    <tspan x="16" y="931">广州市会展中心</tspan>
+                </text>
+                <text id="主办单位-中华口腔医学会口腔生物医学专业" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.1733333" fill="#666666">
+                    <tspan x="16" y="988">主办单位</tspan>
+                    <tspan x="16" y="1006">中华口腔医学会口腔生物医学专业委员会 </tspan>
+                    <tspan x="16" y="1024">承办单位</tspan>
+                    <tspan x="16" y="1042">大连医科大学口腔医学院</tspan>
+                    <tspan x="16" y="1060">协办单位</tspan>
+                    <tspan x="16" y="1078">中国抗衰老促进会交叉学科专业委员会</tspan>
+                </text>
+                <text id="主办单位-联系人：阮征-电-话-：137" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.1733333" fill="#666666">
+                    <tspan x="16" y="1135">主办单位</tspan>
+                    <tspan x="16" y="1153">联系人：阮征</tspan>
+                    <tspan x="16" y="1171">电 话 ：13701380654</tspan>
+                    <tspan x="16" y="1189">邮 箱 ：HXFORUM@163.COM</tspan>
+                    <tspan x="16" y="1207">邮 编 ：100053</tspan>
+                    <tspan x="16" y="1225">地 址 ：首都医科大学宣武医院神经内科</tspan>
+                </text>
+                <text id="1.特邀报告；-2.专题报告；-3.大会" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.1733333" fill="#666666">
+                    <tspan x="16" y="1282">1.特邀报告；</tspan>
+                    <tspan x="16" y="1300">2.专题报告；</tspan>
+                    <tspan x="16" y="1318">3.大会发言；</tspan>
+                    <tspan x="16" y="1336">4.壁报展示；</tspan>
+                    <tspan x="16" y="1354">5.论文摘要汇编；</tspan>
+                    <tspan x="16" y="1372">6.第五届口腔生物优秀青年研究奖评选和第一届口腔生物医</tspan>
+                    <tspan x="16" y="1390">学新锐奖评选</tspan>
+                </text>
+                <text id="1、本次会议会费收款专用账户信息如下：" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="2094">1、本次会议会费收款专用账户信息如下</tspan>
+                    <tspan x="245.813" y="2094">：</tspan>
+                </text>
+                <text id="2.开票须知" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="2191">2.开票须知</tspan>
+                </text>
+                <text id="3.缺席处理" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="2262">3.缺席处理</tspan>
+                </text>
+                <text id="5.联系会务" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="2514">5.联系会务</tspan>
+                </text>
+                <text id="4.会费详情" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#333333">
+                    <tspan x="16" y="2443">4.会费详情</tspan>
+                </text>
+                <text id="增值税专用发票，请提供收票人全称、税号（" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2212">增值税专用发票，请提供收票人全称、税号（个人除外）</tspan>
+                </text>
+                <text id="增值税普通发票，请提供收票人全称、税号（" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2233">增值税普通发票，请提供收票人全称、税号（个人除外）</tspan>
+                </text>
+                <text id="与会者因故无法出席本次会的，至少须提前2" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2279">与会者因故无法出席本次会的，至少须提前24小时通知会</tspan>
+                    <tspan x="16" y="2299">议主办方，并全额退回所交费用；迟于24小时的，会议主</tspan>
+                    <tspan x="16" y="2319">办方将默认与会者已全程了本次会议；确有特殊原因因故</tspan>
+                    <tspan x="16" y="2339">不能及时到会的，请于会后向主办方提呈书面证明文件，</tspan>
+                    <tspan x="16" y="2359">由主办方酌情予以退回部分会费。</tspan>
+                </text>
+                <text id="任何已签到的与会人员，无论何种原因中途离" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="20" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2387">任何已签到的与会人员，无论何种原因中途离开，主办方</tspan>
+                    <tspan x="16" y="2407">将不退还任何费用。</tspan>
+                </text>
+                <text id="户名：医生集团" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.1733333" fill="#666666">
+                    <tspan x="16" y="2115">户名：医生集团</tspan>
+                </text>
+                <text id="总负责：魁拔14905794723" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" letter-spacing="0.1733333" fill="#666666">
+                    <tspan x="16" y="2535">总负责：魁拔14905794723</tspan>
+                </text>
+                <text id="开户行：中国银行" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2141">开户行：中国银</tspan>
+                    <tspan x="108.4" y="2141">行</tspan>
+                </text>
+                <text id="会务：李四13903947392" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2561">会务：李四13903947392</tspan>
+                </text>
+                <text id="账户：348938759345-2492" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2162">账户：348938759345-249230</tspan>
+                </text>
+                <text id="食宿：王武13802749382" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2582">食宿：王武13802749382</tspan>
+                </text>
+                <text id="交通：郭德纲13790284960" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2603">交通：郭德纲13790284960</tspan>
+                </text>
+                <text id="1、场地支出" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2464">1、场地支出</tspan>
+                </text>
+                <text id="2、器材租赁" font-family="PingFangSC-Regular, PingFang SC" font-size="13" font-weight="normal" line-spacing="13" letter-spacing="0.200000003" fill="#666666">
+                    <tspan x="16" y="2485">2、器材租赁</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

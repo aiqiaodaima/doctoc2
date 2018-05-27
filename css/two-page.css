@@ -4,6 +4,9 @@
     display: flex;
     width: 100%;
 }
+.helper_four{
+    width: 100%;
+}
 .helper_four>ul{
     /* width: 74.16%; */
     min-width: 14.83rem;

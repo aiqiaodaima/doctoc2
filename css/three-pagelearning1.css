@@ -1,0 +1,75 @@
+.learning_apply{
+    width: 100%;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.learning_apply:nth-last-child(1){
+    margin-bottom: 0px;
+}
+.learning_apply .apply_title{
+    border-left: 0.13rem solid #5f98ff;
+    border-bottom: 1px solid #eaeaea;
+    width: 100%;
+	height: 3.13rem;
+    line-height: 3.13rem;
+    padding: 0 0.97rem;
+    display: flex;
+    justify-content: space-between;
+}
+.learning_apply .apply_title .title_left{
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1rem;
+    letter-spacing: 0.04rem;
+	color: #333333;
+}
+.learning_apply .apply_title .title_right a{
+    display: block;
+    font-family: MicrosoftYaHei;
+    font-size: 0.75rem;
+    letter-spacing: 0.03rem;
+	color: #5f98ff;
+}
+.apply_item a{
+    display: block;
+    display: flex;
+    justify-content: space-between;
+    height: 6.25rem;
+}
+.apply_item .item_left{
+    width: 100%;
+    padding: 0.97rem;
+}
+.apply_item .item_left .left_title{
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1rem;
+    font:500; 
+    letter-spacing: 0.04rem;
+    color: #666666;
+    margin-bottom: 0.88rem;
+}
+.apply_item .item_left .left_item{
+    font-family: MicrosoftYaHei;
+	font-size: 0.75rem;
+	letter-spacing: 0.03rem;
+	color: #999999;
+}
+.apply_item .item_right{
+    width: 1.88rem;
+    height: 6.25rem;
+    text-align: center;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 1.41rem 0.56rem;
+    letter-spacing: 0.58rem;
+	color: #ffffff;
+}
+.result_going{
+    background-color: #ffbf44;
+}
+.result_success{
+    background-color: #1fc7a1;
+}
+.result_fail{
+    background-color: #ff6c2b;
+}

@@ -1,0 +1,39 @@
+.science_content{
+    padding: 0 0.94rem;
+}
+.list_item{
+    width: 100%;
+}
+.content_item{
+    margin: 0;
+}
+.list_item .cell-left{
+    font-family: MicrosoftYaHei;
+	font-size: 1rem;
+	letter-spacing: 0.04rem;
+	color: #333333;
+}
+.list_item .cell-right{
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    letter-spacing: 0.03rem;
+    color: #666666;
+}
+.add_content{
+    border-bottom: 1px solid #eaeaea;
+}
+.item_top{
+    font-family: MicrosoftYaHei;
+    font-size: 1rem;
+    letter-spacing: 0.04rem;
+    color: #333333;
+    margin: 1.34rem 0;
+}
+.item_bottom{
+    font-family: MicrosoftYaHei;
+	font-size: 0.88rem;
+	line-height: 1.25rem;
+	letter-spacing: 0.03rem;
+    color: #666666;
+    padding-bottom: 1.41rem; 
+}

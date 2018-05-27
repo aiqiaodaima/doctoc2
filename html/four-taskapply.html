@@ -24,11 +24,11 @@
                     <label for="" class="weui-label">分类</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <select class="weui-select" name="select2">
+                    <select class="weui-select select1" name="select2">
                         <option value="0">请选择</option>
-                        <option value="1">临床</option>
-                        <option value="2">临床2</option>
-                        <option value="3">临床3</option>
+                        <option value="1">新增</option>
+                        <option value="2">既存</option>
+                        <option value="3">博士后</option>
                     </select>
                 </div>
             </div>
@@ -42,14 +42,46 @@
             </div>
             <div class="weui-cell weui-cell_select weui-cell_select-after">
                 <div class="weui-cell__hd">
-                    <label for="select3" class="weui-label">拟申报/已有级别</label>
+                    <label for="select2" class="weui-label label_change">拟申报</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <select class="weui-select" name="select3">
+                    <select class="weui-select selector_12" name="select2">
+                        <option value="01">请选择</option>
+                        <option value="0">国家自然科学基金</option>
+                        <option value="1">国家卫生计生委</option>
+                        <option value="2">国家发改委</option>
+                        <option value="3">国务院相关部委</option>
+                        <option value="4">国务院相关机构</option>
+                        <option value="5">省科技厅</option>
+                        <option value="6">省卫生计生委</option>
+                        <option value="7">省发改委</option>
+                        <option value="8">市辖主管</option>
+                        <option value="9">市相关部委</option>
+                        <option value="10">市相关结构</option>
+                        <option value="11">本院</option>
+                        <option value="12">校相关机构</option>
+                    </select>
+                </div>
+            </div>
+            <div class="weui-cell selector_add" style="display: none;">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">部委/机构名</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入部委/机构名">
+                </div>
+            </div>
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label for="select2" class="weui-label">级别</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select" name="select2">
                         <option value="0">请选择</option>
-                        <option value="1">院内</option>
-                        <option value="2">院内2</option>
-                        <option value="3">院内3</option>
+                        <option value="1">国家级</option>
+                        <option value="2">省级</option>
+                        <option value="3">市级</option>
+                        <option value="4">院校级</option>
                     </select>
                 </div>
             </div>
@@ -60,9 +92,13 @@
                 <div class="weui-cell__bd">
                     <select class="weui-select" name="select4">
                         <option value="0">请选择</option>
-                        <option value="1">面上</option>
-                        <option value="2">面上2</option>
-                        <option value="3">面上3</option>
+                        <option value="1">重大</option>
+                        <option value="2">攻关</option>
+                        <option value="3">应用</option>
+                        <option value="4">协作</option>
+                        <option value="5">验证</option>
+                        <option value="6">预实验</option>
+
                     </select>
                 </div>
             </div>
@@ -97,13 +133,21 @@
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd">
+                    <label class="weui-label">申请资助</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入申请资助">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
                     <label class="weui-label">资金用途说明</label>
                 </div>
                 <div class="weui-cell__bd">
                     <input class="weui-input" type="text" placeholder="请输入资金用途说明">
                 </div>
             </div>
-            <div class="weui-cell weui-cell_switch">
+            <div class="weui-cell weui-cell_switch selector_1 ">
                 <div class="weui-cell__hd">
                     <label class="weui-label">流动站</label>
                 </div>
@@ -114,12 +158,28 @@
                     </label>
                 </div>
             </div>
-            <div class="weui-cell">
+            <div class="weui-cell selector_1 moving">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">流动站名称</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input" type="text" placeholder="请输入流动站名称">
+                </div>
+            </div>
+            <div class="weui-cell selector_1 moving">
                     <div class="weui-cell__hd">
-                        <label class="weui-label">流动站名称</label>
+                        <label class="weui-label">入站时间</label>
                     </div>
                     <div class="weui-cell__bd">
-                        <input class="weui-input" type="text" placeholder="请输入流动站名称">
+                        <input class="weui-input" type="text" id='datetime-picker' placeholder="请选择" />
+                    </div>
+                </div>
+                <div class="weui-cell selector_1 moving">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">出站时间</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="text" id='datetime-picker2' placeholder="请选择" />
                     </div>
                 </div>
             <div class="weui-cell">
@@ -140,7 +200,7 @@
             </div>
         </div>
         <div class="apply_btn">
-            <a href="audit.html">提交申请</a>
+            <a href="audit.html">提交资助申请</a>
         </div>
     </div>
 </body>
@@ -150,6 +210,48 @@
     $(function () {
         $("#datetime-picker").datetimePicker();
         $("#datetime-picker2").datetimePicker();
+        $('.select1').on('change', function () {
+            if ($('.select1').val() == 1) {
+                $('.selector_1').slideUp("slow");
+               
+            }else if($('.select1').val() == 2){
+                $('.label_change').text('已申报');
+                $('.selector_1').slideUp("slow");  
+            }else if($('.select1').val() == 3){
+                $('.selector_1').slideDown("slow");  
+                $('.label_change').text('已(拟)申报');
+            }
+        })
+        $('.selector_12').on('change', function () {
+            if ($('.selector_12').val() == 3 ) {
+                $('.selector_add').slideDown('fast');
+            }else if ($('.selector_12').val() == 4 ) {
+                $('.selector_add').slideDown('fast');
+            }else    
+            
+            if ($('.selector_12').val() == 8 ) {
+                $('.selector_add').slideDown('fast');
+            }else
+            if ($('.selector_12').val() == 9 ) {
+                $('.selector_add').slideDown('fast');
+            }else 
+            if ($('.selector_12').val() == 10 ) {
+                $('.selector_add').slideDown('fast');
+            }else 
+            if ($('.selector_12').val() == 11 ) {
+                $('.selector_add').slideDown('fast');
+            }else
+            if ($('.selector_12').val() == 12 ) {
+                $('.selector_add').slideDown('fast');
+            }else{
+                $('.selector_add').slideUp('fast');
+            } 
+        })
+        $('.weui-switch-cp__input').on('change',function () {
+            $('.moving').fadeToggle(800);
+        })
+        // console.log($('.select1').val())
+    
     });
 </script>
 
