@@ -101,7 +101,7 @@
                     <label class="weui-label">预计规模</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入预计规模">
+                    <input class="weui-input" type="text" placeholder="请输入预计规模">
                 </div>
             </div>
             <div class="weui-cell">
@@ -109,7 +109,7 @@
                     <label class="weui-label">组织机构</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入组织机构">
+                    <input class="weui-input" type="text"  placeholder="请输入组织机构">
                 </div>
             </div>
             <div class="weui-cell">
@@ -160,7 +160,7 @@
                     <label class="weui-label">资金用途说明</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入资金用途说明">
+                    <input class="weui-input" type="text"  placeholder="请输入资金用途说明">
                 </div>
             </div>
             <!-- <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -178,7 +178,7 @@
             </div> -->
         </div>
         <div class="learning_btn">
-            <a href="audit.html">提交开会申请</a>
+            <a href="audit.html">提交资助申请</a>
         </div>
     </div>
 </body>
@@ -186,7 +186,8 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function () {
-
+        $("#datetime-picker").datetimePicker();
+        $("#datetime-picker2").datetimePicker();
     });
 </script>
 
