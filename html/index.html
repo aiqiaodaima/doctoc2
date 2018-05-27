@@ -13,6 +13,24 @@
     <link rel="stylesheet" href="../css/ydui.css">
     <link rel="stylesheet" href="../css/public.css">
 </head>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/ydui.js"></script>
+<script>    
+    $(function () {
+        const login = localStorage.getItem('login')
+        console.log(login)
+        if(!login){
+            window.location.href = 'login.html'
+        }
+        $('#J_Slider').slider({
+            speed: 500,
+            autoplay: 2000,
+            lazyLoad: true
+        });
+    });
+
+</script>
 
 <body ontouchstart>
     <div class="weui-tab container">
@@ -141,18 +159,6 @@
         </div>
     </div>
 </body>
-<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
-<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
-<script src="../js/ydui.js"></script>
-<script>    
-    $(function () {
-        $('#J_Slider').slider({
-            speed: 500,
-            autoplay: 2000,
-            lazyLoad: true
-        });
-    });
 
-</script>
 
 </html>
