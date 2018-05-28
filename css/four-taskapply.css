@@ -22,17 +22,28 @@
     color: #cccccc !important ;
     /* flex-direction: column-reverse; */
 }
+.apply_btn{
+    width: 100%;
+    margin-top: 0.8rem;
+    /* margin-bottom: 2.53rem; */
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    border-top: 1px solid #eaeaea;
+    background: #fff;
+    padding: 10px 0 10px;
+}
 .apply_btn a{
-   margin: 20px auto;
-   width: 92%;
-   height: 43px;
-   line-height: 43px;
-   text-align: center;
-   display: block;
-   font-weight: 600;
-   font:1rem;
-   color: #fff;
-   border-radius: 4px;
-   background: #5f98ff;
-   letter-spacing:2px;
+    display: block;
+    height: 2.69rem;
+    line-height: 2.69rem;
+    background-color: #5f98ff;
+    border-radius: 0.31rem;
+    margin: 0 0.94rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    color: #ffffff;
+    text-align: center;
 }

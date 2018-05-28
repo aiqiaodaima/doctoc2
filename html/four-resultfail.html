@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>申请结果</title>
+    <title>审核结果</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
@@ -18,8 +18,9 @@
 
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
-        <div class="result_fail">
-            你的科研课题仍在审核中
+        <div class="scientific_title title_fail">
+            <span class="title_word">您的科研课题申请失败</span>
+            <a href="pagescientific3result2.html">查看详情</a>
         </div>
         <div class="result_content">
             <div class="weui-cells">
@@ -107,7 +108,7 @@
                     </div>
                 </div>
             </div>
-            <div class="weui-cells">
+            <div class="weui-cells moving">
                 <div class="weui-cell">
                     <div class="weui-cell__bd">
                         <p>流动站名称</p>
@@ -134,7 +135,9 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function () {
-
+        // $('.weui-switch-cp__input').on('click',function () {
+        //     $('.moving').slideToggle(500);
+        // })
     });
 </script>
 

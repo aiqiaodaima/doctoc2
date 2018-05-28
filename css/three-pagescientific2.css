@@ -45,7 +45,11 @@
     margin-top: 0.8rem;
     /* margin-bottom: 2.53rem; */
     position: fixed;
-    bottom: 1rem;
+    bottom: 0;
+    z-index: 2;
+    border-top: 1px solid #eaeaea;
+    background: #fff;
+    padding: 10px 0 10px;
 }
 .scientific_btn a{
     display: block;

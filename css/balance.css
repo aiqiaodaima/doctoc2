@@ -1,52 +1,92 @@
-.balance_content{
-    background: url(../image/bg.svg);
-    height: 13.88rem;
+.balace_img{
+    background: #fff;
     width: 100%;
+    padding: 2.75rem  1.5rem 0;
+	background-image: linear-gradient(0deg, #ffffff 0%, #f7f7f7 100%);	
+}
+.balace_img .img_img{
+    width: 6.25rem;
+	height: 6.25rem;
+    border: solid 0.25rem #ffc600;
+    border-radius: 50%;
+    overflow: hidden;
+    /* padding: 3.75rem 0 1.88rem; */
+    margin:  0 auto 1.88rem;   
+}
+.balace_img .img_img img{
+    width: 100%;
+    height: 100%;
+}
+.balace_img .img_word{
+    width: 100%;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1.73rem;
+    letter-spacing: 0.07rem;
+    font-weight: 600;
+    text-align: center;
+    color: #ffc559;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eaeaea;
+}
+.img_btn ul{
     display: flex;
-    flex-direction: column;
-    justify-items: center;
     align-items: center;
 }
-.content_title{ 
-    height:0.94rem;
-    font-size:0.94rem;
-    font-family:PingFangSC-Regular;
-    color:rgba(255,255,255,1);
-    line-height:0.94rem;
-    margin: 4rem 0 0.25rem;
+.btn_item{
+    padding: 0.97rem 0;
+    width: 50%;
+     text-align: center;
 }
-.content_number{
-    height:3rem;
-    font-size:3rem;
-    font-family:PingFangSC-Medium;
-    color:rgba(255,255,255,1);
-    line-height:3rem;
+.btn_item span.item_top{
+    display: block;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.08rem;
+    color: #333333;
+    margin: 0 auto 0.63rem;
+   
+}
+.btn_item span.item_bottom{
+    font-family: MicrosoftYaHei;
+    font-size: 0.75rem;
+    letter-spacing: 0.06rem;
+    color: #666666;
+    margin:  0 auto;
+}
+.btn_hr{
+    width: 1px;
+    height: 1.56rem;
+    background-color: #e5e5e5;
 }
 .balance_button{
-    width:20.56rem;
-    height:3.13rem;
-    background:rgba(255,255,255,1);
-    border-radius: 0.5rem ; 
-    margin:-1.8rem auto 0;
+    width: 100%;
+    height: 2.69rem;
+    padding: 1.25rem 0.94rem 0;
 }
 .balance_button a{
-    display: inline-block;
-    width: 49%;
-    height:3.13rem;
+    display: block;
+    height: 2.69rem;
+    line-height: 2.69rem;
     text-align: center;
+    background-color: #5f98ff;
+    border-radius: 0.31rem;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+	color: #ffffff;
 }
-.button_left{
-    height:1.13rem;
-    font-size:1.13rem;
-    font-family:PingFangSC-Regular;
-    color:rgba(51,51,51,1);
-    line-height:3.13rem;
-    border-right: 1px solid #EAEAEA;
-}
-.button_right{
-    height:1.13rem;
-    font-size:1.13rem;
-    font-family:PingFangSC-Regular;
-    color:rgba(91,134,229,1);
-    line-height:3.13rem;
+.balacen_detail a{
+    display: block;
+    position: fixed;
+    bottom: 1.25rem;
+    width: 100%;
+    text-align: center;
+    font-family: MicrosoftYaHei;
+	font-size: 0.88rem;
+	font-weight: normal;
+	font-stretch: normal;
+	line-height: 0rem;
+	letter-spacing: 0.05rem;
+	color: #5f98ff;
 }
