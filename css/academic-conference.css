@@ -8,6 +8,9 @@
     color:rgba(102,102,102,1);
     line-height:3.25rem;
 }
+.weui-panel__hd{
+    border-bottom: 1px solid #eaeaea;
+}
 .weui-cell_select-before .weui-cell__hd:before{
     border-width:0 2px 2px 0;
 }
@@ -57,4 +60,64 @@
 }
 .blue{
     background: url(../image/label_blue2.svg)
+}
+.weui-panel{
+    margin-bottom: 10px;
+}
+.weui-panel:nth-last-of-type(1){
+    margin-bottom: 0;
+}
+.item_card a{
+    display: block;
+    position: relative;
+    padding: 0.91rem 1.84rem 0.91rem 0.94rem;
+
+}
+.card_state{
+    position: absolute;
+    right: 0;
+    top: 2.83rem;
+    width: 2.75rem;
+	height: 1.25rem;
+	background-color: #5f98ff;
+	border-radius: 0.63rem 0rem 0rem 0.63rem;
+}
+.item_card .card_title{
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.04rem;
+    color: #333333;
+    margin-bottom: 0.91rem;
+}
+.card_img{
+    display: flex;
+}
+.card_img .img_img{
+    width: 6.25rem;
+	height: 4.38rem;
+	/* box-shadow: inset 0rem 0rem 0.05rem 0.01rem rgba(4, 0, 0, 0.2);	 */
+    border-radius: 0.25rem;
+    margin-right: 0.38rem;
+}
+img{
+    width: 100%; height: auto;max-width: 100%; display: block;
+}
+.word_item{
+    display: flex;
+    margin-bottom: 4px;
+    align-items: center;
+}
+.img_word ul li .word_img{
+    display: block;
+    width: 0.94rem;
+    height: 0.94rem;
+    margin-right: 5px;
+}
+.img_word ul li .word_word{
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    letter-spacing: 0.03rem;
+    color: #666666;
+    white-space: nowrap;
 }

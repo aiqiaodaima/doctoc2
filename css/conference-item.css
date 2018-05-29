@@ -1,20 +1,24 @@
 body{
-    background: #ffffff;
     overflow-x: hidden;
 }
+.body_bg{
+    background: #fff;
+    padding: 1rem 1rem 0.5rem 1rem;
+}
 .item_header{
-    width:21.44rem;
-    height:3rem;
-    margin: 1rem 1rem 0.5rem 1rem;
+    padding-bottom: 1rem;
+    font-weight: 600;
     font-size:0.94rem;
     font-family:PingFangSC-Medium;
     color:rgba(51,51,51,1);
+    letter-spacing: 0.03rem;
     line-height:1.5rem;
 }
+.disnone{
+    display: none !important;
+}
 .item_title{
-    width:22.44rem;
     height: auto;
-    margin-left : 1rem;
     padding-top: 1rem;
     border-top: 1px solid #eaeaea;
 }
@@ -23,10 +27,28 @@ body{
 }
 .title_one,.title_two>div,.title_three>div{
     display: flex;
+    margin-bottom: 6px;
 }
 .title_one span{
     margin-left: 0.5rem;
     line-height: 2rem;
+}
+.item_title ul li{
+    display: flex;
+}
+.item_title ul li.title_one span{
+    margin-left: 2px;
+    line-height: 2rem;
+}
+.item_title ul li span{
+    margin-left: 5px;
+    line-height: 1rem;
+}
+.item_title ul li div.width_6{
+    width: 60%;
+}
+.item_title ul li div.width_4{
+    width: 40%;
 }
 .item_title ul li img{
     display: block;
@@ -42,65 +64,122 @@ body{
 .title_two{
     margin-top: 0.63rem;
 }
-.word_time,.word_pos{
-    margin-left: 0.63rem;
+.item_content{
+    background: #fff;
+    font-family: MicrosoftYaHei;
+    font-size: 0.75rem;
+    padding: 0.94rem 0.91rem;
+    letter-spacing: 0.03rem;
+    color: #999999;
+    line-height: 1.25rem;
+    margin-bottom: 5px;
 }
-.img_star{
-    margin-left: 1.06rem;
-}
-.img_people{
-    margin-left: 4.05rem;
-}
-.word_star,.word_people{
-    margin-left: 0.49rem;
-}
-.item_content img{
-    display: block;
-    width: 21.44rem;
-    margin: 0.75rem auto 0;
+.item_content .content_word{
+    padding: 0.94rem 0 0;
 }
 .content_title,.patient_title{
-    margin-left: 1rem;
-    width:3.81rem;
     height:0.94rem;
     font-size:0.94rem;
     font-family:PingFangSC-Medium;
     color:rgba(51,51,51,1);
     line-height:0.94rem;
+    font-weight: 600;
 }
 .item_patient{
-    margin-top: 1rem;
+    background: #fff;
+    padding: 0.94rem 0.91rem;
+    margin-bottom: 5px;
 }
 .patient_title{
     margin-bottom: 0.5rem;
 }
-.patient_photo ul{
+.patient_photo ul .photo_item a{
     display: flex;
-    overflow-y: scroll;
+    margin-bottom: 0.8rem;
 }
-.patient_photo ul li{
-    margin: 0 1rem 1rem 1rem;
+.photo_more{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    letter-spacing: 0.03rem;
+	color: #5f98ff;
 }
-.meeting_item img{
-    margin: 1rem auto 1.25rem;
-    width: 21.31rem;
-    height: auto; 
-    padding-bottom: 2rem; 
+img{ width: 100%; height: auto;max-width: 100%; display: block; }  
+.patient_photo ul .photo_item a .item_left{
+    margin-right: 1rem;
+    width: 6.25rem;
+	height: 7.5rem;
 }
-
+.patient_photo ul .photo_item a .item_right .right_title .title_name{
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: 600;
+    font-size: 1.13rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.04rem;
+    color: #333333;
+}
+.more_img{
+    display: block;
+    margin-left: 5px;
+    width: 0.59rem;
+	height: 0.31rem;
+}
+.patient_photo ul .photo_item a .item_right .title_work{
+    /* margin-bottom: 5px; */
+    font-family: MicrosoftYaHei;
+    font-size: 0.88rem;
+    line-height: 1.2rem;
+    letter-spacing: 0.03rem;
+    color: #666666;
+    /* white-space: nowrap; */
+}
+.meeting_item{
+    background: #fff;
+    padding: 0.94rem 0.91rem;
+    margin-bottom: 5px;
+}
+.meeting_item:nth-last-of-type(2){
+    margin-bottom: 4.375rem;
+}
+.meeting_item .meeting_title{
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 0.88rem;
+    letter-spacing: 0.03rem;
+    color: #333333;
+    font-weight: 600;
+    margin-bottom: 0.74rem;
+}
+.meeting_word span{
+    display: block;
+}
+.meeting_item .meeting_word{
+    line-height: 1.25rem;
+    font-family: MicrosoftYaHei;
+    font-size: 0.75rem;
+    letter-spacing: 0.03rem;
+	color: #999999;
+}
 .item_btn{
     position: fixed;
-    bottom: 0;  
+    bottom: 0;
+    z-index: 2;
+    border-top: 1px solid #eaeaea;  
     width: 100%;
-    height:3.06rem;
-     
+    background: #fff;
+    height: 3.75rem;
+    padding: 0.53rem 1rem;
 }
-.item_btn a{
-    margin:  0 1rem;
+.item_btn a{ 
     display: block; 
-    background:rgba(91,134,229,1);
+	height: 2.69rem;
+	background-color: #5f98ff;
+	border-radius: 0.31rem;
+    font-family: MicrosoftYaHei-Bold;
+	font-size: 1rem;
     text-align: center;
-    line-height: 3.06rem;
-    font-size: 1.125rem;
-    color: #fff;
+    line-height: 2.69rem;
+    letter-spacing: 0.2rem;
+	color: #ffffff;
 }
