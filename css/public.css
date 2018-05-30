@@ -1,5 +1,15 @@
-html {
+/* html {
     font-size : 16px;
+}
+@media only screen and (min-width: 319px){
+    html {
+        font-size: 16px !important;
+    }
+}
+@media only screen and (min-width: 374px){
+    html {
+        font-size: 16px !important;
+    }
 }
 @media only screen and (min-width: 401px){
     html {
@@ -25,7 +35,42 @@ html {
     html {
         font-size: 32px !important; 
     }
-}
+} */
+@media only screen and (min-width: 320px) and (max-width: 359px) { 
+    html{ 
+        font-size: 12.8px !important; 
+    } 
+} 
+@media only screen and (min-width: 360px) and (max-width: 374px) { 
+    html{ 
+        font-size: 14.4px !important; 
+    } 
+} 
+@media only screen and (min-width: 375px) and (max-width: 385px){ 
+    html{ 
+        font-size: 15px !important; 
+    } 
+} 
+@media only screen and (min-width: 386px) and (max-width: 392px) { 
+    html { 
+        font-size: 15.44px !important; 
+    } 
+} 
+@media only screen and (min-width: 393px) and (max-width: 400px){ 
+    html{ 
+        font-size: 16px !important; 
+    } 
+} 
+@media only screen and (min-width: 401px) and (max-width: 414px) { 
+    html{ 
+        font-size: 16.48px !important; 
+    } 
+} 
+@media only screen and (min-width: 750px) and (max-width: 799px) { 
+    html{ 
+        font-size: 30.72px !important; 
+    } 
+} 
 body{
     height: 100%;
     background:rgba(247,247,247,1);
@@ -38,4 +83,32 @@ body{
 img{
     width: 100%;
     display: block;
+}
+
+/* btn的样式 */
+.btn_top{
+    height: 4.375rem;
+    background: transparent;
+}
+.item_btn{
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    border-top: 1px solid #eaeaea;  
+    width: 100%;
+    background: #fff;
+    height: 3.75rem;
+    padding: 0.53rem 1rem;
+}
+.item_btn a{ 
+    display: block; 
+	height: 2.69rem;
+	background-color: #5f98ff;
+	border-radius: 0.31rem;
+    font-family: MicrosoftYaHei-Bold;
+	font-size: 1rem;
+    text-align: center;
+    line-height: 2.69rem;
+    letter-spacing: 0.2rem;
+	color: #ffffff;
 }

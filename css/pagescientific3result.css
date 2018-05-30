@@ -8,7 +8,7 @@
     overflow: hidden;
 }
 .result_content{
-    padding: 1.88rem 0 0 0.94rem;
+    padding: 1.88rem 0.94rem 0;
     font-family: MicrosoftYaHei;
     font-size: 1rem;
     letter-spacing: 0.04rem;

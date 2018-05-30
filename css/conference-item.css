@@ -140,8 +140,8 @@ img{ width: 100%; height: auto;max-width: 100%; display: block; }
     padding: 0.94rem 0.91rem;
     margin-bottom: 5px;
 }
-.meeting_item:nth-last-of-type(2){
-    margin-bottom: 4.375rem;
+.meeting_item:nth-last-of-type(1){
+    margin-bottom: 0;
 }
 .meeting_item .meeting_title{
     font-family: MicrosoftYaHei-Bold;
@@ -160,6 +160,10 @@ img{ width: 100%; height: auto;max-width: 100%; display: block; }
     font-size: 0.75rem;
     letter-spacing: 0.03rem;
 	color: #999999;
+}
+.btn_top{
+    height: 4.375rem;
+    background: transparent;
 }
 .item_btn{
     position: fixed;
