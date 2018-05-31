@@ -3,4 +3,61 @@
     height: 9.93rem;
     background-color: #ffffff;
     padding: 1.33rem 0.91rem;
+    margin-bottom: 5px;
+}
+.invite_title{
+    width: 100%;
+    height: 1.17rem;
+    text-align: center;
+	font-family: MicrosoftYaHei-Bold;
+    font-size: 1.2rem;
+    letter-spacing: 0.05rem;
+    color: #333333;
+    margin-bottom: 1.3rem;
+}
+.invite_name{
+    margin-bottom: 0.6rem;
+}
+.invite_name,.invite_content{
+    font-family: MicrosoftYaHei;
+    font-size: 0.93rem;
+    letter-spacing: 0.04rem;
+    color: #666666;
+    line-height: 1.2rem;
+}
+.invite_li{
+    background: #fff;
+    padding: 0 0.97rem;
+    margin-bottom: 5px;
+}
+.invite_li .list_item{
+    border-bottom: 1px solid #eaeaea;
+    height: 4rem;
+    line-height: 4rem;
+}
+.invite_li .list_item:nth-last-of-type(1){
+    border-bottom: 1px solid transparent;
+}
+.invite_li .list_item .item_left{
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 0.93rem;
+    letter-spacing: 0.04rem;
+    color: #333333;
+    font-weight: 600;
+}
+.invite_li .list_item .item_right{
+    font-family: MicrosoftYaHei;
+	font-size: 0.8rem;
+	letter-spacing: 0.03rem;
+	color: #333333;
+}
+.invite_li .list_item a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.invite_li .list_item img{
+    display: block;
+    width: 1.2rem;
+	height: 1.2rem;
 }

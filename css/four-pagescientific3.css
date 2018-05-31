@@ -25,7 +25,6 @@
     display: flex;
     height: auto;
     /* justify-content: space-between; */
-   
 }
 .item_title .title_left{
     font-family: MicrosoftYaHei-Bold;
@@ -75,7 +74,7 @@
     color: #999999;
 }
 .scientific_bottom{
-    padding: 0.94rem;
+    padding: 0.94rem 0.94rem 0;
     background: #fff;
     margin-top: 5px;
     overflow: scroll;

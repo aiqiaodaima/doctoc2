@@ -3,6 +3,9 @@
     width: 100%;
     background: #fff;
 }
+.scientific_card:nth-last-of-type(3){
+    margin-bottom: 0;
+}
 .scientific_card .card_title{
     padding: 1.06rem 0.97rem;
     font-family: MicrosoftYaHei-Bold;
@@ -39,29 +42,4 @@
 }
 .left_fail{
     color: #ff6c2b;
-}
-.scientific_btn{
-    width: 100%;
-    margin-top: 0.8rem;
-    /* margin-bottom: 2.53rem; */
-    position: fixed;
-    bottom: 0;
-    z-index: 2;
-    border-top: 1px solid #eaeaea;
-    background: #fff;
-    padding: 10px 0 10px;
-}
-.scientific_btn a{
-    display: block;
-    height: 2.69rem;
-    line-height: 2.69rem;
-	background-color: #5f98ff;
-	border-radius: 0.31rem;
-    margin: 0 0.94rem;
-    font-family: MicrosoftYaHei-Bold;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.2rem;
-    color: #ffffff;
-    text-align: center;
 }

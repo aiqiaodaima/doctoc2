@@ -99,8 +99,9 @@ img{
     background: #fff;
     height: 3.75rem;
     padding: 0.53rem 1rem;
+    box-sizing: border-box;
 }
-.item_btn a{ 
+.item_btn a{
     display: block; 
 	height: 2.69rem;
 	background-color: #5f98ff;

@@ -22,10 +22,9 @@
     color: #cccccc !important ;
     /* flex-direction: column-reverse; */
 }
-.apply_btn{
+/* .apply_btn{
     width: 100%;
     margin-top: 0.8rem;
-    /* margin-bottom: 2.53rem; */
     position: fixed;
     bottom: 0;
     z-index: 2;
@@ -46,4 +45,4 @@
     letter-spacing: 0.2rem;
     color: #ffffff;
     text-align: center;
-}
+} */
