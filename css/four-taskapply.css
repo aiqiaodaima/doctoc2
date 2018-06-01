@@ -16,8 +16,18 @@
     color: #333;
     font-family: "微软雅黑";
 }
-.weui-cell__bd{
-    direction: rtl;
+.weui-cell__bd{ 
     font-size: 14px;
-    color: #cccccc !important ;
+    color: #666 !important ;
+}
+.weui-select{
+    direction: rtl;
+    color: #cccccc;
+}
+.weui-input::-webkit-input-placeholder{
+    color: #cccccc;
+}
+.weui-input,.weui-select{
+    text-align:right !important;
+
 }

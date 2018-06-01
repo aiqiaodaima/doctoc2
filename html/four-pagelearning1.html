@@ -125,7 +125,7 @@
                 <div class="weui-cell__hd">
                     <label for="" class="weui-label">邀请函上传</label>
                 </div>
-                <div class="weui-cell__bd" style="padding-right: 2.68rem;">
+                <div class="weui-cell__bd" style="padding-right: 2.68rem;text-align: right;">
                     拍照上传
                 </div>
             </div>
@@ -142,6 +142,9 @@
     $(function () {
         $("#datetime-picker").datetimePicker();
         $("#datetime-picker2").datetimePicker();
+        $('.weui-select').on('change', function () {
+           $(this).css('color','#666');
+        })
     });
 </script>
 

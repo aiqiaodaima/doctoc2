@@ -136,7 +136,7 @@
                     <label class="weui-label">本次申请资助金额</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入本次申请资助金额">
+                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入本次申请资助金额">
                 </div>
             </div>
             <div class="weui-cell">
@@ -163,7 +163,7 @@
                     <label class="weui-label">流动站名称</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入流动站名称">
+                    <input class="weui-input" type="text" placeholder="请输入流动站名称" style="text-align:right">
                 </div>
             </div>
             <div class="weui-cell selector_1 moving">
@@ -286,9 +286,8 @@
             $('.moving').fadeToggle(800);
         })
         // console.log($('.select1').val())
-        $('.weui-input').on('change',function () {
-            $('.weui-input').selectionEnd = 5;
-            $('.weui-input').selectionEnd = $('.weui-input').val().length;
+        $('.weui-select').on('change', function () {
+           $(this).css('color','#666');
         })
     });
 </script>
