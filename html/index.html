@@ -18,15 +18,15 @@
 <script src="../js/ydui.js"></script>
 <script>    
     $(function () {     
-        const login = localStorage.getItem('login')
-        console.log(login)
-        if(!login){
-            window.location.href = 'login.html'
-        }
-        localStorage.clear('login')
+        // const login = localStorage.getItem('login')
+        // console.log(login)
+        // if(!login){
+        //     window.location.href = 'login.html'
+        // }
+        // localStorage.clear('login')
         $('#J_Slider').slider({
-            speed: 500,
-            autoplay: 2000,
+            speed: 1000,
+            autoplay: 3000,
             lazyLoad: true
         });
     });

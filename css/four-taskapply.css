@@ -20,29 +20,4 @@
     direction: rtl;
     font-size: 14px;
     color: #cccccc !important ;
-    /* flex-direction: column-reverse; */
 }
-/* .apply_btn{
-    width: 100%;
-    margin-top: 0.8rem;
-    position: fixed;
-    bottom: 0;
-    z-index: 2;
-    border-top: 1px solid #eaeaea;
-    background: #fff;
-    padding: 10px 0 10px;
-}
-.apply_btn a{
-    display: block;
-    height: 2.69rem;
-    line-height: 2.69rem;
-    background-color: #5f98ff;
-    border-radius: 0.31rem;
-    margin: 0 0.94rem;
-    font-family: MicrosoftYaHei-Bold;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.2rem;
-    color: #ffffff;
-    text-align: center;
-} */

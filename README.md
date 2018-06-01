@@ -26,3 +26,10 @@ ____
 ### 2018/5/27
 ____
  主要增加了登陆页面
+
+### 2018/6/1
+_______   
+ `http协议和TCP/IP` </br>
+ https://www.cnblogs.com/master-song/p/8820244.html  </br>
+ https://www.cnblogs.com/master-song/p/8822706.html   </br>
+ 和修复一些简单的bug

@@ -40,7 +40,10 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 	color: #cccccc;
 }
 .content_margin{
-    margin-bottom: 10px;
+    margin-bottom: 5px;
+}
+.science_content1 li:nth-last-of-type(1){
+    border: none;
 }
 .content_date{
     display: flex;
@@ -82,21 +85,5 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
 .weui-cell_access .weui-cell__ft:after{
     width: 10px;
     height: 10px;
-    top: 23%;
-}
-.scientific_btn a{
-    display: block;
-    margin: 0.53rem 0.94rem;
-    height: 2.69rem;
-    line-height: 2.69rem;
-    text-align: center;
-	background-color: #5f98ff;
-    border-radius: 0.31rem;
-    font-family: MicrosoftYaHei-Bold;
-    font-size: 1rem;
-    letter-spacing: 0.2rem;
-	color: #ffffff;
-}
-.content_margin2{
-    margin-bottom: 4.3rem;
+    top: 35%;
 }

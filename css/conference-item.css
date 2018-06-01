@@ -67,11 +67,11 @@ body{
 .item_content{
     background: #fff;
     font-family: MicrosoftYaHei;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     padding: 0.94rem 0.91rem;
-    letter-spacing: 0.03rem;
+    letter-spacing: 0.04rem;
     color: #999999;
-    line-height: 1.25rem;
+    line-height: 1.33rem;
     margin-bottom: 5px;
 }
 .item_content .content_word{
@@ -157,8 +157,8 @@ div.meeting_item:nth-last-of-type(3){
 .meeting_item .meeting_word{
     line-height: 1.25rem;
     font-family: MicrosoftYaHei;
-    font-size: 0.75rem;
-    letter-spacing: 0.03rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.04rem;
 	color: #999999;
 }
 .btn_top{

@@ -31,11 +31,11 @@
                 </li>
                 <li>
                     <label for="login_phone">手机号</label>
-                    <input type="text" id="login_phone">
+                    <input type="number" pattern="[0-9]*" id="login_phone">
                 </li>
                 <li>
                     <label for="login_pass">验证码</label>
-                    <input type="text" id="login_pass">
+                    <input type="number" pattern="[0-9]*" id="login_pass">
                     <button>获取验证</button>
                 </li>
             </ul>
@@ -49,9 +49,9 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function () {
-       $('.login_btn').on('click',function () {
-           localStorage.setItem("login",'true')
-       })
+    //    $('.login_btn').on('click',function () {
+    //        localStorage.setItem("login",'true')
+    //    })
     });
 </script>
 </html>

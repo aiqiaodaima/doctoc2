@@ -25,9 +25,12 @@
 .learning_apply .apply_title .title_right a{
     display: block;
     font-family: MicrosoftYaHei;
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     letter-spacing: 0.03rem;
 	color: #5f98ff;
+}
+.apply_item{
+    box-sizing: border-box;
 }
 .apply_item a{
     display: block;

@@ -55,13 +55,13 @@ body{
 }
 .cert_button{
     display: block;
+    margin: 0 1rem;
+    height:2.63rem;
+    line-height: 2.63rem;
+    background:rgba(95,152,255,1);
+    border-radius:0.25rem;
     text-align: center;
-    margin: 0 3.5rem;
-    height:2.25rem;
-    background:rgba(91,134,229,1);
-    border-radius: 0.5rem ;
     font-size:0.94rem;
-    font-family:PingFangSC-Medium;
+    font-family:PingFangSC-Regular;
     color:rgba(255,255,255,1);
-    line-height:2.25rem; 
 }

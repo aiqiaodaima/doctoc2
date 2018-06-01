@@ -22,18 +22,17 @@
     outline: none;
     background:rgba(244,244,244,1);
     border-radius:0.25rem;  
-    height:2.38rem;
-    line-height: 2.38rem;
+    /* height:2.38rem; */
+    line-height: 1rem;
     font-size:1.13rem;
     font-family:PingFangSC-Regular;
     font-size:1rem;
-    padding-left: 1rem;
+    padding: 0.7rem 1rem;
     color:rgba(51,51,51,1);
 }
 .login_content ul li button{
     margin-left: 1rem;
     display: block;
-    /* width:6.13rem; */
     width: 12.26rem;
     border: none;
     height:2.38rem;

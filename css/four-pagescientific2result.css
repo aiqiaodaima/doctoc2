@@ -29,7 +29,7 @@
     font-family: MicrosoftYaHei-Bold;
     font-size: 0.63rem;
     display: block;
-    width: 4.75rem;
+    padding: 0 0.5rem;
     height: 1.5rem;
     line-height: 1.4rem;
     border-radius: 0.13rem;
@@ -39,6 +39,9 @@
     padding: 1.25rem 0.88rem 0.25rem 0.91rem;
     background: #fff;
     margin-bottom: 5px;
+}
+.science_content:nth-last-of-type(1){
+    margin-bottom: 0;
 }
 .content_item{
     margin-bottom: 1rem;

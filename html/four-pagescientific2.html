@@ -52,11 +52,9 @@
                 </li>
             </ul>
         </div>
-        <div class="science_content1 content_margin2">
+        <div class="science_content1">
             <ul>
                 <li class="content_date">
-                    <!-- <div class="content_title">实施时间</div>
-                    <input class="weui-input" type="text" id='datetime-picker' placeholder="请选择" /> -->
                     <a class="weui-cell weui-cell_access" href="javascript:;">
                         <div class="weui-cell__bd content_title">
                             实施时间
@@ -72,7 +70,8 @@
                 </li>
             </ul>
         </div>
-        <div class="scientific_btn">
+        <div class="btn_top"></div>
+        <div class="item_btn">
             <a href="audit.html">立即提交</a>
         </div>
 
@@ -83,7 +82,15 @@
 <script src="../js/ydui.js"></script>
 <script>
     $(function () {
-        $("#datetime-picker").datetimePicker();
+        $("#datetime-picker").datetimePicker({
+            times: function () {
+                return [
+                ];
+            },
+            onChange: function (picker, values, displayValues) {
+                console.log(values);
+            }
+        });
     });
 </script>
 
