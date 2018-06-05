@@ -74,11 +74,9 @@
             let year_month = "";
             let fullYear = new Date().getFullYear();
             let today = new Date().getDate();
-            console.log(today)
             var month = new Date().getMonth() + 1 + j;
             let day = new Date(fullYear, month - 1, 1).getDay();
             let num = day == 0 ? 7 : day;
-            console.log(num)
             for (let i = 1; i <= num - 1; i++) {
                 let lis = document.createElement("li");
                 lis.setAttribute("class", "day_none")
@@ -94,7 +92,7 @@
                 }
                 let spans = document.createElement("span");
                 spans.innerHTML = i;
-                let as = document.createElement("a");
+                let as = document.createElement("p");
                 as.innerHTML = radromObject()
                 lis.appendChild(spans);
                 lis.appendChild(as);
@@ -120,7 +118,7 @@
         let num = 0;
         createMonthDay(num)
         $(".next_month").on("click", function () {
-            if (num < 7) {
+            if (num < 12 - new Date().getMonth() - 1) {
                 num++
                 $(".content_day").html("");
                 $(".month_word").html(createMonthDay(num).year_month);
@@ -154,59 +152,6 @@
                 window.location.href = "booking-detail.html"
             }           
         })
-
-
-        /*
-        *  第二页的JS
-        */
-        $('.weui-cell__hd').on('click', function () {
-            $(this).find()
-        })
-
-        $(document).on("click", "#show-actions", function() {
-        $.actions({
-            title: "选择操作",
-            onClose: function () {
-                console.log("close");
-            },
-            actions: [
-                {
-                    text: "拔牙后半小时内应紧咬棉卷，尽量少…",
-                    className: "color-primary",
-                    onClick: function () {
-                        $(".weui-cell__hd>input").each(function(){
-                            console.log($(this))
-                            var that = $(this);
-                            if($(this).is(':checked')){
-                                that.hide();
-                            }
-                            
-                        });
-                        // console.log($('.weui-cell__hd>input'))
-                        
-                        // $('.weui-cell__hd>input').attr("checked").hide();
-                        $.alert("发送成功");
-                    }
-                },
-                {
-                    text: "根管开放后勿食用过冷或过热的食物…",
-                    className: "color-primary",
-                    // className: "color-warning",
-                    onClick: function () {
-                        $.alert("发送成功");
-                    }
-                },
-                {
-                    text: "2小时内勿进食，2小时后可进食较软…",
-                    className: "color-primary",
-                    // className: 'color-danger',
-                    onClick: function () {
-                        $.alert("发送成功");
-                    }
-                }
-            ]
-        })
-        });
     });
 </script>
 
