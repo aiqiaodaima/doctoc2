@@ -60,8 +60,11 @@
 }
 .scientific_upload{
     width: 100%;
-    background: #fff;
+   
     margin-top: 5px;
+}
+.scientific_upload ul{
+    background: #fff;
 }
 .upload_input{  
     display: flex;

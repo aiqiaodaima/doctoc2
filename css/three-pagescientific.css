@@ -54,3 +54,65 @@
     width: 10.6rem;
 	height: 3.2rem;
 }
+
+.scientific_content .content_title{
+    height: 3.33rem;
+    line-height: 3.33rem;
+    letter-spacing: 0.04rem;
+	color: #999999;
+    width: 100%;
+    padding: 0 1rem;
+    font-family: MicrosoftYaHei-Bold;
+	font-size: 1.07rem;
+}
+.content_item ul li{
+    width: 100%;
+    height: 5.13rem;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    display: flex;
+}
+.content_item ul li div{
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center; 
+}
+.content_item ul li div span:nth-of-type(1){
+    display: block;
+    font-family: MicrosoftYaHei;
+    font-size: 0.93rem;
+    letter-spacing: 0.04rem;
+    color: #333333;
+    text-align: center;
+}
+.content_item ul li div span:nth-of-type(2){
+    display: block;
+    font-family: MicrosoftYaHei-Bold;
+	font-size: 1.2rem;
+    letter-spacing: 0.05rem;
+	/* color: #5f98ff; */
+    text-align: center;
+}
+.content_item ul li div.item_right a{
+    display: block;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 0.93rem;
+    letter-spacing: 0.04rem;
+    color: #333333;
+    text-align: center;
+    line-height: 5.13rem;
+    font-weight: 600;
+}
+.green{
+    color: #1fc7a1;
+}
+.orange{
+    color: #ffbf44;
+}
+.light_red{
+    color: #ff6c2b;
+}
+.blue{
+    color: #5f98ff;
+}

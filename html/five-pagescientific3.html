@@ -19,8 +19,10 @@
             display: block;
             width: 6.25rem;
             height: 6.25rem;
-            background: transparent;
-            
+            background: transparent;    
+        }
+        .scientific_upload ul{
+            margin-bottom: 5px;
         }
     </style>
 </head>
@@ -56,8 +58,6 @@
                         <form>
                             <input type="file" accept="image/png, image/jpeg, image/gif, image/jpg" onchange='handleInputChange()' id="files" style="position:absolute;clip:rect(0 0 0 0);">
                         </form>
-                        <!-- <input type="file" id="files" name="image" accept=“image/*” onchange='handleInputChange()'> -->
-                        <!-- <img src="../image/pagescientific3-upload.png" alt=""> -->
                     </div>
                     <div class="content_right">
                         <span>资金用途：</span>
@@ -84,10 +84,31 @@
         function handleInputChange (event) {
             const file = $('#files').prop('files')[0];
             console.log(file)
+            const lis = ` 
+            <ul>
+                <li class="upload_input">
+                    <span>单据金额:</span>
+                    <input type="text" placeholder="请输入你的单据金额">
+                </li>
+                <li class="scientific_content">
+                    <div class="content_left">
+                        <label class="" for="files"><img src="../image/pagescientific3-upload.png" alt=""></label>
+                        <form>
+                            <input type="file" accept="image/png, image/jpeg, image/gif, image/jpg" onchange='handleInputChange()' id="files" style="position:absolute;clip:rect(0 0 0 0);">
+                        </form>
+                    </div>
+                    <div class="content_right">
+                        <span>资金用途：</span>
+                        <textarea cols="30" rows="10" placeholder="请输入资金用途(限50个字）"></textarea>
+                    </div>
+                </li>
+            </ul>
+        `
+        $('.scientific_upload').append(lis)
         // 获取当前选中的文件
         // const file = event.target.files[0];
         const imgMasSize = 1024 * 1024 * 10; // 10MB
-    
+        
         // 检查文件类型
         if(['jpeg', 'png', 'gif', 'jpg'].indexOf(file.type.split("/")[1]) < 0){
             // 自定义报错方式
@@ -109,12 +130,11 @@
             transformFileToDataUrl(file);
             return;
         }
-    
+       
         // 图片压缩之旅
     }
         // 将File append进 FormData
         function transformFileToFormData (file) {
-            console.log(2)
             const formData = new FormData();
             // 自定义formData中的内容
             // type
@@ -132,9 +152,7 @@
         }
         // 将file转成dataUrl
         function transformFileToDataUrl (file) {
-            console.log(1)
             const imgCompassMaxSize = 200 * 1024; // 超过 200k 就压缩
-    
             // 存储文件相关信息
             imgFile.type = file.type || 'image/jpeg'; // 部分安卓出现获取不到type的情况
             imgFile.size = file.size;
@@ -146,7 +164,6 @@
     
             // file转dataUrl是个异步函数，要将代码写在回调里
             reader.onload = function(e) {
-                console.log(0)
                 const result = e.target.result;
     
                 if(result.length < imgCompassMaxSize) {
@@ -160,11 +177,8 @@
         }
         // 使用canvas绘制图片并压缩
         function compress (dataURL, callback, shouldCompress = true) {
-            console.log(dataURL)
-            const img = new window.Image();
-    
+            const img = new window.Image(); 
             img.src = dataURL;
-    
             img.onload = function () {
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
@@ -173,8 +187,9 @@
                 canvas.height = img.height;
     
                 ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+                console.log($('label>img').eq(0))
+                $('label>img').eq($('label>img').length-2).attr("src",dataURL);
                 
-                $('label>img').attr("src",dataURL);
                 let compressedDataUrl;
     
                 if(shouldCompress){
