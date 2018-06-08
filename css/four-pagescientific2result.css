@@ -61,3 +61,15 @@
     letter-spacing: 0.03rem;
 	color: #666666;
 }
+.placeholder_word{
+    width: 100%;
+    font-family: MicrosoftYaHei;
+    font-size: 1.07rem;
+    letter-spacing: 0.04rem;
+    color: #999;
+    text-align: center;
+}
+.nowrap{
+    /* white-space: space normal !important;  */
+    white-space: normal;
+}
