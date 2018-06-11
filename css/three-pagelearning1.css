@@ -1,6 +1,6 @@
 .learning_apply{
     width: 100%;
-    background: #fff;
+   
     margin-bottom: 10px;
 }
 .learning_apply:nth-last-child(1){
@@ -20,7 +20,7 @@
     font-family: MicrosoftYaHei-Bold;
     font-size: 1rem;
     letter-spacing: 0.04rem;
-	color: #333333;
+    color: #333333;
 }
 .learning_apply .apply_title .title_right a{
     display: block;
@@ -31,6 +31,8 @@
 }
 .apply_item{
     box-sizing: border-box;
+    background: #fff;
+    margin-bottom: 5px;
 }
 .apply_item a{
     display: block;
@@ -46,7 +48,7 @@
 .apply_item .item_left .left_title{
     font-family: MicrosoftYaHei-Bold;
     font-size: 1rem;
-    font:500; 
+    font-weight: 600;
     letter-spacing: 0.04rem;
     color: #666666;
     margin-bottom: 0.68rem;
@@ -76,4 +78,15 @@
 }
 .result_fail{
     background-color: #ff6c2b;
+}
+.scientific_btn{
+    position: fixed;
+    bottom: 3.75rem;
+    width: 100%;  
+}
+.scientific_btn img {
+    margin: 0 auto;
+    display: block;
+    width: 10.6rem;
+    height: 3.2rem;
 }
