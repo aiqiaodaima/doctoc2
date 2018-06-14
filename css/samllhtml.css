@@ -1,0 +1,34 @@
+.group_textarea {
+  width: 100%;
+  height: 13.33rem;
+  background-color: #ffffff;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  color: #999999;
+}
+.btn_bottom {
+  width: 100%;
+  height: 4rem;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0;
+  padding: 0.57rem 1rem;
+  box-sizing: border-box;
+}
+.btn_bottom a {
+  height: 2.87rem;
+  display: block;
+  line-height: 2.87rem;
+  text-align: center;
+  background-color: #5f98ff;
+  width: 100%;
+  border-radius: 0.33rem;
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  font-weight: 600;
+  letter-spacing: 0.21rem;
+  color: #ffffff;
+}
