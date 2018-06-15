@@ -27,7 +27,7 @@
   right: 2rem;
   top: 1.17rem;
 }
-.group_content ul li.content_item {
+.group_content ul li.content_item{
   display: flex;
   align-content: center;
   padding: 0.57rem 1rem;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>预约详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../css/public.css">
+</head>
+<style>
+    .detail_item{
+       width: 100%;
+       padding: 0.88rem;
+        
+    }
+</style>
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div>
+            <ul class="detail_item">
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $(function () {
+        const itemNum = localStorage.getItem('itemNum');
+        for (let i = 1; i <= itemNum; i++) {
+            let a = document.createElement('a');
+            a.setAttribute('href','patient-details.html')
+            let b = document.createElement('img');
+            b.setAttribute('src','../image/card4.svg');
+            a.appendChild(b);
+            $('.detail_item')[0].appendChild(a);
+        }
+        // for (var i in itemNum) {
+        //     let s =" <a href="patient-details.html"><img src="../image/card4.png" alt=""></a>"
+        //     $('.detail_item').html(s)
+        // }
+    });
+</script>
+</html>
