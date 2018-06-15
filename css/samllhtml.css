@@ -32,3 +32,41 @@
   letter-spacing: 0.21rem;
   color: #ffffff;
 }
+.group_message .message_title {
+  height: 3.3rem;
+  line-height: 3.3rem;
+  padding: 0 1rem;
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: 600;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+}
+.group_message .message_item ul > li {
+  padding: 1rem;
+  height: 5.87rem;
+  background-color: #ffffff;
+  margin-bottom: 5px;
+}
+.group_message .message_item ul > li span:nth-of-type(1) {
+  display: block;
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  line-height: 1.33rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  margin-bottom: 0.77rem;
+}
+.group_message .message_item ul > li span:nth-of-type(2) {
+  display: block;
+  width: 100;
+  text-align: right;
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  line-height: 1.33rem;
+  letter-spacing: 0.04rem;
+  color: #999;
+}
+.group_message .message_item ul > li:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
