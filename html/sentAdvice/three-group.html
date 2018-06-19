@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>医嘱发送</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/three-group.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="input_search">
+            <input type="text" placeholder="请输入关键字" class="seach">
+            <img src="../../image/search.png" alt="">
+        </div>
+        <div class="advice_title">
+            <div class="title_left">
+                待嘱患者
+            </div>
+            <div class="title_right">
+                <a href="advice-history.html">历史纪录</a>
+            </div>
+        </div>
+        <div class="group_content">
+            <ul>
+                <li class="content_item">
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" alt="">
+                        </div>
+                        <div class="item_group">
+                            <img src="../../image/patient_1.png" alt="">
+                        </div>
+                        <div class="item_name">
+                            <span>朱佩琪</span>
+                            <span>京溪南方大学附属第三医院 </span>
+                            <span>黏膜病变</span>
+                        </div>
+                    </div>
+                    <div class="item_time">
+                        <span>2018/05/26</span>
+                        <span>口腔科</span>
+                    </div>
+
+                </li>
+                <li class="content_item">
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" alt="">
+                        </div>
+                        <div class="item_group">
+                            <img src="../../image/patient_1.png" alt="">
+                        </div>
+                        <div class="item_name">
+                            <span>朱佩琪</span>
+                            <span>京溪南方大学附属第三医院 </span>
+                            <span>黏膜病变</span>
+                        </div>
+                    </div>
+                    <div class="item_time">
+                        <span>2018/05/26</span>
+                        <span>口腔科</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="group_btn">
+            <div class="btn_left">
+                <div class="left_1">
+                    <img src="../../image/click1.png" alt="">
+                </div>
+                <div class="left_2">
+                    全选
+                </div>
+            </div>
+            <div class="btn_right">
+                <a href="group-note.html" class="right_2">
+                    发送消息
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/ydui.js"></script>
+<script>
+    var click1 = {
+        el: null,
+        that: null,
+        init: function (config) {
+            this.el = $(config.class);
+            return this;
+        },
+        bind: function () {
+            var self = this;
+            this.el.on('click', function () {
+                this.that = this;
+                self.change(this.that);
+            });
+            return this;
+        },
+        change: function (that) {
+            if (that.src.indexOf('click1.png') > -1) {
+                $(that).attr('src', "../../image/click2.png");
+            } else {
+                $(that).attr('src', "../../image/click1.png")
+            }
+        },
+        all: function () {
+            this.el.on('click', function () {
+                if (this.src.indexOf('click1.png') > -1) {
+                    $(this).attr('src', "../../image/click2.png");
+                    $(click1.init({ class: '.item_click img' }).el).attr('src', "../../image/click2.png");
+                } else {
+                    $(this).attr('src', "../../image/click1.png");
+                    $(click1.init({ class: '.item_click img' }).el).attr('src', "../../image/click1.png");
+                }
+            })
+        }
+    };
+    var delete1 = {
+        el: null,
+        init: function (config) {
+            this.el = $(config.class);
+            return this;
+        },
+        remove: function () {
+            // this.el.on('click',function (){
+            $('.item_click img').each(function () {
+                if ($(this).attr('src').indexOf("click2.png") > -1) {
+                    $(this).parent().parent().parent().remove()
+                }
+            })
+            // })
+        }
+    };
+    $(function () {
+        click1.init({ class: '.item_click img' }).bind();
+        click1.init({ class: '.left_1 img' }).all();
+        // delete1.init({class: '.right_1'}).remove();
+        var dialog = window.YDUI.dialog;
+        $('.right_1').on('click', function () {
+            $('.item_click img').each(function () {
+                console.log($(this).attr('src').indexOf("click2.png"))
+                if ($(this).attr('src').indexOf("click2.png") == -1) {
+                    dialog.toast('请先选择患者', 'none', 1000);
+                } else {
+                    dialog.confirm('确定将该患者从您的患群移除吗？移除后该患者将无法继续预约。', function () {
+                        delete1.init({ class: '.right_1' }).remove();
+                    });
+                }
+            })
+        });
+        $('.item_group').on('click', function () {
+            window.location.href = 'group-patient.html'
+        })
+        $('.item_name').on('click', function () {
+            window.location.href = 'group-patient.html'
+        })
+        $('.item_time').on('click', function () {
+            window.location.href = 'group-patient.html'
+        })
+    })
+</script>
+
+</html>

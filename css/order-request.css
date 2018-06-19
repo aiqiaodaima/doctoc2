@@ -1,0 +1,117 @@
+.order_title {
+  height: 2.93rem;
+  width: 100%;
+  line-height: 2.93rem;
+  padding: 0 1rem;
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: 600;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #cccccc;
+}
+.order_content ul .content_item {
+  margin-bottom: 5px;
+}
+.order_content ul .content_item a {
+  display: block;
+  background-color: #ffffff;
+  padding: 1rem;
+}
+.order_content ul .content_item a .item_img {
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+.order_content ul .content_item a .item_img .img_left {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.8rem;
+}
+.order_content ul .content_item a .item_img .img_right {
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: 600;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+}
+.order_content ul .content_item a .item_img .img_right span {
+  display: block;
+  line-height: 1rem;
+}
+.order_content ul .content_item a .item_word {
+  display: flex;
+}
+.order_content ul .content_item a .item_word span {
+  display: block;
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.03rem;
+  line-height: 1.5rem;
+  color: #999999;
+}
+.order_content ul .content_item a .item_word span:nth-of-type(1) {
+  min-width: 3.33rem;
+  margin-right: 0.9rem;
+  white-space: nowrap;
+}
+.order_content ul .content_item:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+.btn_word {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  letter-spacing: 0.21rem;
+  font-weight: 600;
+  display: block;
+  height: 2.87rem;
+  border-radius: 0.33rem;
+  border: solid 0.07rem #5f98ff;
+  line-height: 2.87rem;
+  text-align: center;
+}
+.order_btn {
+  width: 100%;
+  height: 4rem;
+  background-color: #ffffff;
+  border-top: 1px solid #eaeaea;
+  display: flex;
+}
+.order_btn .btn_refuse {
+  width: 50%;
+  padding: 0.57rem 0.2rem 0.57rem 1rem;
+  box-sizing: border-box;
+}
+.order_btn .btn_refuse a {
+  background-color: #ffffff;
+  color: #5f98ff;
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  letter-spacing: 0.21rem;
+  font-weight: 600;
+  display: block;
+  height: 2.87rem;
+  border-radius: 0.33rem;
+  border: solid 0.07rem #5f98ff;
+  line-height: 2.87rem;
+  text-align: center;
+}
+.order_btn .btn_agree {
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 50%;
+  padding: 0.57rem 1rem 0.57rem 0.2rem;
+}
+.order_btn a {
+  background-color: #5f98ff;
+  color: #ffffff;
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  letter-spacing: 0.21rem;
+  font-weight: 600;
+  display: block;
+  height: 2.87rem;
+  border-radius: 0.33rem;
+  border: solid 0.07rem #5f98ff;
+  line-height: 2.87rem;
+  text-align: center;
+}

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>患者档案</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/samllhtml.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-cells" style="margin-top: 0">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>姓名</p>
+                </div>
+                <div class="weui-cell__ft patient_name">朱佩琦</div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>性别</p>
+                </div>
+                <div class="weui-cell__ft">女</div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>年龄</p>
+                </div>
+                <div class="weui-cell__ft patient_date">26</div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>病种</p>
+                </div>
+                <div class="weui-cell__ft patient_content">口腔正畸</div>
+            </div>
+        </div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">病历</p>
+                            <!-- <div class="weui-uploader__info">0/2</div> -->
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="uploaderFiles">
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
+                                    <div class="weui-uploader__file-content">
+                                        <i class="weui-icon-warn"></i>
+                                    </div>
+                                </li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
+                                    <div class="weui-uploader__file-content">50%</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">检查检验报告</p>
+                            <!-- <div class="weui-uploader__info">0/2</div> -->
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="uploaderFiles">
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
+                                    <div class="weui-uploader__file-content">
+                                        <i class="weui-icon-warn"></i>
+                                    </div>
+                                </li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
+                                    <div class="weui-uploader__file-content">50%</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">B超\DR</p>
+                            <!-- <div class="weui-uploader__info">0/2</div> -->
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="uploaderFiles">
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
+                                    <div class="weui-uploader__file-content">
+                                        <i class="weui-icon-warn"></i>
+                                    </div>
+                                </li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
+                                    <div class="weui-uploader__file-content">50%</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">CT</p>
+                            <!-- <div class="weui-uploader__info">0/2</div> -->
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <ul class="weui-uploader__files" id="uploaderFiles">
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
+                                    <div class="weui-uploader__file-content">
+                                        <i class="weui-icon-warn"></i>
+                                    </div>
+                                </li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
+                                    <div class="weui-uploader__file-content">50%</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="group_message">
+            <div class="message_title">
+                历史消息
+            </div>
+            <div class="message_item">
+                <ul>
+                    <li>
+                        <span>牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。</span>
+                        <span>2018/05/07</span>
+                    </li>
+                    <li>
+                        <span>牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。</span>
+                        <span>2018/05/07</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    var createdLi = {
+        el: null,
+        init: function () {
+
+        },
+        time1: function () {
+            var d = new Date();
+            var year = d.getFullYear();
+            var month = d.getMonth() + 1 > 9 ? d.getMonth() + 1 : '0' + (d.getMonth() + 1);
+            var day = d.getDate();
+            var today = `${year}/${month}/${day}`;
+            return today;
+        },
+        created: function () {
+            var lis = document.createElement("li");
+            var span1 = document.createElement('span');
+            span1.innerText = localStorage.getItem('note');
+            var span2 = document.createElement('span');
+            span2.innerText = this.time1();
+            lis.appendChild(span1)
+            lis.appendChild(span2)
+            $('.message_item ul').prepend(lis)
+        }
+
+    }
+    $(function () {
+        // $('.patient_name').html(localStorage.getItem('patient_name'));
+        // $('.patient_content').html(localStorage.getItem('patient_content'));
+        // $('.patient_date').html(localStorage.getItem('patient_date'));
+        if (localStorage.getItem('note')) {
+            createdLi.created()
+            console.log(createdLi.time1())
+        }
+    });
+</script>
+
+</html>

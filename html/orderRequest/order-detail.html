@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>预约请求</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/order-request.css">
+    <link rel="stylesheet" href="../../css/four-taskapply.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="order_title">
+            出诊请求
+        </div>
+        <div class="order_content">
+            <ul>
+                <li class="content_item">
+                    <a href="javascript:void(0)">
+                        <div class="item_img">
+                            <div class="img_left">
+                                <img src="../../image/order.png" alt="">
+                            </div>
+                            <div class="img_right">
+                                <span>2018/08/17</span>
+                                <span>广东省广州市华侨医院</span>
+                            </div>
+                        </div>
+                        <div class="item_word">
+                            <span>姓名</span>
+                            <span>朱佩琪</span>
+                        </div>
+                        <div class="item_word">
+                            <span>性别</span>
+                            <span>女</span>
+                        </div>
+                        <div class="item_word">
+                            <span>年龄</span>
+                            <span>朱佩琪</span>
+                        </div>
+                        <div class="item_word">
+                            <span>主要诉求</span>
+                            <span>锁骨右侧红肿，按压有疼痛感，挤压会有白色分泌物。</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell weui-cell_select weui-cell_select-after">
+                            <div class="weui-cell__hd">
+                                <label for="" class="weui-label">住宿安排</label>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <select class="weui-select select1" name="select1">
+                                    <option value="0">请选择</option>
+                                    <option value="1">五星级及以上</option>
+                                    <option value="2">四星级</option>
+                                    <option value="3">三星级及以下</option>
+                                    <option value="4">自费</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="weui-cell weui-cell_select weui-cell_select-after">
+                            <div class="weui-cell__hd">
+                                <label for="" class="weui-label">交通安排</label>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <select class="weui-select select1" name="select2">
+                                    <option value="0">请选择</option>
+                                    <option value="1">专车接送</option>
+                                    <option value="2">自费</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="weui-cell weui-cell_select weui-cell_select-after">
+                            <div class="weui-cell__hd">
+                                <label for="" class="weui-label">其他费用</label>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <select class="weui-select select1" name="select3">
+                                    <option value="0">请选择</option>
+                                    <option value="1">膳食及其他费用</option>
+                                    <option value="2">自费</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="order_title">
+                        出诊请求
+                    </div>
+                </li>
+                <li>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd">
+                                <label class="weui-label">医事服务费</label>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" type="number" placeholder="请输入医事服务费">
+                            </div>
+                        </div>
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd">
+                                <label class="weui-label">特殊器材使用费</label>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" type="number" placeholder="请输入特殊器材使用费">
+                            </div>
+                        </div>
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd">
+                                <label class="weui-label">其他收费</label>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" type="number" placeholder="请输入其他收费">
+                            </div>
+                        </div>
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd">
+                                <label class="weui-label">总计天数</label>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" type="number" placeholder="请输入总计天数">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="order_title" style="font-weight: normal;">
+                        请务必详细确认出诊费用，以免造成不必要的损失
+                    </div>
+                </li>
+                <li>
+                    <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                            <div class="weui-cell__hd">
+                                <label class="weui-label">总计</label>
+                            </div>
+                            <div class="weui-cell__bd">
+                                <input class="weui-input" type="number" placeholder="请输入医事服务费">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="order_btn">
+            <div class="btn_refuse">
+                <a href="javascript:void(0)">拒绝</a>
+            </div>
+           <div class="btn_agree">
+                <a href="javascript:void(0)">同意</a>
+           </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/ydui.js"></script>
+<script>
+    $(function () {
+        var dialog = window.YDUI.dialog;
+        $('.weui-select').on('change', function () {
+            $(this).css('color', '#666');
+        })
+        $('.btn_refuse').on('click', function () {
+            dialog.confirm('提示', '是否拒绝该预约请求', function () {
+                window.location.href = 'order-request.html'
+            });
+        });
+        $('.btn_agree').on('click', function () {
+            dialog.confirm('提示', '你还未填写收费相关事宜，确认同意该出诊安排吗？若同意，医生集团将派专人与您联系，确认出诊安排事宜。', function () {
+                window.location.href = 'audit.html'
+            });
+        });
+    });
+</script>
+
+</html>

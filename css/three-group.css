@@ -1,4 +1,4 @@
-.input_search {
+.input_search,.advice_title{
   height: 3.33rem;
   width: 100%;
   padding: 0.67rem 1rem;
@@ -12,6 +12,26 @@
   width: 100%;
   font-size: 0.8rem;
   padding: 0 1rem;
+}
+.advice_title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  margin-bottom: 5px;
+}
+.advice_title .title_left{
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: 600;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+	color: #999999;
+}
+.advice_title .title_right{
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #5f98ff;
 }
 .input_search .seach::-webkit-input-placeholder {
   font-family: MicrosoftYaHei;
