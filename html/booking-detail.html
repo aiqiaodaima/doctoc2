@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>预约详情</title>
+    <title>预约请求</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
@@ -13,18 +13,46 @@
     <link rel="stylesheet" href="../css/ydui.css">
     <!-- 通用样式 -->
     <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/order-request.css">
+    <link rel="stylesheet" href="../css/booking.css">
 </head>
-<style>
-    .detail_item{
-       width: 100%;
-       padding: 0.88rem;
         
-    }
-</style>
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
-        <div>
-            <ul class="detail_item">
+        <div class="booking_title order_title">
+            出诊请求
+        </div>
+        <div class="booking_item order_content">
+            <ul>
+                <li class="content_item">
+                    <a href="javascript:void(0)">
+                        <div class="item_img">
+                            <div class="img_left">
+                                <img src="../image/order.png" alt="">
+                            </div>
+                            <div class="img_right">
+                                <span>2018/08/17</span>
+                                <span>广东省广州市华侨医院</span>
+                            </div>
+                        </div>
+                        <div class="item_word">
+                            <span>姓名</span>
+                            <span>朱佩琪</span>
+                        </div>
+                        <div class="item_word">
+                            <span>性别</span>
+                            <span>女</span>
+                        </div>
+                        <div class="item_word">
+                            <span>年龄</span>
+                            <span>朱佩琪</span>
+                        </div>
+                        <div class="item_word">
+                            <span>主要诉求</span>
+                            <span>锁骨右侧红肿，按压有疼痛感，挤压会有白色分泌物。</span>
+                        </div>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
@@ -48,4 +76,5 @@
         // }
     });
 </script>
+
 </html>
