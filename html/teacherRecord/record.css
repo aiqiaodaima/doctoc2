@@ -1,0 +1,97 @@
+.record_content {
+  padding: 1rem;
+  background: #fff;
+  margin-bottom: 5px;
+}
+.record_content .content_title {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 1rem;
+}
+.record_content .content_item ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.record_content .content_item ul li {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.record_content .content_item ul li img {
+  width: 1rem;
+  height: 1rem;
+}
+.record_content .content_item ul li span {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+  margin-left: 0.4rem;
+}
+.detail ul .detail_item {
+  padding: 1rem;
+  margin-bottom: 5px;
+  background: #fff;
+}
+.detail ul .detail_item:nth-last-of-type(1) {
+  margin-bottom: 0;
+}
+.detail ul .detail_item .item_title {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.detail ul .detail_item .item_word {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  line-height: 1.33rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+}
+.detail ul .special_item {
+  padding: 1rem;
+  background: #fff;
+  margin-bottom: 5px;
+}
+.detail ul .special_item .special_title {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
+}
+.detail ul .special_item .special_title span:nth-of-type(1) {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 0.93rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  color: #333333;
+}
+.detail ul .special_item .special_title span:nth-of-type(2) {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+}
+.detail ul .special_item .special_word {
+  padding-top: 1rem;
+}
+.detail ul .special_item .special_word div:nth-of-type(1) {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 0.93rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  margin-bottom: 0.5rem;
+}
+.detail ul .special_item .special_word div:nth-of-type(2) {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+}

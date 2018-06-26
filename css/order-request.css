@@ -18,9 +18,11 @@
   padding: 1rem;
 }
 .order_content ul .content_item a .item_img {
-  margin-bottom: 1.2rem;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
   display: flex;
   align-items: center;
+  border-bottom: 1px solid #eaeaea;
 }
 .order_content ul .content_item a .item_img .img_left {
   width: 2rem;

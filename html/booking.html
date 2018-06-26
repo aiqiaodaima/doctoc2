@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>预约请求</title>
+    <title>预约详情</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
@@ -13,72 +12,60 @@
     <link rel="stylesheet" href="../css/ydui.css">
     <!-- 通用样式 -->
     <link rel="stylesheet" href="../css/public.css">
-    <link rel="stylesheet" href="../css/booking.css">
+    <link rel="stylesheet" href="../css/order-request.css">
 </head>
-
+        
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
-        <a href="dispose.html" class="booking_content">
-            <div class="booking_data">
-                <span>2018年12月25日</span>
-                <span>14:00</span>
-            </div>
-            <div class="booking_hospital">
-                <span>京溪南方医院</span>
-                <span>内科</span>
-                <span>肝病</span>
-            </div>
-            <div class="booking_item">
-                <span>姓名</span>
-                <span>李四</span>
-            </div>
-            <div class="booking_item">
-                <span>年龄</span>
-                <span>24</span>
-            </div>
-            <div class="booking_item">
-                <span>性别</span>
-                <span>女</span>
-            </div>
-            <div class="booking_item">
-                <div class="item_one">简述</div>
-                <div class="item_two">右锁骨处红肿两周，直径2cm左右右，按压疼痛，右白色分泌物挤出。</div>
-            </div>
-        </a>
-        <a href="dispose.html" class="booking_content">
-            <div class="booking_data">
-                <span>2018年12月25日</span>
-                <span>14:00</span>
-            </div>
-            <div class="booking_hospital">
-                <span>京溪南方医院</span>
-                <span>内科</span>
-                <span>肝病</span>
-            </div>
-            <div class="booking_item">
-                <span>姓名</span>
-                <span>李四</span>
-            </div>
-            <div class="booking_item">
-                <span>年龄</span>
-                <span>24</span>
-            </div>
-            <div class="booking_item">
-                <span>性别</span>
-                <span>女</span>
-            </div>
-            <div class="booking_item">
-                <div class="item_one">简述</div>
-                <div class="item_two">右锁骨处红肿两周，直径2cm左右右，按压疼痛，右白色分泌物挤出。</div>
-            </div>
-        </a>
+        <div class="booking_title order_title">
+            出诊请求
+        </div>
+        <div class="booking_item order_content">
+            <ul class="detail_item">
+
+            </ul>
+        </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
-    $(function(){
-       
+    $(function () {
+        const itemNum = localStorage.getItem('itemNum');
+        for (let i = 1; i <= itemNum; i++) {
+            let a = `<li class="content_item">
+                    <a href="booking-detail.html">
+                        <div class="item_img">
+                            <div class="img_left">
+                                <img src="../image/order.png" alt="">
+                            </div>
+                            <div class="img_right">
+                                <span>2018/08/17</span>
+                                <span>广东省广州市华侨医院</span>
+                            </div>
+                        </div>
+                        <div class="item_word">
+                            <span>姓名</span>
+                            <span>朱佩琪</span>
+                        </div>
+                        <div class="item_word">
+                            <span>性别</span>
+                            <span>女</span>
+                        </div>
+                        <div class="item_word">
+                            <span>年龄</span>
+                            <span>朱佩琪</span>
+                        </div>
+                        <div class="item_word">
+                            <span>主要诉求</span>
+                            <span>锁骨右侧红肿，按压有疼痛感，挤压会有白色分泌物。</span>
+                        </div>
+                    </a>
+                </li>`
+            
+            $('.detail_item').append(a)
+        }
     });
 </script>
+
 </html>
