@@ -1,0 +1,114 @@
+.record_content {
+  padding: 1rem;
+  background: #fff;
+  margin-bottom: 5px;
+}
+.record_content .content_title {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 1rem;
+}
+.record_content .content_item ul .item_time {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+}
+.record_content .content_item ul .item_content {
+  display: flex;
+  justify-content: space-between;
+}
+.record_content .content_item ul .item_content div:nth-of-type(1) span:nth-of-type(1) {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+}
+.record_content .content_item ul .item_content div:nth-of-type(1) span:nth-of-type(2) {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  font-weight: normal;
+  letter-spacing: 0.04rem;
+}
+.record_content .content_item ul .item_content div:nth-of-type(1) .success {
+  color: #1fc7a1;
+}
+.record_content .content_item ul .item_content div:nth-of-type(1) .going {
+  color: #ffbf44;
+}
+.record_content .content_item ul .item_content div:nth-of-type(1) .fail {
+  color: #ff6c2b;
+}
+.record_content .content_item ul .item_content div:nth-of-type(2) {
+  display: block;
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: #5f98ff;
+}
+.detail_item {
+  margin-bottom: 5px;
+}
+.detail_item:nth-last-of-type(1) {
+  margin: 0;
+}
+.detail_item ul {
+  background: #fff;
+  padding: 0 1rem;
+}
+.detail_item ul .item_title {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eaeaea;
+  font-weight: 600;
+}
+.detail_item ul .one_row {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #eaeaea;
+}
+.detail_item ul .one_row:nth-last-of-type(1) {
+  border: 0;
+}
+.detail_item ul .one_row span:nth-of-type(1) {
+  font-family: MicrosoftYaHei;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+}
+.detail_item ul .one_row span:nth-of-type(2) {
+  font-family: MicrosoftYaHei;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+  color: #666666;
+}
+.detail_item ul .two_row {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 0;
+}
+.detail_item ul .two_row:nth-last-of-type(1) {
+  border: 0;
+}
+.detail_item ul .two_row span:nth-of-type(1) {
+  font-family: MicrosoftYaHei;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  margin-bottom: 1.2rem;
+}
+.detail_item ul .two_row span:nth-of-type(2) {
+  font-family: MicrosoftYaHei;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+  color: #666666;
+}
