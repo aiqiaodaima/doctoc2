@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>新增其他档案</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/four-pagescientific2.css">
+    <link rel="stylesheet" href="other-add.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="add_conent">
+            <ul>
+                <li class="one_row">
+                    <label for="name">档案名称</label>
+                    <input type="text" id="name" placeholder="请输入档案名称">
+                </li>
+                <li class="one_row">
+                    <label for="sort">分类</label>
+                    <div>
+                        <select name="sort" id="sort">
+                            <option value="1">请选择</option>
+                            <option value="2">报告</option>
+                            <option value="3">论文</option>
+                            <option value="4">专著</option>
+                            <option value="5">专利</option>
+                        </select>
+                        <div class="se_after">
+
+                        </div>
+                    </div>
+                </li>
+                <li class="one_row">
+                    <a class="weui-cell weui-cell_access" href="javascript:;">
+                        <div class="weui-cell__bd content_title">
+                            时间
+                        </div>
+                        <div class="weui-cell__ft">
+                            <input class="weui-input" type="text" id='datetime-picker' placeholder="请选择" />
+                        </div>
+                    </a>
+                </li>
+                <li class="one_row">
+                    <label for="position">地点</label>
+                    <input type="text" id="position" placeholder="请输入地点">
+                </li>
+                <li class="one_row">
+                    <label for="work">所属行业</label>
+                    <input type="text" id="work" placeholder="请输入所属行业">
+                </li>
+            </ul>
+        </div>
+        <div class="science_content1 content_margin">
+            <ul>
+                <li>
+                    <div class="content_title">主要内容</div>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的主要内容（限30个字）" style="height: 6.67rem;"></textarea>
+                </li>
+            </ul>
+        </div>
+        <div class="science_content1">
+            <ul>
+                <li>
+                    <div class="content_title">其他说明</div>
+                    <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的其他说明（限30个字）" style="height: 6.67rem;"></textarea>
+                </li>
+            </ul>
+        </div>
+        <div class="btn_top"></div>
+        <div class="item_btn">
+            <a href="other-record.html">确定提交</a>
+        </div>
+
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/ydui.js"></script>
+<script>
+    $(function () {
+        $("#datetime-picker").datetimePicker({
+            times: function () {
+                return [
+                ];
+            },
+            onChange: function (picker, values, displayValues) {
+                console.log(values);
+            }
+        });
+        $('#sort').on('change', function () {
+            $(this).css('color', '#666');
+        })
+    });
+</script>
+
+</html>

@@ -33,6 +33,20 @@
   color: #999999;
   margin-left: 0.4rem;
 }
+.record_content .content_item .other_ul {
+  display: flex;
+  flex-direction: column;
+}
+.record_content .content_item .other_ul .other_item span {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+  margin-left: 0.4rem;
+}
+.record_content .content_item .other_ul .other_item2 span:nth-of-type(2) {
+  color: #5f98ff;
+}
 .detail ul .detail_item {
   padding: 1rem;
   margin-bottom: 5px;
@@ -94,4 +108,13 @@
   font-size: 0.93rem;
   letter-spacing: 0.04rem;
   color: #999999;
+}
+.other_btn {
+  margin-top: 9.77rem;
+}
+.other_btn a {
+  margin: 0 auto;
+  display: block;
+  width: 10.6rem;
+  height: 2.8rem;
 }

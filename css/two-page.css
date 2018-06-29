@@ -16,6 +16,10 @@
     display: flex;
     flex-wrap: wrap;
 }
+.helper_four ul li{
+    display: flex !important;
+    justify-content: center;
+}
 .helper_four ul li,.helper_four ul li a{
     display: block;
     min-width: 7.4rem;
@@ -24,6 +28,7 @@
     box-sizing: border-box;
 }
 .helper_four ul li:nth-child(1){
+  
     border-bottom: 1px solid #eaeaea;
     border-right: 1px solid #eaeaea;
 }
