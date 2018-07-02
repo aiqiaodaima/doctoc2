@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>科研课题-单据上传</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/three-group.css">
+    <link rel="stylesheet" href="upData.css">
+
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="first_item">
+            <ul>
+                <li>资助统计</li>
+                <li class="item_list">
+                    <span>申请资助总数</span>
+                    <span>15</span>
+                </li>
+                <li class="item_list">
+                    <span>批复资助总数</span>
+                    <span>15</span>
+                </li>
+                <li class="item_list">
+                    <span>申请资助总额</span>
+                    <span>14,000.00</span>
+                </li>
+                <li class="item_list">
+                    <span>批复资助总额</span>
+                    <span>14,000.00</span>
+                </li>
+                <li class="item_list">
+                    <span>提款总额</span>
+                    <span>14,000.00</span>
+                </li>
+                <li class="item_list">
+                    <span>剩余总额</span>
+                    <span>14,000.00</span>
+                </li>
+                <li class="item_list">
+                    <span>已核销总额</span>
+                    <span>14,000.00</span>
+                </li>
+                <li class="item_list">
+                    <span>未核销总额</span>
+                    <span>14,000.00</span>
+                </li>
+            </ul>
+        </div>
+        <div class="form_item">
+            <div class="input_search">
+                <input type="text" placeholder="请输入关键字" class="seach">
+                <img src="../../image/search.png" alt="">
+            </div>
+            <div class="form_title">
+                本次核销
+            </div>
+            <div class="tips_title">
+                <span>待核销金额</span>
+                <span>20,000元</span>
+            </div>
+            <div class="option_item">
+                <label for="sort">对应课题</label>
+                <div>
+                    <select name="sort" id="sort">
+                        <option value="1">请选择</option>
+                        <option value="2">课题1</option>
+                        <option value="3">课题2</option>
+                        <option value="4">课题3</option>
+                        <option value="5">课题4</option>
+                    </select>
+                    <div class="se_after">
+
+                    </div>
+                </div>
+            </div>
+            <div class="option_item">
+                <label for="num">对应次数</label>
+                <div>
+                    <select name="num" id="num">
+                        <option value="1">请选择</option>
+                        <option value="2">第一次</option>
+                        <option value="3">第二次</option>
+                        <option value="4">第三次</option>
+                        <option value="5">第四次</option>
+                    </select>
+                    <div class="se_after">
+
+                    </div>
+                </div>
+            </div>
+            <div class="blod_item">
+                <span>提款编号</span>
+                <span>23445678</span>
+            </div>
+            <div class="option_item">
+                <label>单据上传</label>
+
+                <div class="weui-cell__bd" style="text-align: right;">
+                    <label class="" for="files">请上传</label>
+                    <form>
+                        <input type="file" accept="image/png, image/jpeg, image/gif, image/jpg" id="files">
+                    </form>
+                </div>
+
+                <div class="se_after">
+
+                </div>
+            </div>
+            <div class="text_item">
+                <div class="content_title">资金用途</div>
+                <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的资金用途"></textarea>
+            </div>
+        </div>
+        <div class="btn_top"></div>
+        <div class="item_btn">
+            <a href="javascript:void(0)">重置</a>
+            <a href="javascript:void(0)" class="sure_btn">确定提交</a>
+        </div>
+
+
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/ydui.js"></script>
+<script>
+    $(function () {
+        var dialog = YDUI.dialog;
+        var btn = {
+            el: null,
+            init: function (config) {
+                this.el = $(config.class);
+                return this;
+            },
+            refer: function () {
+                this.el.on("click", function () {
+                    dialog.toast('提交成功', 'none', 1000);
+                })
+            }
+        }
+        btn.init({class:'.sure_btn'}).refer();
+    })
+</script>
+
+</html>
