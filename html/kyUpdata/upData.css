@@ -105,7 +105,6 @@
   left: 0px;
   top: 0px;
   opacity: 0;
-  -ms-filter: 'alpha(opacity=0)';
 }
 .form_item .blod_item {
   display: flex;
@@ -123,9 +122,10 @@
   font-size: 1.07rem;
   letter-spacing: 0.04rem;
   color: #333333;
-  margin: 1.5rem 0 0.6rem;
+  margin: 1.2rem 0 0.6rem;
 }
 .form_item .text_item textarea {
+  margin-bottom: 1rem;
   width: 100%;
   height: 4.67rem;
   background-color: #f7f7f7;
@@ -169,4 +169,109 @@ textarea::-webkit-input-placeholder {
   font-size: 1.07rem;
   letter-spacing: 0.21rem;
   color: #ffffff;
+}
+.upData2 ul .updata_item {
+  background: #FFF;
+  margin-bottom: 5px;
+}
+.upData2 ul .updata_item:nth-last-of-type(1) {
+  margin: 0;
+}
+.upData2 ul .updata_item a {
+  display: block;
+  padding: 0 1rem 1rem;
+}
+.upData2 ul .updata_item a .item_title {
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: 600;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eaeaea;
+}
+.upData2 ul .updata_item a .item_list ul li {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.upData2 ul .updata_item a .item_list ul li .left {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #666666;
+}
+.upData2 ul .updata_item a .item_list ul li .rightG {
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: 600;
+  font-size: 0.93rem;
+  line-height: 1.33rem;
+  letter-spacing: 0.04rem;
+  color: #5f98ff;
+}
+.upData2 ul .updata_item a .item_list ul li .rightY {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 0.93rem;
+  line-height: 1.33rem;
+  letter-spacing: 0.04rem;
+  color: #ffbf44;
+}
+.upData3 .item_title {
+  height: 3.33rem;
+  line-height: 3.33rem;
+  padding: 0 1rem;
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: 600;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #5f98ff;
+}
+.upData3 .item_content {
+  padding: 0 1rem 1rem;
+  margin-bottom: 5px;
+  background: #fff;
+}
+.upData3 .item_content:nth-last-of-type(1) {
+  margin: 0;
+}
+.upData3 .item_content ul .frist_line {
+  height: 2.93rem;
+  line-height: 2.93rem;
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 0.93rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+}
+.upData3 .item_content ul .frist_line span {
+  width: 33%;
+}
+.upData3 .item_content ul .common_item {
+  margin-top: 1rem;
+  display: flex;
+}
+.upData3 .item_content ul .common_item .tips {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #666666;
+  width: 33%;
+}
+.upData3 .item_content ul .common_item .rightG {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.03rem;
+  color: #5f98ff;
+  width: 33%;
+  font-weight: 600;
+}
+.upData3 .item_content ul .common_item .rightB {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.03rem;
+  color: #333333;
+  width: 33%;
+  font-weight: 600;
 }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>科研课题-单据上传</title>
+    <title>学术会议-单据上传</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
     <!-- <link rel="stylesheet" href="../css/index.css"> -->
@@ -56,9 +56,9 @@
             </ul>
         </div>
         <div class="form_item">
-            <div class="input_search">
-                <input type="text" placeholder="请输入关键字" class="seach">
-                <img src="../../image/search.png" alt="">
+            <div class="input_search" style="padding: 0.67rem 0">
+                <input type="text" placeholder="课题关键字" class="seach" >
+                <img src="../../image/search.png" alt="" style="right: 1rem;">
             </div>
             <div class="form_title">
                 本次核销
@@ -146,8 +146,21 @@
                     dialog.toast('提交成功', 'none', 1000);
                 })
             }
+        };
+        var goTo = {
+            el: null,
+            init: function (config){
+                this.el = $(config.class);
+                return this;
+            },
+            goto: function (){
+                this.el.on('click',function (){
+                    window.location.href = 'upData2.html'
+                })
+            }
         }
         btn.init({class:'.sure_btn'}).refer();
+        goTo.init({class:'.input_search'}).goto();
     })
 </script>
 
