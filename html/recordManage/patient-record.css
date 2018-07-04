@@ -1,0 +1,74 @@
+.patient_title {
+  height: 3.3rem;
+  line-height: 3.3rem;
+  padding: 0 1rem;
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+  color: #5f98ff;
+  font-weight: 600;
+}
+.patient_item ul li {
+  margin-bottom: 5px;
+  background: #fff;
+}
+.patient_item ul li:nth-last-of-type(1) {
+  margin: 0;
+}
+.patient_item ul li a {
+  display: block;
+  padding: 1.27rem 0.97rem 1.03rem;
+}
+.patient_item ul li a .two_title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+.patient_item ul li a .two_title span:nth-of-type(1) {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  font-weight: 600;
+}
+.patient_item ul li a .two_title span:nth-of-type(2) {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #cccccc;
+}
+.patient_item ul li a .one_title {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  line-height: 1.33rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+}
+.two_line {
+  padding: 0.9rem 0rem;
+}
+.two_line .line1 {
+  font-family: MicrosoftYaHei;
+  font-size: 1.07rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 1rem;
+}
+.two_line .line2 {
+  font-family: MicrosoftYaHei;
+  font-size: 1.07rem;
+  line-height: 1.33rem;
+  letter-spacing: 0rem;
+  color: #999999;
+}
+.cells_border {
+  margin-top: 0;
+  padding: 10px 15px;
+}
+.cells_border .weui-cell:before {
+  border: none;
+}
+.cells_border .cell_item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eaeaea;
+}

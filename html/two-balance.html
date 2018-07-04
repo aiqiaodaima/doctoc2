@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title> </title>
+    <title>提现</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../css/ydui.css">
     <!-- 通用样式 -->
     <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/balance.css">
     <link rel="stylesheet" href="../css/two-balance.css">
 </head>
 
@@ -102,71 +103,46 @@
                 </li>
             </ul>
         </div>
-        <!-- <a href="javascript:;" class="weui-btn weui-btn_primary open-popup" data-target="#half">显示底部的Popup</a>
-        <div id="half" class='weui-popup__container popup-bottom'>
-            <div class="weui-popup__overlay"></div>
-            <div class="weui-popup__modal">
-                <div class="toolbar">
-                    <div class="toolbar-inner">
-                        <a href="javascript:;" class="picker-button close-popup">关闭</a>
-                        <h1 class="title">资金提现</h1>
-                    </div>
+
+        <div class="popups_item">
+            <div class="item_title">
+                <a href="javascript:void(0)" class="cancel">取消</a>
+                <span>资金提现</span>
+                <a href="javascript:void(0)" class="sure">确定</a>
+            </div>
+            <div class="item_content">
+                <div class="content_input">
+                    <input type="text" placeholder="请输入银行卡号" class="number_input" disabled="true">
                 </div>
-                <div class="modal-content">
-                    <div class="weui-grids">
-                        <a href="javascript:;" class="weui-grid js_grid" data-id="dialog">
-                            <div class="weui-grid__icon">
-                                <img src="images/icon_nav_dialog.png" alt="">
-                            </div>
-                            <p class="weui-grid__label">
-                                发布
-                            </p>
-                        </a>
-                        <a href="javascript:;" class="weui-grid js_grid" data-id="progress">
-                            <div class="weui-grid__icon">
-                                <img src="images/icon_nav_progress.png" alt="">
-                            </div>
-                            <p class="weui-grid__label">
-                                编辑
-                            </p>
-                        </a>
-                        <a href="javascript:;" class="weui-grid js_grid" data-id="msg">
-                            <div class="weui-grid__icon">
-                                <img src="images/icon_nav_msg.png" alt="">
-                            </div>
-                            <p class="weui-grid__label">
-                                保存
-                            </p>
-                        </a>
-                        <a href="javascript:;" class="weui-grid js_grid" data-id="dialog">
-                            <div class="weui-grid__icon">
-                                <img src="images/icon_nav_dialog.png" alt="">
-                            </div>
-                            <p class="weui-grid__label">
-                                发布
-                            </p>
-                        </a>
-                        <a href="javascript:;" class="weui-grid js_grid" data-id="progress">
-                            <div class="weui-grid__icon">
-                                <img src="images/icon_nav_progress.png" alt="">
-                            </div>
-                            <p class="weui-grid__label">
-                                编辑
-                            </p>
-                        </a>
-                        <a href="javascript:;" class="weui-grid js_grid" data-id="msg">
-                            <div class="weui-grid__icon">
-                                <img src="images/icon_nav_msg.png" alt="">
-                            </div>
-                            <p class="weui-grid__label">
-                                保存
-                            </p>
-                        </a>
-                    </div>
+                <div class="content_title">
+                    <ul>
+                        <li class="titleG">金额限定为总金额的50%</li>
+                        <li class="titleB">FDI，自主创新对于国家卫生医疗的推进</li>
+                        <li class="titleB">可提现：8728</li>
+                        <li class="titleB">获得资金：20000</li>
+                        <li class="titleB">剩余金额：2000</li>
+                    </ul>
                 </div>
             </div>
-        </div> -->
-
+            <div class="item_number">
+                <ul>
+                    <li class="number_num">1</li>
+                    <li class="number_num">2</li>
+                    <li class="number_num">3</li>
+                    <li class="number_num">4</li>
+                    <li class="number_num">5</li>
+                    <li class="number_num">6</li>
+                    <li class="number_num">7</li>
+                    <li class="number_num">8</li>
+                    <li class="number_num">9</li>
+                    <li class="number_num">.</li>
+                    <li class="number_num">0</li>
+                    <li class="number_delete">
+                        <img src="../image/delete.png" alt="">
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
@@ -182,11 +158,42 @@
             $('.item_22').slideToggle(500);
             $('.item_2 img').toggleClass("add_transform");
         })
-        // $(document).on("open", ".weui-popup-modal", function () {
-        //     console.log("open popup");
-        // }).on("close", ".weui-popup-modal", function () {
-        //     console.log("close popup");
-        // });
+        var pro = {
+            el: null,
+            num: '',
+            init: function (config){
+                this.el = $(config.class);
+                return this;
+            },
+            pop: function (){
+                var that = this;
+                this.el.on('click',function (){
+                    $('.popups_item').slideToggle(500);
+                    that.num = '';
+                    $('.number_input').val(that.num);
+                })
+            },
+            add: function (){
+                var that = this;            
+                this.el.on('click',function (){
+                    that.num = that.num + $(this).text();
+                    console.log(that.num)
+                    $('.number_input').val(that.num);
+                })
+            },
+            delete: function (){
+                var that = this;
+                this.el.on('click',function (){
+                    that.num = that.num.substring(0,that.num.length-1)
+                    $('.number_input').val(that.num)
+                })
+            }
+        }
+        pro.init({class:'.card_right'}).pop();
+        pro.init({class:'.cancel'}).pop();
+        pro.init({class:'.sure'}).pop();
+        pro.init({class:'.number_num'}).add();
+        pro.init({class:'.number_delete'}).delete();
     });
 </script>
 

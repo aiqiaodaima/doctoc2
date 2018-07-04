@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>患者档案</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="patient-record.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-cells" style="margin-top: 0">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>姓名</p>
+                </div>
+                <div class="weui-cell__ft patient_name"></div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>性别</p>
+                </div>
+                <div class="weui-cell__ft">女</div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <p>年龄</p>
+                </div>
+                <div class="weui-cell__ft patient_date"></div>
+            </div>
+        </div>
+        <div class="patient_title">
+            就诊记录
+        </div>
+        <div class="patient_item">
+            <ul>
+                <li>
+                    <a href="pRcord-detail.html">
+                        <div class="two_title">
+                            <span>正畸专家  张大仙</span>
+                            <span>2018/05/07</span>
+                        </div>
+                        <div class="one_title">
+                            牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="pRcord-detail.html">
+                        <div class="two_title">
+                            <span>正畸专家  张大仙</span>
+                            <span>2018/05/07</span>
+                        </div>
+                        <div class="one_title">
+                            牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script>
+    $(function () {
+        $('.patient_name').html(localStorage.getItem('patient_name'));
+        $('.patient_content').html(localStorage.getItem('patient_content'));
+        $('.patient_date').html(localStorage.getItem('patient_date'));
+    });
+</script>
+
+</html>

@@ -1,92 +1,188 @@
-.balace_img{
-    background: #fff;
-    width: 100%;
-    padding: 2.75rem  1.5rem 0;
-	background-image: linear-gradient(0deg, #ffffff 0%, #f7f7f7 100%);	
+.balance_item {
+  padding: 0.67rem;
 }
-.balace_img .img_img{
-    width: 6.25rem;
-	height: 6.25rem;
-    border: solid 0.25rem #ffc600;
-    border-radius: 50%;
-    overflow: hidden;
-    /* padding: 3.75rem 0 1.88rem; */
-    margin:  0 auto 1.88rem;   
+.balance_item ul {
+  width: 100%;
+  height: 14rem;
+  background-color: #ffffff;
+  box-shadow: 0rem 0rem 0.27rem 0.07rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.27rem;
+  background-image: url(../image/balance.png);
+  background-size: 10.67rem 10.67rem;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 1.33rem 1rem 1.66rem;
 }
-.balace_img .img_img img{
-    width: 100%;
-    height: 100%;
+.balance_item ul .two_row {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
 }
-.balace_img .img_word{
-    width: 100%;
-    font-family: MicrosoftYaHei-Bold;
-    font-size: 1.73rem;
-    letter-spacing: 0.07rem;
-    font-weight: 600;
-    text-align: center;
-    color: #ffc559;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #eaeaea;
+.balance_item ul .two_row span:nth-of-type(1) {
+  font-family: MicrosoftYaHei-Bold;
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.03rem;
+  color: #cccccc;
 }
-.img_btn ul{
-    display: flex;
-    align-items: center;
+.balance_item ul .two_row span:nth-of-type(2) {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  font-weight: 600;
+  letter-spacing: 0.04rem;
+  color: #5f98ff;
 }
-.btn_item{
-    padding: 0.97rem 0;
-    width: 50%;
-     text-align: center;
+.balance_item ul .one_row span:nth-of-type(1) {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #666666;
 }
-.btn_item span.item_top{
-    display: block;
-    font-family: MicrosoftYaHei-Bold;
-    font-weight: 600;
-    font-size: 1rem;
-    letter-spacing: 0.08rem;
-    color: #333333;
-    margin: 0 auto 0.63rem;
-   
+.balance_item ul .one_row span:nth-of-type(2) {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.33rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  color: #ffbf44;
 }
-.btn_item span.item_bottom{
-    font-family: MicrosoftYaHei;
-    font-size: 0.75rem;
-    letter-spacing: 0.06rem;
-    color: #666666;
-    margin:  0 auto;
+.font {
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  letter-spacing: 0.21rem;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 2.87rem;
+  text-align: center;
 }
-.btn_hr{
-    width: 1px;
-    height: 1.56rem;
-    background-color: #e5e5e5;
+.two_btn {
+  width: 100%;
+  display: flex;
+  position: fixed;
+  bottom: 4.2rem;
+  justify-content: space-around;
+  padding: 0 1rem;
 }
-.balance_button{
-    width: 100%;
-    height: 2.69rem;
-    padding: 1.25rem 0.94rem 0;
+.two_btn .balance_button {
+  width: 100%;
+  height: 2.87rem;
+  background-color: #5f98ff;
+  border-radius: 0.33rem;
+  margin-right: 0.28rem;
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  letter-spacing: 0.21rem;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 2.87rem;
+  text-align: center;
 }
-.balance_button a{
-    display: block;
-    height: 2.69rem;
-    line-height: 2.69rem;
-    text-align: center;
-    background-color: #5f98ff;
-    border-radius: 0.31rem;
-    font-family: MicrosoftYaHei-Bold;
-    font-size: 1rem;
-    letter-spacing: 0.2rem;
-	color: #ffffff;
+.two_btn .balacen_detail {
+  width: 100%;
+  height: 2.87rem;
+  background-color: #5f98ff;
+  border-radius: 0.33rem;
+  font-family: MicrosoftYaHei-Bold;
+  font-size: 1.07rem;
+  letter-spacing: 0.21rem;
+  color: #ffffff;
+  font-weight: 600;
+  line-height: 2.87rem;
+  text-align: center;
 }
-.balacen_detail a{
-    display: block;
-    position: fixed;
-    bottom: 1.25rem;
-    width: 100%;
-    text-align: center;
-    font-family: MicrosoftYaHei;
-	font-size: 0.88rem;
-	font-weight: normal;
-	font-stretch: normal;
-	line-height: 0rem;
-	letter-spacing: 0.05rem;
-	color: #5f98ff;
+.popups_item {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.popups_item .item_title {
+  padding: 0 1rem;
+  height: 3rem;
+  line-height: 3rem;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+}
+.popups_item .item_title a:nth-of-type(1) {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+}
+.popups_item .item_title a:nth-of-type(2) {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #5f98ff;
+}
+.popups_item .item_title span {
+  font-family: MicrosoftYaHei;
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
+  color: #666666;
+}
+.popups_item .item_content {
+  padding: 1.33rem 1rem;
+  background: #fff;
+}
+.popups_item .item_content .content_input input {
+  width: 100%;
+  height: 2.67rem;
+  background-color: #f7f7f7;
+  border-radius: 0.27rem;
+  border: solid 0.07rem #e5e5e5;
+  padding: 1rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+}
+.popups_item .item_content .content_input input::-webkit-input-placeholder {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #cccccc;
+}
+.popups_item .item_content .content_title {
+  margin-top: 1rem;
+}
+.popups_item .item_content .content_title .titleG {
+  font-family: MicrosoftYaHei;
+  font-weight: 600;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+  color: #5f98ff;
+}
+.popups_item .item_content .content_title .titleB {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+}
+.popups_item .item_number ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.popups_item .item_number ul .number_num {
+  width: 33.33333%;
+  height: 3.33rem;
+  line-height: 3.33rem;
+  font-family: MicrosoftYaHei;
+  font-size: 1.6rem;
+  letter-spacing: 0.06rem;
+  color: #333333;
+  text-align: center;
+  border-bottom: 1px solid #eaeaea;
+  border-right: 1px solid #eaeaea;
+}
+.popups_item .item_number ul .number_delete {
+  width: 33.33333%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.popups_item .item_number ul .number_delete img {
+  display: block;
+  width: 2.33rem;
+  height: 1.67rem;
 }

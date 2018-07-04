@@ -1,0 +1,189 @@
+.balance_item{
+    padding: 0.67rem;
+    ul{
+        width: 100%;
+        height: 14rem;
+        background-color: #ffffff;
+        box-shadow: 0rem 0rem 0.27rem 0.07rem rgba(0, 0, 0, 0.1);		
+        border-radius: 0.27rem;
+        background-image: url(../image/balance.png);
+        background-size: 10.67rem 10.67rem;
+        background-position: 100% 100%;
+        background-repeat: no-repeat;
+        padding: 1.33rem 1rem 1.66rem;
+        .two_row{
+            margin-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            span{
+                &:nth-of-type(1){
+                    font-family: MicrosoftYaHei-Bold;
+                    font-weight: 600;
+                    font-size: 0.8rem;
+                    letter-spacing: 0.03rem;
+                    color: #cccccc;
+                }
+                &:nth-of-type(2){
+                    font-family: MicrosoftYaHei-Bold;
+                    font-size: 1.07rem;
+                    font-weight: 600;
+                    letter-spacing: 0.04rem;
+                    color: #5f98ff;
+                }
+            }
+        }
+        .one_row{
+            span{
+                &:nth-of-type(1){
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.93rem;
+                    letter-spacing: 0.04rem;
+                    color: #666666;
+                }
+                &:nth-of-type(2){
+                    font-family: MicrosoftYaHei-Bold;
+                    font-size: 1.33rem;
+                    font-weight: 600;
+                    letter-spacing: 0.05rem;
+                    color: #ffbf44;
+                }
+            }
+        }
+    } 
+}
+.font{
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 1.07rem;
+    letter-spacing: 0.21rem;
+    color: #ffffff;
+    font-weight: 600;
+    line-height: 2.87rem;
+    text-align: center;
+}
+.two_btn{
+    width: 100%;
+    display: flex;
+    position: fixed;
+    bottom: 4.2rem;
+    justify-content: space-around;
+    padding: 0 1rem;
+    .balance_button{
+        width: 100%;
+        height: 2.87rem;
+        background-color: #5f98ff;
+        border-radius: 0.33rem;
+        margin-right: 0.28rem;
+        .font;
+    }
+    .balacen_detail{
+        width: 100%;
+        height: 2.87rem;
+        background-color: #5f98ff;
+        border-radius: 0.33rem;
+        .font;
+    }
+}
+.popups_item{
+    position: fixed;
+    bottom: 0;
+    // display: none;
+    width: 100%;
+    .item_title{
+        padding: 0 1rem;
+        height: 3rem;
+        line-height: 3rem;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #eaeaea;
+        a{
+            &:nth-of-type(1){
+                font-family: MicrosoftYaHei;
+                font-size: 0.93rem;
+                letter-spacing: 0.04rem;
+                color: #999999;
+            }
+            &:nth-of-type(2){
+                font-family: MicrosoftYaHei;
+                font-size: 0.93rem;
+                letter-spacing: 0.04rem;
+                color: #5f98ff;
+            }
+        }
+        span{
+            font-family: MicrosoftYaHei;
+            font-size: 1.2rem;
+            letter-spacing: 0.05rem;
+            color: #666666;
+        }
+    }
+    .item_content{
+        padding: 1.33rem 1rem;
+        background: #fff;
+        .content_input{
+            input{
+                width: 100%;
+                height: 2.67rem;
+                background-color: #f7f7f7;
+                border-radius: 0.27rem;
+                border: solid 0.07rem #e5e5e5;
+                padding: 1rem;
+                letter-spacing: 0.04rem;
+                color: #999999;
+                font-family: MicrosoftYaHei;
+                font-size: 0.93rem;
+                &::-webkit-input-placeholder{
+                    font-family: MicrosoftYaHei;
+                    font-size: 0.93rem;
+                    letter-spacing: 0.04rem;
+                    color: #cccccc;
+                }
+            }
+        }
+        .content_title{
+            margin-top: 1rem;
+            .titleG{
+                font-family: MicrosoftYaHei;
+                font-weight: 600;
+                font-size: 1.07rem;
+                letter-spacing: 0.04rem;
+                color: #5f98ff;
+            }
+            .titleB{
+                font-family: MicrosoftYaHei;
+                font-size: 0.93rem;
+                letter-spacing: 0.04rem;
+                color: #999999;
+            }
+        }
+    }
+    .item_number{
+        ul{
+            display: flex;
+            flex-wrap: wrap;
+            .number_num{
+                width: 33.33333%;
+                height: 3.33rem;
+                line-height: 3.33rem;
+                font-family: MicrosoftYaHei;
+                font-size: 1.6rem;
+                letter-spacing: 0.06rem;
+                color: #333333;
+                text-align: center;
+                border-bottom: 1px solid #eaeaea;
+                border-right: 1px solid #eaeaea;        
+            }
+            .number_delete{
+                width: 33.33333%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    display: block;
+                    width: 2.33rem;
+                    height: 1.67rem;
+                }
+            }
+        }
+    }
+}
