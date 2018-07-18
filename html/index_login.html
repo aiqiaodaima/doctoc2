@@ -41,8 +41,8 @@
             </ul>
         </div>
         <div class="login_btn">
-            <a href="index.html">立即登陆</a>
-            <!-- <a href="javascript:void(0)">立即登陆</a> -->
+            <!-- <a href="index.html">立即登陆</a> -->
+            <a href="javascript:void(0)">立即登陆</a>
         </div>
     </div>
 </body>
@@ -50,58 +50,72 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function () {
-        // $('#login_name').on('keyup', function () {
-        //     window.login_name = $(this).val()
-        // })
-        // $('#login_phone').on('keyup', function () {
-        //     window.login_phone = $(this).val()
-        // })
-        // $('#login_pass').on('keyup', function () {
-        //     window.login_pass = $(this).val()
-        // });
-        // // 获取验证码
-        // $('.pass_btn').on('click', function () {
-        //     if ((/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(login_phone))) {
-        //         $.ajax({
-        //             url: 'http://hszj.yraise.com/note/sendNote',
-        //             data: {
-        //                 phone: login_phone
-        //             },
-        //             type: 'POST',
-        //             success: function (data) {
-        //                 console.log(data)
-        //             }
-        //         })
-        //     } else {
-        //         $.alert("请你填写正确的手机号");
-        //     }
-        // })
-        // $('.login_btn>a').on('click', function () {
-        //     if ((/^\d{6}$/.test(login_pass))) {
-        //         $.ajax({
-        //             url: 'http://hszj.yraise.com/note/selectNoteCode',
-        //             data: {
-        //                 code: login_pass,
-        //             },
-        //             type: 'POST',
-        //             success: function (data) {
-        //                 $.ajax({
-        //                     url: 'http://hszj.yraise.com/user/login',
-        //                     data: {
-        //                         phone: login_phone,
-        //                         name: login_name
-        //                     },
-        //                     type: 'POST',
-        //                     success: function (data) {
-        //                         window.location = "index.html"
-        //                     }
-        //                 })   
-        //             }
-        //         })
-        //     } else {
-        //         $.alert("请您先获取验证码");
-        //     }
-        // });
+        $('#login_name').on('keyup', function () {
+            window.login_name = $(this).val()
+        })
+        $('#login_phone').on('keyup', function () {
+            window.login_phone = $(this).val()
+        })
+        $('#login_pass').on('keyup', function () {
+            window.login_pass = $(this).val()
+        });
+        // 获取验证码
+        $('.pass_btn').on('click', function () {
+            var a = 60;
+            $('.pass_btn').text(`已发送(${a}s)`).attr("disabled", true);
+            let b = setInterval(() =>{
+                a--;
+                if(a>=0){
+                    $('.pass_btn').text(`已发送(${a}s)`)
+                }else{
+                    clearInterval(b);
+                    $('.pass_btn').attr('disabled',false)
+                }
+                
+            },1000)
+            if ((/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(login_phone))) {
+                $.ajax({
+                    url: 'http://192.168.1.150:1002/note/sendNote',
+                    data: {
+                        phone: login_phone
+                    },
+                    type: 'POST',
+                    success: function (data) {
+                        console.log(data)
+                    }
+                })
+            } else {
+                $.alert("请你填写正确的手机号");
+            }
+        })
+        $('.login_btn>a').on('click', function () { 
+            if ((/^\d{6}$/.test(login_pass))) {
+                $.ajax({
+                    url: 'http://192.168.1.150:1002/note/selectNoteCode',
+                    data: {
+                        code: login_pass,
+                    },
+                    type: 'POST',
+                    success: function (data) {
+                        console.log(data)
+                        $.ajax({
+                            url: 'http://192.168.1.150:1002/user/login',
+                            data: {
+                                phone: login_phone,
+                                name: login_name
+                            },
+                            type: 'POST',
+                            success: function (data) {
+                                console.log(data)
+                                // window.location = "index.html"
+                            }
+                        })   
+                    }
+                })
+            } else {
+                $.alert("请您先获取验证码");
+            }
+        });
     });
 </script>
 
