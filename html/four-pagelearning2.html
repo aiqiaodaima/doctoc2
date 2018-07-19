@@ -19,7 +19,6 @@
         .weui-cells {
             margin-bottom: 5px;
         }
-
         .weui-cell_select .weui-cell__bd:after {
             width: 10px;
             height: 10px;
@@ -27,9 +26,11 @@
         .weui-cells:nth-last-of-type(1){
             margin-bottom: 0;
         }
+        .special_item{
+            padding: 0 1rem;
+        }
     </style>
 </head>
-
 <body ontouchstart>
     <div class="page__bd">
         <div class="weui-cells weui-cells_form">
@@ -37,20 +38,23 @@
                 <div class="weui-cell__hd">
                     <label for="" class="weui-label">会议身份</label>
                 </div>
-                <div class="weui-cell__bd">
-                    <select class="weui-select select1" name="select2">
+                <div class="special_item">
+                    参会
+                </div>
+                <!-- <div class="weui-cell__bd"> -->
+                    <!-- <select class="weui-select select1" name="select2">
                         <option value="0">请选择</option>
                         <option value="1">发起</option>
                         <option value="2">参会</option>
-                    </select>
-                </div>
+                    </select> -->
+                <!-- </div> -->
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd">
                     <label class="weui-label">会议名称</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入会议名称">
+                    <input class="weui-input metName" type="text" placeholder="请输入会议名称">
                 </div>
             </div>
             <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -58,7 +62,7 @@
                     <label for="select2" class="weui-label label_change">会议性质</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <select class="weui-select selector_12" name="select2">
+                    <select class="weui-select selector_12 nature" name="select2">
                         <option value="01">请选择</option>
                         <option value="0">全国大型</option>
                         <option value="1">受邀讲学</option>
@@ -75,7 +79,7 @@
                     <label class="weui-label">预计规模</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入预计规模">
+                    <input class="weui-input scale" type="text" placeholder="请输入预计规模">
                 </div>
             </div>
             <div class="weui-cell">
@@ -83,7 +87,7 @@
                     <label class="weui-label">组织机构</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入组织机构">
+                    <input class="weui-input sponsor" type="text" placeholder="请输入组织机构">
                 </div>
             </div>
             <div class="weui-cell">
@@ -91,7 +95,7 @@
                     <label class="weui-label">预算金额</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入预算金额">
+                    <input class="weui-input budgetMoney" type="number" pattern="[0-9]*" placeholder="请输入预算金额">
                 </div>
             </div>
             <div class="weui-cell">
@@ -99,7 +103,7 @@
                     <label class="weui-label">已获资助</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入已获取资助金额">
+                    <input class="weui-input gainMoney" type="number" pattern="[0-9]*" placeholder="请输入已获取资助金额">
                 </div>
             </div>
         </div>
@@ -109,7 +113,7 @@
                     <label class="weui-label">会议开始时间</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" id='datetime-picker' placeholder="请选择" />
+                    <input class="weui-input startTime" type="text" id='datetime-picker' placeholder="请选择" />
                 </div>
             </div>
             <div class="weui-cell selector_1 moving">
@@ -117,7 +121,7 @@
                     <label class="weui-label">会议结束时间</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" id='datetime-picker2' placeholder="请选择" />
+                    <input class="weui-input endTime" type="text" id='datetime-picker2' placeholder="请选择" />
                 </div>
             </div>
 
@@ -126,7 +130,7 @@
                     <label class="weui-label">申请资助</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入申请资助">
+                    <input class="weui-input money" type="text" placeholder="请输入申请金额（万元）">
                 </div>
             </div>
             <div class="weui-cell">
@@ -134,7 +138,7 @@
                     <label class="weui-label">资金用途说明</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入资金用途说明">
+                    <input class="weui-input reason" type="text" placeholder="请输入资金用途说明">
                 </div>
             </div>
         </div>
@@ -142,7 +146,8 @@
     </div>
     <div class="btn_top"></div>
     <div class="item_btn">
-        <a href="audit.html">提交资助申请</a>
+        <a href="javascript:void(0)">提交资助申请</a>
+        <!-- <a href="audit.html">提交资助申请</a> -->
     </div>
     </div>
 </body>
@@ -152,6 +157,72 @@
     $(function () {
         $("#datetime-picker").datetimePicker();
         $("#datetime-picker2").datetimePicker();
+        
+        $('.metName').on('keyup',() =>{                    
+            window.metName  =  $('.metName').val();     
+        })
+        $('.nature').on('change',() =>{                    
+            window.nature  =  $('.nature').val();     
+        })
+        $('.scale').on('keyup',() =>{                    
+            window.scale  =  $('.scale').val();     
+        }) 
+        $('.sponsor').on('keyup',() =>{                    
+            window.sponsor  =  $('.sponsor').val();     
+        }) 
+        $('.budgetMoney').on('keyup',() =>{                    
+            window.budgetMoney  =  $('.budgetMoney').val();     
+        })
+        // 已获金额 
+        $('.gainMoney').on('keyup',() =>{                    
+            window.gainMoney  =  $('.gainMoney').val();     
+        }) 
+        $('.startTime').on('change',() =>{                    
+            window.startTime  =  $('.startTime').val();     
+        }) 
+        $('.endTime').on('change',() =>{                    
+            window.endTime  =  $('.endTime').val();     
+        }) 
+        $('.money').on('keyup',() =>{                    
+            window.money  =  $('.money').val();     
+        })
+        $('.reason').on('keyup',() =>{                    
+            window.reason  =  $('.reason').val();     
+        })    
+        
+        $('.item_btn').on('click',()=>{ 
+            let p = new Promise((resolve,reject) =>{
+                $.ajax({
+                    url: 'http://192.168.1.150:1002/metting/insertDoctorMetting',
+                    dataType: 'json',
+                    type: 'POST',
+                    data : {
+                        metName,
+                        nature,
+                        scale,
+                        sponsor,
+                        budgetMoney,
+                        gainMoney,
+                        startTime,
+                        endTime,
+                        money,
+                        reason
+                    },
+                    success (res){
+                        console.log(res);
+                        resolve(res)
+                    },
+                    error (res) {
+                        reject(res)
+                    }
+                })
+            })
+            p.then((res)=>{
+                console.log(res)
+            },(res)=>{
+                console.log(res)
+            })
+        })
     });
 </script>
 
