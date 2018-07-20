@@ -92,6 +92,7 @@
 }
 .card_img{
     display: flex;
+    flex-shrink: 2;
 }
 .card_img .img_img{
     width: 6.25rem;

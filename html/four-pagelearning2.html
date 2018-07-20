@@ -218,9 +218,9 @@
                 })
             })
             p.then((res)=>{
-                console.log(res)
+                window.location = 'audit.html'
             },(res)=>{
-                console.log(res)
+               $.alert('请先填写资料')
             })
         })
     });

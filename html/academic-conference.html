@@ -74,8 +74,7 @@
                     </div>
                 </div>
                 <!-- 卡片 -->
-                <div class="weui-panel">
-                    <!-- <div class="weui-panel__hd">会议一览</div> -->
+                <!-- <div class="weui-panel">
                     <div class="item_card">
                         <a href="conference-item.html">
                             <div class="card_title">第三届广东口腔医学器材博览会...</div>
@@ -111,79 +110,7 @@
                             </div>
                         </a>
                     </div>
-                </div>
-                <div class="weui-panel">
-                    <div class="item_card">
-                        <a href="conference-item.html">
-                            <div class="card_title">第三届广东口腔医学器材博览会...</div>
-                            <div class="card_img">
-                                <div class="img_img">
-                                    <img src="../image/conference-img.png" alt="">
-                                </div>
-                                <div class="img_word">
-                                    <ul>
-                                        <li class="word_item">
-                                            <span class="word_img">
-                                                <img src="../image/icon-nature.png" alt="">
-                                            </span>
-                                            <span class="word_word">全国大型会议</span>
-                                        </li>
-                                        <li class="word_item">
-                                            <span class="word_img">
-                                                <img src="../image/icon-address.png" alt="">
-                                            </span>
-                                            <span class="word_word">广州市</span>
-                                        </li>
-                                        <li class="word_item">
-                                            <span class="word_img">
-                                                <img src="../image/icon-time.png" alt="">
-                                            </span>
-                                            <span class="word_word">2019年03月23日-3月26日</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card_state">
-                                <img src="../image/icon-success.png" alt="">
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="weui-panel">
-                    <!-- <div class="weui-panel__hd">会议一览</div> -->
-                    <div class="item_card">
-                        <a href="conference-item.html">
-                            <div class="card_title">第三届广东口腔医学器材博览会...</div>
-                            <div class="card_img">
-                                <div class="img_img">
-                                    <img src="../image/conference-img.png" alt="">
-                                </div>
-                                <div class="img_word">
-                                    <ul>
-                                        <li class="word_item">
-                                            <span class="word_img">
-                                                <img src="../image/icon-nature.png" alt="">
-                                            </span>
-                                            <span class="word_word">全国大型会议</span>
-                                        </li>
-                                        <li class="word_item">
-                                            <span class="word_img">
-                                                <img src="../image/icon-address.png" alt="">
-                                            </span>
-                                            <span class="word_word">广州市</span>
-                                        </li>
-                                        <li class="word_item">
-                                            <span class="word_img">
-                                                <img src="../image/icon-time.png" alt="">
-                                            </span>
-                                            <span class="word_word">2019年03月23日-3月26日</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                </div>   -->
             </div>
         </div>
     </div>
@@ -205,7 +132,68 @@
         $('.weui-panel__bd').on('click', function () {
             window.location.href = 'conference-item.html'
         })
-
+        let add = 'https://imuts.oss-cn-shenzhen.aliyuncs.com/'
+        function fn(data) {
+            if(data.metName.length>10){
+                data.metName = data.metName.substring(0,10) + '...'
+            }
+            let el = `<div class="weui-panel" data-id=${data.id}>
+                    <div class="item_card">
+                        <a href="javascript:void(0)">
+                            <div class="card_title">${data.metName}</div>
+                            <div class="card_img">
+                                <div class="img_img">
+                                    <img src='${add}${data.photo}' alt="">
+                                </div>
+                                <div class="img_word">
+                                    <ul>
+                                        <li class="word_item">
+                                            <span class="word_img">
+                                                <img src="../image/icon-nature.png" alt="">
+                                            </span>
+                                            <span class="word_word">${data.metName}</span>
+                                        </li>
+                                        <li class="word_item">
+                                            <span class="word_img">
+                                                <img src="../image/icon-address.png" alt="">
+                                            </span>
+                                            <span class="word_word">${data.city}</span>
+                                        </li>
+                                        <li class="word_item">
+                                            <span class="word_img">
+                                                <img src="../image/icon-time.png" alt="">
+                                            </span>
+                                            <span class="word_word">${data.startTime}-${data.endTime}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card_state">
+                                <img src="../image/icon-success.png" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </div>`
+            $('#tab1').append(el)
+        }
+        $.ajax({
+            url: 'http://192.168.1.150:1002/metting/selectAllAppDm',
+            type: 'POST',
+            dataType: 'json',
+            success(res) {
+                console.log(res)
+                for (var i =0;i<res.dmpsList.length;i++){
+                    fn(res.dmpsList[i])   
+                }
+            },
+            error(res) {
+                console.log(res)
+            }
+        })
+        $('#tab1').on('click','.weui-panel',function(){
+            localStorage.setItem('data-id',$(this).attr('data-id'));
+            window.location = 'conference-item.html';
+        })
     });
 </script>
 
