@@ -110,7 +110,8 @@ img{ width: 100%; height: auto;max-width: 100%; display: block; }
 .patient_photo ul .photo_item a .item_left{
     margin-right: 1rem;
     width: 6.25rem;
-	height: 7.5rem;
+    height: 7.5rem;
+    overflow: hidden;
 }
 .patient_photo ul .photo_item a .item_right .right_title .title_name{
     font-family: MicrosoftYaHei-Bold;
@@ -124,7 +125,7 @@ img{ width: 100%; height: auto;max-width: 100%; display: block; }
     display: block;
     margin-left: 5px;
     width: 0.59rem;
-	height: 0.31rem;
+    height: 0.31rem;
 }
 .patient_photo ul .photo_item a .item_right .title_work{
     /* margin-bottom: 5px; */
