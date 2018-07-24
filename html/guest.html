@@ -19,43 +19,9 @@
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="guest_img">
-            <ul>
-                <li class="img_img">
-                    <img src="../image/Mask1.png" alt="">
-                </li>
-                <li class="img_title">
-                    <span>陈丞澄</span>
-                    <span>教授</span>
-                </li>
-                <li class="img_honour">
-                    中国科学院院士
-                </li>
-                <li class="img_honour">
-                    中华医学会主任学部委员
-                </li>
-                <li class="img_honour">
-                    第四届全国肿瘤预防促进会副主任委员
-                </li>
-                <li class="img_honour">
-                    中山大学附属第一医院副院长
-                </li>
-                <li class="img_honour">
-                    中山大学附属第一医院肿瘤预防科主任
-                </li>
+            <ul class="uls">
+               
             </ul>
-        </div>
-        <div class="guest_item">
-            <div class="item_title">个人简介</div>
-            <div class="item_content">
-                主任医师，教授，博士生导师，国家级名老中医药专家，全国优秀中医临床研修老师，北京市中医住院医师规范化培训师承指导老师，全国中医院优秀院长。受教于中医大师刘渡舟教授、苏宝刚教授，继承经典辨证思路，擅长运用精方辨证施治。 从事中医临床38年余，对中医内伤杂病，人体血管疾病等有较深造诣。临床诊治中医内科杂病、肾病、妇科病症、男性前列腺肥大、呼吸病、咳嗽、喘息、上呼吸道感染、肿瘤的术前及术后的中医调理等有显著的疗效。
-            </div>
-        </div>
-        <div class="guest_item">
-            <div class="item_title">学术历程</div>
-            <div class="item_content">
-                主任医师，教授，博士生导师，国家级名老中医药专家，全国优秀中医临床研修老师，北京市中医住院医师规范化培训师承指导老师，全国中医院优秀院长。受教于中医大师刘渡舟教授、苏宝刚教授，继承经典辨证思路，擅长运用精方辨证施治。
-从事中医临床38年余，对中医内伤杂病，人体血管疾病等有较深造诣。临床诊治中医内科杂病、肾病、妇科病症、男性前列腺肥大、呼吸病、咳嗽、喘息、上呼吸道感染、肿瘤的术前及术后的中医调理等有显著的疗效。 从事中医临床38年余，对中医内伤杂病，人体血管疾病等有较深造诣。临床诊治中医内科杂病、肾病、妇科病症、男性前列腺肥大、呼吸病、咳嗽、喘息、上呼吸道感染、肿瘤的术前及术后的中医调理等有显著的疗效。
-            </div>
         </div>
     </div>
 </body>
@@ -63,7 +29,44 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function () {
-
+        $.ajax({
+            url: 'http://192.168.1.150:1002/metting/selectdoctorMettingInviteById',
+            type: 'POST',
+            data: {
+                id : 74
+            },
+            success (res){
+                console.log(res);
+                let el = `
+                    <li class="img_img">
+                        <img src='https://imuts.oss-cn-shenzhen.aliyuncs.com/${res.dmi.photo}' alt="">
+                    </li>
+                    <li class="img_title">
+                        <span>${res.dmi.name}</span>
+                        <span>${res.dmi.job}</span>
+                    </li>
+                `
+                let el2 = ` <div class="guest_item">
+                    <div class="item_title">个人简介</div>
+                    <div class="item_content">
+                        ${res.dmi.resume}
+                    </div>
+                </div>`
+                let el3 = ` <div class="guest_item">
+                    <div class="item_title">教育情况</div>
+                    <div class="item_content">
+                        ${res.dmi.education}
+                    </div>
+                </div>`
+                $('.uls').append(el);
+                $('.page__bd').append(el2).append(el3)
+                let arr = res.dmi.actor.split(',');
+                for(let i = 0;i<arr.length;i++){
+                    var lis = `<li class="img_honour">${arr[i]}</li>`
+                    $('.uls').append(lis)
+                }
+            }
+        })
     });
 </script>
 

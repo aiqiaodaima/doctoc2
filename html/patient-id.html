@@ -94,17 +94,6 @@
                         <input class="weui-input input_education" type="text" placeholder="请输入学位">
                     </div>
                 </div>
-            <!-- <div class="weui-cell weui-cell_warn">
-                <div class="weui-cell__hd">
-                    <label for="" class="weui-label">学位</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <input class="weui-input input_education2" type="text" placeholder="请输入学位">
-                </div>
-                <div class="weui-cell__ft">
-                    <i class="weui-icon-warn"></i>
-                </div>
-            </div> -->
             <div class="weui-cell">
                 <div class="weui-cell__hd">
                     <label class="weui-label">授予院校</label>
@@ -141,39 +130,10 @@
                 </div>
             </a>
         </div>
-
-        <div class="weui-cells weui-cells_form">
-            <div class="weui-cell weui-cell_vcode">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">手机号</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <input class="weui-input input_phone" type="tel" placeholder="请输入手机号">
-                </div>
-                <div class="weui-cell__ft">
-                    <button class="weui-vcode-btn">获取验证码</button>
-                </div>
-            </div>
-            <div class="weui-cell">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">验证码</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <input class="weui-input input_pass" type="text" placeholder="请输入验证码">
-                </div>
-            </div>
-            <!-- <div class="weui-cell">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">验证码</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入验证码">
-                </div>
-            </div> -->
-        </div>
         <div class="btn_top"></div>
         <div class="item_btn">
-            <a href="audit.html">确定提交</a>
+            <a href="javascript:void(0)">确认提交</a>
+            <!-- <a href="audit.html">确定提交</a> -->
         </div>
         <!-- 弹出层 -->
         <div id="full" class='weui-popup__container'>
@@ -193,7 +153,10 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function () {
-        $("#full").popup();
+        if(!localStorage.getItem('industry')){
+            $("#full").popup();
+        }
+        
         $('.clause_affirm').on('click',function () {
             $.closePopup()
         })
@@ -233,9 +196,6 @@
             const input_pass = $(this).val(); 
             localStorage.setItem('input_pass',input_pass);
         })
-
-
-
         $('.input_name').val(localStorage.getItem('input_name'));
         $('.input_sex').val(localStorage.getItem('input_sex'));
         $('.input_age').val(localStorage.getItem('input_age'));
@@ -243,11 +203,37 @@
         $('.input_education2').val(localStorage.getItem('input_education2'));
         $('.input_school').val(localStorage.getItem('input_school'));
         $('.input_moving').val(localStorage.getItem('input_moving'));
-        $('.input_phone').val(localStorage.getItem('input_phone'));
-        $('.input_pass').val(localStorage.getItem('input_pass'));
 
         $('.weui-switch-cp__input').on('change',function () {
             $('.moving').slideToggle(300)
+        })
+        $.ajax({
+            url: 'http://192.168.1.150:1002/user/insertDoctorUser',
+            type: 'POST',
+            data: {
+                name: localStorage.getItem('input_name'),
+                sex: localStorage.getItem('input_sex'),
+                age: localStorage.getItem('input_age'),
+                education: localStorage.getItem('input_education'),
+                highestDegree: localStorage.getItem('input_education2'),
+                school: localStorage.getItem('input_school'),
+                postdoctor: '是',
+                bachelors: localStorage.getItem('input_moving'),
+                industry: localStorage.getItem('industry'),
+                job: localStorage.getItem('job'),
+                hospital: localStorage.getItem('hospital'),
+                hplSection: localStorage.getItem('hplSection'),
+                hplPhone: localStorage.getItem('hplPhone'),
+                jobPhone: localStorage.getItem('jobPhone'),
+            },
+            success (res){
+                console.log(res)
+                localStorage.clear();
+            },
+            error (res){
+                console.log(res)
+            }
+            
         })
     });
 </script>

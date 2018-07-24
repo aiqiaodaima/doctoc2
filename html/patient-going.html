@@ -23,10 +23,10 @@
                     <label for="" class="weui-label">工作性质</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <select class="weui-select" name="select2">
-                        <option value="1">医生</option>
-                        <option value="2">护士</option>
-                        <!-- <option value="3">英国</option> -->
+                    <select class="weui-select industry" name="select1">
+                        <option value="0">请选择</option>
+                        <option value="医生">医生</option>
+                        <option value="护士">护士</option>
                     </select>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                     <label class="weui-label">所在医院</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入所在医院">
+                    <input class="weui-input hospital" type="text" placeholder="请输入所在医院">
                 </div>
             </div>
             <div class="weui-cell">
@@ -43,7 +43,7 @@
                     <label class="weui-label">所在专科</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入所在专科">
+                    <input class="weui-input hplSection" type="text" placeholder="请输入所在专科">
                 </div>
             </div>
 
@@ -52,10 +52,11 @@
                     <label for="" class="weui-label">职称</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <select class="weui-select" name="select2">
-                        <option value="1">主治医生</option>
-                        <option value="2">主任医师</option>
-                        <option value="3">主任技师</option>
+                    <select class="weui-select job" name="select2">
+                        <option value="0">请选择</option>
+                        <option value="主治医生">主治医生</option>
+                        <option value="主任医师">主任医师</option>
+                        <option value="主任技师">主任技师</option>
                     </select>
                 </div>
             </div>
@@ -65,7 +66,7 @@
                     <label class="weui-label">医院电话</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入医院电话">
+                    <input class="weui-input hplPhone" type="text" placeholder="请输入医院电话">
                 </div>
             </div>
             <div class="weui-cell">
@@ -73,7 +74,7 @@
                     <label class="weui-label">工作电话</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入工作电话">
+                    <input class="weui-input jobPhone" type="text" placeholder="请输入工作电话">
                 </div>
             </div>
 
@@ -84,6 +85,24 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function(){
+        $('.industry').on('change',function(){
+           localStorage.setItem('industry',$(this).val())
+        })
+        $('.job').on('change',function(){
+           localStorage.setItem('job',$(this).val())
+        })
+        $('.hospital').on('click',function(){
+           localStorage.setItem('hospital',$(this).val())
+        })
+        $('.hplSection').on('click',function(){
+           localStorage.setItem('hplSection',$(this).val())
+        })
+        $('.hplPhone').on('click',function(){
+           localStorage.setItem('hplPhone',$(this).val())
+        })
+        $('.jobPhone').on('click',function(){
+           localStorage.setItem('jobPhone',$(this).val())
+        })
        
     });
 </script>

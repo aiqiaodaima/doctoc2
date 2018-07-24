@@ -191,8 +191,10 @@
             }
         })
         $('#tab1').on('click','.weui-panel',function(){
-            localStorage.setItem('data-id',$(this).attr('data-id'));
-            window.location = 'conference-item.html';
+            var id = $(this).attr('data-id')
+            console.log(id)
+            localStorage.setItem('data-id',id);
+            window.location = 'conference-item.html?id='+id;
         })
     });
 </script>

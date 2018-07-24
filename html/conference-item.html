@@ -35,22 +35,19 @@
             autoplay: 3000,
             lazyLoad: true
         });
-        $('.patient_photo>ul>li').on('click', function () {
-            window.location.href = 'guest.html'
-        });
-        $(document).on("click", "#show-confirm", function () {
-            $.confirm("确定提交参会申请", "提示", function () {
-                //   $.toast("文件已经删除!");
-                window.location.href = 'refuse1.html'
-            }, function () {
-                //取消操作
-            });
-        });
+
+        let id = window.location.search.split('?')[window.location.search.split('?').length - 1].substr(3);
         $.ajax({
-            url: 'http://192.168.1.150:1002/metting/selectAllMetting?meId=4 ',
+            url: 'http://192.168.1.150:1002/metting/selectAllMetting',
             type: 'POST',
+            data: {
+                meId: id
+            },
             success(res) {
                 console.log(res);
+                if (res.msg == "数据为空") {
+                    alert('该会议数据已被删除')
+                }
                 let el1 = ` <div class="body_bg">
                     <div class="item_header">
                         ${res.dm.metName}
@@ -79,7 +76,7 @@
                                 </div>
                                 <div class="width_4">
                                     <img src="../image/ico_people.svg" alt="" class="img_people">
-                                    <span class="word_people">${res.dm.scale}</span>
+                                    <span class="word_people">${res.dm.examine}</span>
                                 </div>
                             </li>
                         </ul>
@@ -108,14 +105,25 @@
                 <!-- 分页标识 -->
             </div>
         </div>`
-                let el3 = `
-                    <div class="item_content">
-                    <div class="content_title">会议简介</div>
-                    <div class="content_word">
-                        ${res.dmct.content}
-                    </div>
+                if (res.dmct !== null) {
+                    var el3 = `
+                <div class="item_content">
+                <div class="content_title">会议简介</div>
+                <div class="content_word">
+                    ${res.dmct.content}
                 </div>
-                `
+            </div>
+            `
+                } else {
+                    var el3 = `
+                <div class="item_content">
+                <div class="content_title">会议简介</div>
+                <div class="content_word">
+                   您尚未上传会议简介
+                </div>
+            </div>
+            `
+                }
                 let el4 = ` <div class="item_patient">
             <div class="patient_title">特邀嘉宾</div>
             <div class="patient_photo">
@@ -130,18 +138,36 @@
                 </div>
             </div>
         </div>`
-                let el5 = ` <div class="meeting_item">
+                if (res.dmct !== null) {
+                    var el5 = ` <div class="meeting_item">
             <div class="meeting_title">会议内容及交流形式</div>
             <div class="meeting_word">
                 ${res.dmct.content}
             </div>
         </div>`
+                } else {
+                    var el5 = ` <div class="meeting_item">
+            <div class="meeting_title">会议内容及交流形式</div>
+            <div class="meeting_word">
+                您尚未上传会议内容及交流形式
+            </div>
+        </div>`
+                }
+
                 let el6 = `<div class="meeting_item">
             <div class="meeting_title">组织机构</div>
             <div class="meeting_word el6">
             </div>
         </div>`
-                let el7 = `<div class="meeting_item">
+                if (res.dmcwList.length == 0) {
+                    var el7 = `<div class="meeting_item">
+            <div class="meeting_title">联系方式</div>
+            <div class="meeting_word">
+               
+            </div>
+        </div>`
+                } else {
+                    var el7 = `<div class="meeting_item">
             <div class="meeting_title">联系方式</div>
             <div class="meeting_word">
                 <span>联系人：${res.dmcwList[0].name}</span>
@@ -149,6 +175,7 @@
                 <span>地址：${res.dmcwList[0].hospital}</span>
             </div>
         </div>`
+                }
                 let el8 = `<div class="btn_top"></div>
         <div class="item_btn">
             <a href="javascript:void(0)" id='show-confirm'>
@@ -178,24 +205,41 @@
                             </div>
                         </a>
                     </li>`
-                  
+
                     var arr = res.dmiList[i].actor.split(',');
                     // console.log(arr)
                     for (var j = 0; j < arr.length; j++) {
                         let divs = `<div class="title_work">${arr[j]}</div>`;
-                        setTimeout(function (){
-                            $('.ell4').eq(i).append(divs).append('<div>...</div>');
+                        setTimeout(function () {
+                            $('.ell4').eq(i).append(divs);
                             // if()
-                        },10)
-                       
+                        }, 10)
+
                     }
-                    
+
                     $('.el4').append(lis)
                 }
-                console.log($('.ell4'))
+                if (res.dm.applyState !== '允许') {
+                    $('#show-confirm').css({ 'background-color': "#333" }).attr('disabled', true);
+                }
+                $('.patient_photo>ul>li').on('click', function () {
+                    window.location.href = 'guest.html'
+                });
+                $(document).on("click", "#show-confirm", function () {
+                    if (res.dm.applyState == '允许') {
+                        $.confirm("确定提交参会申请", "提示", function () {
+                            //   $.toast("文件已经删除!");
+                            window.location.href = 'refuse1.html'
+                        }, function () {
+                            //取消操作
+                        });
+                    } else {
+                        $.alert('该会议不允许自主参会')
+                    }
+                });
             },
             error(res) {
-                console.log(res)
+
             }
         })
     });
