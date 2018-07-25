@@ -184,7 +184,26 @@
             type: 'POST',
             success (res){
                 console.log(res);
-                $('.item_left span:nth-of-type(2)').html(res.pmList[0].number)
+                // blue
+                $('.blue').eq(0).html(res.pmList[0].number)
+                $('.blue').eq(1).html(res.pmList[0].money)
+                $('.blue').eq(2).html(res.pmList2[0].number)
+                $('.blue').eq(3).html(res.pmList2[0].money)
+                //green
+                $('.green').eq(0).html(res.pmList[1].number)
+                $('.green').eq(1).html(res.pmList[1].money)
+                $('.green').eq(2).html(res.pmList2[1].number)
+                $('.green').eq(3).html(res.pmList2[1].money)
+                // orange
+                $('.orange').eq(0).html(res.pmList[2].number)
+                $('.orange').eq(1).html(res.pmList[2].money)
+                $('.orange').eq(2).html(res.pmList2[2].number)
+                $('.orange').eq(3).html(res.pmList2[2].money)
+                // light_red
+                $('.light_red').eq(0).html(res.pmList[3].number)
+                $('.light_red').eq(1).html(res.pmList[3].money)
+                $('.light_red').eq(2).html(res.pmList2[3].number)
+                $('.light_red').eq(3).html(res.pmList2[3].money)
             }
         })
     });

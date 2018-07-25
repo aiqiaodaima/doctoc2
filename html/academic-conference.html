@@ -48,69 +48,33 @@
                 <div class="conference-select">
                     <div class="weui-cell weui-cell_select weui-cell_select-before">
                         <div class="weui-cell__hd">
-                            <select class="weui-select" name="select1">
-                                <option value="1">综合排序</option>
-                                <option value="2">人气排序</option>
+                            <select class="weui-select select1" name="select1">
+                                <option value="综合排序">综合排序</option>
+                                <option value="人气排序">人气排序</option>
                             </select>
                         </div>
                         <div class="weui-cell__hd">
-                            <select class="weui-select" name="select2">
-                                <option value="1">学类分科</option>
-                                <option value="2">口腔科</option>
-                                <option value="3">内科</option>
-                                <option value="4">外科</option>
+                            <select class="weui-select select2" name="select2">
+                                <option value="学类分科">学类分科</option>
+                                <option value="口腔科">口腔科</option>
+                                <option value="内科">内科</option>
+                                <option value="外科">外科</option>
                             </select>
                         </div>
                         <div class="weui-cell__hd">
-                            <select class="weui-select" name="select3">
-                                <option value="1">会议性质</option>
-                                <option value="2">全国大型</option>
-                                <option value="3">受邀讲学</option>
-                                <option value="4">访问学者</option>
-                                <option value="5">区域大型</option>
-                                <option value="6">系统培训</option>
+                            <select class="weui-select select3" name="select3">
+                                <option value="会议性质">会议性质</option>
+                                <option value="全国大型">全国大型</option>
+                                <option value="受邀讲学">受邀讲学</option>
+                                <option value="访问学者">访问学者</option>
+                                <option value="区域大型">区域大型</option>
+                                <option value="系统培训">系统培训</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <!-- 卡片 -->
-                <!-- <div class="weui-panel">
-                    <div class="item_card">
-                        <a href="conference-item.html">
-                            <div class="card_title">第三届广东口腔医学器材博览会...</div>
-                            <div class="card_img">
-                                <div class="img_img">
-                                    <img src="../image/conference-img.png" alt="">
-                                </div>
-                                <div class="img_word">
-                                    <ul>
-                                        <li class="word_item">
-                                            <span class="word_img">
-                                                <img src="../image/icon-nature.png" alt="">
-                                            </span>
-                                            <span class="word_word">全国大型会议</span>
-                                        </li>
-                                        <li class="word_item">
-                                            <span class="word_img">
-                                                <img src="../image/icon-address.png" alt="">
-                                            </span>
-                                            <span class="word_word">广州市</span>
-                                        </li>
-                                        <li class="word_item">
-                                            <span class="word_img">
-                                                <img src="../image/icon-time.png" alt="">
-                                            </span>
-                                            <span class="word_word">2019年03月23日-3月26日</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card_state">
-                                <img src="../image/icon-success.png" alt="">
-                            </div>
-                        </a>
-                    </div>
-                </div>   -->
+                <div class="cards"></div>
             </div>
         </div>
     </div>
@@ -119,6 +83,7 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
         $('#J_Slider').slider({
@@ -132,7 +97,8 @@
         $('.weui-panel__bd').on('click', function () {
             window.location.href = 'conference-item.html'
         })
-        let add = 'https://imuts.oss-cn-shenzhen.aliyuncs.com/'
+        let add = 'https://imuts.oss-cn-shenzhen.aliyuncs.com/';
+        let url = Public.url();
         function fn(data) {
             if(data.metName.length>10){
                 data.metName = data.metName.substring(0,10) + '...'
@@ -174,10 +140,10 @@
                         </a>
                     </div>
                 </div>`
-            $('#tab1').append(el)
+            $('.cards').append(el)
         }
         $.ajax({
-            url: 'http://192.168.1.150:1002/metting/selectAllAppDm',
+            url: `${url}/metting/selectAllAppDm`,
             type: 'POST',
             dataType: 'json',
             success(res) {
@@ -195,6 +161,60 @@
             console.log(id)
             localStorage.setItem('data-id',id);
             window.location = 'conference-item.html?id='+id;
+        })
+        $('.select1').on("change",function(){
+            if($(this).val() == '人气排序'){
+                console.log(1)
+                $.ajax({
+                    url: `${url}/metting/selectAllAppDm`,
+                    type: 'POST',
+                    dataType: 'json',
+                    data :{
+                        type:1
+                    },
+                    success(res) {
+                        $('.cards').html(' ')
+                        for (var i =0;i<res.dmpsList.length;i++){
+                            fn(res.dmpsList[i])   
+                        }
+                    }
+                })
+            }
+        })
+        $('.select2').on("change",function(){
+            let val = $(this).val();
+            $.ajax({
+                url: `${url}/metting/selectAllAppDm`,
+                type: 'POST',
+                dataType: 'json',
+                data :{
+                    subjects:val
+                },
+                success(res) {
+                    $('.cards').html(' ')
+                    for (var i =0;i<res.dmpsList.length;i++){
+                        fn(res.dmpsList[i])   
+                    }
+                }
+            })  
+        })
+        $('.select3').on("change",function(){
+            let val = $(this).val();
+            $.ajax({
+                url: `${url}/metting/selectAllAppDm`,
+                type: 'POST',
+                dataType: 'json',
+                data :{
+                    nature:val
+                },
+                success(res) {
+                    $('.cards').html(' ')
+                    for (var i =0;i<res.dmpsList.length;i++){
+                        fn(res.dmpsList[i])   
+                    }
+                }
+            })
+           
         })
     });
 </script>
