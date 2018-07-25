@@ -62,8 +62,8 @@
                 <div class="weui-cell__bd">
                     <select class="weui-select input_sex" name="select2">
                         <option value="0">请选择</option>
-                        <option value="1">男</option>
-                        <option value="2">女</option>
+                        <option value="男">男</option>
+                        <option value="女">女</option>
                     </select>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                         <label class="weui-label">学位</label>
                     </div>
                     <div class="weui-cell__bd">
-                        <input class="weui-input input_education" type="text" placeholder="请输入学位">
+                        <input class="weui-input input_education2" type="text" placeholder="请输入学位">
                     </div>
                 </div>
             <div class="weui-cell">
@@ -132,7 +132,7 @@
         </div>
         <div class="btn_top"></div>
         <div class="item_btn">
-            <a href="javascript:void(0)">确认提交</a>
+            <a href="javascript:void(0)" class="btn_agree">确认提交</a>
             <!-- <a href="audit.html">确定提交</a> -->
         </div>
         <!-- 弹出层 -->
@@ -151,13 +151,60 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
         if(!localStorage.getItem('industry')){
             $("#full").popup();
         }
-        
+        let url = Public.url()
+        console.log(url)
         $('.clause_affirm').on('click',function () {
+            var id = localStorage.getItem("userId");
+            console.log(localStorage.getItem("userId"))
+            if(id){
+                $.ajax({
+                    url:`${url}/user/selectUser`,
+                    data:{
+                        id
+                    },
+                    type: 'POST',
+                    success (res){
+                        console.log(res)
+                        if(res.user.name !== null){
+                            localStorage.setItem('input_name',res.user.name);
+                        }
+                        if(res.user.sex !== null){
+                            localStorage.setItem('input_sex',res.user.sex);
+                        }
+                        if(res.user.age !== null){
+                            localStorage.setItem('input_age',res.user.age);
+                        }
+                        if(res.doctor.education !== null){
+                            localStorage.setItem('input_education',res.doctor.education);
+                        }
+                        if(res.doctor.highestDegree !== null){
+                            localStorage.setItem('input_education2',res.doctor.highestDegree);
+                        }
+                        if(res.doctor.school !== null){
+                            localStorage.setItem('input_school',res.doctor.school);
+                        }
+                        if(res.doctor.bachelors !== null){
+                            localStorage.setItem('input_moving',res.doctor.bachelors);
+                        }
+                        $('.input_name').val(localStorage.getItem('input_name'));
+                        $('.input_sex').val(localStorage.getItem('input_sex'));
+                        $('.input_age').val(localStorage.getItem('input_age'));
+                        $('.input_education').val(localStorage.getItem('input_education'));
+                        $('.input_education2').val(localStorage.getItem('input_education2'));
+                        $('.input_school').val(localStorage.getItem('input_school'));
+                        $('.input_moving').val(localStorage.getItem('input_moving'));
+                    },
+                    error (res){
+                        console.log(res)
+                    }
+                })
+            }
             $.closePopup()
         })
         $('.input_name').on('blur',function () {
@@ -207,7 +254,9 @@
         $('.weui-switch-cp__input').on('change',function () {
             $('.moving').slideToggle(300)
         })
-        $.ajax({
+
+        $('.btn_agree').on('click',()=>{
+            $.ajax({
             url: 'http://192.168.1.150:1002/user/insertDoctorUser',
             type: 'POST',
             data: {
@@ -225,15 +274,16 @@
                 hplSection: localStorage.getItem('hplSection'),
                 hplPhone: localStorage.getItem('hplPhone'),
                 jobPhone: localStorage.getItem('jobPhone'),
+                dtrId: localStorage.getItem('userId')
             },
             success (res){
                 console.log(res)
-                localStorage.clear();
+                // localStorage.clear();
             },
             error (res){
                 console.log(res)
             }
-            
+        })  
         })
     });
 </script>

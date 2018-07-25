@@ -31,8 +31,8 @@
             </div>
             <div class="weui-grids my_weuigrids">
                 <a href="three-pagescientific3.html" class="weui-grid js_grid me_message">
-                    <div class="me_messageTop">
-                        2
+                    <div class="me_messageTop count1">
+                        
                     </div>
                     <p class="me_messageBot">
                         科研课题
@@ -40,8 +40,8 @@
                 </a>
                 <div class="my_weuigridshr"></div>
                 <a href="academic-conference2.html" class="weui-grid js_grid me_message">
-                    <div class="me_messageTop">
-                        1
+                    <div class="me_messageTop count2">
+                        
                     </div>
                     <p class="me_messageBot">
                         学术会议
@@ -49,8 +49,8 @@
                 </a>
                 <div class="my_weuigridshr"></div>
                 <a href="booking.html" class="weui-grid js_grid me_message">
-                    <div class="me_messageTop">
-                        3
+                    <div class="me_messageTop count3">
+                        
                     </div>
                     <p class="me_messageBot">
                         预约请求
@@ -104,14 +104,7 @@
         </div>
         <!-- 底部 -->
         <div class="btn_top"></div>
-        <div class="weui-tabbar" style="position: fixed;">
-            <!-- <a href="javascript:;" class="weui-tabbar__item weui-bar__item--on">
-                    <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
-                    <div class="weui-tabbar__icon">
-                    <img src="./images/icon_nav_button.png" alt="">
-                    </div>
-                    <p class="weui-tabbar__label">微信</p>
-                </a> -->
+        <div class="weui-tabbar" style="position: fixed;">     
             <a href="index.html" class="weui-tabbar__item">
                 <div class="weui-tabbar__icon">
                     <img src="../image/tabbar_ico_home_nor.png" alt="">
@@ -136,9 +129,34 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
-
+        let url = Public.url();
+        $.ajax({
+            url :`${url}/metting/selectCountNum`,
+            data:{
+                dtrId : localStorage.getItem('userId')
+            },
+            type : "POST",
+            success (res){
+                console.log(res)
+                $('.count1').html(res.count1)
+                $('.count2').html(res.count2)
+                $('.count3').html(res.count3)
+                if(localStorage.getItem('scienceState')=='已获批复'){
+                    $('.autonym').html('以实名')
+                }else{
+                    $('.autonym').html('未实名')
+                }
+                $('.name').html(localStorage.getItem('name'))
+                if(localStorage.getItem('photo') == "null"){
+                    $('.photo img').attr('src','../image/patient.jpg')
+                }else{
+                    $('.photo img').attr('src', `${url}${localStorage.getItem('scienceState')}`)
+                }
+            }
+        })
     });
 </script>
 

@@ -18,6 +18,7 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
         if ($('body').width() < 375) {
@@ -35,10 +36,10 @@
             autoplay: 3000,
             lazyLoad: true
         });
-
+        let url = Public.url();
         let id = window.location.search.split('?')[window.location.search.split('?').length - 1].substr(3);
         $.ajax({
-            url: 'http://192.168.1.150:1002/metting/selectAllMetting',
+            url: `${url}/metting/selectAllMetting`,
             type: 'POST',
             data: {
                 meId: id
@@ -226,15 +227,27 @@
                     window.location.href = 'guest.html'
                 });
                 $(document).on("click", "#show-confirm", function () {
-                    if (res.dm.applyState == '允许') {
-                        $.confirm("确定提交参会申请", "提示", function () {
-                            //   $.toast("文件已经删除!");
-                            window.location.href = 'refuse1.html'
+                    console.log(localStorage.getItem('userId'))
+                    if(localStorage.getItem('userId')){
+                        console.log(1)
+                        if (res.dm.applyState == '允许') {
+                            $.confirm("确定提交参会申请", "提示", function () {
+                                //   $.toast("文件已经删除!");
+                                window.location.href = 'refuse1.html'
+                            }, function () {
+                                //取消操作
+                            });
+                        } else {
+                            $.alert('该会议不允许自主参会')
+                        }
+                    }else{
+                        $.confirm("请您先登陆再申请参会", "提示", function () {
+                                //   $.toast("文件已经删除!");
+                            window.location.href = 'index_login.html'
                         }, function () {
                             //取消操作
                         });
-                    } else {
-                        $.alert('该会议不允许自主参会')
+                        
                     }
                 });
             },

@@ -27,10 +27,12 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
+        let url = Public.url()
         $.ajax({
-            url: 'http://192.168.1.150:1002/metting/selectdoctorMettingInviteById',
+            url: `${url}/metting/selectdoctorMettingInviteById`,
             type: 'POST',
             data: {
                 id : 74

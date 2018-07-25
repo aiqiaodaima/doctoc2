@@ -28,8 +28,7 @@
                 <ul>
                     <li class="apply_title">
                         <div class="title_left">受邀参会资助申请</div>
-                        <div class="title_right">
-                            <a href="four-pagelearning1.html">新增申请</a>
+                        <div class="title_right apply1">                          
                         </div>
                     </li>
                     <li>
@@ -43,7 +42,6 @@
                         </div>
                         <div class="item_right">
                             <a href="three-pagelearning1.html">查看详情</a>
-
                         </div>
                     </li>
                     <li>
@@ -91,8 +89,7 @@
                 <ul>
                     <li class="apply_title">
                         <div class="title_left">组织发起会议资助申请</div>
-                        <div class="title_right">
-                            <a href="four-pagelearning2.html">新增申请</a>
+                        <div class="title_right apply2">
                         </div>
                     </li>
                     <li>
@@ -106,7 +103,6 @@
                         </div>
                         <div class="item_right">
                             <a href="three-pagelearning1.html">查看详情</a>
-
                         </div>
                     </li>
                     <li>
@@ -162,15 +158,35 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
         localStorage.removeItem('title')
         localStorage.removeItem('title2')
+        if(localStorage.getItem('applyState')=='已获批复'){
+            $('.apply1').html('<a href="four-pagelearning1.html">新增申请</a>');
+            $('.apply2').html('<a href="four-pagelearning2.html">新增申请</a>')
+        }else{
+            $('.apply1').html('<a href="javascript:void(0)">新增申请</a>');
+            $('.apply2').html('<a href="javascript:void(0)">新增申请</a>');
+        }
         $('.content_item').eq(1).on('click', function () {
             localStorage.setItem('title', '开会')
             localStorage.setItem('title2', '已申请组织发起会议资助申请')
         })
-
+        let url = Public.url();
+        $.ajax({
+            url:`${url}/metting/selectAppDm`,
+            data:{
+                // dtrId: localStorage.getItem('userId')
+                dtrId: 11
+            },
+            type: 'POST',
+            success (res){
+                console.log(res);
+                $('.item_left span:nth-of-type(2)').html(res.pmList[0].number)
+            }
+        })
     });
 </script>
 

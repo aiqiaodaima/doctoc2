@@ -48,8 +48,10 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
+        var url = Public.url()
         $('#login_name').on('keyup', function () {
             window.loginAccount = $(this).val()
         })
@@ -74,7 +76,7 @@
                     }   
                 },1000)
                 $.ajax({
-                    url: 'http://192.168.1.150:1002/note/sendNote',
+                    url: `${url}/note/sendNote`,
                     data: {
                         phone: login_phone
                     },
@@ -95,7 +97,7 @@
         $('.login_btn>a').on('click', function () { 
             if ((/^\d{6}$/.test(login_pass))) {
                 $.ajax({
-                    url: 'http://192.168.1.150:1002/note/selectNoteCode',
+                    url: `${url}/note/selectNoteCode`,
                     data: {
                         code: login_pass,
                     },
@@ -108,7 +110,7 @@
                     success (data) {
                         console.log(data)
                         $.ajax({
-                            url: 'http://192.168.1.150:1002/user/login',
+                            url: `${url}/user/login`,
                             data: {
                                 phone: login_phone,
                                 loginAccount: loginAccount
@@ -120,7 +122,12 @@
                             type: 'POST',
                             success (data) {
                                 console.log(data)
-                                window.location = 'index.html';
+                                localStorage.setItem('userId',data.user.id)
+                                localStorage.setItem('scienceState',data.user.scienceState)
+                                localStorage.setItem('name',data.user.name)
+                                localStorage.setItem('photo',data.user.photo)
+                                localStorage.setItem('applyState',data.applyState)
+                                // window.location = 'index.html';
                             },
                             error (){
                                 $.alert("验证码错误");
