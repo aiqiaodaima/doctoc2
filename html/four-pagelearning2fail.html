@@ -30,19 +30,19 @@
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">会议身份</div>
-                        <div class="cell-right">受邀者</div>
+                        <div class="cell-right">发起者</div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">会议名称</div>
-                        <div class="cell-right">2019年科隆口腔牙科展</div>
+                        <div class="cell-right metName">2019年科隆口腔牙科展</div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">会议性质</div>
-                        <div class="cell-right">国家大型</div>
+                        <div class="cell-right nature">国家大型</div>
                     </div>
                 </li>
             </ul>
@@ -52,25 +52,25 @@
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">预计规模</div>
-                        <div class="cell-right">3000人</div>
+                        <div class="cell-right maxPerson">3000人</div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">组织机构</div>
-                        <div class="cell-right">国家卫生健康委员会</div>
+                        <div class="cell-right sponsor">国家卫生健康委员会</div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">预算金额</div>
-                        <div class="cell-right">3万元</div>
+                        <div class="cell-right budgetMoney">3万元</div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">已获资助</div>
-                        <div class="cell-right">1万元</div>
+                        <div class="cell-right gainMoney">1万元</div>
                     </div>
                 </li>
             </ul>
@@ -80,26 +80,25 @@
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">会议开始时间</div>
-                        <div class="cell-right">2019.07.08</div>
+                        <div class="cell-right startTime">2019.07.08</div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">会议结束时间</div>
-                        <div class="cell-right">2019.07.10</div>
+                        <div class="cell-right endTime">2019.07.10</div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">申请资助</div>
-                        <div class="cell-right">2万元</div>
+                        <div class="cell-right money">2万元</div>
                     </div>
                 </li>
                 <li class="add_content">
-                    <div class="item_top">补充说明：</div>
-                    <div class="item_bottom">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
+                    <div class="item_top">资金用途说明:</div>
+                    <div class="item_bottom reason">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
                 </li>
-                
             </ul>
         </div>
     </div>
@@ -107,10 +106,31 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
-
-    });
+        let url = Public.url();
+        $.ajax({
+            url:`${url}/metting/selectDoctorMettingById`,
+            type: 'POST',
+            data: {
+                id : localStorage.getItem("data-meetId")
+            },
+            success (res){
+                console.log(res)
+                $('.metName').html(res.doctorMeeting.metName)
+                $('.nature').html(res.doctorMeeting.nature)
+                $('.maxPerson').html(res.doctorMeeting.maxPerson)
+                $('.sponsor').html(res.doctorMeeting.sponsor)
+                $('.budgetMoney').html(res.doctorMeeting.budgetMoney)
+                $('.gainMoney').html(res.doctorMeeting.gainMoney)
+                $('.startTime').html(res.doctorMeeting.startTime)
+                $('.endTime').html(res.doctorMeeting.endTime)
+                $('.money').html(res.doctorMeeting.money)
+                $('.reason').html(res.doctorMeeting.reason)
+            }
+        });
+    })
 </script>
 
 </html>

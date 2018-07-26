@@ -20,74 +20,6 @@
         <div class="weui-tab">
             <div class="weui-tab__bd">
                 <div id="tab2">
-                    <div class="my_card item_success">
-                        <div class="card_item ">
-                            <label for="" class="card_Scientific">第十四届全国营养科学大会 暨全球华人营养科学家大会</label>
-                            <span class="card_circle green">
-                                <i>已成功</i> 
-                            </span>
-                            <div class="scientific_hr"></div> 
-                            <div class="bidder bidder_one">
-                                <label for="" class="card_bidder"><img src="../image/ico_star.svg" alt=""></label>
-                                <span class="bidder_message ">全国大型会议</span>
-                            </div>
-                            <div class="bidder bidder_two">                                
-                                    <label for="" class="card_bidder"><img src="../image/ico_ pos.svg" alt=""></label>
-                                <span class="bidder_message ">南京国际博览中心</span>
-                            </div>  
-                            <div class="bidder bidder_three">
-                                    <label for="" class="card_bidder"><img src="../image/ico_clock.svg" alt=""></label>
-                                <span class="bidder_message ">2018年09月27日-09月29日</span>
-                            </div>
-                           
-                        </div>
-                    </div>
-                    <div class="my_card">
-                        <div class="card_item">
-                            <label class="card_Scientific">第十四届全国营养科学大会 暨全球华人营养科学家大会</label>
-                            <span class="card_circle yellow">
-                                <i>审核中</i>  
-                            </span>
-                            <div class="scientific_hr"></div> 
-                            <div class="bidder bidder_one">
-                                    <label for="" class="card_bidder"><img src="../image/ico_star.svg" alt=""></label>
-                                    <span class="bidder_message ">全国大型会议</span>
-                                </div>
-                                <div class="bidder bidder_two">                                
-                                        <label for="" class="card_bidder"><img src="../image/ico_ pos.svg" alt=""></label>
-                                    <span class="bidder_message ">南京国际博览中心</span>
-                                </div>  
-                                <div class="bidder bidder_three">
-                                        <label for="" class="card_bidder"><img src="../image/ico_clock.svg" alt=""></label>
-                                    <span class="bidder_message ">2018年09月27日-09月29日</span>
-                                </div>
-                           
-                        </div>
-                    </div>
-
-                    <div class="my_card">
-                        <div class="card_item">
-                            <label class="card_Scientific">第十四届全国营养科学大会 暨全球华人营养科学家大会</label>
-                            <span class="card_circle blue">
-                                <i>已失败</i>    
-                            </span>
-                            <div class="scientific_hr"></div>
-                            <!-- 图标上移了一点 -->
-                            <div class="bidder bidder_one">
-                                    <label for="" class="card_bidder"><img src="../image/ico_star.svg" alt=""></label>
-                                    <span class="bidder_message ">全国大型会议</span>
-                                </div>
-                                <div class="bidder bidder_two">                                
-                                        <label for="" class="card_bidder"><img src="../image/ico_ pos.svg" alt=""></label>
-                                    <span class="bidder_message ">南京国际博览中心</span>
-                                </div>  
-                                <div class="bidder bidder_three">
-                                        <label for="" class="card_bidder"><img src="../image/ico_clock.svg" alt=""></label>
-                                    <span class="bidder_message ">2018年09月27日-09月29日</span>
-                                </div>
-                            
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -97,6 +29,7 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
 <script src="../js/ydui.flexible.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function(){
         $('#J_Slider').slider({
@@ -110,7 +43,101 @@
         $('.weui-panel__bd').on('click',function(){
             window.location.href = 'conference-item.html'
         })
-        
+        let url = Public.url();
+        $.ajax({
+            url: `${url}/metting/selectDoctorMeetingByDtrId`,
+            type: 'POST',
+            data: {
+                // dtrId : localStorage.getItem('userId'),
+                dtrId : 11,
+                state : 1
+            },
+            success (res){
+                console.log(res)
+                res.dmpsList.forEach(el => {
+                    console.log(el)
+                    el.metName = el.metName.length>12?el.metName.substring(0,12)+'...':el.metName;
+                    el.city = el.city == null? ' ':el.city;
+                    if(el.state == '已获批复'){
+                        let divs = `<div class="my_card item_success">
+                        <div class="card_item ">
+                            <label for="" class="card_Scientific">${el.metName}</label>
+                            <span class="card_circle green">
+                                <i>已成功</i> 
+                            </span>
+                            <div class="scientific_hr"></div> 
+                            <div class="bidder bidder_one">
+                                <label for="" class="card_bidder"><img src="../image/ico_star.svg" alt=""></label>
+                                <span class="bidder_message ">${el.nature}</span>
+                            </div>
+                            <div class="bidder bidder_two">                                
+                                    <label for="" class="card_bidder"><img src="../image/ico_ pos.svg" alt=""></label>
+                                <span class="bidder_message ">${el.city}</span>
+                            </div>  
+                            <div class="bidder bidder_three">
+                                    <label for="" class="card_bidder"><img src="../image/ico_clock.svg" alt=""></label>
+                                <span class="bidder_message ">${el.startTime}-${el.endTime}</span>
+                            </div>
+                        </div>
+                     </div>`    
+                        $('#tab2').append(divs)
+                    }
+                    if(el.state == '审核当中'){
+                        let divs = `<div class="my_card item_success">
+                        <div class="card_item ">
+                            <label for="" class="card_Scientific">${el.metName}</label>
+                            <span class="card_circle yellow">
+                                <i>进行中</i> 
+                            </span>
+                            <div class="scientific_hr"></div> 
+                            <div class="bidder bidder_one">
+                                <label for="" class="card_bidder"><img src="../image/ico_star.svg" alt=""></label>
+                                <span class="bidder_message ">${el.nature}</span>
+                            </div>
+                            <div class="bidder bidder_two">                                
+                                    <label for="" class="card_bidder"><img src="../image/ico_ pos.svg" alt=""></label>
+                                <span class="bidder_message ">${el.city}</span>
+                            </div>  
+                            <div class="bidder bidder_three">
+                                    <label for="" class="card_bidder"><img src="../image/ico_clock.svg" alt=""></label>
+                                <span class="bidder_message ">${el.startTime}-${el.endTime}</span>
+                            </div>
+                        </div>
+                     </div>`    
+                     setTimeout(()=>{
+                        $('#tab2').append(divs)
+                     },10)
+                    }
+                    if(el.state == '未获批复'){
+                        let divs = `<div class="my_card item_success">
+                        <div class="card_item ">
+                            <label for="" class="card_Scientific">${el.metName}</label>
+                            <span class="card_circle blue">
+                                <i>已失败</i> 
+                            </span>
+                            <div class="scientific_hr"></div> 
+                            <div class="bidder bidder_one">
+                                <label for="" class="card_bidder"><img src="../image/ico_star.svg" alt=""></label>
+                                <span class="bidder_message ">${el.nature}</span>
+                            </div>
+                            <div class="bidder bidder_two">                                
+                                    <label for="" class="card_bidder"><img src="../image/ico_ pos.svg" alt=""></label>
+                                <span class="bidder_message ">${el.city}</span>
+                            </div>  
+                            <div class="bidder bidder_three">
+                                    <label for="" class="card_bidder"><img src="../image/ico_clock.svg" alt=""></label>
+                                <span class="bidder_message ">${el.startTime}-${el.endTime}</span>
+                            </div>
+                        </div>
+                     </div>`    
+                     setTimeout(()=>{
+                        $('#tab2').append(divs)
+                     },20)
+                       
+                    }
+                });
+            }
+        })
     });
 </script>
 </html>

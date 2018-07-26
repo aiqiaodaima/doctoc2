@@ -26,16 +26,16 @@
         <div class="science_content">
             <ul>
                 <li class="content_item">
-                    <div class="item_left">会议名称:</div>
-                    <div class="item_right">2019年科隆口腔牙科展（限30个字）</div>
+                    <div class="item_left">会议名称： </div>
+                    <div class="item_right metName"></div>
                 </li>
                 <li class="content_item">
                     <div class="item_left">获得金额：</div>
-                    <div class="item_right">3万元</div>
+                    <div class="item_right giveMoney">3万元</div>
                 </li>
                 <li class="content_item">
                     <div class="item_left">资金用途：</div>
-                    <div class="item_right">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
+                    <div class="item_right reason">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
                 </li>
             </ul>
         </div>
@@ -62,7 +62,7 @@
                 <li class="add_content">
                     <div class="item_top item_left nowrap">系统已为本次会议生成"会议专属二维码"（如下），拟参加本次会议的受邀者仅可通过扫描本二维码报名并参加本次会议:</div>
                     <div class="cell-item list_item" style="height: auto; display: block;">
-                        <div class="cell-left">
+                        <div class="cell-left twoCode">
                             <img src="../image/qrcode.jpg" alt="">
                         </div>
                         <div class="placeholder_word">长按图片保存二维码至本地相册</div>
@@ -75,9 +75,28 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
-
+        $(function () {
+        var word = `您的开会资助申请已获批复`
+        $('.title_word').text(word)
+        let url = Public.url();
+        $.ajax({
+            url:`${url}/metting/selectDoctorMettingById`,
+            type: 'POST',
+            data: {
+                id : localStorage.getItem("data-meetId")
+            },
+            success (res){
+                console.log(res)  
+                $('.metName').html(res.doctorMeeting.metName)
+                $('.giveMoney').html(res.doctorMeeting.giveMoney+'万元')
+                $('.reason').html(res.doctorMeeting.reason)
+                $('.twoCode img').attr('src',"https://imuts.oss-cn-shenzhen.aliyuncs.com/"+res.doctorMeeting.twoCode)
+            }
+        })
+    });
     });
 </script>
 

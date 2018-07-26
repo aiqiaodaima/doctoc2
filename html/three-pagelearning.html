@@ -31,56 +31,56 @@
                         <div class="title_right apply1">                          
                         </div>
                     </li>
-                    <li>
+                    <li class="apply_item">
                         <div class="item_left">
                             <span>已申请数量</span>
-                            <span class="blue">10</span>
+                            <span class="blue"></span>
                         </div>
                         <div class="item_middle">
                             <span>金额（万元）</span>
-                            <span class="blue">20.00</span>
+                            <span class="blue"></span>
                         </div>
                         <div class="item_right">
                             <a href="three-pagelearning1.html">查看详情</a>
                         </div>
                     </li>
-                    <li>
+                    <li class="apply_item">
                         <div class="item_left">
                             <span>已获批数量</span>
-                            <span class="green">10</span>
+                            <span class="green"></span>
                         </div>
                         <div class="item_middle">
                             <span>金额（万元）</span>
-                            <span class="green">20.00</span>
+                            <span class="green"></span>
                         </div>
                         <div class="item_right">
-                            <a href="three-pagelearning11.html">查看详情</a>
+                            <a href="three-pagelearning1.html">查看详情</a>
                         </div>
                     </li>
-                    <li>
+                    <li class="apply_item">
                         <div class="item_left">
                             <span>待获批数量</span>
-                            <span class="orange">10</span>
+                            <span class="orange"></span></span>
                         </div>
                         <div class="item_middle">
                             <span>金额（万元）</span>
-                            <span class="orange">20.00</span>
+                            <span class="orange"></span>
                         </div>
                         <div class="item_right">
-                            <a href="three-pagelearning12.html">查看详情</a>
+                            <a href="three-pagelearning1.html">查看详情</a>
                         </div>
                     </li>
-                    <li>
+                    <li class="apply_item">
                         <div class="item_left">
                             <span>未获批数量</span>
-                            <span class="light_red">10</span>
+                            <span class="light_red"></span>
                         </div>
                         <div class="item_middle">
                             <span>金额（万元）</span>
-                            <span class="light_red">20.00</span>
+                            <span class="light_red"></span>
                         </div>
                         <div class="item_right">
-                            <a href="three-pagelearning13.html">查看详情</a>
+                            <a href="three-pagelearning1.html">查看详情</a>
                         </div>
                     </li>
                 </ul>
@@ -92,56 +92,56 @@
                         <div class="title_right apply2">
                         </div>
                     </li>
-                    <li>
+                    <li class="apply_item">
                         <div class="item_left">
                             <span>已申请数量</span>
-                            <span class="blue">10</span>
+                            <span class="blue"></span></span>
                         </div>
                         <div class="item_middle">
                             <span>金额（万元）</span>
-                            <span class="blue">20.00</span>
+                            <span class="blue"></span>
                         </div>
                         <div class="item_right">
-                            <a href="three-pagelearning1.html">查看详情</a>
+                            <a href="three-pagelearning2.html">查看详情</a>
                         </div>
                     </li>
-                    <li>
+                    <li class="apply_item">
                         <div class="item_left">
                             <span>已获批数量</span>
-                            <span class="green">10</span>
+                            <span class="green"></span>
                         </div>
                         <div class="item_middle">
                             <span>金额（万元）</span>
-                            <span class="green">20.00</span>
+                            <span class="green"></span>
                         </div>
                         <div class="item_right">
-                            <a href="three-pagelearning21.html">查看详情</a>
+                            <a href="three-pagelearning2.html">查看详情</a>
                         </div>
                     </li>
-                    <li>
+                    <li class="apply_item">
                         <div class="item_left">
                             <span>待获批数量</span>
-                            <span class="orange">10</span>
+                            <span class="orange"></span>
                         </div>
                         <div class="item_middle">
                             <span>金额（万元）</span>
-                            <span class="orange">20.00</span>
+                            <span class="orange"></span></span>
                         </div>
                         <div class="item_right">
-                            <a href="three-pagelearning22.html">查看详情</a>
+                            <a href="three-pagelearning2.html">查看详情</a>
                         </div>
                     </li>
-                    <li>
+                    <li class="apply_item">
                         <div class="item_left">
                             <span>未获批数量</span>
-                            <span class="light_red">10</span>
+                            <span class="light_red"></span>
                         </div>
                         <div class="item_middle">
                             <span>金额（万元）</span>
-                            <span class="light_red">20.00</span>
+                            <span class="light_red"></span>
                         </div>
                         <div class="item_right">
-                            <a href="three-pagelearning23.html">查看详情</a>
+                            <a href="three-pagelearning2.html">查看详情</a>
                         </div>
                     </li>
                 </ul>
@@ -163,7 +163,7 @@
     $(function () {
         localStorage.removeItem('title')
         localStorage.removeItem('title2')
-        if(localStorage.getItem('applyState')=='已获批复'){
+        if(localStorage.getItem('applyState')=='已获审核'){
             $('.apply1').html('<a href="four-pagelearning1.html">新增申请</a>');
             $('.apply2').html('<a href="four-pagelearning2.html">新增申请</a>')
         }else{
@@ -178,8 +178,7 @@
         $.ajax({
             url:`${url}/metting/selectAppDm`,
             data:{
-                // dtrId: localStorage.getItem('userId')
-                dtrId: 11
+                dtrId: localStorage.getItem('userId')   
             },
             type: 'POST',
             success (res){
@@ -206,6 +205,24 @@
                 $('.light_red').eq(3).html(res.pmList2[3].money)
             }
         })
+
+        // 每个按钮的功能
+        function setState(i,j){
+            $('.apply_item').eq(i).on('click',()=>{
+                localStorage.setItem('state',j)
+            })
+        }
+        setState(0,'');
+        setState(1,'已获批复');
+        setState(2,'审核当中');
+        setState(3,'未获批复');
+
+        setState(4,1);
+        setState(5,4);
+        setState(6,3);
+        setState(7,5);
+
+       
     });
 </script>
 

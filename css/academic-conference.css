@@ -100,6 +100,7 @@
 	/* box-shadow: inset 0rem 0rem 0.05rem 0.01rem rgba(4, 0, 0, 0.2);	 */
     border-radius: 0.25rem;
     margin-right: 0.38rem;
+    overflow: hidden;
 }
 img{
     width: 100%; height: auto;max-width: 100%; display: block;

@@ -39,7 +39,7 @@
                     <label for="" class="weui-label">会议身份</label>
                 </div>
                 <div class="special_item">
-                    参会
+                    发起
                 </div>
                 <!-- <div class="weui-cell__bd"> -->
                     <!-- <select class="weui-select select1" name="select2">
@@ -153,6 +153,7 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
         $("#datetime-picker").datetimePicker();
@@ -189,11 +190,11 @@
         $('.reason').on('keyup',() =>{                    
             window.reason  =  $('.reason').val();     
         })    
-        
+        let url = Public.url();
         $('.item_btn').on('click',()=>{ 
             let p = new Promise((resolve,reject) =>{
                 $.ajax({
-                    url: 'http://192.168.1.150:1002/metting/insertDoctorMetting',
+                    url: `${url}/metting/insertDoctorMetting`,
                     dataType: 'json',
                     type: 'POST',
                     data : {

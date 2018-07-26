@@ -41,29 +41,30 @@
         }
         let url = Public.url();
         $.ajax({
-            url: `${url}/metting/selectDmpmState`,
+            url: `${url}/metting/selectDoctorMeetingByDtrId`,
             data:{
                 dtrId : localStorage.getItem('userId'),
                 // dtrId : 11,
-                state : localStorage.getItem('state')
+                state : localStorage.getItem('state'),
             },
             type: 'POST',
             success (res){
-                console.log(res.dmpmList)
-                res.dmpmList.forEach(element => {
-                    element.name = element.name.length> 17 ? element.name.substring(0,10)+'...' : element.name;
+                console.log(res.dmpsList)
+                res.dmpsList.forEach(element => {
                     if(element.state == '已获批复'){
+                        element.metName = element.metName.length> 17 ? element.metName.substring(0,10)+'...' : element.metName;
+                        console.log(element.metName)
                         let el = `
                         <li class="apply_item" data-meetId = ${element.id}>
-                            <a href="four-pagelearning1success.html">
+                            <a href="four-pagelearning2success.html">
                                 <div class="item_left">
                                     <ul>
-                                        <li class="left_title">${element.name}</li>
+                                        <li class="left_title">${element.metName}</li>
                                         <li class="left_item">
-                                           ${element.nature}
+                                            ${element.subjects} &nbsp;&nbsp;${element.nature}
                                         </li>
                                         <li class="left_item">
-                                           ${element.startTime}
+                                            ${element.city} &nbsp;&nbsp;${element.startTime}
                                         </li>
                                     </ul>
                                 </div>
@@ -74,18 +75,20 @@
                         </li>`
                         $('.apply').append(el)
                     }
-                    if(element.state == '审核当中'){                      
+                    if(element.state == '审核当中'){
+                        element.metName = element.metName.length> 17 ? element.metName.substring(0,10)+'...' : element.metName;
+                        console.log(element.metName.substring(0,10))
                         let el = `
                         <li class="apply_item" data-meetId = ${element.id}>
-                            <a href="four-pagelerning1going.html">
+                            <a href="four-pagelerning2going.html">
                                 <div class="item_left">
                                     <ul>
-                                        <li class="left_title">${element.name}</li>
+                                        <li class="left_title">${element.metName}</li>
                                         <li class="left_item">
-                                            ${element.nature}
+                                            ${element.subjects} &nbsp;&nbsp;${element.nature}
                                         </li>
                                         <li class="left_item">
-                                            ${element.startTime}
+                                            ${element.city} &nbsp;&nbsp;${element.startTime}
                                         </li>
                                     </ul>
                                 </div>
@@ -100,18 +103,19 @@
                         
                     }
                     if(element.state == "未获批复" ){
-                        console.log(1)
+                        element.metName = element.metName.length> 17 ? element.metName.substring(0,10)+'...' : element.metName;
+                        console.log(element)
                         let el = `
                         <li class="apply_item" data-meetId = ${element.id}>
-                            <a href="four-pagelearning1fail.html">
+                            <a href="four-pagelearning2fail.html">
                                 <div class="item_left">
                                     <ul>
-                                        <li class="left_title">${element.name}</li>
+                                        <li class="left_title">${element.metName}</li>
                                         <li class="left_item">
-                                            ${element.nature}
+                                            ${element.subjects} &nbsp;&nbsp;${element.nature}
                                         </li>
                                         <li class="left_item">
-                                            ${element.startTime}
+                                            ${element.city} &nbsp;&nbsp;${element.startTime}
                                         </li>
                                     </ul>
                                 </div>

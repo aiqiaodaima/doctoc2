@@ -233,7 +233,25 @@
                         if (res.dm.applyState == '允许') {
                             $.confirm("确定提交参会申请", "提示", function () {
                                 //   $.toast("文件已经删除!");
-                                window.location.href = 'refuse1.html'
+                                $.ajax({
+                                    url: `${url}/metting/insertDmp`,
+                                    type: 'POST',
+                                    data :{
+                                        meId:id,
+                                        dtrId:localStorage.getItem('userId')
+                                    },
+                                    success (res){
+                                        if(res.msg == "操作成功"){
+                                            window.location.href = 'refuse1.html'   
+                                        }else{
+                                            $.alert('参会失败，请联系管理员')
+                                        }
+                                    },
+                                    error (res){
+                                        $.alert('系统异常')
+                                    }
+                                })
+                                
                             }, function () {
                                 //取消操作
                             });

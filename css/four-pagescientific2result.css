@@ -59,7 +59,8 @@
     font-family: MicrosoftYaHei;
     font-size: 0.88rem;	
     letter-spacing: 0.03rem;
-	color: #666666;
+    color: #666666;
+    word-break:break-all;
 }
 .placeholder_word{
     width: 100%;
