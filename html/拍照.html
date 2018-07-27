@@ -1,81 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        #test-image-preview {
+            border: 1px solid #ccc;
+            width: 100%;
+            height: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
 </head>
+
 <body>
-    <input type="file" id="photo" name="image" accept=“image/*”>
+    <form method="post" enctype="multipart/form-data" id="file_upload">
+
+        <p>图片预览：</p>
+
+        <div id="test-image-preview"></div>
+
+        <p>
+
+            <input type="file" id="test-image-file" name="test" accept="image/gif, image/jpeg, image/png, image/jpg">
+        </p>
+        <p id="test-file-info"></p>
+    </form>
 </body>
-<script src="https://cdn.bootcss.com/jquery/3.3.0/jquery.js"></script>
-<script>
-    this.compressImage(files[0], (file)=>{
-    console.log(file);
-    const formData = new FormData();
-    formData.append('file', file, file.name || '上传图片.jpeg');
-}, $.noop);
-//压缩图片
-compressImage = (file, success, error) => {
-    // 图片小于1M不压缩
-    if (file.size < Math.pow(1024, 2)) {
-        return success(file);
-    }
-
-    const name = file.name; //文件名
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = (e) => {
-        const src = e.target.result;
-        
-        const img = new Image();
-        img.src = src;
-        img.onload = (e) => {
-            const w = img.width;
-            const h = img.height;
-            const quality = 0.8;  // 默认图片质量为0.92
-            //生成canvas
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            // 创建属性节点
-            const anw = document.createAttribute("width");
-            anw.nodeValue = w;
-            const anh = document.createAttribute("height");
-            anh.nodeValue = h;
-            canvas.setAttributeNode(anw);
-            canvas.setAttributeNode(anh);
-
-            //铺底色 PNG转JPEG时透明区域会变黑色
-            ctx.fillStyle = "#fff";
-            ctx.fillRect(0, 0, w, h);
-
-            ctx.drawImage(img, 0, 0, w, h);
-            // quality值越小，所绘制出的图像越模糊
-            const base64 = canvas.toDataURL('image/jpeg', quality); //图片格式jpeg或webp可以选0-1质量区间
-
-            // 返回base64转blob的值
-            console.log(`原图${(src.length/1024).toFixed(2)}kb`, `新图${(base64.length/1024).toFixed(2)}kb`);
-            //去掉url的头，并转换为byte
-            const bytes = window.atob(base64.split(',')[1]);
-            //处理异常,将ascii码小于0的转换为大于0
-            const ab = new ArrayBuffer(bytes.length);
-            const ia = new Uint8Array(ab);
-            for (let i = 0; i < bytes.length; i++) {
-                ia[i] = bytes.charCodeAt(i);
-            }
-            file = new Blob( [ab] , {type : 'image/jpeg'});
-            file.name = name;
-
-            success(file);
+<script src="http://cdn.loveqiao.com/jquery.js"></script>
+<script type="text/javascript">
+    var
+        fileInput = document.getElementById('test-image-file'),
+        info = document.getElementById('test-file-info'),
+        preview = document.getElementById('test-image-preview');
+    // 监听change事件:
+    fileInput.addEventListener('change', function () {
+        // 清除背景图片:
+        preview.style.backgroundImage = '';
+        // 检查文件是否选择:
+        if (!fileInput.value) {
+            info.innerHTML = '没有选择文件';
+            return;
         }
-        img.onerror = (e) => {
-            error(e);
+        // 获取File引用:
+        var file = fileInput.files[0];
+        //判断文件大小
+        var size = file.size;
+        if (size >= 1 * 1024 * 1024) {
+            alert('文件大于1兆不行!');
+            return false;
         }
-    }
-    reader.onerror = (e) => {
-        error(e);
-    }
-}
+        // 获取File信息:
+        info.innerHTML = '文件: ' + file.name + '<br>' +
+            '大小: ' + file.size + '<br>' +
+            '修改: ' + file.lastModifiedDate;
+        if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif') {
+            alert('不是有效的图片文件!');
+            return;
+        }
+        // 读取文件:
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var
+                data = e.target.result; // 'data:image/jpeg;base64,/9j/4AAQSk...(base64编码)...}'            
+            preview.style.backgroundImage = 'url(' + data + ')';
+        };
+        // 以DataURL的形式读取文件:
+        reader.readAsDataURL(file);
+        console.log(file);
+    });
 </script>
+
 </html>

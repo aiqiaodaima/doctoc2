@@ -54,7 +54,7 @@
                     element.name = element.name.length> 17 ? element.name.substring(0,10)+'...' : element.name;
                     if(element.state == '已获批复'){
                         let el = `
-                        <li class="apply_item" data-meetId = ${element.id}>
+                        <li class="apply_item" data-meetId = ${element.id} data-result = ${element.result}>
                             <a href="four-pagelearning1success.html">
                                 <div class="item_left">
                                     <ul>
@@ -76,7 +76,7 @@
                     }
                     if(element.state == '审核当中'){                      
                         let el = `
-                        <li class="apply_item" data-meetId = ${element.id}>
+                        <li class="apply_item" data-meetId = ${element.id} data-result = ${element.result}>
                             <a href="four-pagelerning1going.html">
                                 <div class="item_left">
                                     <ul>
@@ -102,7 +102,7 @@
                     if(element.state == "未获批复" ){
                         console.log(1)
                         let el = `
-                        <li class="apply_item" data-meetId = ${element.id}>
+                        <li class="apply_item" data-meetId = ${element.id} data-result = ${element.result}>
                             <a href="four-pagelearning1fail.html">
                                 <div class="item_left">
                                     <ul>
@@ -127,6 +127,7 @@
                 });
                 $('.apply_item').on('click',function(){
                     localStorage.setItem("data-meetId",$(this).attr("data-meetId"))
+                    localStorage.setItem("data-result",$(this).attr("data-result"))
                 })
             }
         })

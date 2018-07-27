@@ -34,7 +34,9 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function(){
-       
+       if(localStorage.getItem('scienceState') == '已获审核'){
+           window.location.href = 'Certification2.html'
+       }
     });
 </script>
 </html>

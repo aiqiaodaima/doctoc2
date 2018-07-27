@@ -106,6 +106,20 @@
   top: 0px;
   opacity: 0;
 }
+.form_item .option_img {
+  border-bottom: 1px solid #eaeaea;
+}
+.form_item .option_img ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form_item .option_img ul li {
+  padding: 1rem 0.5rem;
+  width: 45%;
+  height: 45%;
+  overflow: hidden;
+}
 .form_item .blod_item {
   display: flex;
   justify-content: space-between;

@@ -23,41 +23,41 @@
                 <li>资助统计</li>
                 <li class="item_list">
                     <span>申请资助总数</span>
-                    <span>15</span>
+                    <span class="count">15</span>
                 </li>
                 <li class="item_list">
                     <span>批复资助总数</span>
-                    <span>15</span>
+                    <span class="startTime">15</span>
                 </li>
                 <li class="item_list">
                     <span>申请资助总额</span>
-                    <span>14,000.00</span>
+                    <span class="applyMoney">14,000.00</span>
                 </li>
                 <li class="item_list">
                     <span>批复资助总额</span>
-                    <span>14,000.00</span>
+                    <span class="giveMoney">14,000.00</span>
                 </li>
                 <li class="item_list">
                     <span>提款总额</span>
-                    <span>14,000.00</span>
+                    <span class="drawMoney">14,000.00</span>
                 </li>
                 <li class="item_list">
                     <span>剩余总额</span>
-                    <span>14,000.00</span>
+                    <span class="surplusMoney">14,000.00</span>
                 </li>
                 <li class="item_list">
                     <span>已核销总额</span>
-                    <span>14,000.00</span>
+                    <span class="verifyMoney">14,000.00</span>
                 </li>
                 <li class="item_list">
                     <span>未核销总额</span>
-                    <span>14,000.00</span>
+                    <span class="notVerifyMoney">14,000.00</span>
                 </li>
             </ul>
         </div>
         <div class="form_item">
             <div class="input_search" style="padding: 0.67rem 0">
-                <input type="text" placeholder="课题关键字" class="seach" >
+                <input type="text" placeholder="课题关键字" class="seach">
                 <img src="../../image/search.png" alt="" style="right: 1rem;">
             </div>
             <div class="form_title">
@@ -72,10 +72,10 @@
                 <div>
                     <select name="sort" id="sort">
                         <option value="1">请选择</option>
-                        <option value="2">课题1</option>
-                        <option value="3">课题2</option>
-                        <option value="4">课题3</option>
-                        <option value="5">课题4</option>
+                        <option value="课题1">课题1</option>
+                        <option value="课题2">课题2</option>
+                        <option value="课题3">课题3</option>
+                        <option value="课题4">课题4</option>
                     </select>
                     <div class="se_after">
 
@@ -87,10 +87,10 @@
                 <div>
                     <select name="num" id="num">
                         <option value="1">请选择</option>
-                        <option value="2">第一次</option>
-                        <option value="3">第二次</option>
-                        <option value="4">第三次</option>
-                        <option value="5">第四次</option>
+                        <option value="第一次">第一次</option>
+                        <option value="第二次">第二次</option>
+                        <option value="第三次">第三次</option>
+                        <option value="第四次">第四次</option>
                     </select>
                     <div class="se_after">
 
@@ -107,7 +107,7 @@
                 <div class="weui-cell__bd" style="text-align: right;">
                     <label class="" for="files">请上传</label>
                     <form>
-                        <input type="file" accept="image/png, image/jpeg, image/gif, image/jpg" id="files">
+                        <input type="file" accept="image/png, image/jpeg, image/gif, image/jpg" id="files" multiple="multiple">
                     </form>
                 </div>
 
@@ -115,9 +115,14 @@
 
                 </div>
             </div>
+            <div class="option_img">
+                <ul>
+
+                </ul>
+            </div>
             <div class="text_item">
                 <div class="content_title">资金用途</div>
-                <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的资金用途"></textarea>
+                <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的资金用途" class="extensive"></textarea>
             </div>
         </div>
         <div class="btn_top"></div>
@@ -132,6 +137,8 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../../js/ydui.js"></script>
+<script src="../../js/public.js"></script>
+<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
 <script>
     $(function () {
         var dialog = YDUI.dialog;
@@ -149,18 +156,144 @@
         };
         var goTo = {
             el: null,
-            init: function (config){
+            init: function (config) {
                 this.el = $(config.class);
                 return this;
             },
-            goto: function (){
-                this.el.on('click',function (){
+            goto: function () {
+                this.el.on('click', function () {
                     window.location.href = 'upData2.html'
                 })
             }
         }
-        btn.init({class:'.sure_btn'}).refer();
-        goTo.init({class:'.input_search'}).goto();
+        btn.init({ class: '.sure_btn' }).refer();
+        goTo.init({ class: '.input_search' }).goto();
+
+        let url = Public.url();
+        $.ajax({
+            url: `${url}/metting/selectAllDmpm`,
+            type: 'POST',
+            data: {
+                dtrId: localStorage.getItem('userId')
+            },
+            success(res) {
+                console.log(res)
+                $('.count').html(res.count);
+                $('.startTime').html(res.dmpm.startTime);
+                $('.drawMoney').html(res.dmpm.drawMoney);
+                $('.giveMoney').html(res.dmpm.giveMoney);
+                $('.applyMoney').html(res.dmpm.applyMoney);
+                $('.surplusMoney').html(res.dmpm.surplusMoney);
+                $('.verifyMoney').html(res.dmpm.verifyMoney);
+                $('.notVerifyMoney').html(res.dmpm.notVerifyMoney);
+            }
+        })
+        $('#files').on('change', function () {
+            
+            if (!$(this).val()) {
+                $.alert('没有上传文件');
+                return;
+            }
+            const file = this.files;
+            // const file = $(this).prop('files');
+            const size = file.size;
+
+            console.log(file)
+            // 文件大小限制
+            if (size >= 1 * 1024 * 1024) {
+                $.alert('文件大于1兆不行!');
+                return false;
+            }
+            // 文件类型限制
+            // if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif') {
+            //     alert('不是有效的图片文件!');
+            //     return;
+            // }
+            // 获取base64
+            var reader = new FileReader();
+            const img = new Image();
+            reader.readAsDataURL(file[0])
+            reader.onload = function (e) {
+                console.log(e)
+                let data = e.target.result;   // 'data:image/jpeg;base64,/9j/4AAQSk...(base64编码)...}' 
+                console.log(data);
+                img.src = e.target.result;
+                // 缩放图片需要的canvas
+                var canvas = document.createElement('canvas');
+                var context = canvas.getContext('2d');
+                let el = `<li><img src=${data} alt=""></li>`
+                $('.option_img ul').append(el)
+                // 上传OSS
+                function toBlob(urlData, fileType) {
+                    var bytes = window.atob(urlData),
+                        n = bytes.length,
+                        u8arr = new Uint8Array(n);
+                    while (n--) {
+                        u8arr[n] = bytes.charCodeAt(n);
+                    }
+                    return new Blob([u8arr], { type: fileType });
+                }
+                var dataUrl = e.target.result;
+                var base64 = dataUrl.split(',')[1];
+                var fileType = dataUrl.split(';')[0].split(':')[1];
+                var blob = toBlob(base64, fileType);
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(blob);
+                reader.onload = function (event) {
+
+                    // 配置
+                    var client = new OSS.Wrapper({
+                        region: 'oss-cn-shenzhen',
+                        accessKeyId: 'LTAIFSHcWupSdU9C',
+                        accessKeySecret: 'HefnQDo4RGM9NXpWMACA62K9UAs1MR',
+                        bucket: 'imuts'
+                    });
+
+                    // 文件名
+                    var date = new Date();
+                    var time = '' + date.getFullYear() + date.getMonth() + 1 + date.getDate();
+                    var storeAs = 'doctorGroup/doctorFile/' + date.getTime() + '.' + blob.type.split('/')[1];
+
+                    // arrayBuffer转Buffer
+                    var buffer = new OSS.Buffer(event.target.result);
+
+                    // 上传
+                    client.put(storeAs, buffer).then(function (result) {
+                        console.log(result)
+                        console.log(result.url.substring(result.url.length-40,result.url.length))
+                        let img_url = result.url.substring(result.url.length-40,result.url.length)
+                        localStorage.setItem('img_url',img_url)
+                        return img_url;
+                    }).catch(function (err) {
+                        console.log(err);
+                    });
+                }
+
+            };
+            // console.log(file);
+        })
+       
+        $('#num').on('change', function () {
+            number = $(this).val()
+        })
+        $('.extensive').on('change', function () {
+            extensive = $(this).val()
+        })
+        $('.sure_btn').on('click',()=>{
+            $.ajax({
+                url: `${url}/metting/insertOrUpdateDmb`,
+                type: 'POST',
+                data :{
+                    dtrId : localStorage.getItem('userId'),
+                    number,
+                    extensive,
+                    url : localStorage.getItem('img_url')
+                },
+                success (res){
+                    console.log(res)
+                }
+            })
+        })
     })
 </script>
 
