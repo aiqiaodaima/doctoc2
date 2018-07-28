@@ -29,5 +29,18 @@
 }
 .weui-input,.weui-select{
     text-align:right !important;
-
+}
+.option_img{
+   
+    display: none;
+    height: auto;
+}
+.option_img ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.option_img ul li{
+    padding: 8px;
+    width: 45%;
+    height: 45%;
 }

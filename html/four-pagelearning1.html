@@ -19,7 +19,6 @@
         .weui-cells {
             margin-bottom: 5px;
         }
-
         .weui-cell_select .weui-cell__bd:after {
             width: 10px;
             height: 10px;
@@ -32,6 +31,9 @@
             height: 100px;
             display: none;
         }
+        .special_item{
+            padding: 0 1rem;
+        }
     </style>
 </head>
 
@@ -42,12 +44,8 @@
                 <div class="weui-cell__hd">
                     <label for="" class="weui-label">会议身份</label>
                 </div>
-                <div class="weui-cell__bd">
-                    <select class="weui-select select1" name="select2">
-                        <option value="0">请选择</option>
-                        <option value="1">发起</option>
-                        <option value="2">参会</option>
-                    </select>
+                <div class="special_item">
+                    参会
                 </div>
             </div>
             <div class="weui-cell">
@@ -55,7 +53,7 @@
                     <label class="weui-label">课题名称</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入课题名称">
+                    <input class="weui-input name" type="text" placeholder="请输入课题名称">
                 </div>
             </div>
             <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -63,13 +61,13 @@
                     <label for="select2" class="weui-label label_change">会议性质</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <select class="weui-select selector_12" name="select2">
+                    <select class="weui-select selector_12 nature" name="select2">
                         <option value="01">请选择</option>
-                        <option value="0">全国大型</option>
-                        <option value="1">受邀讲学</option>
-                        <option value="2">访问学者</option>
-                        <option value="3">区域大型</option>
-                        <option value="4">系统培训</option>
+                        <option value="全国大型">全国大型</option>
+                        <option value="受邀讲学">受邀讲学</option>
+                        <option value="访问学者">访问学者</option>
+                        <option value="区域大型">区域大型</option>
+                        <option value="系统培训">系统培训</option>
                     </select>
                 </div>
             </div>
@@ -80,7 +78,7 @@
                     <label class="weui-label">预算金额</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入预算金额">
+                    <input class="weui-input budgetMoney" type="number" pattern="[0-9]*" placeholder="请输入预算金额">
                 </div>
             </div>
             <div class="weui-cell">
@@ -88,7 +86,7 @@
                     <label class="weui-label">已获资助</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入已获取资助金额">
+                    <input class="weui-input gainMoney" type="number" pattern="[0-9]*" placeholder="请输入已获取资助金额">
                 </div>
             </div>
         </div>
@@ -98,7 +96,7 @@
                     <label class="weui-label">会议开始时间</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" id='datetime-picker' placeholder="请选择" />
+                    <input class="weui-input startTime" type="text" id='datetime-picker' placeholder="请选择" />
                 </div>
             </div>
             <div class="weui-cell selector_1 moving">
@@ -106,7 +104,7 @@
                     <label class="weui-label">会议结束时间</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" id='datetime-picker2' placeholder="请选择" />
+                    <input class="weui-input endTime" type="text" id='datetime-picker2' placeholder="请选择" />
                 </div>
             </div>
 
@@ -115,7 +113,7 @@
                     <label class="weui-label">申请资助</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="text" placeholder="请输入申请资助">
+                    <input class="weui-input applyMoney" type="text" placeholder="请输入申请资助">
                 </div>
             </div>
             <div class="weui-cell">
@@ -123,7 +121,7 @@
                     <label class="weui-label">资金用途说明</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input" type="number" pattern="[0-9]*" placeholder="请输入资金用途说明">
+                    <input class="weui-input explain" type="number" pattern="[0-9]*" placeholder="请输入资金用途说明">
                 </div>
             </div>
             <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -137,18 +135,21 @@
                     </form>  
                 </div>
             </div>
-            <div class="img_content">
-                <img src="" id="show" >
+            <div class="option_img weui-cell">
+                <ul></ul>
             </div>
         </div>
         <div class="btn_top"></div>
         <div class="item_btn">
-            <a href="audit.html">提交资助申请</a>
+            <!-- <a href="audit.html">提交资助申请</a> -->
+            <a href="javascript:void(0)">提交资助申请</a>
         </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
         $("#datetime-picker").datetimePicker();
@@ -156,15 +157,150 @@
         $('.weui-select').on('change', function () {
            $(this).css('color','#666');
         })
+        $('.name').on('change', function () {
+            name = $(this).val()
+        })
+        $('.nature').on('change', function () {
+            nature = $(this).val()
+        })
+        $('.budgetMoney').on('change', function () {
+            budgetMoney = $(this).val()
+        })
+        $('.gainMoney').on('change', function () {
+            gainMoney = $(this).val()
+        })
+        $('.startTime').on('change', function () {
+            startTime = $(this).val()
+        })
+        $('.endTime').on('change', function () {
+            endTime = $(this).val()
+        })
+        $('.applyMoney').on('change', function () {
+            applyMoney = $(this).val()
+        })
+        $('.explain').on('change', function () {
+            explain = $(this).val()
+        })
         
-        $('#files').on('change',function(){
-            $('.img_content').css('display','block');
-            var reads= new FileReader();
-            f=document.getElementById('files').files[0];
-            reads.readAsDataURL(f);
-            reads.onload = function (e) {
-                document.getElementById('show').src=this.result;
+        $('#files').on('change', function () {
+            
+            if (!$(this).val()) {
+                $.alert('没有上传文件');
+                return;
+            }
+            $('.option_img').css({display:'block'})
+            const file = this.files;
+            // const file = $(this).prop('files');
+            const size = file.size;
+
+            console.log(file)
+            // 文件大小限制
+            if (size >= 1 * 1024 * 1024) {
+                $.alert('文件大于1兆不行!');
+                return false;
+            }
+            // 文件类型限制
+            // if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif') {
+            //     alert('不是有效的图片文件!');
+            //     return;
+            // }
+            // 获取base64
+            var reader = new FileReader();
+            const img = new Image();
+            reader.readAsDataURL(file[0])
+            reader.onload = function (e) {
+                console.log(e)
+                let data = e.target.result;   // 'data:image/jpeg;base64,/9j/4AAQSk...(base64编码)...}' 
+                console.log(data);
+                img.src = e.target.result;
+                // 缩放图片需要的canvas
+                var canvas = document.createElement('canvas');
+                var context = canvas.getContext('2d');
+                let el = `<li><img src=${data} alt=""></li>`
+                $('.option_img ul').append(el)
+                // 上传OSS
+                function toBlob(urlData, fileType) {
+                    var bytes = window.atob(urlData),
+                        n = bytes.length,
+                        u8arr = new Uint8Array(n);
+                    while (n--) {
+                        u8arr[n] = bytes.charCodeAt(n);
+                    }
+                    return new Blob([u8arr], { type: fileType });
+                }
+                var dataUrl = e.target.result;
+                var base64 = dataUrl.split(',')[1];
+                var fileType = dataUrl.split(';')[0].split(':')[1];
+                var blob = toBlob(base64, fileType);
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(blob);
+                reader.onload = function (event) {
+
+                    // 配置
+                    var client = new OSS.Wrapper({
+                        region: 'oss-cn-shenzhen',
+                        accessKeyId: 'LTAIFSHcWupSdU9C',
+                        accessKeySecret: 'HefnQDo4RGM9NXpWMACA62K9UAs1MR',
+                        bucket: 'imuts'
+                    });
+
+                    // 文件名
+                    var date = new Date();
+                    var time = '' + date.getFullYear() + date.getMonth() + 1 + date.getDate();
+                    var storeAs = 'doctorGroup/doctorFile/' + date.getTime() + '.' + blob.type.split('/')[1];
+
+                    // arrayBuffer转Buffer
+                    var buffer = new OSS.Buffer(event.target.result);
+
+                    // 上传
+                    client.put(storeAs, buffer).then(function (result) {
+                        console.log(result)
+                        console.log(result.url.substring(result.url.length-40,result.url.length))
+                        let img_url = result.url.substring(result.url.length-40,result.url.length)
+                        localStorage.setItem('img_url',img_url)
+                        return img_url;
+                    }).catch(function (err) {
+                        console.log(err);
+                    });
+                }
+
             };
+            // console.log(file);
+        })
+        let url = Public.url()
+        $('.item_btn').on('click',()=>{
+            let pdList = [{
+                    "dmpm":
+                        {  
+                            "dtrId" : localStorage.getItem('userId'),
+                            "name" : name,
+                            "nature" : nature,
+                            "budgetMoney" : budgetMoney,
+                            "gainMoney" : gainMoney,
+                            "startTime" : startTime,
+                            "endTime" : endTime,
+                            "applyMoney" : applyMoney,
+                            "explain" : explain,
+                        }   
+                },{
+                    "dmpfList":
+                        [{  
+                            "name" : localStorage.getItem('img_url').split("/")[2],
+                            "url" : localStorage.getItem('img_url')
+                        }]    
+                }];
+                console.log(JSON.stringify(pdList))
+            $.ajax({
+                url: `${url}/metting/insertOrUpdateDmpm`,
+                type: 'POST',
+                contentType: "application/json;charset=UTF-8",
+                dataType : 'json',
+                traditional : true,
+                data : JSON.stringify(pdList),
+                success (res){
+                    console.log(res)
+                }
+            })
         })
     });
 </script>

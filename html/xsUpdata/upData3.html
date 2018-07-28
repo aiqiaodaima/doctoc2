@@ -19,47 +19,10 @@
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="upData2">
-            <ul>
-                <li class="updata_item">
-                    <a href="">
-                        <div class="item_title">FDI对于医学现阶段的创新与持续发展，FDI对于医学现阶段的创新与持续发展，FDI对于医学现阶段的创新与持续发展。</div>
-                        <div class="item_list">
-                            <ul>
-                                <li>
-                                    <span class="left">资助编号</span>
-                                    <span class="rightG">924786242</span>
-                                </li>
-                                <li>
-                                    <span class="left">申请金额</span>
-                                    <span class="rightY">40,000.00</span>
-                                </li>
-                                <li>
-                                    <span class="left">批复金额</span>
-                                    <span class="rightY">20,000.00</span>
-                                </li>
-                                <li>
-                                    <span class="left">提取金额</span>
-                                    <span class="rightY">5,000.00</span>
-                                </li>
-                                <li>
-                                    <span class="left">剩余金额</span>
-                                    <span class="rightY">15,000.00</span>
-                                </li>
-                                <li>
-                                    <span class="left">已核销总额</span>
-                                    <span class="rightY">2,000.00</span>
-                                </li>
-                                <li>
-                                    <span class="left">未核销总额</span>
-                                    <span class="rightY">3,000.00</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </a>
-                </li>
+            <ul class="res_append">
             </ul>
         </div>
-        <div class="upData3">
+        <!-- <div class="upData3">
             <div class="item_title">
                 提款与核销
             </div>
@@ -127,33 +90,31 @@
                 </ul>
             </div>
             <div class="item_content">
-                    <ul>
-                        <li class="frist_line">
-                            <span>核销日期</span>
-                            <span>核销金额</span>
-                            <span>核销金额</span>
-                        </li>
-                        <li class="common_item">
-                            <span class="tips">2018/05/10</span>
-                            <span class="rightB">40,000.00</span>
-                            <span class="rightB">0.00</span>
-                        </li>
-                        <li class="common_item">
-                            <span class="tips">2018/06/01</span>
-                            <span class="rightB">0.00</span>
-                            <span class="rightB">40,000.00</span>
-                        </li>
-                    </ul>
-                </div>
-        </div>
-
-
-
+                <ul>
+                    <li class="frist_line">
+                        <span>核销日期</span>
+                        <span>核销金额</span>
+                        <span>核销金额</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">2018/05/10</span>
+                        <span class="rightB">40,000.00</span>
+                        <span class="rightB">0.00</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">2018/06/01</span>
+                        <span class="rightB">0.00</span>
+                        <span class="rightB">40,000.00</span>
+                    </li>
+                </ul>
+            </div>
+        </div> -->
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../../js/ydui.js"></script>
+<script src="../../js/public.js"></script>
 <script>
     $(function () {
         var dialog = YDUI.dialog;
@@ -170,6 +131,168 @@
             }
         }
         btn.init({ class: '.sure_btn' }).refer();
+        let url = Public.url();
+        $.ajax({
+            url: `${url}/metting/selectDmpm`,
+            type: 'POST',
+            data: {
+                dtrId: localStorage.getItem('userId')
+            },
+            success(res) {
+                // console.log(res)
+                for (let i = 0; i < res.dmpmList.length; i++) {
+                    if (res.dmpmList[i].id == localStorage.getItem('data-meetID')) {
+
+                        let el = ` <li class="updata_item" data-meetID = ${res.dmpmList[i].id}>
+                        <a href="javascript:void(0)">
+                            <div class="item_title">${res.dmpmList[i].name}</div>
+                            <div class="item_list">
+                                <ul>
+                                    <li>
+                                        <span class="left">资助编号</span>
+                                        <span class="rightG">${res.dmpmList[i].card}</span>
+                                    </li>
+                                    <li>
+                                        <span class="left">申请金额</span>
+                                        <span class="rightY">${res.dmpmList[i].applyMoney}</span>
+                                    </li>
+                                    <li>
+                                        <span class="left">批复金额</span>
+                                        <span class="rightY">${res.dmpmList[i].giveMoney}</span>
+                                    </li>
+                                    <li>
+                                        <span class="left">提取金额</span>
+                                        <span class="rightY">${res.dmpmList[i].drawMoney}</span>
+                                    </li>
+                                    <li>
+                                        <span class="left">剩余金额</span>
+                                        <span class="rightY">${res.dmpmList[i].surplusMoney}</span>
+                                    </li>
+                                    <li>
+                                        <span class="left">已核销总额</span>
+                                        <span class="rightY">${res.dmpmList[i].verifyMoney}</span>
+                                    </li>
+                                    <li>
+                                        <span class="left">未核销总额</span>
+                                        <span class="rightY">${res.dmpmList[i].notVerifyMoney}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </a>
+                    </li>`
+                        $('.res_append').append(el)
+                    }
+                }
+            }
+        })
+        $.ajax({
+            url: `${url}/metting/selectBille`,
+            type: 'POST',
+            data: {
+                ids: localStorage.getItem('data-meetID')
+            },
+            success(res) {
+                console.log(res.dmbList)
+                for(let i in res.dmbList[0]){
+                    if(res.dmbList[0][i] == null){
+                        res.dmbList[0][i] = ''
+                    }
+                }
+                for(let i in res.dmbList[1]){
+                    if(res.dmbList[1][i] == null){
+                        res.dmbList[1][i] = ''
+                    }
+                }
+                let el = ` <div class="upData3">
+            <div class="item_title">
+                提款与核销
+            </div>
+            <div class="item_content">
+                <ul>
+                    <li class="frist_line">
+                        <span>提款</span>
+                        <span>第一次</span>
+                        <span>第二次</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">资助编号</span>
+                        <span class="rightG">${res.dmbList[0].card}</span>
+                        <span class="rightG">${res.dmbList[1].card}</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">提取金额</span>
+                        <span class="rightB">${res.dmbList[0].drawMoney}</span>
+                        <span class="rightB">${res.dmbList[1].drawMoney}</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">提款日期</span>
+                        <span class="rightB">${res.dmbList[0].startTime}</span>
+                        <span class="rightB">${res.dmbList[1].startTime}</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">核销截止日</span>
+                        <span class="rightB">${res.dmbList[0].endTime}</span>
+                        <span class="rightB">${res.dmbList[1].endTime}</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">剩余金额</span>
+                        <span class="rightB">${res.dmbList[0].surplusMoney}</span>
+                        <span class="rightB">${res.dmbList[1].surplusMoney}</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">已核销总额</span>
+                        <span class="rightB">${res.dmbList[0].yetVerifyMoney}</span>
+                        <span class="rightB">${res.dmbList[1].yetVerifyMoney}</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">未核销总额</span>
+                        <span class="rightB">${res.dmbList[0].notVerifyMoney}</span>
+                        <span class="rightB">${res.dmbList[1].notVerifyMoney}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="item_content">
+                <ul>
+                    <li class="frist_line">
+                        <span>提款</span>
+                        <span>第一次</span>
+                        <span>第二次</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">已核销总额</span>
+                        <span class="rightB">${res.dmbList[0].yetVerifyMoney}</span>
+                        <span class="rightB">${res.dmbList[1].yetVerifyMoney}</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">未核销金额</span>
+                        <span class="rightB">${res.dmbList[0].notVerifyMoney}</span>
+                        <span class="rightB">${res.dmbList[1].notVerifyMoney}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="item_content">
+                <ul>
+                    <li class="frist_line">
+                        <span>核销日期</span>
+                        <span>核销金额</span>
+                        <span>核销金额</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">${res.dmbList[0].applyTime}</span>
+                        <span class="rightB">${res.dmbList[0].verifyMoney}</span>
+                        <span class="rightB">0.00</span>
+                    </li>
+                    <li class="common_item">
+                        <span class="tips">${res.dmbList[1].applyTime}</span>
+                        <span class="rightB">0.00</span>
+                        <span class="rightB">${res.dmbList[1].verifyMoney}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>`
+        $('.page__bd').append(el)
+            }
+        })
     })
 </script>
 

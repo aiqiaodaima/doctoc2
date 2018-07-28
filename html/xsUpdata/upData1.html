@@ -65,17 +65,17 @@
             </div>
             <div class="tips_title">
                 <span>待核销金额</span>
-                <span>20,000元</span>
+                <span class="surplusMoney22"></span>
             </div>
             <div class="option_item">
                 <label for="sort">对应课题</label>
                 <div>
                     <select name="sort" id="sort">
-                        <option value="1">请选择</option>
-                        <option value="课题1">课题1</option>
+                        <option value="0-0-0">请选择</option>
+                        <!-- <option value="课题1">课题1</option>
                         <option value="课题2">课题2</option>
                         <option value="课题3">课题3</option>
-                        <option value="课题4">课题4</option>
+                        <option value="课题4">课题4</option> -->
                     </select>
                     <div class="se_after">
 
@@ -177,7 +177,6 @@
                 dtrId: localStorage.getItem('userId')
             },
             success(res) {
-                console.log(res)
                 $('.count').html(res.count);
                 $('.startTime').html(res.dmpm.startTime);
                 $('.drawMoney').html(res.dmpm.drawMoney);
@@ -279,16 +278,50 @@
         $('.extensive').on('change', function () {
             extensive = $(this).val()
         })
+        $('#sort').on('change', function () {
+            ids = $(this).val().split('-')[0];
+            name = $(this).val().split('-')[1];
+            // if()
+            $('.surplusMoney22').html($(this).val().split('-')[2]+'元')
+        })
+        $.ajax({
+            url: `${url}/metting/selectDmpmName`,
+            data :{
+                dtrId : localStorage.getItem('userId')
+            },
+            type: 'POST',
+            success (res){
+                console.log(res)
+                res.name.forEach(el => {
+                    console.log(el)
+                    let ops = `<option value="${el.id}-${el.name}-${el.surplusMoney}">${el.name}</option>`
+                    $('#sort').append(ops)
+                });
+            }
+        })
+        
         $('.sure_btn').on('click',()=>{
+            let dmb = [{
+                    "dtrId" : localStorage.getItem('userId'),
+                    "extensive": extensive,
+                    "ids": ids,
+                    "name" : name
+                },{
+                    "dmbfList":
+                        [{  
+                            "dtrId" : localStorage.getItem('userId'),
+                            "ids": ids,
+                            "url" : localStorage.getItem('img_url')
+                        }]    
+                }];
+                console.log(JSON.stringify(dmb))
             $.ajax({
                 url: `${url}/metting/insertOrUpdateDmb`,
                 type: 'POST',
-                data :{
-                    dtrId : localStorage.getItem('userId'),
-                    number,
-                    extensive,
-                    url : localStorage.getItem('img_url')
-                },
+                contentType: "application/json;charset=UTF-8",
+                dataType : 'json',
+                traditional : true,
+                data : JSON.stringify(dmb),
                 success (res){
                     console.log(res)
                 }
