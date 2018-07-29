@@ -16,19 +16,50 @@
 
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;overflow: hidden;">
-        <a href="patient-id.html" class="cert_1"> 
-            <img src="../image/card2.png" alt="">
-        </a>
-        <div class="certification_bottom">
-            
+        <div class="cert_2">
+            <div class="content">
+                <div class="content_top">
+                    <div class="top_left">
+                        <img src="" alt="">
+                    </div>
+                    <div class="top_right">
+                        <span class="name">医生名字</span>
+                        <span class="hospital">医院</span>
+                        <span class="subjec">科目</span>
+                    </div>
+                </div>
+                <div class="content_img">
+                    <img src="" alt="">
+                </div>
+                <div class="content_bottom">
+                    <span>扫描上面的二维码,关联医生</span>
+                    <span> 长按图片保存二维码至本地相册</span>
+                </div>
+            </div>
         </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function(){
-       
+        let url = Public.url();
+       $.ajax({
+           url : `${url}/user/selectUser`,
+           type : 'POST',
+           data : {
+                id: localStorage.getItem('userId')
+            },
+            success (res){
+                console.log(res)
+                $('.top_left img').attr("src",`https://imuts.oss-cn-shenzhen.aliyuncs.com/${res.user.photo}`)
+                $('.name').html(res.user.name)
+                $('.hospital').html(res.doctor.hospital)
+                $('.subjec').html(res.doctor.hplSection)
+                $('.content_img img').attr("src",`https://imuts.oss-cn-shenzhen.aliyuncs.com/${res.doctor.twoCode}`)
+            }
+       })
     });
 </script>
 </html>

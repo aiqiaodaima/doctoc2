@@ -65,3 +65,50 @@ body{
     font-family:PingFangSC-Regular;
     color:rgba(255,255,255,1);
 }
+.cert_2 {
+    width: 100%;
+    padding: 1.6rem 1rem 0;
+  }
+  .cert_2 .content {
+    background: #fff;
+    padding: 1rem;
+  }
+  .cert_2 .content .content_top {
+    display: flex;
+  }
+  .cert_2 .content .content_top .top_left {
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    margin-right: 1rem;
+  }
+  .cert_2 .content .content_top .top_right {
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .cert_2 .content .content_top .top_right .name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: black;
+  }
+  .cert_2 .content .content_top .top_right .hospital {
+    font-size: 1rem;
+    color: #666;
+  }
+  .cert_2 .content .content_top .top_right .subjec {
+    font-size: 1rem;
+    color: #666;
+  }
+  .cert_2 .content .content_img {
+    width: 16rem;
+    height: 16rem;
+  }
+  .cert_2 .content .content_bottom span {
+    text-align: center;
+    display: block;
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  

@@ -51,6 +51,7 @@
             success (res){
                 console.log(res.dmpmList)
                 res.dmpmList.forEach(element => {
+                    console.log(element.name)
                     element.name = element.name.length> 17 ? element.name.substring(0,10)+'...' : element.name;
                     if(element.state == '已获批复'){
                         let el = `
