@@ -64,11 +64,11 @@
                 <div class="weui-cell__bd">
                     <select class="weui-select selector_12 nature" name="select2">
                         <option value="01">请选择</option>
-                        <option value="0">全国大型</option>
-                        <option value="1">受邀讲学</option>
-                        <option value="2">访问学者</option>
-                        <option value="3">区域大型</option>
-                        <option value="4">系统培训</option>
+                        <option value="全国大型">全国大型</option>
+                        <option value="受邀讲学">受邀讲学</option>
+                        <option value="访问学者">访问学者</option>
+                        <option value="区域大型">区域大型</option>
+                        <option value="系统培训">系统培训</option>
                     </select>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                     <label class="weui-label">预计规模</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input scale" type="text" placeholder="请输入预计规模">
+                    <input class="weui-input scale" type="number" pattern="[0-9]*" placeholder="请输入预计规模">
                 </div>
             </div>
             <div class="weui-cell">
@@ -130,7 +130,7 @@
                     <label class="weui-label">申请资助</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input money" type="text" placeholder="请输入申请金额（万元）">
+                    <input class="weui-input money" type="text" placeholder="请输入申请金额（元）">
                 </div>
             </div>
             <div class="weui-cell">
@@ -156,8 +156,24 @@
 <script src="../js/public.js"></script>
 <script>
     $(function () {
-        $("#datetime-picker").datetimePicker();
-        $("#datetime-picker2").datetimePicker();
+        $("#datetime-picker").datetimePicker({
+            times: function () {
+                return [
+                ];
+            },
+            onChange: function (picker, values, displayValues) {
+                console.log(values);
+            }
+        });
+        $("#datetime-picker2").datetimePicker({
+            times: function () {
+                return [
+                ];
+            },
+            onChange: function (picker, values, displayValues) {
+                console.log(values);
+            }
+        });
         
         $('.metName').on('keyup',() =>{                    
             window.metName  =  $('.metName').val();     
@@ -166,7 +182,7 @@
             window.nature  =  $('.nature').val();     
         })
         $('.scale').on('keyup',() =>{                    
-            window.scale  =  $('.scale').val();     
+            window.maxPerson  =  $('.scale').val();     
         }) 
         $('.sponsor').on('keyup',() =>{                    
             window.sponsor  =  $('.sponsor').val();     
@@ -198,9 +214,10 @@
                     dataType: 'json',
                     type: 'POST',
                     data : {
+                        dtrId : localStorage.getItem('userId'),
                         metName,
                         nature,
-                        scale,
+                        maxPerson,
                         sponsor,
                         budgetMoney,
                         gainMoney,
@@ -218,9 +235,9 @@
                     }
                 })
             })
-            p.then((res)=>{
+            p.then(res=>{
                 window.location = 'audit.html'
-            },(res)=>{
+            },res=>{
                $.alert('请先填写资料')
             })
         })

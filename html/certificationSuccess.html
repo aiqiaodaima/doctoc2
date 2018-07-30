@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>个人中心</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/certificationSuccess.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="success_table">
+            <ul>
+                <li class="common_item">
+                    <span>姓名</span>
+                    <span class="docName">张大头</span>
+                </li>
+                <li class="common_item special_item">
+                    <span>二维码</span>
+                    <a href="Certification2.html" class="qr">
+                        <img src="../image/successQR.png" alt="">
+                    </a>
+                </li>
+                <li class="common_item">
+                    <span>ID</span>
+                    <span class="nameId">080453</span>
+                </li>
+                <li class="common_item">
+                    <span>性别</span>
+                    <span class="docSex">男</span>
+                </li>
+                <li class="common_item">
+                    <span>年龄</span>
+                    <span class="docAge">080453</span>
+                </li>
+                <!-- <li class="common_item">
+                    <span>ID</span>
+                    <span class="nameId">080453</span>
+                </li> -->
+
+                <li class="common_item">
+                    <span>医院</span>
+                    <span class="hospital">中山大学附属第三医院</span>
+                </li>
+                <li class="common_item">
+                    <span>职称</span>
+                    <span class="subjec">正畸科</span>
+                </li>
+                <li class="common_item">
+                    <span>职称</span>
+                    <span class="job">主任医师</span>
+                </li>
+                <li class="common_item">
+                    <span>医院电话</span>
+                    <span class="hplPhone">020-38479930</span>
+                </li>
+                <li class="common_item">
+                    <span>工作电话</span>
+                    <span class="jobPhone">020-84893920</span>
+                </li>
+            </ul>
+        </div>
+        <div class="tip_word">
+            恭喜您已经完成医师身份认证，如身份信息有误或更新。请点击更改认证。
+        </div>
+        <div class="btn_top"></div>
+        <div class="item_btn">
+            <a href="audit.html">更改认证</a>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
+<script>
+    $(function () {
+        let url = Public.url();
+        $.ajax({
+            url: `${url}/user/selectUser`,
+            type: 'POST',
+            data: {
+                id: localStorage.getItem('userId')
+            },
+            success(res) {
+                console.log(res)
+                $('.top_left img').attr("src", `https://imuts.oss-cn-shenzhen.aliyuncs.com/${res.user.photo}`)
+                $('.docName').html(res.user.name)
+                $('.jobPhone').html(res.doctor.jobPhone)
+                $('.hplPhone').html(res.doctor.hplPhone)
+
+                $('.docSex').html(res.user.sex)
+                $('.docAge').html(res.user.age)
+
+
+
+                $('.nameId').html(res.doctor.dtrId)
+                $('.name').html(res.user.name)
+                $('.hospital').html(res.doctor.hospital)
+                $('.subjec').html(res.doctor.hplSection)
+                $('.content_img img').attr("src", `https://imuts.oss-cn-shenzhen.aliyuncs.com/${res.doctor.twoCode}`)
+            }
+        })
+    });
+</script>
+
+</html>

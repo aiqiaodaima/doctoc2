@@ -1,0 +1,61 @@
+.success_table {
+  background: #fff;
+}
+.success_table ul {
+  padding: 0 1rem;
+}
+.success_table ul .common_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.27rem;
+  border-bottom: 1px solid #eaeaea;
+}
+.success_table ul .common_item:nth-last-of-type(1) {
+  border-bottom: none;
+}
+.success_table ul .common_item span:nth-of-type(1) {
+  height: 1rem;
+  font-size: 1rem;
+  font-family: PingFangSC-Regular;
+  color: #666666;
+  line-height: 1rem;
+  word-break: keep-all;
+}
+.success_table ul .common_item span:nth-of-type(2) {
+  height: 1.2rem;
+  font-size: 1.2rem;
+  font-family: PingFangSC-Regular;
+  color: #333333;
+  line-height: 1.2rem;
+}
+.success_table ul .special_item a {
+  display: block;
+  width: 1.13rem;
+  height: 1.13rem;
+  position: relative;
+  padding-right: 1rem;
+  box-sizing: content-box;
+}
+.success_table ul .special_item a:after {
+  display: inline-block;
+  content: '';
+  height: 10px;
+  width: 10px;
+  border-width: 2px 2px 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  -webkit-transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  top: 0.2rem;
+  right: 0.1rem;
+}
+.tip_word {
+  height: 3.2rem;
+  font-size: 1rem;
+  font-family: PingFangSC-Regular;
+  color: #666666;
+  line-height: 1.6rem;
+  padding: 1rem;
+}

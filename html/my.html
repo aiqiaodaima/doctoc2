@@ -149,11 +149,15 @@
                 }else{
                     $('.autonym').html('未实名')
                 }
-                $('.name').html(localStorage.getItem('name'))
+                if(localStorage.getItem('name')=="null"){
+                    $('.name').html(localStorage.getItem('loginAccount'))
+                }else{
+                    $('.name').html(localStorage.getItem('name'))
+                }
                 if(localStorage.getItem('photo') == "null"){
                     $('.photo img').attr('src','../image/patient.jpg')
                 }else{
-                    $('.photo img').attr('src', `${url}${localStorage.getItem('scienceState')}`)
+                    $('.photo img').attr('src', `https://imuts.oss-cn-shenzhen.aliyuncs.com/${localStorage.getItem('photo')}`)
                 }
             }
         })

@@ -51,19 +51,42 @@
 <script src="../js/public.js"></script>
 <script>
     $(function () {
-        var url = Public.url()
+        var url = Public.url();
+
+        // 微信code
+        var getRequest = this.getRequest();
+        if (getRequest.code) {
+        this.code = getRequest.code;
+        } else {
+        var pageUrl = window.location.href
+        .replace(/[/]/g, "%2f")
+        .replace(/[:]/g, "%3a")
+        .replace(/[#]/g, "%23")
+        .replace(/[&]/g, "%26")
+        .replace(/[=]/g, "%3d");
+        var url =
+        "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" +
+        "wx890bc7d7a173ec44" +
+        "&redirect_uri=" +
+        pageUrl + //这里放当前页面的地址
+        "&response_type=code&scope=snsapi_base&state=STATE&connect_redirect=1#wechat_redirect";
+        window.location.href = url;
+        }
+        console.log("CODE：" + getRequest.code);
+        $('#login_name').val(localStorage.getItem('loginAccount'));
+        $('#login_phone').val(localStorage.getItem('login_phone'));
         $('#login_name').on('keyup', function () {
-            window.loginAccount = $(this).val()
+            localStorage.setItem('loginAccount',$(this).val())
         })
         $('#login_phone').on('keyup', function () {
-            window.login_phone = $(this).val()
+            localStorage.setItem('login_phone',$(this).val())
         })
         $('#login_pass').on('keyup', function () {
             window.login_pass = $(this).val()
         });
         // 获取验证码
         $('.pass_btn').on('click', function () {
-            if ((/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(login_phone))) {
+            if ((/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(localStorage.getItem('login_phone')))) {
                 var a = 60;
                 $('.pass_btn').text(`已发送(${a}s)`).attr("disabled", true);
                 let b = setInterval(() =>{
@@ -78,7 +101,7 @@
                 $.ajax({
                     url: `${url}/note/sendNote`,
                     data: {
-                        phone: login_phone
+                        phone: localStorage.getItem('login_phone')
                     },
                     xhrFields: {
                         withCredentials: true
@@ -112,8 +135,8 @@
                         $.ajax({
                             url: `${url}/user/login`,
                             data: {
-                                phone: login_phone,
-                                loginAccount: loginAccount
+                                phone: localStorage.getItem('login_phone'),
+                                loginAccount: localStorage.getItem('loginAccount')
                             },
                             xhrFields: {
                                 withCredentials: true
@@ -122,12 +145,18 @@
                             type: 'POST',
                             success (data) {
                                 console.log(data)
-                                localStorage.setItem('userId',data.user.id)
-                                localStorage.setItem('scienceState',data.user.scienceState)
-                                localStorage.setItem('name',data.user.name)
-                                localStorage.setItem('photo',data.user.photo)
-                                localStorage.setItem('applyState',data.applyState)
-                                window.location = 'index.html';
+                                if(data.msg == '手机号码已经存在'){
+                                    $.alert('手机号与用户名不一致')
+                                }else if(data.msg == '用户名已经存在'){
+                                    $.alert('手机号与用户名不一致')
+                                } else{
+                                    localStorage.setItem('userId',data.user.id)
+                                    localStorage.setItem('scienceState',data.user.scienceState)
+                                    localStorage.setItem('name',data.user.name)
+                                    localStorage.setItem('photo',data.user.photo)
+                                    localStorage.setItem('applyState',data.applyState)
+                                    window.location = 'index.html';
+                                }  
                             },
                             error (){
                                 $.alert("验证码错误");

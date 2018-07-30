@@ -17,7 +17,7 @@
 
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
-        <div class="weui-cells weui-cells_form"> 
+        <div class="weui-cells weui-cells_form" style="margin: 0"> 
             <div class="weui-cell weui-cell_select weui-cell_select-after">
                 <div class="weui-cell__hd">
                     <label for="" class="weui-label">工作性质</label>
@@ -79,12 +79,24 @@
             </div>
 
         </div>
+        <div class="btn_top"></div>
+        <div class="item_btn">
+            <a href="patient-id.html">
+               保存
+            </a>
+        </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function(){
+        $('.industry').val(localStorage.getItem('industry'));
+        $('.job').val(localStorage.getItem('job'));
+        $('.hospital').val(localStorage.getItem('hospital'));
+        $('.hplSection').val(localStorage.getItem('hplSection'));
+        $('.jobPhone').val(localStorage.getItem('jobPhone'));
+        $('.hplPhone').val(localStorage.getItem('hplPhone'));
         $('.industry').on('change',function(){
            localStorage.setItem('industry',$(this).val())
         })

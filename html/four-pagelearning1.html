@@ -19,19 +19,23 @@
         .weui-cells {
             margin-bottom: 5px;
         }
+
         .weui-cell_select .weui-cell__bd:after {
             width: 10px;
             height: 10px;
         }
-        .weui-cellslast{
+
+        .weui-cellslast {
             margin-bottom: 0;
         }
-        .img_content{
+
+        .img_content {
             width: 100px;
             height: 100px;
             display: none;
         }
-        .special_item{
+
+        .special_item {
             padding: 0 1rem;
         }
     </style>
@@ -50,10 +54,10 @@
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd">
-                    <label class="weui-label">课题名称</label>
+                    <label class="weui-label">会议名称</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input name" type="text" placeholder="请输入课题名称">
+                    <input class="weui-input name" type="text" placeholder="请输入会议名称">
                 </div>
             </div>
             <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -121,7 +125,7 @@
                     <label class="weui-label">资金用途说明</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input explain" type="number" pattern="[0-9]*" placeholder="请输入资金用途说明">
+                    <input class="weui-input explain" placeholder="请输入资金用途说明">
                 </div>
             </div>
             <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -132,7 +136,7 @@
                     <label class="" for="files">拍照上传</label>
                     <form>
                         <input type="file" accept="image/png, image/jpeg, image/gif, image/jpg" id="files" style="position:absolute;clip:rect(0 0 0 0);">
-                    </form>  
+                    </form>
                 </div>
             </div>
             <div class="option_img weui-cell">
@@ -152,10 +156,27 @@
 <script src="../js/public.js"></script>
 <script>
     $(function () {
-        $("#datetime-picker").datetimePicker();
-        $("#datetime-picker2").datetimePicker();
+        $("#datetime-picker").datetimePicker({
+            times: function () {
+                return [
+                ];
+            },
+            onChange: function (picker, values, displayValues) {
+                console.log(values);
+            }
+        });
+        $("#datetime-picker2").datetimePicker({
+            times: function () {
+                return [
+                ];
+            },
+            onChange: function (picker, values, displayValues) {
+                console.log(values);
+            }
+        });
+        var nature, budgetMoney, gainMoney, startTime, endTime, applyMoney, explain;
         $('.weui-select').on('change', function () {
-           $(this).css('color','#666');
+            $(this).css('color', '#666');
         })
         $('.name').on('change', function () {
             name = $(this).val()
@@ -181,14 +202,14 @@
         $('.explain').on('change', function () {
             explain = $(this).val()
         })
-        
+
         $('#files').on('change', function () {
-            
+
             if (!$(this).val()) {
                 $.alert('没有上传文件');
                 return;
             }
-            $('.option_img').css({display:'block'})
+            $('.option_img').css({ display: 'block' })
             const file = this.files;
             // const file = $(this).prop('files');
             const size = file.size;
@@ -216,7 +237,7 @@
                 // 缩放图片需要的canvas
                 var canvas = document.createElement('canvas');
                 var context = canvas.getContext('2d');
-                let el = `<li><img src=${data} alt=""></li>`
+                let el = `<li class = "li_img"><img src=${data} alt=""></li>`
                 $('.option_img ul').append(el)
                 // 上传OSS
                 function toBlob(urlData, fileType) {
@@ -255,9 +276,8 @@
                     // 上传
                     client.put(storeAs, buffer).then(function (result) {
                         console.log(result)
-                        console.log(result.url.substring(result.url.length-40,result.url.length))
-                        let img_url = result.url.substring(result.url.length-40,result.url.length)
-                        localStorage.setItem('img_url',img_url)
+                        let img_url = result.name
+                        localStorage.setItem('img_url', img_url)
                         return img_url;
                     }).catch(function (err) {
                         console.log(err);
@@ -268,39 +288,58 @@
             // console.log(file);
         })
         let url = Public.url()
-        $('.item_btn').on('click',()=>{
-            let pdList = [{
+        $('.item_btn').on('click', () => {
+            // var nature,budgetMoney,gainMoney,startTime,endTime,applyMoney,explain;
+            if (nature == undefined || budgetMoney == undefined || gainMoney == undefined || startTime == undefined || endTime == undefined || applyMoney == undefined || explain == undefined) {
+                $.alert('请先填写资料')
+            } else {
+
+
+                let pdList = [{
                     "dmpm":
-                        {  
-                            "dtrId" : localStorage.getItem('userId'),
-                            "name" : name,
-                            "nature" : nature,
-                            "budgetMoney" : budgetMoney,
-                            "gainMoney" : gainMoney,
-                            "startTime" : startTime,
-                            "endTime" : endTime,
-                            "applyMoney" : applyMoney,
-                            "explain" : explain,
-                        }   
-                },{
+                    {
+                        "dtrId": localStorage.getItem('userId'),
+                        "name": name,
+                        "nature": nature,
+                        "budgetMoney": budgetMoney,
+                        "gainMoney": gainMoney,
+                        "startTime": startTime,
+                        "endTime": endTime,
+                        "applyMoney": applyMoney,
+                        "explain": explain,
+                    }
+                }, {
                     "dmpfList":
-                        [{  
-                            "name" : localStorage.getItem('img_url').split("/")[2],
-                            "url" : localStorage.getItem('img_url')
-                        }]    
+                        [{
+                            "name": localStorage.getItem('img_url').split("/")[2],
+                            "url": localStorage.getItem('img_url')
+                        }]
                 }];
                 console.log(JSON.stringify(pdList))
-            $.ajax({
-                url: `${url}/metting/insertOrUpdateDmpm`,
-                type: 'POST',
-                contentType: "application/json;charset=UTF-8",
-                dataType : 'json',
-                traditional : true,
-                data : JSON.stringify(pdList),
-                success (res){
-                    console.log(res)
-                }
-            })
+                let p = new Promise((resolve, reject) => {
+                    $.ajax({
+                        url: `${url}/metting/insertOrUpdateDmpm`,
+                        type: 'POST',
+                        contentType: "application/json;charset=UTF-8",
+                        dataType: 'json',
+                        traditional: true,
+                        data: JSON.stringify(pdList),
+                        success(res) {
+                            console.log(res);
+                            resolve(res)
+                        },
+                        error() {
+                            reject(res)
+                            $.alert('请先填写资料')
+                        }
+                    })
+                })
+                p.then(res => {
+                    window.location = 'audit.html'
+                }, res => {
+                    $.alert('请先填写资料')
+                })
+            }
         })
     });
 </script>

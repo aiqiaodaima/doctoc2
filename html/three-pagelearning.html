@@ -28,7 +28,8 @@
                 <ul>
                     <li class="apply_title">
                         <div class="title_left">受邀参会资助申请</div>
-                        <div class="title_right apply1">                          
+                        <div class="title_right apply1">
+                            <a href="javascript:void(0)">新增申请</a>                       
                         </div>
                     </li>
                     <li class="apply_item">
@@ -37,7 +38,7 @@
                             <span class="blue"></span>
                         </div>
                         <div class="item_middle">
-                            <span>金额（万元）</span>
+                            <span>金额（元）</span>
                             <span class="blue"></span>
                         </div>
                         <div class="item_right">
@@ -50,7 +51,7 @@
                             <span class="green"></span>
                         </div>
                         <div class="item_middle">
-                            <span>金额（万元）</span>
+                            <span>金额（元）</span>
                             <span class="green"></span>
                         </div>
                         <div class="item_right">
@@ -63,7 +64,7 @@
                             <span class="orange"></span></span>
                         </div>
                         <div class="item_middle">
-                            <span>金额（万元）</span>
+                            <span>金额（元）</span>
                             <span class="orange"></span>
                         </div>
                         <div class="item_right">
@@ -76,7 +77,7 @@
                             <span class="light_red"></span>
                         </div>
                         <div class="item_middle">
-                            <span>金额（万元）</span>
+                            <span>金额（元）</span>
                             <span class="light_red"></span>
                         </div>
                         <div class="item_right">
@@ -90,6 +91,7 @@
                     <li class="apply_title">
                         <div class="title_left">组织发起会议资助申请</div>
                         <div class="title_right apply2">
+                                <a href="javascript:void(0)">新增申请</a>           
                         </div>
                     </li>
                     <li class="apply_item">
@@ -98,7 +100,7 @@
                             <span class="blue"></span></span>
                         </div>
                         <div class="item_middle">
-                            <span>金额（万元）</span>
+                            <span>金额（元）</span>
                             <span class="blue"></span>
                         </div>
                         <div class="item_right">
@@ -111,7 +113,7 @@
                             <span class="green"></span>
                         </div>
                         <div class="item_middle">
-                            <span>金额（万元）</span>
+                            <span>金额（元）</span>
                             <span class="green"></span>
                         </div>
                         <div class="item_right">
@@ -124,7 +126,7 @@
                             <span class="orange"></span>
                         </div>
                         <div class="item_middle">
-                            <span>金额（万元）</span>
+                            <span>金额（元）</span>
                             <span class="orange"></span></span>
                         </div>
                         <div class="item_right">
@@ -137,11 +139,11 @@
                             <span class="light_red"></span>
                         </div>
                         <div class="item_middle">
-                            <span>金额（万元）</span>
+                            <span>金额（元）</span>
                             <span class="light_red"></span>
                         </div>
                         <div class="item_right">
-                            <a href="three-pagelearning2.html">查看详情</a>
+                            <a href="three-pagelearning2.html" >查看详情</a>
                         </div>
                     </li>
                 </ul>
@@ -163,17 +165,32 @@
     $(function () {
         localStorage.removeItem('title')
         localStorage.removeItem('title2')
+        $(document).on('click','haofan',function(){
+            window.location.href = 'information_updating.html'
+            // $.alert('您尚未成功深度认证')
+        })
         if(localStorage.getItem('applyState')=='已获审核'){
-            $('.apply1').html('<a href="four-pagelearning1.html">新增申请</a>');
-            $('.apply2').html('<a href="four-pagelearning2.html">新增申请</a>')
+            $('.apply1').on('click',()=>{
+                window.location.href = 'four-pagelearning1.html'
+            })
+            $('.apply2').on('click',()=>{
+                window.location.href = 'four-pagelearning2.html'
+            })
         }else{
-            $('.apply1').html('<a href="javascript:void(0)">新增申请</a>');
-            $('.apply2').html('<a href="javascript:void(0)">新增申请</a>');
+            $('.apply1').on('click',()=>{
+                $.alert('您尚未成功深度认证')
+                window.location.href = 'information_updating.html'
+            })
+            $('.apply2').on('click',()=>{
+                $.alert('您尚未成功深度认证')
+                window.location.href = 'information_updating.html'
+            })
         }
         $('.content_item').eq(1).on('click', function () {
             localStorage.setItem('title', '开会')
             localStorage.setItem('title2', '已申请组织发起会议资助申请')
         })
+        
         let url = Public.url();
         $.ajax({
             url:`${url}/metting/selectAppDm`,
@@ -205,6 +222,8 @@
                 $('.light_red').eq(3).html(res.pmList2[3].money)
             }
         })
+        
+       
 
         // 每个按钮的功能
         function setState(i,j){

@@ -166,10 +166,11 @@
                 })
             }
         }
-        btn.init({ class: '.sure_btn' }).refer();
+       
         goTo.init({ class: '.input_search' }).goto();
 
         let url = Public.url();
+        var extensive,ids;
         $.ajax({
             url: `${url}/metting/selectAllDmpm`,
             type: 'POST',
@@ -293,7 +294,6 @@
             success (res){
                 console.log(res)
                 res.name.forEach(el => {
-                    console.log(el)
                     let ops = `<option value="${el.id}-${el.name}-${el.surplusMoney}">${el.name}</option>`
                     $('#sort').append(ops)
                 });
@@ -301,31 +301,45 @@
         })
         
         $('.sure_btn').on('click',()=>{
-            let dmb = [{
-                    "dtrId" : localStorage.getItem('userId'),
-                    "extensive": extensive,
-                    "ids": ids,
-                    "name" : name
-                },{
-                    "dmbfList":
-                        [{  
-                            "dtrId" : localStorage.getItem('userId'),
-                            "ids": ids,
-                            "url" : localStorage.getItem('img_url')
-                        }]    
-                }];
-                console.log(JSON.stringify(dmb))
-            $.ajax({
-                url: `${url}/metting/insertOrUpdateDmb`,
-                type: 'POST',
-                contentType: "application/json;charset=UTF-8",
-                dataType : 'json',
-                traditional : true,
-                data : JSON.stringify(dmb),
-                success (res){
-                    console.log(res)
-                }
-            })
+            console.log(extensive)
+            if(extensive == undefined || ids == undefined || name == undefined){
+                $.alert('请先填写每一项')
+            }else{
+
+                let dmb = [{
+                        "dtrId" : localStorage.getItem('userId'),
+                        "extensive": extensive,
+                        "ids": ids,
+                        "name" : name
+                    },{
+                        "dmbfList":
+                            [{  
+                                "dtrId" : localStorage.getItem('userId'),
+                                "ids": ids,
+                                "url" : localStorage.getItem('img_url')
+                            }]    
+                    }];
+                $.ajax({
+                    url: `${url}/metting/insertOrUpdateDmb`,
+                    type: 'POST',
+                    contentType: "application/json;charset=UTF-8",
+                    dataType : 'json',
+                    traditional : true,
+                    data : JSON.stringify(dmb),
+                    success (res){
+                        console.log(res)
+                        if(res.msg == '该参会资助已经不存在'){
+                            $.alert('该参会资助已经不存在')
+                        }else{
+                            btn.init({ class: '.sure_btn' }).refer();
+                        }
+                        
+                    },
+                    error (){
+                        $.alert('请先填写每一项')
+                    }
+                })
+            }
         })
     })
 </script>

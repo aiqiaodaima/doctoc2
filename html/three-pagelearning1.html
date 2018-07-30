@@ -26,7 +26,7 @@
         <div class="top" style="height: 100px;"></div>
         <div class="scientific_btn">
             <a href="four-pagelearning1.html">
-                <img src="../image/apply_btn.png" alt="">
+                <img src="../image/apply_btn1.png" alt="">
             </a>
         </div>
     </div>
@@ -126,11 +126,11 @@
                         },20)
                     }
                 });
-                $('.apply_item').on('click',function(){
-                    localStorage.setItem("data-meetId",$(this).attr("data-meetId"))
-                    localStorage.setItem("data-result",$(this).attr("data-result"))
-                })
             }
+        })
+        $(document).on('click','.apply_item',function(){
+            localStorage.setItem("data-meetId",$(this).attr("data-meetId"))
+            localStorage.setItem("data-result",$(this).attr("data-result"))
         })
     });
 </script>

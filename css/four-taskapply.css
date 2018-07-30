@@ -43,4 +43,5 @@
     padding: 8px;
     width: 45%;
     height: 45%;
+    overflow: hidden;
 }

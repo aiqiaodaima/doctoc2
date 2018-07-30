@@ -103,6 +103,7 @@ body{
   .cert_2 .content .content_img {
     width: 16rem;
     height: 16rem;
+    margin: 0 auto;
   }
   .cert_2 .content .content_bottom span {
     text-align: center;

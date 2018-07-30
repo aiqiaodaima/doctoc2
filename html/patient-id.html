@@ -158,7 +158,6 @@
             $("#full").popup();
         }
         let url = Public.url()
-        console.log(url)
         $('.clause_affirm').on('click',function () {
             var id = localStorage.getItem("userId");
             console.log(localStorage.getItem("userId"))
@@ -278,6 +277,10 @@
             },
             success (res){
                 console.log(res)
+                if(res.msg == '操作成功');
+                $.alert('您的认证信息已经提交',()=>{
+                    window.location.href = 'index.html'
+                })
                 // localStorage.clear();
             },
             error (res){

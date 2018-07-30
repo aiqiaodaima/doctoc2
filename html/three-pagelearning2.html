@@ -20,13 +20,13 @@
     <div class="page__bd" style="height: 100%;">
         <div class="learning_apply">
             <ul class="apply">
-                
+
             </ul>
         </div>
         <div class="top" style="height: 100px;"></div>
         <div class="scientific_btn">
-            <a href="four-pagelearning1.html">
-                <img src="../image/apply_btn.png" alt="">
+            <a href="four-pagelearning2.html">
+                <img src="../image/apply_btn1.png" alt="">
             </a>
         </div>
     </div>
@@ -36,23 +36,23 @@
 <script src="../js/public.js"></script>
 <script>
     $(function () {
-        if(localStorage.getItem("title2")){
+        if (localStorage.getItem("title2")) {
             document.title = localStorage.getItem("title2");
         }
         let url = Public.url();
         $.ajax({
             url: `${url}/metting/selectDoctorMeetingByDtrId`,
-            data:{
-                dtrId : localStorage.getItem('userId'),
+            data: {
+                dtrId: localStorage.getItem('userId'),
                 // dtrId : 11,
-                state : localStorage.getItem('state'),
+                state: localStorage.getItem('state'),
             },
             type: 'POST',
-            success (res){
+            success(res) {
                 console.log(res.dmpsList)
                 res.dmpsList.forEach(element => {
-                    if(element.state == '已获批复'){
-                        element.metName = element.metName.length> 17 ? element.metName.substring(0,10)+'...' : element.metName;
+                    if (element.state == '已获批复') {
+                        element.metName = element.metName.length > 17 ? element.metName.substring(0, 10) + '...' : element.metName;
                         console.log(element.metName)
                         let el = `
                         <li class="apply_item" data-meetId = ${element.id}>
@@ -61,10 +61,10 @@
                                     <ul>
                                         <li class="left_title">${element.metName}</li>
                                         <li class="left_item">
-                                            ${element.subjects} &nbsp;&nbsp;${element.nature}
+                                           ${element.nature}
                                         </li>
                                         <li class="left_item">
-                                            ${element.city} &nbsp;&nbsp;${element.startTime}
+                                            ${element.startTime}
                                         </li>
                                     </ul>
                                 </div>
@@ -75,9 +75,9 @@
                         </li>`
                         $('.apply').append(el)
                     }
-                    if(element.state == '审核当中'){
-                        element.metName = element.metName.length> 17 ? element.metName.substring(0,10)+'...' : element.metName;
-                        console.log(element.metName.substring(0,10))
+                    if (element.state == '审核当中') {
+                        element.metName = element.metName.length > 17 ? element.metName.substring(0, 10) + '...' : element.metName;
+                        console.log(element.metName.substring(0, 10))
                         let el = `
                         <li class="apply_item" data-meetId = ${element.id}>
                             <a href="four-pagelerning2going.html">
@@ -85,10 +85,10 @@
                                     <ul>
                                         <li class="left_title">${element.metName}</li>
                                         <li class="left_item">
-                                            ${element.subjects} &nbsp;&nbsp;${element.nature}
+                                            ${element.nature}
                                         </li>
                                         <li class="left_item">
-                                            ${element.city} &nbsp;&nbsp;${element.startTime}
+                                            ${element.startTime}
                                         </li>
                                     </ul>
                                 </div>
@@ -97,13 +97,13 @@
                                 </div>
                             </a>
                         </li>`
-                        setTimeout(function(){
+                        setTimeout(function () {
                             $('.apply').append(el)
-                        },10)
-                        
+                        }, 10)
+
                     }
-                    if(element.state == "未获批复" ){
-                        element.metName = element.metName.length> 17 ? element.metName.substring(0,10)+'...' : element.metName;
+                    if (element.state == "未获批复") {
+                        element.metName = element.metName.length > 17 ? element.metName.substring(0, 10) + '...' : element.metName;
                         console.log(element)
                         let el = `
                         <li class="apply_item" data-meetId = ${element.id}>
@@ -112,10 +112,10 @@
                                     <ul>
                                         <li class="left_title">${element.metName}</li>
                                         <li class="left_item">
-                                            ${element.subjects} &nbsp;&nbsp;${element.nature}
+                                           ${element.nature}
                                         </li>
                                         <li class="left_item">
-                                            ${element.city} &nbsp;&nbsp;${element.startTime}
+                                           ${element.startTime}
                                         </li>
                                     </ul>
                                 </div>
@@ -124,16 +124,17 @@
                                 </div>
                             </a>
                         </li>`
-                        setTimeout(function(){
+                        setTimeout(function () {
                             $('.apply').append(el)
-                        },20)
+                        }, 20)
                     }
                 });
-                $('.apply_item').on('click',function(){
-                    localStorage.setItem("data-meetId",$(this).attr("data-meetId"))
-                    localStorage.setItem("data-result",$(this).attr("data-result"))
-                })
+
             }
+        })
+        $(document).on('click', '.apply_item', function () {
+            localStorage.setItem("data-meetId", $(this).attr("data-meetId"))
+            localStorage.setItem("data-result", $(this).attr("data-result"))
         })
     });
 </script>
