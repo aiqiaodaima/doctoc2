@@ -111,7 +111,7 @@
                 <div class="item_content">
                 <div class="content_title">会议简介</div>
                 <div class="content_word">
-                    ${res.dmct.content}
+                    ${res.dm.details}
                 </div>
             </div>
             `
@@ -192,7 +192,7 @@
                     $('.el6').append(spans)
                 }
                 for (let i = 0; i < res.dmiList.length; i++) {
-                    let lis = `<li class="photo_item">
+                    let lis = `<li class="photo_item" data-docId = ${res.dmiList[i].id}>
                         <a href="guest.html">
                             <div class="item_left">
                                 <img src= 'https://imuts.oss-cn-shenzhen.aliyuncs.com/${res.dmiList[i].photo}' alt="">
@@ -210,10 +210,10 @@
                     var arr = res.dmiList[i].actor.split(',');
                     // console.log(arr)
                     for (var j = 0; j < arr.length; j++) {
+                        arr[j] = arr[j].length>16?arr[j].substring(0,16)+'...': arr[j]
                         let divs = `<div class="title_work">${arr[j]}</div>`;
                         setTimeout(function () {
                             $('.ell4').eq(i).append(divs);
-                            // if()
                         }, 10)
 
                     }
@@ -241,10 +241,12 @@
                                         dtrId:localStorage.getItem('userId')
                                     },
                                     success (res){
+                                    	console.log(res)
                                         if(res.msg == "操作成功"){
                                             window.location.href = 'refuse1.html'   
-                                        }else{
-                                            $.alert('参会失败，请联系管理员')
+                                        }
+                                        else{
+                                            $.alert(`${res.msg}`)
                                         }
                                     },
                                     error (res){
@@ -260,7 +262,7 @@
                         }
                     }else{
                         $.confirm("请您先登陆再申请参会", "提示", function () {
-                                //   $.toast("文件已经删除!");
+             
                             window.location.href = 'index_login.html'
                         }, function () {
                             //取消操作
@@ -272,6 +274,9 @@
             error(res) {
 
             }
+        })
+        $(document).on('click','.photo_item',function(){
+            localStorage.setItem('docId',$(this).attr('data-docId'))
         })
     });
 </script>

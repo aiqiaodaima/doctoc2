@@ -91,7 +91,7 @@
             success (res){
                 console.log(res)  
                 $('.metName').html(res.doctorMeeting.metName)
-                $('.giveMoney').html(res.doctorMeeting.giveMoney+'万元')
+                $('.giveMoney').html(res.doctorMeeting.giveMoney+'元')
                 $('.reason').html(res.doctorMeeting.reason)
                 $('.twoCode img').attr('src',"https://imuts.oss-cn-shenzhen.aliyuncs.com/"+res.doctorMeeting.twoCode)
             }

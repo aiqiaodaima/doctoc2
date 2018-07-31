@@ -35,7 +35,7 @@
             url: `${url}/metting/selectdoctorMettingInviteById`,
             type: 'POST',
             data: {
-                id : 74
+                id : localStorage.getItem('docId')
             },
             success (res){
                 console.log(res);

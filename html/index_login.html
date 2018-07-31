@@ -51,28 +51,7 @@
 <script src="../js/public.js"></script>
 <script>
     $(function () {
-        var url = Public.url();
-
-        // 微信code
-        var getRequest = this.getRequest();
-        if (getRequest.code) {
-        this.code = getRequest.code;
-        } else {
-        var pageUrl = window.location.href
-        .replace(/[/]/g, "%2f")
-        .replace(/[:]/g, "%3a")
-        .replace(/[#]/g, "%23")
-        .replace(/[&]/g, "%26")
-        .replace(/[=]/g, "%3d");
-        var url =
-        "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" +
-        "wx890bc7d7a173ec44" +
-        "&redirect_uri=" +
-        pageUrl + //这里放当前页面的地址
-        "&response_type=code&scope=snsapi_base&state=STATE&connect_redirect=1#wechat_redirect";
-        window.location.href = url;
-        }
-        console.log("CODE：" + getRequest.code);
+        var url = Public.url();     
         $('#login_name').val(localStorage.getItem('loginAccount'));
         $('#login_phone').val(localStorage.getItem('login_phone'));
         $('#login_name').on('keyup', function () {
