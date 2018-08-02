@@ -289,12 +289,14 @@
         })
         let url = Public.url()
         $('.item_btn').on('click', () => {
+            if(localStorage.getItem('img_url') == ''){
+                $.alert('请先上传邀请函');
+                return;
+            }
             // var nature,budgetMoney,gainMoney,startTime,endTime,applyMoney,explain;
             if (nature == undefined || budgetMoney == undefined || gainMoney == undefined || startTime == undefined || endTime == undefined || applyMoney == undefined || explain == undefined) {
                 $.alert('请先填写资料')
             } else {
-
-
                 let pdList = [{
                     "dmpm":
                     {
@@ -326,6 +328,7 @@
                         data: JSON.stringify(pdList),
                         success(res) {
                             console.log(res);
+                            localStorage.setItem('img_url','')
                             resolve(res)
                         },
                         error() {

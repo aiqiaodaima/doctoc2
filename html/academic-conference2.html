@@ -45,16 +45,17 @@
         })
         let url = Public.url();
         $.ajax({
-            url: `${url}/metting/selectDoctorMeetingByDtrId`,
+            url: `${url}/metting/selectDmpByDtrId`,
             type: 'POST',
             data: {
-                // dtrId : localStorage.getItem('userId'),
-                dtrId : 11,
-                state : 1
+                dtrId : localStorage.getItem('userId'),
+                // dtrId : 11,
+
             },
             success (res){
                 console.log(res)
-                res.dmpsList.forEach(el => {
+                res.dmpList.forEach(el => {
+                    el = el.doctorMeeting
                     console.log(el)
                     el.metName = el.metName.length>12?el.metName.substring(0,12)+'...':el.metName;
                     el.city = el.city == null? ' ':el.city;

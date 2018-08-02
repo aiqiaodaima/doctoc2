@@ -50,15 +50,34 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/public.js"></script>
 <script>
+    var center = {
+        init: function () {
+
+        },
+        enterWxAuthor: function () {
+            var loging_code = localStorage.getItem("wxUserInfo");
+            if (loging_code !== null) {
+                return;
+            } else {
+                //没有微信用户信息，没有授权-->> 需要授权，跳转授权页面
+                window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + "wx890bc7d7a173ec44" + '&redirect_uri=' + window.location.href + '&response_type=code&scope=snsapi_userinfo#wechat_redirect';
+                //console.log(window.location.href) 
+                code = window.location.href.split("?")[1].split('&')[0].split('=')[1];
+                localStorage.setItem('wxUserInfo', code)
+            }
+
+        }
+    }
     $(function () {
-        var url = Public.url();     
+        // center.enterWxAuthor(); 
+        var url = Public.url();
         $('#login_name').val(localStorage.getItem('loginAccount'));
         $('#login_phone').val(localStorage.getItem('login_phone'));
         $('#login_name').on('keyup', function () {
-            localStorage.setItem('loginAccount',$(this).val())
+            localStorage.setItem('loginAccount', $(this).val())
         })
         $('#login_phone').on('keyup', function () {
-            localStorage.setItem('login_phone',$(this).val())
+            localStorage.setItem('login_phone', $(this).val())
         })
         $('#login_pass').on('keyup', function () {
             window.login_pass = $(this).val()
@@ -68,15 +87,15 @@
             if ((/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(localStorage.getItem('login_phone')))) {
                 var a = 60;
                 $('.pass_btn').text(`已发送(${a}s)`).attr("disabled", true);
-                let b = setInterval(() =>{
+                let b = setInterval(() => {
                     a--;
-                    if(a>=0){
+                    if (a >= 0) {
                         $('.pass_btn').text(`已发送(${a}s)`)
-                    }else{
+                    } else {
                         clearInterval(b);
-                        $('.pass_btn').text('获取验证').attr('disabled',false);
-                    }   
-                },1000)
+                        $('.pass_btn').text('获取验证').attr('disabled', false);
+                    }
+                }, 1000)
                 $.ajax({
                     url: `${url}/note/sendNote`,
                     data: {
@@ -96,7 +115,7 @@
             }
         })
         // 验证码验证
-        $('.login_btn>a').on('click', function () { 
+        $('.login_btn>a').on('click', function () {
             if ((/^\d{6}$/.test(login_pass))) {
                 $.ajax({
                     url: `${url}/note/selectNoteCode`,
@@ -109,41 +128,45 @@
                     crossDomain: true,
                     type: 'POST',
                     // 登陆
-                    success (data) {
+                    success(data) {
                         console.log(data)
                         $.ajax({
                             url: `${url}/user/login`,
                             data: {
                                 phone: localStorage.getItem('login_phone'),
-                                loginAccount: localStorage.getItem('loginAccount')
+                                loginAccount: localStorage.getItem('loginAccount'),
+                                wxCode: localStorage.getItem("wxUserInfo")
                             },
                             xhrFields: {
                                 withCredentials: true
                             },
                             crossDomain: true,
                             type: 'POST',
-                            success (data) {
+                            success(data) {
                                 console.log(data)
-                                if(data.msg == '手机号码已经存在'){
+
+                                if (data.msg == '手机号码已经存在') {
                                     $.alert('手机号与用户名不一致')
-                                }else if(data.msg == '用户名已经存在'){
+                                } else if (data.msg == '用户名已经存在') {
                                     $.alert('手机号与用户名不一致')
-                                } else{
-                                    localStorage.setItem('userId',data.user.id)
-                                    localStorage.setItem('scienceState',data.user.scienceState)
-                                    localStorage.setItem('name',data.user.name)
-                                    localStorage.setItem('photo',data.user.photo)
-                                    localStorage.setItem('applyState',data.applyState)
+                                } else if(data.msg == '系统异常'){
+                                    $.alert('系统异常，请联系管理员')
+                                }else{
+                                    localStorage.setItem('userId', data.user.id)
+                                    localStorage.setItem('scienceState', data.user.scienceState)
+                                    localStorage.setItem('name', data.user.name)
+                                    localStorage.setItem('photo', data.user.photo)
+                                    localStorage.setItem('applyState', data.applyState)
                                     window.location = 'index.html';
-                                }  
+                                }
                             },
-                            error (){
+                            error() {
                                 $.alert("验证码错误");
                             }
-                        
-                        })   
+
+                        })
                     },
-                    error (){
+                    error() {
                         $.alert("验证码错误");
                     }
                 })
