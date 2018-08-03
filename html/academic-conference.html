@@ -100,8 +100,8 @@
         let add = 'https://imuts.oss-cn-shenzhen.aliyuncs.com/';
         let url = Public.url();
         function fn(data) {
-            if(data.metName.length>10){
-                data.metName = data.metName.substring(0,10) + '...'
+            if(data.metName.length>18){
+                data.metName = data.metName.substring(0,18) + '...'
             }
             let el = `<div class="weui-panel" data-id=${data.id}>
                     <div class="item_card">
@@ -133,9 +133,6 @@
                                         </li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="card_state">
-                                <img src="../image/icon-success.png" alt="">
                             </div>
                         </a>
                     </div>

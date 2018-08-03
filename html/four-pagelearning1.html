@@ -175,6 +175,7 @@
             }
         });
         var nature, budgetMoney, gainMoney, startTime, endTime, applyMoney, explain;
+        var arr = [];
         $('.weui-select').on('change', function () {
             $(this).css('color', '#666');
         })
@@ -276,9 +277,11 @@
                     // 上传
                     client.put(storeAs, buffer).then(function (result) {
                         console.log(result)
-                        let img_url = result.name
-                        localStorage.setItem('img_url', img_url)
-                        return img_url;
+                        let img_url = result.name;
+                        arr.push(img_url);
+                        // console.log(arr)
+                        localStorage.setItem('img_url', arr)
+                        return arr;
                     }).catch(function (err) {
                         console.log(err);
                     });
@@ -297,6 +300,16 @@
             if (nature == undefined || budgetMoney == undefined || gainMoney == undefined || startTime == undefined || endTime == undefined || applyMoney == undefined || explain == undefined) {
                 $.alert('请先填写资料')
             } else {
+                // arr = ["doctorGroup/doctorFile/1533294399198.png", "doctorGroup/doctorFile/1533294403695.png"]
+                var dmpfList = [];
+                for (var i in arr){
+                    dmpfList[i] = {
+                        name : arr[i].split("/")[2],
+                        url : arr[i]
+                    }
+                }
+                
+
                 let pdList = [{
                     "dmpm":
                     {
@@ -310,13 +323,14 @@
                         "applyMoney": applyMoney,
                         "explain": explain,
                     }
-                }, {
-                    "dmpfList":
-                        [{
-                            "name": localStorage.getItem('img_url').split("/")[2],
-                            "url": localStorage.getItem('img_url')
-                        }]
+                // }, {
+                //     "dmpfList":
+                //         [{
+                //             "name": localStorage.getItem('img_url').split("/")[2],
+                //             "url": localStorage.getItem('img_url')
+                //         }]
                 }];
+                pdList.push({"dmpfList":dmpfList})
                 console.log(JSON.stringify(pdList))
                 let p = new Promise((resolve, reject) => {
                     $.ajax({

@@ -50,18 +50,19 @@
             data: {
                 dtrId : localStorage.getItem('userId'),
                 // dtrId : 11,
-
+                
             },
             success (res){
                 console.log(res)
                 res.dmpList.forEach(el => {
+                    let meId = el.meId
                     el = el.doctorMeeting
                     console.log(el)
                     el.metName = el.metName.length>12?el.metName.substring(0,12)+'...':el.metName;
-                    el.city = el.city == null? ' ':el.city;
+                    el.city = el.city == null? '暂无':el.city;
                     if(el.state == '已获批复'){
-                        let divs = `<div class="my_card item_success">
-                        <div class="card_item ">
+                        let divs = `<div class="my_card item_success" data-meId = ${meId}>
+                        <div class="card_item">
                             <label for="" class="card_Scientific">${el.metName}</label>
                             <span class="card_circle green">
                                 <i>已成功</i> 
@@ -84,7 +85,7 @@
                         $('#tab2').append(divs)
                     }
                     if(el.state == '审核当中'){
-                        let divs = `<div class="my_card item_success">
+                        let divs = `<div class="my_card item_success" data-meId = ${meId}>
                         <div class="card_item ">
                             <label for="" class="card_Scientific">${el.metName}</label>
                             <span class="card_circle yellow">
@@ -110,7 +111,7 @@
                      },10)
                     }
                     if(el.state == '未获批复'){
-                        let divs = `<div class="my_card item_success">
+                        let divs = `<div class="my_card item_success" data-meId = ${meId}>
                         <div class="card_item ">
                             <label for="" class="card_Scientific">${el.metName}</label>
                             <span class="card_circle blue">
@@ -138,6 +139,10 @@
                     }
                 });
             }
+        })
+        $(document).on('click','.item_success',function(){
+            localStorage.setItem('meId',$(this).attr('data-meId'));
+            window.location.href = 'conference-item.html'
         })
     });
 </script>

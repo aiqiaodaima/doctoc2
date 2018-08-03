@@ -22,19 +22,19 @@
             <ul>
                 <li class="two_row">
                     <span>系统账户</span>
-                    <span>4090 9827 9012 2389 09</span>
+                    <span class="account">4090 9827 9012 2389 09</span>
                 </li>
                 <li class="one_row">
                     <span>账户余额: </span>
-                    <span> 4000.00元</span>
+                    <span class="balance"> 4000.00元</span>
                 </li>
                 <li class="one_row">
                     <span>科研课题: </span>
-                    <span> 2000.00元</span>
+                    <span class="taskBalance"> 2000.00元</span>
                 </li>
                 <li class="one_row">
                     <span>学术会议: </span>
-                    <span> 2000.00元</span>
+                    <span class="mettingBalance"> 2000.00元</span>
                 </li>
             </ul>
         </div>
@@ -51,9 +51,23 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
 <script>
-    $(function () {
-
+    $(function () { 
+        let url = Public.url();
+        $.ajax({
+            url:`${url}/user/selectUserMoney`,
+            type: 'POST',
+            data: {
+                id : localStorage.getItem("userId")
+            },
+            success (res){
+                $('.account').html(res.user.account);
+                $('.balance').html(res.user.balance.toFixed(2)+'元');
+                $('.taskBalance').html(res.user.taskBalance.toFixed(2)+'元');
+                $('.mettingBalance').html(res.user.mettingBalance.toFixed(2)+'元');
+            }
+        })
     });
 </script>
 

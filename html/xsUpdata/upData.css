@@ -115,9 +115,9 @@
   flex-wrap: wrap;
 }
 .form_item .option_img ul li {
-  padding: 1rem 0.5rem;
+  margin: 1rem 0.5rem;
   width: 45%;
-  height: 45%;
+  height: 11.4rem;
   overflow: hidden;
 }
 .form_item .blod_item {

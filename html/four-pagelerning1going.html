@@ -90,7 +90,7 @@
                     <div class="item_top">邀请函：</div>
                     <div class="cell-item list_item" style="height: auto;">
                         <div class="cell-left going">
-                            <img src="../image/invite.jpg" alt="">
+                            <!-- <img src="../image/invite.jpg" alt=""> -->
                         </div> 
                     </div>
                 </li>
@@ -123,7 +123,12 @@
                 $('.endTime').html(res.dmpm.endTime)
                 $('.money').html(res.dmpm.applyMoney)
                 $('.explain').html(res.dmpm.explain);
-                $('.going img').attr('src','https://imuts.oss-cn-shenzhen.aliyuncs.com/'+res.dmpfList[0].url)
+                res.dmpfList.forEach(el => {
+                    console.log(el)
+                    let imgs = `<img src="https://imuts.oss-cn-shenzhen.aliyuncs.com/${el.url}" alt="">`
+                    $('.going').append(imgs)
+                });
+                // $('.going img').attr('src','https://imuts.oss-cn-shenzhen.aliyuncs.com/'+res.dmpfList[0].url)
             }
         })
     });

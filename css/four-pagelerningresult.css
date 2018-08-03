@@ -10,8 +10,16 @@
 .list_item .cell-left{
     font-family: MicrosoftYaHei;
 	font-size: 1rem;
-	letter-spacing: 0.04rem;
-	color: #333333;
+    letter-spacing: 0.04rem;
+    color: #333333;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.list_item .cell-left img{
+    width: 45%;
+    height: 10.23rem;
+    margin-bottom: 10px;
 }
 .list_item .cell-right{
     font-family: MicrosoftYaHei;
