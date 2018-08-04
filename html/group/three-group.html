@@ -21,7 +21,7 @@
             <img src="../../image/search.png" alt="">
         </div>
         <div class="group_content">
-            <ul>
+            <ul id="loadbox">
                 <li class="content_item">
                         <div class="group_group">
                             <div class="item_click">
@@ -63,22 +63,16 @@
                 </li>
             </ul>
         </div>
-        <div class="group_btn">
-            <div class="btn_left">
+        <div class="group_btn" style="display: flex;justify-content: center;">
+            <!--<div class="btn_left">
                 <div class="left_1">
                     <img src="../../image/click1.png" alt="">
                 </div>
-                <div class="left_2">
-                    全选
-                </div>
-            </div>
+                <div class="left_2">全选</div>
+            </div>-->
             <div class="btn_right">
-                <div class="right_1">
-                    删除患者
-                </div>
-                <a href="group-note.html" class="right_2">
-                    发送消息
-                </a>
+                <!--<div class="right_1">删除患者</div>-->
+                <a id="sendMsg" class="right_2">发送消息</a>
             </div>
         </div>
     </div>
@@ -86,6 +80,7 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../../js/ydui.js"></script>
+<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var click1 = {
         el: null,
@@ -163,6 +158,62 @@
         $('.item_time').on('click',function(){
             window.location.href = 'group-patient.html'
         })
+        let url = Public.url();
+        localStorage.removeItem("doctorPttId");
+        $.ajax({
+        	url : `${url}/doctor/selectAllDpByDtrId`,
+        	type: 'post',
+        	data: {
+        		dtrId: localStorage.userId
+        	},
+        	success(data) {
+        		console.log(data);
+        		var htmllist = "";
+        		data.dpList.forEach((json)=>{
+        			htmllist += htmltemp(json);
+        		})
+        		$("#loadbox").html(htmllist);
+        		click1.init({ class: '.item_click img' }).bind();
+        		click1.init({ class: '.left_1 img' }).all();
+        		$("#sendMsg").click(function () {
+        			var returnVal = true;
+        			$(".item_click img").each(function () {
+        				if (this.src.search('click1.png')==-1) {
+                			localStorage.doctorPttId = $(this).data("pttid");
+        					returnVal = false;
+        					return false;
+        				}
+        			});
+                	if (returnVal) {
+                		$.alert("未选择患者，不能发送消息");
+                		return false;
+                	}
+                	window.location.href = "group-note.html";
+                });
+        	}
+        })
+        htmltemp=((data)=>{
+			return `
+		        <li class="content_item">
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" data-pttid="${data.pttId}" alt="">
+                        </div>
+                        <div class="item_group">
+                            <img src="../../image/patient_1.png" alt="">
+                        </div>
+                        <div class="item_name">
+                            <span>${data.user.name}</span>
+                            <span>${data.user.sex}</span>
+                            <span>${data.user.age}岁</span>
+                        </div>
+                    </div>
+                    <!--<div class="item_time">
+                        <span>${data.start_time}</span>
+                        <span>口腔科</span>
+                    </div>-->
+                </li>`;
+		})
     })
 </script>
 

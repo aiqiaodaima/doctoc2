@@ -24,61 +24,7 @@
                 科研课题资助申请统计：
             </div>
             <div class="content_item">
-                <ul>
-                    <li>
-                        <div class="item_left">
-                            <span>已申请数量</span>
-                            <span class="blue">10</span>
-                        </div>
-                        <div class="item_middle">
-                            <span>金额（万元）</span>
-                            <span class="blue">20.00</span>
-                        </div>
-                        <div class="item_right">
-                            <a href="three-pagescientific11.html">查看详情</a>
-
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item_left">
-                            <span>已获批数量</span>
-                            <span class="green">10</span>
-                        </div>
-                        <div class="item_middle">
-                            <span>金额（万元）</span>
-                            <span class="green">20.00</span>
-                        </div>
-                        <div class="item_right">
-                            <a href="three-pagescientific12.html">查看详情</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item_left">
-                            <span>待获批数量</span>
-                            <span class="orange">10</span>
-                        </div>
-                        <div class="item_middle">
-                            <span>金额（万元）</span>
-                            <span  class="orange">20.00</span>
-                        </div>
-                        <div class="item_right">
-                            <a href="three-pagescientific13.html">查看详情</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="item_left">
-                            <span>未获批数量</span>
-                            <span class="light_red">10</span>
-                        </div>
-                        <div class="item_middle">
-                            <span>金额（万元）</span>
-                            <span class="light_red">20.00</span>
-                        </div>
-                        <div class="item_right">
-                            <a href="three-pagescientific14.html">查看详情</a>
-                        </div>
-                    </li>
-                </ul>
+                <ul id="loadbox"></ul>
             </div>
         </div>
         <div class="scientific_btn">
@@ -91,9 +37,45 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
+<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 <script>
     $(function () {
-        
+        let url = Public.url();
+        localStorage.removeItem("taskState");
+        $.ajax({
+        	url : `${url}/task/selectAppTask`,
+        	type: 'post',
+        	data: {
+        		dtrId: localStorage.userId
+        	},
+        	success(data) {
+        		console.log(data);
+        		var htmllist = "";
+        		data.pmList.forEach((json)=>{
+        			htmllist += htmltemp(json);
+        		})
+        		$("#loadbox").html(htmllist);
+        	}
+        })
+        htmltemp=((data)=>{
+			var item_left,styleColor;
+			data.state == "" ? (item_left="已申请数量",styleColor="blue"):
+			(data.state == "已获批复" ? (item_left="已获批复数量",styleColor="green") :  
+			(data.state == "审核当中" ? (item_left="待获批复数量",styleColor="orange") : (item_left="未获批复数量",styleColor="light_red")));
+			return `<li>
+		                <div class="item_left">
+		                    <span>${item_left}</span>
+		                    <span class="${styleColor}">${data.number}</span>
+		                </div>
+		                <div class="item_middle">
+		                    <span>金额（元）</span>
+		                    <span class="${styleColor}">${data.money}</span>
+		                </div>
+		                <div class="item_right">
+		                    <a href="three-pagescientific11.html" onclick="localStorage.taskState = '${data.state}';">查看详情</a>
+		                </div>
+		            </li>`;
+		})
     });
 </script>
 

@@ -19,42 +19,7 @@
 
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
-        <div class="scientific_card">
-            <a href="four-pagescientific2going.html">
-                <div class="card_title">科研思路：FDI，自主创新与经济发展...</div>
-                <div class="card_content">
-                    <div class="content_top">预期结果：FDI对我国技术创新产生的消极作用，提高FDI对我国企业技术创新的积极作用，为FDI在科...</div>
-                    <div class="content_bottom">
-                        <div class="bottom_left left_going">审核当中</div>
-                        <!-- <div class="bottom_right">2018.09-2020.03</div> -->
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="scientific_card">
-            <a href="four-pagescientific2success.html">
-                <div class="card_title">科研思路：FDI，自主创新与经济发展...</div>
-                <div class="card_content">
-                    <div class="content_top">预期结果：FDI对我国技术创新产生的消极作用，提高FDI对我国企业技术创新的积极作用，为FDI在科...</div>
-                    <div class="content_bottom">
-                        <div class="bottom_left left_success">已获批复</div>
-                        <!-- <div class="bottom_right">2018.09-2020.03</div> -->
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="scientific_card">
-            <a href="four-pagescientific2fail.html">
-                <div class="card_title">科研思路：FDI，自主创新与经济发展...</div>
-                <div class="card_content">
-                    <div class="content_top">预期结果：FDI对我国技术创新产生的消极作用，提高FDI对我国企业技术创新的积极作用，为FDI在科...</div>
-                    <div class="content_bottom">
-                        <div class="bottom_left left_fail">未获批复</div>
-                        <!-- <div class="bottom_right">2018.09-2020.03</div> -->
-                    </div>
-                </div>
-            </a>
-        </div>
+        <div id="loadbox"></div>
         <div class="btn_top"></div>
         <div class="item_btn">
             <a href="four-pagescientific2.html">
@@ -66,9 +31,44 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
+<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 <script>
     $(function () {
-
+        let url = Public.url();
+        //localStorage.removeItem("taskState");
+        $.ajax({
+        	url : `${url}/task/selectDoctorTaskPlayDtrId`,
+        	type: 'post',
+        	data: {
+        		dtrId: localStorage.userId
+        	},
+        	success(data) {
+        		console.log(data);
+        		var htmllist = "";
+        		data.dtpfList.forEach((json)=>{
+        			htmllist += htmltemp(json);
+        		})
+        		$("#loadbox").html(htmllist);
+        	}
+        })
+        htmltemp=((data)=>{
+			var styleColor;
+			data.state == "已获批复" ? (styleColor="left_success") :  
+			(data.state == "审核当中" ? (styleColor="left_going") : (styleColor="left_fail"));
+			return `
+		        <div class="scientific_card">
+		            <a href="four-pagescientific2going.html">
+		                <div class="card_title">科研思路：${data.mentality}</div>
+		                <div class="card_content">
+		                    <div class="content_top">预期结果：${data.rsult}</div>
+		                    <div class="content_bottom">
+		                        <div class="bottom_left ${styleColor}">${data.state}</div>
+		                        <!-- <div class="bottom_right">${data.rsult}</div> -->
+		                    </div>
+		                </div>
+		            </a>
+		        </div>`;
+		})
     });
 </script>
 

@@ -20,59 +20,61 @@
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="scientific_title"> 为了更好地支持您的科研，请认真填写以下科研计划</div>
-        <div class="science_content1 content_margin">
-            <ul>
-                <li>
-                    <div class="content_title">科研思路</div>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
-                </li>
-                <li>
-                    <div class="content_title">预计结果</div>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
-                </li>
-                <li>
-                    <div class="content_title">科研意义</div>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
-                </li>
-            </ul>
-        </div>
-        <div class="science_content1 content_margin">
-            <ul>
-                <li>
-                    <div class="content_title">已有条件</div>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
-                </li>
-                <li>
-                    <div class="content_title">尚缺条件</div>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
-                </li>
-                <li>
-                    <div class="content_title">解决方案</div>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
-                </li>
-            </ul>
-        </div>
-        <div class="science_content1">
-            <ul>
-                <li class="content_date">
-                    <a class="weui-cell weui-cell_access" href="javascript:;">
-                        <div class="weui-cell__bd content_title">
-                            实施时间
-                        </div>
-                        <div class="weui-cell__ft">
-                            <input class="weui-input" type="text" id='datetime-picker' placeholder="请选择" />
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <div class="content_title">补充说明</div>
-                    <textarea name="" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
-                </li>
-            </ul>
-        </div>
+	        <form id="formdata">
+	        	<div class="science_content1 content_margin">
+		            <ul>
+		                <li>
+		                    <div class="content_title">科研思路</div>
+		                    <textarea name="mentality" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
+		                </li>
+		                <li>
+		                    <div class="content_title">预计结果</div>
+		                    <textarea name="rsult" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
+		                </li>
+		                <li>
+		                    <div class="content_title">科研意义</div>
+		                    <textarea name="content" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
+		                </li>
+		            </ul>
+		        </div>
+		        <div class="science_content1 content_margin">
+		            <ul>
+		                <li>
+		                    <div class="content_title">已有条件</div>
+		                    <textarea name="existCondition" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
+		                </li>
+		                <li>
+		                    <div class="content_title">尚缺条件</div>
+		                    <textarea name="lackCondition" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
+		                </li>
+		                <li>
+		                    <div class="content_title">解决方案</div>
+		                    <textarea name="scheme" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
+		                </li>
+		            </ul>
+		        </div>
+		        <div class="science_content1">
+		            <ul>
+		                <li class="content_date">
+		                    <a class="weui-cell weui-cell_access" href="javascript:;">
+		                        <div class="weui-cell__bd content_title">
+		                    		实施时间
+		                        </div>
+		                        <div class="weui-cell__ft">
+		                            <input class="weui-input" type="text" id="datetime-picker" name="startTime" placeholder="请选择" />
+		                        </div>
+		                    </a>
+		                </li>
+		                <li>
+		                    <div class="content_title">补充说明</div>
+		                    <textarea name="accountfor" id="" cols="30" rows="10" placeholder="请输入您的科研思路（限30个字）"></textarea>
+		                </li>
+		            </ul>
+		        </div>
+	        </form>
         <div class="btn_top"></div>
         <div class="item_btn">
-            <a href="audit.html">立即提交</a>
+            <a id="updata">立即提交</a>
         </div>
 
     </div>
@@ -80,9 +82,10 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
+<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 <script>
     $(function () {
-        $("#datetime-picker").datetimePicker({
+    	 $("#datetime-picker").datetimePicker({
             times: function () {
                 return [
                 ];
@@ -91,6 +94,39 @@
                 console.log(values);
             }
         });
+        let url = Public.url();
+        $("#updata").click(function () {
+        	var returnVal = false;
+        	$("#formdata").find("[name]").each(function () {
+        		var $this = this,
+        			inputval = $(this).val().trim();
+        			itemval = $(this).closest("li").find(".content_title").text();
+        		if (inputval==""&&itemval!="补充说明") {
+        			$.alert(itemval+"不能为空")
+        			returnVal = true;
+        			return false;
+        		}
+        	});
+        	if (returnVal) {
+        		return false;
+        	}
+        	$.ajax({
+	        	url : `${url}/task/insertOrUpdateTaskPlay`,
+	        	type: 'post',
+	        	data: $("#formdata").serialize() + "&dtrId=" + localStorage.userId,
+	        	success(data) {
+	        		console.log(data);
+	        		if (data.msg=="操作成功") {
+	        			$.alert(data.msg,()=>{
+	        				window.location.href = "audit.html";
+	        			})
+	        		} else {
+	        			$.alert(data.msg)
+	        		}
+	        	}
+	        })
+        })
+        
     });
 </script>
 

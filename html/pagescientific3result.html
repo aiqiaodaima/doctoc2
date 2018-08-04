@@ -19,17 +19,29 @@
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="result_title">您的审核已成功</div>
-        <div class="result_content">
+        <div id="loadbox" class="result_content">
             <span class="content_result">专家对您这次的申请建议与评价:</span>
-            <span class="content_word">是目前国内外有机合成领域中的研究热点之一。本课题选题先进，有重要的研究意义。课题研究方案合理可行，有较好的创新性。课题组研究基础雄厚，预计可以取得预计研究成果。项目申请人承担过多项国家自然科学基金、863等项目，有较强的研究能力。课题申请书中的情况属实。同意申报。</span>
         </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 <script>
     $(function () {
-        $('.content_word').html(localStorage.getItem('data-result'))
+		let url = Public.url();
+        $.ajax({
+        	url : `${url}/task/selectDoctorTaskById`,
+        	type: 'post',
+        	data: {
+        		id: localStorage.taskId
+        	},
+        	success(data) {
+        		var htmllist = "",
+        			txt = (data.doctorTask&&data.doctorTask.reason)||"";
+        		$("#loadbox").append(`<span class="content_word">${txt}</span>`);
+        	}
+        })
     });
 </script>
 
