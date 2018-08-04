@@ -103,6 +103,8 @@
             if(data.metName.length>18){
                 data.metName = data.metName.substring(0,18) + '...'
             }
+            data.city = data.city == null ? '暂无填写':data.city;
+            data.photo = data.photo == null ? 'doctorGroup/doctorFile/1533355649889.jpeg':data.photo;
             let el = `<div class="weui-panel" data-id=${data.id}>
                     <div class="item_card">
                         <a href="javascript:void(0)">

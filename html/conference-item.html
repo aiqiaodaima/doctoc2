@@ -50,6 +50,7 @@
             },
             success(res) {
                 console.log(res);
+                res.mdc = res.mdc == null?'': res.mdc;
                 if (res.msg == "数据为空") {
                     $.alert('该会议数据已被删除');
                     return;
