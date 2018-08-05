@@ -24,8 +24,7 @@
                     <div class="photo">
                         <img src="../image/patient.jpg" alt="">
                     </div>
-                    <div class="name">
-                        张章
+                    <div class="docName">
                     </div>
                 </div>
             </div>
@@ -150,9 +149,9 @@
                     $('.autonym').html('未实名')
                 }
                 if(localStorage.getItem('name')=="null"){
-                    $('.name').html(localStorage.getItem('loginAccount'))
+                    $('.docName').html(localStorage.getItem('loginAccount'))
                 }else{
-                    $('.name').html(localStorage.getItem('name'))
+                    $('.docName').html(localStorage.getItem('name'))
                 }
                 if(localStorage.getItem('photo') == "null"){
                     $('.photo img').attr('src','../image/patient.jpg')

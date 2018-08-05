@@ -256,37 +256,36 @@
 
         $('.btn_agree').on('click',()=>{
             $.ajax({
-            url: 'http://192.168.1.150:1002/user/insertDoctorUser',
-            type: 'POST',
-            data: {
-                name: localStorage.getItem('input_name'),
-                sex: localStorage.getItem('input_sex'),
-                age: localStorage.getItem('input_age'),
-                education: localStorage.getItem('input_education'),
-                highestDegree: localStorage.getItem('input_education2'),
-                school: localStorage.getItem('input_school'),
-                postdoctor: '是',
-                bachelors: localStorage.getItem('input_moving'),
-                industry: localStorage.getItem('industry'),
-                job: localStorage.getItem('job'),
-                hospital: localStorage.getItem('hospital'),
-                hplSection: localStorage.getItem('hplSection'),
-                hplPhone: localStorage.getItem('hplPhone'),
-                jobPhone: localStorage.getItem('jobPhone'),
-                dtrId: localStorage.getItem('userId')
-            },
-            success (res){
-                console.log(res)
-                if(res.msg == '操作成功');
-                $.alert('您的认证信息已经提交',()=>{
-                    window.location.href = 'index.html'
-                })
-                // localStorage.clear();
-            },
-            error (res){
-                console.log(res)
-            }
-        })  
+                url: `${url}/user/insertDoctorUser`,
+                type: 'POST',
+                data: {
+                    name: localStorage.getItem('input_name'),
+                    sex: localStorage.getItem('input_sex'),
+                    age: localStorage.getItem('input_age'),
+                    education: localStorage.getItem('input_education'),
+                    highestDegree: localStorage.getItem('input_education2'),
+                    school: localStorage.getItem('input_school'),
+                    postdoctor: '是',
+                    bachelors: localStorage.getItem('input_moving'),
+                    industry: localStorage.getItem('industry'),
+                    job: localStorage.getItem('job'),
+                    hospital: localStorage.getItem('hospital'),
+                    hplSection: localStorage.getItem('hplSection'),
+                    hplPhone: localStorage.getItem('hplPhone'),
+                    jobPhone: localStorage.getItem('jobPhone'),
+                    dtrId: localStorage.getItem('userId')
+                },
+                success (res){
+                    console.log(res)
+                    if(res.msg == '操作成功');
+                    $.alert('您的认证信息已经提交',()=>{
+                        window.location.href = 'index.html'
+                    })
+                },
+                error (res){
+                    console.log(res)
+                }
+            })  
         })
     });
 </script>

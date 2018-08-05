@@ -33,11 +33,11 @@
                     <label for="login_phone">手机号</label>
                     <input type="number" pattern="[0-9]*" id="login_phone">
                 </li>
-                <li>
+                <!-- <li>
                     <label for="login_pass">验证码</label>
                     <input type="number" pattern="[0-9]*" id="login_pass">
                     <button class="pass_btn">获取验证</button>
-                </li>
+                </li> -->
             </ul>
         </div>
         <div class="login_btn">
@@ -79,39 +79,80 @@
         $('#login_phone').on('keyup', function () {
             localStorage.setItem('login_phone', $(this).val())
         })
-        $('#login_pass').on('keyup', function () {
-            window.login_pass = $(this).val()
-        });
-        // 获取验证码
-        $('.pass_btn').on('click', function () {
-            if ((/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(localStorage.getItem('login_phone')))) {
-                var a = 60;
-                $('.pass_btn').text(`已发送(${a}s)`).attr("disabled", true);
-                let b = setInterval(() => {
-                    a--;
-                    if (a >= 0) {
-                        $('.pass_btn').text(`已发送(${a}s)`)
+
+        // 修改之后的
+        $('.login_btn').on('click', function () {
+            $.ajax({
+                url: `${url}/user/login`,
+                data: {
+                    phone: localStorage.getItem('login_phone'),
+                    loginAccount: localStorage.getItem('loginAccount'),
+                    // wxCode: localStorage.getItem("wxUserInfo")
+                },
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                type: 'POST',
+                success(data) {
+                    console.log(data)    
+                    if (data.msg == '登录成功') {
+                        localStorage.setItem('userId', data.user.id)
+                        localStorage.setItem('scienceState', data.user.scienceState)
+                        localStorage.setItem('name', data.user.name)
+                        localStorage.setItem('photo', data.user.photo)
+                        localStorage.setItem('applyState', data.applyState)
+                        //localStorage.clear('wxUserInfo');
+                        window.location = 'index.html';
                     } else {
-                        clearInterval(b);
-                        $('.pass_btn').text('获取验证').attr('disabled', false);
+                        $.alert(`${data.msg}`)
                     }
-                }, 1000)
-                $.ajax({
-                    url: `${url}/note/sendNote`,
-                    data: {
-                        phone: localStorage.getItem('login_phone')
-                    },
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    crossDomain: true,
-                    type: 'POST',
-                    success: function (data) {
-                        console.log(data)
-                    }
-                })
+                },
+                error() {
+                    $.alert(`${data.msg}`);
+                }
+    
+            })
+        })
+
+        // $('#login_pass').on('keyup', function () {
+        //     window.login_pass = $(this).val()
+        // });
+        // 获取验证码
+        /*
+        $('.pass_btn').on('click', function () {
+            if ($('#login_name').val().length == 0) {
+                $.alert("请先填写用户名");
             } else {
-                $.alert("请你填写正确的手机号");
+                if ((/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(localStorage.getItem('login_phone')))) {
+                    var a = 60;
+                    $('.pass_btn').text(`已发送(${a}s)`).attr("disabled", true);
+                    let b = setInterval(() => {
+                        a--;
+                        if (a >= 0) {
+                            $('.pass_btn').text(`已发送(${a}s)`)
+                        } else {
+                            clearInterval(b);
+                            $('.pass_btn').text('获取验证').attr('disabled', false);
+                        }
+                    }, 1000)
+                    $.ajax({
+                        url: `${url}/note/sendNote`,
+                        data: {
+                            phone: localStorage.getItem('login_phone')
+                        },
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        crossDomain: true,
+                        type: 'POST',
+                        success: function (data) {
+                            console.log(data)
+                        }
+                    })
+                } else {
+                    $.alert("请你填写正确的手机号");
+                }
             }
         })
         // 验证码验证
@@ -130,42 +171,44 @@
                     // 登陆
                     success(data) {
                         console.log(data)
-                        $.ajax({
-                            url: `${url}/user/login`,
-                            data: {
-                                phone: localStorage.getItem('login_phone'),
-                                loginAccount: localStorage.getItem('loginAccount'),
-                                wxCode: localStorage.getItem("wxUserInfo")
-                            },
-                            xhrFields: {
-                                withCredentials: true
-                            },
-                            crossDomain: true,
-                            type: 'POST',
-                            success(data) {
-                                console.log(data)
+                        if (data.msg == '短信验证码输入正确') {
+                            $.ajax({
+                                url: `${url}/user/login`,
+                                data: {
+                                    phone: localStorage.getItem('login_phone'),
+                                    loginAccount: localStorage.getItem('loginAccount'),
+                                    wxCode: localStorage.getItem("wxUserInfo")
+                                },
+                                xhrFields: {
+                                    withCredentials: true
+                                },
+                                crossDomain: true,
+                                type: 'POST',
+                                success(data) {
+                                    console.log(data)
 
-                                if (data.msg == '手机号码已经存在') {
-                                    $.alert('手机号与用户名不一致')
-                                } else if (data.msg == '用户名已经存在') {
-                                    $.alert('手机号与用户名不一致')
-                                } else if(data.msg == '系统异常'){
-                                    $.alert('系统异常，请联系管理员')
-                                }else{
-                                    localStorage.setItem('userId', data.user.id)
-                                    localStorage.setItem('scienceState', data.user.scienceState)
-                                    localStorage.setItem('name', data.user.name)
-                                    localStorage.setItem('photo', data.user.photo)
-                                    localStorage.setItem('applyState', data.applyState)
-//                                  localStorage.clear('wxUserInfo');
-                                    window.location = 'index.html';
+                                    if (data.msg == '登录成功') {
+                                       
+                                        localStorage.setItem('userId', data.user.id)
+                                        localStorage.setItem('scienceState', data.user.scienceState)
+                                        localStorage.setItem('name', data.user.name)
+                                        localStorage.setItem('photo', data.user.photo)
+                                        localStorage.setItem('applyState', data.applyState)
+                                        //                                  localStorage.clear('wxUserInfo');
+                                        window.location = 'index.html';
+                                    }else {
+                                        $.alert('手机号与用户名不一致')
+                                    }
+                                },
+                                error() {
+                                    $.alert(`${data.msg}`);
                                 }
-                            },
-                            error() {
-                                $.alert("验证码错误");
-                            }
 
-                        })
+                            })
+                        } else {
+                            $.alert("验证码错误");
+                        }
+
                     },
                     error() {
                         $.alert("验证码错误");
@@ -174,7 +217,7 @@
             } else {
                 $.alert("请输入验证码");
             }
-        });
+        });*/
     });
 </script>
 
