@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <title>资助申请</title>
+    <title>受邀参会资助申请</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
@@ -20,7 +20,7 @@
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="scientific_title title_success">
-            <span class="title_word">您的办会申请已获批复</span>
+            <span class="title_word">您本次受邀参会资助申请已获批复</span>
             <a href="pagescientific3result.html">详情</a>
         </div>
         <div class="science_content">
@@ -43,12 +43,12 @@
             <ul>
                 <li class="content_item">
                     <div class="item_left">注意事项：</div>
-                    <div class="item_right">资助资金已存入您在本系统的专用账户。</div>
+                    <div class="item_right">资助资金已存入您在本系统的专用账户。您每次可支配该笔资金的50%作为科研之用，但须于资金支配后的30个工作日内提交有效单据，并附资金使用简要说明，否则系统将自动锁定下一笔费用支出。</div>
                 </li>
-                <li class="content_item">
+                <!-- <li class="content_item">
                     <div class="item_left">单据上传：</div>
                     <div class="item_right">您每次可支配该笔资金的30%作为科研之用，但须于资金支配后的30个工作日内提交有效单据，并附资金使用简要说明，否则系统将自动锁定下一笔费用支出。</div>
-                </li>
+                </li> -->
                 <li class="content_item">
                     <div class="item_left">资金使用：</div>
                     <div class="item_right">
@@ -69,7 +69,7 @@
 <script src="../js/public.js"></script>
 <script>
     $(function () {
-        var word = `您的开会资助申请已获批复`
+        var word = `您本次受邀参会资助申请已获批复`
         $('.title_word').text(word)
         let url = Public.url();
         $.ajax({

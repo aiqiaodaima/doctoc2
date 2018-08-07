@@ -73,6 +73,7 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function () {
+        document.title = `患者${localStorage.getItem('patient_name')}就医档案`
         $('.patient_name').html(localStorage.getItem('patient_name'));
         $('.patient_content').html(localStorage.getItem('patient_content'));
         $('.patient_date').html(localStorage.getItem('patient_date'));

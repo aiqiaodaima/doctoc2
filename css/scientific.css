@@ -155,7 +155,7 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
     font-family:PingFangSC-Regular;
     color:rgba(255,255,255,1);
     font-style: normal;
-    margin-left: 1.19rem;
+    margin-left: 0.79rem;
     line-height:1.38rem;
 }
 .yellow{

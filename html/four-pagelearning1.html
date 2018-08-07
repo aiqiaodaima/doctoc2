@@ -87,7 +87,7 @@
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd">
-                    <label class="weui-label">已获资助</label>
+                    <label class="weui-label">已获资助金额</label>
                 </div>
                 <div class="weui-cell__bd">
                     <input class="weui-input gainMoney" type="number" pattern="[0-9]*" placeholder="请输入已获取资助金额">
@@ -114,7 +114,7 @@
 
             <div class="weui-cell">
                 <div class="weui-cell__hd">
-                    <label class="weui-label">申请资助</label>
+                    <label class="weui-label">申请资助金额</label>
                 </div>
                 <div class="weui-cell__bd">
                     <input class="weui-input applyMoney" type="text" placeholder="请输入申请资助">
@@ -198,6 +198,7 @@
             endTime = $(this).val()
         })
         $('.applyMoney').on('change', function () {
+            $(this).val() = $(this).val() + '元'
             applyMoney = $(this).val()
         })
         $('.explain').on('change', function () {
