@@ -53,7 +53,8 @@
             },
             success (res){
                 console.log(res)
-                $('.top_left img').attr("src",`https://imuts.oss-cn-shenzhen.aliyuncs.com/${res.user.photo}`)
+                src = res.user.photo == null?'../image/patient.jpg':`https://imuts.oss-cn-shenzhen.aliyuncs.com/${res.user.photo}`;
+                $('.top_left img').attr("src",src)
                 $('.name').html(res.user.name)
                 $('.hospital').html(res.doctor.hospital)
                 $('.subjec').html(res.doctor.hplSection)
