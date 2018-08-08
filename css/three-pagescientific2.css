@@ -43,3 +43,21 @@
 .left_fail{
     color: #ff6c2b;
 }
+.emptyStatus{
+    padding: 3.53rem 0 0;
+}
+.emptyStatus img{
+    width: 14.97rem;
+    height: 9.8rem;
+    margin: 0 auto;
+    margin-bottom: 2.67rem;
+}
+.emptyStatus .tips_word{
+    width: 100%;
+    text-align: center;
+    font-family: MicrosoftYaHei;
+    font-size: 1.07rem;
+    line-height: 1.6rem;
+	letter-spacing: 0.04rem;
+	color: #6d7a95;
+}

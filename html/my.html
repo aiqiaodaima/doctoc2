@@ -31,7 +31,7 @@
             <div class="weui-grids my_weuigrids">
                 <a href="three-pagescientific3.html" class="weui-grid js_grid me_message">
                     <div class="me_messageTop count1">
-                        
+
                     </div>
                     <p class="me_messageBot">
                         科研课题
@@ -40,7 +40,7 @@
                 <div class="my_weuigridshr"></div>
                 <a href="academic-conference2.html" class="weui-grid js_grid me_message">
                     <div class="me_messageTop count2">
-                        
+
                     </div>
                     <p class="me_messageBot">
                         学术会议
@@ -49,7 +49,7 @@
                 <div class="my_weuigridshr"></div>
                 <a href="booking.html" class="weui-grid js_grid me_message">
                     <div class="me_messageTop count3">
-                        
+
                     </div>
                     <p class="me_messageBot">
                         预约请求
@@ -57,10 +57,16 @@
                 </a>
             </div>
             <div class="weui-panel weui-panel_access" style="overflow: scroll;">
-                <div class="weui-panel__ft style="overflow: scroll;"">
-                    <a href="Certification.html" class="weui-cell weui-cell_access weui-cell_link">
+                <div class="weui-panel__ft style="overflow: scroll;>
+                    <a href="Certification.html" class="weui-cell weui-cell_access weui-cell_link ifCert">
                         <div class="weui-cell__bd">实名认证</div>
                         <span class="weui-cell__ft autonym">未实名</span>
+                    </a>
+                    <a href="Certification2.html" class="weui-cell weui-cell_access weui-cell_link qr">
+                        <div class="weui-cell__bd">二维码</div>
+                        <span class="weui-cell__ft">
+                            <img src="../image/successQR.png" alt="" style="width: 1.13rem;height: 1.13rem; margin-right: 0.55rem">
+                        </span>
                     </a>
                     <div class="weui-panel__ft">
                         <a href="two-pagescientific.html" class="weui-cell weui-cell_access weui-cell_link">
@@ -103,7 +109,7 @@
         </div>
         <!-- 底部 -->
         <div class="btn_top"></div>
-        <div class="weui-tabbar" style="position: fixed;">     
+        <div class="weui-tabbar" style="position: fixed;">
             <a href="index.html" class="weui-tabbar__item">
                 <div class="weui-tabbar__icon">
                     <img src="../image/tabbar_ico_home_nor.png" alt="">
@@ -132,34 +138,48 @@
 <script>
     $(function () {
         let url = Public.url();
+        
         $.ajax({
-            url :`${url}/metting/selectCountNum`,
-            data:{
-                dtrId : localStorage.getItem('userId')
+            url: `${url}/metting/selectCountNum`,
+            data: {
+                dtrId: localStorage.getItem('userId')
             },
-            type : "POST",
-            success (res){
+            type: "POST",
+            success(res) {
                 console.log(res)
                 $('.count1').html(res.count1)
                 $('.count2').html(res.count2)
                 $('.count3').html(res.count3)
-                if(localStorage.getItem('scienceState')=='已获审核'){
-                    $('.autonym').html('已实名')
-                }else{
+                if (localStorage.getItem('scienceState') == '已获审核') {
+                    $('.autonym').html('已实名').css('color','green');
+                    $('.qr').css({'display':'block','display':'flex'});
+                } else {
                     $('.autonym').html('未实名')
+                    $('.qr').css('display','none');
                 }
-                if(localStorage.getItem('name')=="null"){
-                    $('.docName').html(localStorage.getItem('loginAccount'))
-                }else{
-                    $('.docName').html(localStorage.getItem('name'))
+                if (localStorage.getItem('docName') == "null") {
+                    $('.docName').html('尚未认证')
+                } else {
+                    $('.docName').html(localStorage.getItem('docName'))
                 }
-                if(localStorage.getItem('photo') == "null"){
-                    $('.photo img').attr('src','../image/patient.jpg')
-                }else{
+                if (localStorage.getItem('docPhoto') == "null") {
+                    $('.photo img').attr('src', '../image/patient.jpg')
+                } else {
                     $('.photo img').attr('src', `https://imuts.oss-cn-shenzhen.aliyuncs.com/${localStorage.getItem('photo')}`)
                 }
             }
         })
+        // $('.ifCert').on('click',()=>{
+        //     if(localStorage.getItem('applyState') == '已获审核'){
+        //         window.location.href = 'Certification.html'
+        //     }else{
+        //         if(localStorage.getItem('scienceState') == '审核当中'){
+        //             window.location.href = 'audit.html'
+        //         }else if(localStorage.getItem('scienceState') == '已获审核'){
+        //             window.localStorage.href = 'Certification.html'
+        //         }
+        //     }
+        // })
     });
 </script>
 

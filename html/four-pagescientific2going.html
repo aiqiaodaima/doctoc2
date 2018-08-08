@@ -18,62 +18,79 @@
 </head>
 
 <body ontouchstart>
-    <div class="page__bd" style="height: 100%;">
-        <div class="scientific_title title_going">
-            <span class="title_word">您的科研计划审核当中</span>
-        </div>
-        <div class="science_content">
-            <ul>
-                <li class="content_item">
-                    <div class="item_left">科研思路：</div>
-                    <div class="item_right">FDI，自主创新对于国家医疗方面的极大推动（限30个字）</div>
-                </li>
-                <li class="content_item">
-                    <div class="item_left">预计结果：</div>
-                    <div class="item_right">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
-                </li>
-                <li class="content_item">
-                    <div class="item_left">科研意义：</div>
-                    <div class="item_right">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
-                </li>
-            </ul>
-        </div>
-        <div class="science_content">
-            <ul>
-                <li class="content_item">
-                    <div class="item_left">已有条件：</div>
-                    <div class="item_right">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
-                </li>
-                <li class="content_item">
-                    <div class="item_left">尚缺条件：</div>
-                    <div class="item_right">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
-                </li>
-                <li class="content_item">
-                    <div class="item_left">解决方案：</div>
-                    <div class="item_right">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
-                </li>
-            </ul>
-        </div>
-        <div class="science_content">
-            <ul>
-                <li class="content_item">
-                    <div class="item_left">实施时间：</div>
-                    <div class="item_right">2018年6月10日</div>
-                </li>
-                <li class="content_item">
-                    <div class="item_left">补充说明：</div>
-                    <div class="item_right">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
-                </li>
-            </ul>
-        </div>
-    </div>
+    <div id="loadbox" class="page__bd" style="height: 100%;"></div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
+<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 <script>
     $(function () {
-
+		let url = Public.url();
+    	$.ajax({
+        	url : `${url}/task/selectDoctorTaskPlayId`,
+        	type: 'post',
+        	data: {id: localStorage.taskId},
+        	success(data) {
+        		console.log(data);
+        		var htmllist = "";
+        		if (data.dtp) {
+	        		htmllist += htmltemp(data.dtp);
+        		}
+        		$("#loadbox").html(htmllist);
+        	}
+        })
+    	
+        htmltemp=((data)=>{
+			return `
+                <div class="scientific_title title_going">
+		            <span class="title_word">您的科研计划审核当中</span>
+		        </div>
+		        <div class="science_content">
+		            <ul>
+		                <li class="content_item">
+		                    <div class="item_left">科研思路：</div>
+		                    <div class="item_right">${data.mentality||""}</div>
+		                </li>
+		                <li class="content_item">
+		                    <div class="item_left">预计结果：</div>
+		                    <div class="item_right">${data.rsult||""}</div>
+		                </li>
+		                <li class="content_item">
+		                    <div class="item_left">科研意义：</div>
+		                    <div class="item_right">${data.content||""}</div>
+		                </li>
+		            </ul>
+		        </div>
+		        <div class="science_content">
+		            <ul>
+		                <li class="content_item">
+		                    <div class="item_left">已有条件：</div>
+		                    <div class="item_right">${data.existCondition||""}</div>
+		                </li>
+		                <li class="content_item">
+		                    <div class="item_left">尚缺条件：</div>
+		                    <div class="item_right">${data.lackCondition||""}</div>
+		                </li>
+		                <li class="content_item">
+		                    <div class="item_left">解决方案：</div>
+		                    <div class="item_right">${data.scheme||""}</div>
+		                </li>
+		            </ul>
+		        </div>
+		        <div class="science_content">
+		            <ul>
+		                <li class="content_item">
+		                    <div class="item_left">实施时间：</div>
+		                    <div class="item_right">${data.startTime||""}</div>
+		                </li>
+		                <li class="content_item">
+		                    <div class="item_left">补充说明：</div>
+		                    <div class="item_right">${data.accountfor||""}</div>
+		                </li>
+		            </ul>
+		        </div>`;
+		})
     });
 </script>
 

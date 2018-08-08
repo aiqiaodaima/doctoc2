@@ -34,10 +34,14 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function(){
+        
         if(localStorage.getItem('scienceState') == '已获审核'){
-           window.location.href = 'certificationSuccess.html'
+            $('.certification_bottom').css('display','none')
+            $('.font_content p').text('您已通过初步实名认证，点击卡片查看详情')
+            $('.cert_1').attr('href','certificationSuccess.html')
         }else  if(localStorage.getItem('scienceState') == '审核当中'){
-           window.location.href = 'audit.html'
+        //    window.location.href = 'audit.html'
+            $('.cert_1').attr('href','audit.html')
         }
     });
 </script>

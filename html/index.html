@@ -19,12 +19,6 @@
 <script src="../js/public.js"></script>
 <script>    
     $(function () {     
-        // const login = localStorage.getItem('login')
-        // console.log(login)
-        // if(!login){
-        //     window.location.href = 'login.html'
-        // }
-        // localStorage.clear('login')
         $('#J_Slider').slider({
             speed: 1000,
             autoplay: 3000,
@@ -39,7 +33,10 @@
             type: 'POST',
             success (res){
                 console.log(res)
-                localStorage.setItem('scienceState',res.user.scienceState)
+                localStorage.setItem('scienceState',res.user.scienceState);
+                localStorage.setItem('docPhoto',res.user.photo);
+                localStorage.setItem('docName',res.user.name);
+                localStorage.setItem('applyState',res.doctor.applyState);
             }
         })
         if( localStorage.getItem('scienceState') !=='已获审核' ){

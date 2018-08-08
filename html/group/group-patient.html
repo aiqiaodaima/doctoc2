@@ -173,6 +173,7 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/public.js" type="text/javascript" charset="utf-8"></script>
 <script>
     var createdLi = {
         el: null,
@@ -199,7 +200,7 @@
         }
 
     }
-    $(function () {
+    $(function () {//cases/selectPfmByPttId?groupCode
         // $('.patient_name').html(localStorage.getItem('patient_name'));
         // $('.patient_content').html(localStorage.getItem('patient_content'));
         // $('.patient_date').html(localStorage.getItem('patient_date'));
@@ -207,6 +208,45 @@
             createdLi.created()
             console.log(createdLi.time1())
         }
+        let url = Public.url();
+        localStorage.removeItem("doctorGroupCode");
+        $.ajax({
+        	url : `${url}/doctor/selectDtrGroup`,
+        	type: 'post',
+        	data: {
+        		dtrId: localStorage.userId
+        	},
+        	success(data) {
+        		console.log(data);
+        		var htmllist = "";
+        		data.pmfList.forEach((json)=>{
+        			htmllist += htmltemp(json);
+        		})
+        		$("#loadbox").html(htmllist);
+        	}
+        })
+        htmltemp=((data)=>{
+			return `
+		        <li class="content_item">
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" data-pttid="${data.pttId||""}" alt="">
+                        </div>
+                        <div class="item_group">
+                            <img src="https://imuts.oss-cn-shenzhen.aliyuncs.com/${data.user.photo}" alt="">
+                        </div>
+                        <div class="item_name">
+                            <span>${data.user.name||""}</span>
+                            <span>${data.user.sex||""}</span>
+                            <span>${data.user.birthdate||""}</span>
+                        </div>
+                    </div>
+                    <!--<div class="item_time">
+                        <span>${data.start_time||""}</span>
+                        <span>口腔科</span>
+                    </div>-->
+                </li>`;
+		})
     });
 </script>
 

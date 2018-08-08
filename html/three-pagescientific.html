@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="scientific_btn">
-            <a href="four-taskapply.html">
+            <a id="apply_btn">
                 <img src="../image/apply_btn.png" alt="">
             </a>
         </div>
@@ -40,6 +40,13 @@
 <script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 <script>
     $(function () {
+        $("#apply_btn").click(function () {
+    		if (localStorage.applyState!="已获审核") {
+    			$.alert("你还没有深度认证");
+    		} else {
+    			window.location.href = "four-taskapply.html";
+    		}
+    	});
         let url = Public.url();
         localStorage.removeItem("taskState");
         $.ajax({

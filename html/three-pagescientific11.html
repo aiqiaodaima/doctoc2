@@ -45,14 +45,22 @@
         		state: localStorage.taskState
         	},
         	success(data) {
-        		console.log(data);
-        		var htmllist = "";
-        		if (data.dtList&&data.dtList.length) {
-        			data.dtList.forEach((json)=>{
-	        			htmllist += htmltemp(json);
-	        		})
-        		}
-        		$("#loadbox").html(htmllist);
+                console.log(data);
+                if(data.dtList.length == 0){
+                    let el = `<div class="emptyStatus">
+						<img src="../image/emptyStatus.png" alt="">
+						<div class="tips_word">您还未进行过科研课题资助申请，请点击按钮进行申请。</div>
+					</div>`
+					$("#loadbox").append(el);
+                }else{
+                    var htmllist = "";
+                    if (data.dtList&&data.dtList.length) {
+                        data.dtList.forEach((json)=>{
+                            htmllist += htmltemp(json);
+                        })
+                    }
+                    $("#loadbox").html(htmllist);
+                }
         	}
         })
         htmltemp=((data)=>{//state状态：已获批复/未获批复/审核当中

@@ -1,6 +1,11 @@
 body{
     background: #fff;
 }
+input{
+    color: rgba(51,51,51,1);
+    line-height: 1rem;
+    font-size: 1rem;
+}
 .login1{
     background: #fff;
     height: 100%;
@@ -77,19 +82,22 @@ body{
                 margin-right: 0.47rem;
             }
             span{
+                display: block;
                 font-family: PingFang-SC-Bold;
                 font-weight: 600;
-                font-size: 0.93rem;
+                font-size: 1.07rem;
                 letter-spacing: 0.04rem;
                 color: #5f98ff;
+                
             }
         }
         .rember_right{
             font-family: PingFang-SC-Bold;
-            font-size: 0.93rem;
+            font-size: 1.07rem;
             letter-spacing: 0.04rem;
             color: #cccccc;
             font-weight: 600;
+            padding: 10px;
         }
     }
     .login_btn{
@@ -102,8 +110,8 @@ body{
             border-radius: 0.27rem;
             line-height: 2.67rem;
             font-family: PingFang-SC-Bold;
-            font-size: 0.93rem;
-            letter-spacing: 0.04rem;
+            font-size: 1.07rem;
+            letter-spacing: 0.5rem;
             color: #ffffff;
             font-weight: 600;
             text-align: center;
@@ -111,7 +119,7 @@ body{
     }
     .tips_word{
         font-family: PingFang-SC-Bold;
-        font-size: 0.93rem;
+        font-size: 1.07rem;
         font-weight: 600;
         letter-spacing: 0.04rem;
         color: #5f98ff;
@@ -119,5 +127,166 @@ body{
         text-align: center;
         position: fixed;
         bottom: 2rem;
+    }
+}
+.login2{
+    ul{
+        padding: 2rem 0 1rem;
+        .login_phone{
+            margin-bottom: 1rem;
+            display: flex;
+            padding: 0 1rem;
+            align-items: center;
+            justify-content: space-between;
+            span{
+                display: block;
+                font-family: MicrosoftYaHei;
+                font-size: 1.13rem;
+                letter-spacing: 0.05rem;
+                color: #333333;
+                width: 5.6rem;
+            }
+            input{
+                width: 17.4rem;
+                height: 2.87rem;
+                background-color: #f4f4f4;
+                border-radius: 0.27rem;
+                border: none;
+                padding: 0 1rem;
+                outline: none;
+            }
+        }
+        .login_code{
+            margin-bottom: 1rem;
+            display: flex;
+            padding: 0 1rem;
+            align-items: center;
+            justify-content: space-between;
+            span{
+                display: block;
+                font-family: MicrosoftYaHei;
+                font-size: 1.13rem;
+                letter-spacing: 0.05rem;
+                color: #333333;
+                width: 5.6rem;
+            }
+            .login_gain{
+                display: flex;
+                width: 17.4rem;
+                input{
+                    // width: 9.17rem;
+                    width: 100%;
+                    height: 2.87rem;
+                    background-color: #f4f4f4;
+                    border-radius: 0.27rem;
+                    border: none;
+                    padding: 0 1rem;
+                    outline: none;
+                }
+                
+                .gain_pass{
+                    margin-left: 5px;
+                    width: 7.4rem;
+                    height: 2.87rem;
+                    line-height: 2.87rem;
+                    background-color: #5f98ff;
+                    border-radius: 0.27rem;
+                    // opacity: 0.5;
+                    font-family: PingFang-SC-Bold;
+                    font-size: 0.8rem;
+                    letter-spacing: 0.03rem;
+                    color: #ffffff;
+                    text-align: center;
+                }
+            }
+
+        }
+        .login_pass{
+            align-items: center;
+            display: flex;
+            padding: 0 1rem;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 1rem;
+            span{
+                display: block;
+                font-family: MicrosoftYaHei;
+                font-size: 1.13rem;
+                letter-spacing: 0.05rem;
+                color: #333333;
+                width: 5.6rem;
+                white-space: nowrap;
+            }
+            input{
+                width: 17.4rem;
+                height: 2.87rem;
+                background-color: #f4f4f4;
+                border-radius: 0.27rem;
+                border: none;
+                padding: 0 1rem;
+                outline: none;
+            }
+            img{
+                position: absolute;
+                width: 1rem;
+                height: 1rem;
+                right: 2rem;
+                top: 1rem;
+            }
+        }
+    }
+    .btn_sign{
+        padding: 0 1rem;
+        a{
+            display: block;
+            width: 100%;
+            height: 2.67rem;
+            background-color: #5f98ff;
+            border-radius: 0.27rem;
+            line-height: 2.67rem;
+            font-family: PingFang-SC-Bold;
+            font-size: 1.07rem;
+            letter-spacing: 0.5rem;
+            color: #ffffff;
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+}
+.login3{
+    .success_img{
+        padding: 2rem 0 4.63rem;
+        img{
+            width: 6.67rem;
+            height: 6.67rem;
+            margin: 0 auto 1rem;
+        }
+        span{
+            display: block;
+            font-family: MicrosoftYaHei-Bold;
+            font-size: 1.13rem;
+            letter-spacing: 0.05rem;
+            color: #6d7a95;
+            font-weight: 600;
+            width: 100%;
+            text-align: center;
+        }
+    }
+    .btn_sign{
+        padding: 0 1rem;
+        a{
+            display: block;
+            width: 100%;
+            height: 2.67rem;
+            background-color: #5f98ff;
+            border-radius: 0.27rem;
+            line-height: 2.67rem;
+            font-family: PingFang-SC-Bold;
+            font-size: 1.07rem;
+            letter-spacing: 0.5rem;
+            color: #ffffff;
+            font-weight: 600;
+            text-align: center;
+        }
     }
 }

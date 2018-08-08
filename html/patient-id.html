@@ -14,30 +14,34 @@
     <!-- 通用样式 -->
     <link rel="stylesheet" href="../css/public.css">
     <style>
-        .weui-popup__modal{
+        .weui-popup__modal {
             background: #fff;
         }
-        img{
+
+        img {
             display: block;
             width: 100%;
         }
-        .clause_button{
-            width:100%;
-            height:3.06rem;
-            background:rgba(255,255,255,1);
+
+        .clause_button {
+            width: 100%;
+            height: 3.06rem;
+            background: rgba(255, 255, 255, 1);
             display: flex;
         }
-        .clause_button a{
+
+        .clause_button a {
             display: block;
             width: 50%;
             text-align: center;
             line-height: 3.06rem;
-            font-size:1rem;
-            font-family:PingFangSC-Medium;
-            color:rgba(102,102,102,1);
+            font-size: 1rem;
+            font-family: PingFangSC-Medium;
+            color: rgba(102, 102, 102, 1);
             border-top: 1px solid #eaeaea;
         }
-        .clause_button a:nth-of-type(1){
+
+        .clause_button a:nth-of-type(1) {
             border-right: 1px solid #eaeaea;
         }
     </style>
@@ -77,23 +81,34 @@
                 </div>
             </div>
 
-            <div class="weui-cell">
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
                 <div class="weui-cell__hd">
                     <label class="weui-label">学历</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input input_education" type="text" placeholder="请输入学历">
+                    <select class="weui-select input_education">
+                        <option value="0">请选择</option>
+                        <option value="专科">专科</option>
+                        <option value="本科">本科</option>
+                        <option value="研究生">研究生</option>
+                    </select>
                 </div>
             </div>
-            
-            <div class="weui-cell">
-                    <div class="weui-cell__hd">
-                        <label class="weui-label">学位</label>
-                    </div>
-                    <div class="weui-cell__bd">
-                        <input class="weui-input input_education2" type="text" placeholder="请输入学位">
-                    </div>
+
+            <div class="weui-cell weui-cell_select weui-cell_select-after">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">学位</label>
                 </div>
+                <div class="weui-cell__bd">
+                    <select class="weui-select input_education2">
+                        <option value="0">请选择</option>
+                        <option value="学士">学士</option>
+                        <option value="双学士">双学士</option>
+                        <option value="硕士">硕士</option>
+                        <option value="博士">博士</option>
+                    </select>
+                </div>
+            </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd">
                     <label class="weui-label">授予院校</label>
@@ -154,42 +169,42 @@
 <script src="../js/public.js"></script>
 <script>
     $(function () {
-        if(!localStorage.getItem('industry')){
+        if (!localStorage.getItem('industry')) {
             $("#full").popup();
         }
         let url = Public.url()
-        $('.clause_affirm').on('click',function () {
+        $('.clause_affirm').on('click', function () {
             var id = localStorage.getItem("userId");
             console.log(localStorage.getItem("userId"))
-            if(id){
+            if (id) {
                 $.ajax({
-                    url:`${url}/user/selectUser`,
-                    data:{
+                    url: `${url}/user/selectUser`,
+                    data: {
                         id
                     },
                     type: 'POST',
-                    success (res){
+                    success(res) {
                         console.log(res)
-                        if(res.user.name !== null){
-                            localStorage.setItem('input_name',res.user.name);
+                        if (res.user.name !== null) {
+                            localStorage.setItem('input_name', res.user.name);
                         }
-                        if(res.user.sex !== null){
-                            localStorage.setItem('input_sex',res.user.sex);
+                        if (res.user.sex !== null) {
+                            localStorage.setItem('input_sex', res.user.sex);
                         }
-                        if(res.user.age !== null){
-                            localStorage.setItem('input_age',res.user.age);
+                        if (res.user.age !== null) {
+                            localStorage.setItem('input_age', res.user.age);
                         }
-                        if(res.doctor.education !== null){
-                            localStorage.setItem('input_education',res.doctor.education);
+                        if (res.doctor.education !== null) {
+                            localStorage.setItem('input_education', res.doctor.education);
                         }
-                        if(res.doctor.highestDegree !== null){
-                            localStorage.setItem('input_education2',res.doctor.highestDegree);
+                        if (res.doctor.highestDegree !== null) {
+                            localStorage.setItem('input_education2', res.doctor.highestDegree);
                         }
-                        if(res.doctor.school !== null){
-                            localStorage.setItem('input_school',res.doctor.school);
+                        if (res.doctor.school !== null) {
+                            localStorage.setItem('input_school', res.doctor.school);
                         }
-                        if(res.doctor.bachelors !== null){
-                            localStorage.setItem('input_moving',res.doctor.bachelors);
+                        if (res.doctor.bachelors !== null) {
+                            localStorage.setItem('input_moving', res.doctor.bachelors);
                         }
                         $('.input_name').val(localStorage.getItem('input_name'));
                         $('.input_sex').val(localStorage.getItem('input_sex'));
@@ -199,48 +214,48 @@
                         $('.input_school').val(localStorage.getItem('input_school'));
                         $('.input_moving').val(localStorage.getItem('input_moving'));
                     },
-                    error (res){
+                    error(res) {
                         console.log(res)
                     }
                 })
             }
             $.closePopup()
         })
-        $('.input_name').on('blur',function () {
-            const input_name = $(this).val(); 
-            localStorage.setItem('input_name',input_name);
+        $('.input_name').on('blur', function () {
+            const input_name = $(this).val();
+            localStorage.setItem('input_name', input_name);
         })
-        $('.input_sex').on('blur',function () {
-            const input_sex = $(this).val(); 
-            localStorage.setItem('input_sex',input_sex);
+        $('.input_sex').on('blur', function () {
+            const input_sex = $(this).val();
+            localStorage.setItem('input_sex', input_sex);
         })
-        $('.input_age').on('blur',function () {
-            const input_age = $(this).val(); 
-            localStorage.setItem('input_age',input_age);
+        $('.input_age').on('blur', function () {
+            const input_age = $(this).val();
+            localStorage.setItem('input_age', input_age);
         })
-        $('.input_education').on('blur',function () {
-            const input_education = $(this).val(); 
-             localStorage.setItem('input_education',input_education);
+        $('.input_education').on('blur', function () {
+            const input_education = $(this).val();
+            localStorage.setItem('input_education', input_education);
         })
-        $('.input_education2').on('blur',function () {
-            const input_education2 = $(this).val(); 
-            localStorage.setItem('input_education2',input_education2);
+        $('.input_education2').on('blur', function () {
+            const input_education2 = $(this).val();
+            localStorage.setItem('input_education2', input_education2);
         })
-        $('.input_school').on('blur',function () {
-            const input_school = $(this).val(); 
-            localStorage.setItem('input_school',input_school);
+        $('.input_school').on('blur', function () {
+            const input_school = $(this).val();
+            localStorage.setItem('input_school', input_school);
         })
-        $('.input_moving').on('blur',function () {
-            const input_moving = $(this).val(); 
-            localStorage.setItem('input_moving',input_moving);
+        $('.input_moving').on('blur', function () {
+            const input_moving = $(this).val();
+            localStorage.setItem('input_moving', input_moving);
         })
-        $('.input_phone').on('blur',function () {
-            const input_phone = $(this).val(); 
-            localStorage.setItem('input_phone',input_phone);
+        $('.input_phone').on('blur', function () {
+            const input_phone = $(this).val();
+            localStorage.setItem('input_phone', input_phone);
         })
-        $('.input_pass').on('blur',function () {
-            const input_pass = $(this).val(); 
-            localStorage.setItem('input_pass',input_pass);
+        $('.input_pass').on('blur', function () {
+            const input_pass = $(this).val();
+            localStorage.setItem('input_pass', input_pass);
         })
         $('.input_name').val(localStorage.getItem('input_name'));
         $('.input_sex').val(localStorage.getItem('input_sex'));
@@ -250,11 +265,11 @@
         $('.input_school').val(localStorage.getItem('input_school'));
         $('.input_moving').val(localStorage.getItem('input_moving'));
 
-        $('.weui-switch-cp__input').on('change',function () {
+        $('.weui-switch-cp__input').on('change', function () {
             $('.moving').slideToggle(300)
         })
 
-        $('.btn_agree').on('click',()=>{
+        $('.btn_agree').on('click', () => {
             $.ajax({
                 url: `${url}/user/insertDoctorUser`,
                 type: 'POST',
@@ -275,17 +290,17 @@
                     jobPhone: localStorage.getItem('jobPhone'),
                     dtrId: localStorage.getItem('userId')
                 },
-                success (res){
+                success(res) {
                     console.log(res)
-                    if(res.msg == '操作成功');
-                    $.alert('您的认证信息已经提交',()=>{
+                    if (res.msg == '操作成功');
+                    $.alert('您的认证信息已经提交', () => {
                         window.location.href = 'index.html'
                     })
                 },
-                error (res){
+                error(res) {
                     console.log(res)
                 }
-            })  
+            })
         })
     });
 </script>

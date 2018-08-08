@@ -15,7 +15,7 @@
 </head>
 
 <body ontouchstart>
-    <div class="page__bd" style="height: 100%;">
+    <div class="page__bd">
         <div class="input_search">
             <input type="text" placeholder="请输入关键字" class="seach">
             <img src="../../image/search.png" alt="">
@@ -23,46 +23,46 @@
         <div class="group_content">
             <ul id="loadbox">
                 <li class="content_item">
-                        <div class="group_group">
-                            <div class="item_click">
-                                <img src="../../image/click1.png" alt="">
-                            </div>
-                            <div class="item_group">
-                                <img src="../../image/patient_1.png" alt="">
-                            </div>
-                            <div class="item_name">
-                                <span>朱佩琪</span>
-                                <span>京溪南方大学附属第三医院 </span>
-                                <span>黏膜病变</span>
-                            </div>
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" alt="">
                         </div>
-                        <div class="item_time">
-                            <span>2018/05/26</span>
-                            <span>口腔科</span>
+                        <div class="item_group">
+                            <img src="../../image/patient_1.png" alt="">
                         </div>
-                    
+                        <div class="item_name">
+                            <span>朱佩琪</span>
+                            <span>京溪南方大学附属第三医院 </span>
+                            <span>黏膜病变</span>
+                        </div>
+                    </div>
+                    <div class="item_time">
+                        <span>2018/05/26</span>
+                        <span>口腔科</span>
+                    </div>
                 </li>
                 <li class="content_item">
-                        <div class="group_group">
-                            <div class="item_click">
-                                <img src="../../image/click1.png" alt="">
-                            </div>
-                            <div class="item_group">
-                                <img src="../../image/patient_1.png" alt="">
-                            </div>
-                            <div class="item_name">
-                                <span>朱佩琪</span>
-                                <span>京溪南方大学附属第三医院 </span>
-                                <span>黏膜病变</span>
-                            </div>
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" alt="">
                         </div>
-                        <div class="item_time">
-                            <span>2018/05/26</span>
-                            <span>口腔科</span>
+                        <div class="item_group">
+                            <img src="../../image/patient_1.png" alt="">
                         </div>
+                        <div class="item_name">
+                            <span>朱佩琪</span>
+                            <span>京溪南方大学附属第三医院 </span>
+                            <span>黏膜病变</span>
+                        </div>
+                    </div>
+                    <div class="item_time">
+                        <span>2018/05/26</span>
+                        <span>口腔科</span>
+                    </div>
                 </li>
             </ul>
         </div>
+        <div class="btn_top"></div>
         <div class="group_btn" style="display: flex;justify-content: center;">
             <!--<div class="btn_left">
                 <div class="left_1">
@@ -138,62 +138,87 @@
         // delete1.init({class: '.right_1'}).remove();
         var dialog = window.YDUI.dialog;
         $('.right_1').on('click', function () {
+            var checked = false;
             $('.item_click img').each(function () {
                 console.log($(this).attr('src').indexOf("click2.png"))
-                if ($(this).attr('src').indexOf("click2.png") == -1) {
-                    dialog.toast('请先选择患者', 'none', 1000);
-                } else {
-                    dialog.confirm('确定将该患者从您的患群移除吗？移除后该患者将无法继续预约。', function () {
-                        delete1.init({ class: '.right_1' }).remove();
-                    });
+                if ($(this).attr('src').indexOf("click2.png") != -1) {
+                    checked = true;
+                    return false;
                 }
             })
+            if (checked) {
+                dialog.confirm('确定将该患者从您的患群移除吗？移除后该患者将无法继续预约。', function () {
+                    delete1.init({ class: '.right_1' }).remove();
+                });
+            } else {
+                dialog.toast('请先选择患者', 'none', 1000);
+            }
         });
-        $('.item_group').on('click',function(){
+        $('.item_group').on('click', function () {
             window.location.href = 'group-patient.html'
         })
-        $('.item_name').on('click',function(){
+        $('.item_name').on('click', function () {
             window.location.href = 'group-patient.html'
         })
-        $('.item_time').on('click',function(){
+        $('.item_time').on('click', function () {
             window.location.href = 'group-patient.html'
         })
         let url = Public.url();
         localStorage.removeItem("doctorPttId");
         $.ajax({
-        	url : `${url}/doctor/selectAllDpByDtrId`,
-        	type: 'post',
-        	data: {
-        		dtrId: localStorage.userId
-        	},
-        	success(data) {
-        		console.log(data);
-        		var htmllist = "";
-        		data.dpList.forEach((json)=>{
-        			htmllist += htmltemp(json);
-        		})
-        		$("#loadbox").html(htmllist);
-        		click1.init({ class: '.item_click img' }).bind();
-        		click1.init({ class: '.left_1 img' }).all();
-        		$("#sendMsg").click(function () {
-        			var returnVal = true;
-        			$(".item_click img").each(function () {
-        				if (this.src.search('click1.png')==-1) {
-                			localStorage.doctorPttId = $(this).data("pttid");
-        					returnVal = false;
-        					return false;
-        				}
-        			});
-                	if (returnVal) {
-                		$.alert("未选择患者，不能发送消息");
-                		return false;
-                	}
-                	window.location.href = "group-note.html";
+            url: `${url}/doctor/selectDtrGroup`,
+            type: 'post',
+            data: {
+                dtrId: localStorage.userId
+            },
+            success(data) {
+                console.log(data);
+                var htmllist = "";
+                data.pmfList && data.pmfList.forEach((json) => {
+                    htmllist += htmltemp(json);
+                })
+                data.pmfList && data.pmfList2.forEach((json) => {
+                    htmllist += htmltemp2(json);
+                })
+                $("#loadbox").html(htmllist);
+                click1.init({ class: '.item_click img' }).bind();
+                click1.init({ class: '.left_1 img' }).all();
+                $('.right_1').on('click', function () {
+		        	var checked = false;
+		            $('.item_click img').each(function () {
+		                console.log($(this).attr('src').indexOf("click2.png"))
+		                if ($(this).attr('src').indexOf("click2.png") != -1) {
+		                    checked = true;
+		                    return false;
+		                }
+		            })
+		            if (checked) {
+		            	dialog.confirm('确定将该患者从您的患群移除吗？移除后该患者将无法继续预约。', function () {
+	                        delete1.init({ class: '.right_1' }).remove();
+	                    });
+		            } else {
+		            	dialog.toast('请先选择患者', 'none', 1000);
+		            }
+		        });
+                $("#sendMsg").click(function () {
+                    var returnVal = true;
+                    $(".item_click img").each(function () {
+                        if (this.src.search('click1.png') == -1) {
+                            localStorage.doctorPttId = $(this).data("pttid");
+                            returnVal = false;
+                            return false;
+                        }
+                    });
+                    if (returnVal) {
+                        $.alert("未选择患者，不能发送消息");
+                        return false;
+                    }
+                    window.location.href = "group-note.html";
                 });
-        	}
+            }
         })
-        htmltemp=((data)=>{
-			return `
+        htmltemp = ((data) => {
+            return `
 		        <li class="content_item">
                     <div class="group_group">
                         <div class="item_click">
@@ -210,6 +235,34 @@
                     </div>
                     <!--<div class="item_time">
                         <span>${data.start_time}</span>
+                        <span>口腔科</span>
+                    </div>-->
+                </li>`;
+        })
+        htmltemp2=((data)=>{
+			return `
+		        <li class="content_item">
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" data-pttid="${data.pttId||""}" alt="">
+                        </div>
+                        <div class="item_group">
+                            <img src="https://imuts.oss-cn-shenzhen.aliyuncs.com/${data.user.photo}" alt="">
+                        </div>
+                        <div class="item_name">
+                            <span>${data.name||""}的家庭组</span>
+                            <span>
+                            	${
+	                            	((data.pmfSet[0].tolerant||"")+"、"+
+	                            	(data.pmfSet[1]&&data.pmfSet[1].tolerant||"")+"、"+
+	                            	(data.pmfSet[2]&&data.pmfSet[2].tolerant||"")+"等"+
+	                            	(data.pmfSet.length||"")+"人").replace(/(\、+等)/,"等")
+                            	}
+                            </span>
+                        </div>
+                    </div>
+                    <!--<div class="item_time">
+                        <span>${data.start_time||""}</span>
                         <span>口腔科</span>
                     </div>-->
                 </li>`;

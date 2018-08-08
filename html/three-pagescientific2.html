@@ -2,62 +2,71 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <title>科研计划</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
-    <!-- 引入样式 -->
-    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
-    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
-    <!-- <link rel="stylesheet" href="../css/index.css"> -->
-    <link rel="stylesheet" href="../css/ydui.css">
-    <!-- 通用样式 -->
-    <link rel="stylesheet" href="../css/public.css">
-    <link rel="stylesheet" href="../css/three-pagescientific2.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="Access-Control-Allow-Origin" content="*">
+	<title>科研计划</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+	<!-- 引入样式 -->
+	<link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+	<!-- <link rel="stylesheet" href="../css/index.css"> -->
+	<link rel="stylesheet" href="../css/ydui.css">
+	<!-- 通用样式 -->
+	<link rel="stylesheet" href="../css/public.css">
+	<link rel="stylesheet" href="../css/three-pagescientific2.css">
 </head>
 
 <body ontouchstart>
-    <div class="page__bd" style="height: 100%;">
-        <div id="loadbox"></div>
-        <div class="btn_top"></div>
-        <div class="item_btn">
-            <a href="four-pagescientific2.html">
-                添加新计划
-            </a>
-        </div>
-    </div>
+	<div class="page__bd" style="height: 100%;">
+		<div id="loadbox">
+		</div>
+		<div class="btn_top"></div>
+		<div class="item_btn">
+			<a href="four-pagescientific2.html">
+				添加新计划
+			</a>
+		</div>
+	</div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
 <script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
 <script>
-    $(function () {
-        let url = Public.url();
-        //localStorage.removeItem("taskState");
-        $.ajax({
-        	url : `${url}/task/selectDoctorTaskPlayDtrId`,
-        	type: 'post',
-        	data: {
-        		dtrId: localStorage.userId
-        	},
-        	success(data) {
-        		console.log(data);
-        		var htmllist = "";
-        		data.dtpfList.forEach((json)=>{
-        			htmllist += htmltemp(json);
-        		})
-        		$("#loadbox").html(htmllist);
-        	}
-        })
-        htmltemp=((data)=>{
-			var styleColor;
-			data.state == "已获批复" ? (styleColor="left_success") :  
-			(data.state == "审核当中" ? (styleColor="left_going") : (styleColor="left_fail"));
+	$(function () {
+		let url = Public.url();
+		//localStorage.removeItem("taskState");
+		$.ajax({
+			url: `${url}/task/selectDoctorTaskPlayDtrId`,
+			type: 'post',
+			data: {
+				dtrId: localStorage.userId
+			},
+			success(data) {
+				console.log(data);
+				if (data.dtpfList.length == 0) {
+					let el = `<div class="emptyStatus">
+						<img src="../image/emptyStatus.png" alt="">
+						<div class="tips_word">您还未添加过科研计划，请点击按钮进行添加。</div>
+					</div>`
+					$("#loadbox").append(el);
+				} else {
+					var htmllist = "";
+					data.dtpfList.forEach((json) => {
+						htmllist += htmltemp(json);
+					})
+					$("#loadbox").html(htmllist);
+				}
+			}
+		})
+		htmltemp = ((data) => {
+			var links,styleColor;
+			data.state == "已获批复" ? (links="four-pagescientific2success.html",styleColor="left_success") :  
+			(data.state == "审核当中" ? (links="four-pagescientific2going.html",styleColor="left_going") : (links="four-pagescientific2fail.html",styleColor="left_fail"));
 			return `
 		        <div class="scientific_card">
-		            <a href="four-pagescientific2going.html">
+					<a href="${links}" onclick="localStorage.taskId='${data.id}'">
 		                <div class="card_title">科研思路：${data.mentality}</div>
 		                <div class="card_content">
 		                    <div class="content_top">预期结果：${data.rsult}</div>
@@ -69,7 +78,7 @@
 		            </a>
 		        </div>`;
 		})
-    });
+	});
 </script>
 
 </html>

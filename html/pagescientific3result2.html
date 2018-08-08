@@ -31,14 +31,14 @@
     $(function () {
 		let url = Public.url();
         $.ajax({
-        	url : `${url}/task/selectDoctorTaskById`,
+        	url : `${url}/task/selectDoctorTaskPlayId`,
         	type: 'post',
         	data: {
         		id: localStorage.taskId
         	},
         	success(data) {
         		var htmllist = "",
-        			txt = (data.doctorTask&&data.doctorTask.reason)||"";
+        			txt = (data.dtp&&data.dtp.reason)||"";
         		$("#loadbox").append(`<span class="content_word">${txt}</span>`);
         	}
         })

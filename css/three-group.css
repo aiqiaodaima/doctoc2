@@ -70,6 +70,16 @@
   height: 4rem;
   border-radius: 0.13rem;
   margin-right: 0.33rem;
+  position: relative;
+}
+.group_content ul li.content_item .group_group .item_group img {
+  width: auto;
+  max-width: 4rem;
+  max-height: 4rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
 }
 .group_content ul li.content_item .group_group .item_name span {
   display: block;

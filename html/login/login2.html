@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>医生注册</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="login2">
+            <ul>
+                <li class="login_phone">
+                    <span>手机号</span>
+                    <input type="text" class="input_phone">
+                </li>
+                <li class="login_code">
+                    <span>验证码</span>
+                    <div class="login_gain">
+                        <input type="text" class="input_gain">
+                        <div class="gain_pass">获取验证码</div>
+                    </div>
+                </li>
+                <li class="login_pass">
+                    <span>密码</span>
+                    <input type="text" class="input_pass">
+                    <img src="../../image/login_pass.png" alt="">
+                </li>
+                <li class="login_pass">
+                    <span>确认密码</span>
+                    <input type="text" class="input_pass2">
+                    <img src="../../image/login_pass2.png" alt="">
+                </li>
+            </ul>
+            <div class="btn_sign">
+                <a href="javascript:void(0)">注册</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/public.js"></script>
+<script>
+    $(function () {
+        var url = Public.url();
+        $('.input_phone').on('change', function () {
+            input_phone = $(this).val();
+        })
+        $('.input_gain').on('change', function () {
+            input_gain = $(this).val();
+        })
+        $('.input_pass').on('change', function () {
+            input_pass = $(this).val();
+        })
+        $('.input_pass2').on('change', function () {
+            input_pass2 = $(this).val();
+        })
+        // 短信验证码 
+        $('.gain_pass').on('click', function () {
+            if ($('.input_phone').val().length == 0) {
+                $.alert("请先填写手机号");
+            } else {
+                if ((/^1[3|4|5|7|8][0-9]\d{4,8}$/.test(input_phone))) {
+                    var a = 60;
+                    $('.gain_pass').text(`已发送(${a}s)`).attr("disabled", true);
+                    let b = setInterval(() => {
+                        a--;
+                        if (a >= 0) {
+                            $('.gain_pass').text(`已发送(${a}s)`)
+                        } else {
+                            clearInterval(b);
+                            $('.gain_pass').text('获取验证').attr('disabled', false);
+                        }
+                    }, 1000)
+                    $.ajax({
+                        url: `${url}/note/sendNote`,
+                        data: {
+                            phone: input_phone
+                        },
+                        xhrFields: {
+                            withCredentials: true
+                        },
+                        crossDomain: true,
+                        type: 'POST',
+                        success: function (res) {
+                            console.log(res)
+                        }
+                    })
+                } else {
+                    $.alert("请你填写正确的手机号");
+                }
+            }
+        })
+    
+        // 注册
+        $('.btn_sign').on('click', function () {
+            $.ajax({
+                url: `${url}/user/addDoctorUser`,
+                data: {
+                    phone: input_phone,
+                    code: input_gain,
+                    // wxCode: localStorage.getItem("wxUserInfo")
+                    pwd: input_pass
+                },
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                type: 'POST',
+                success(res) {
+                    console.log(res)    
+                    if (res.msg == '注册成功') {
+                        localStorage.setItem('applyState', res.applyState)
+                        window.location = "login3.html";
+                    } else {
+                        $.alert(`${res.msg}`)
+                    }
+                }
+            })
+        })
+    });
+</script>
+
+</html>
