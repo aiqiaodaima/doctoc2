@@ -56,7 +56,7 @@
                     </p>
                 </a>
             </div>
-            <div class="weui-panel weui-panel_access" style="overflow: scroll;">
+            <div class="weui-panel weui-panel_access">
                 <div class="weui-panel__ft style="overflow: scroll;>
                     <a href="Certification.html" class="weui-cell weui-cell_access weui-cell_link ifCert">
                         <div class="weui-cell__bd">实名认证</div>
@@ -68,43 +68,46 @@
                             <img src="../image/successQR.png" alt="" style="width: 1.13rem;height: 1.13rem; margin-right: 0.55rem">
                         </span>
                     </a>
-                    <div class="weui-panel__ft">
+                    <div class="weui-panel__ft unFail">
                         <a href="two-pagescientific.html" class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">科研课题</div>
                             <span class="weui-cell__ft"></span>
                         </a>
                     </div>
-                    <div class="weui-panel__ft">
-                        <a href="academic-conference.html" class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-panel__ft unFail acdemic">
+                        <a  class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">学术会议</div>
                             <span class="weui-cell__ft"></span>
                         </a>
                     </div>
-                    <div class="weui-panel__ft">
-                        <a href="two-pagerecord.html" class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-panel__ft unFail pagerecord">
+                        <a  class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">档案管理</div>
                             <span class="weui-cell__ft"></span>
                         </a>
                     </div>
-                    <div class="weui-panel__ft">
-                        <a href="two-pagediagnosis.html" class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-panel__ft unFail pagediagnosis">
+                        <a  class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">诊疗助手</div>
                             <span class="weui-cell__ft"></span>
                         </a>
                     </div>
-                    <div class="weui-panel__ft">
-                        <a href="two-pagegroup.html" class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-panel__ft unFail pagegroup">
+                        <a  class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">患群管理</div>
                             <span class="weui-cell__ft"></span>
                         </a>
                     </div>
-                    <div class="weui-panel__ft">
-                        <a href="balance.html" class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-panel__ft unFail balance">
+                        <a  class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">我的余额</div>
                             <span class="weui-cell__ft"></span>
                         </a>
                     </div>
                 </div>
+            </div>
+            <div class="exit">
+                <a>退出登录</a>
             </div>
         </div>
         <!-- 底部 -->
@@ -138,7 +141,6 @@
 <script>
     $(function () {
         let url = Public.url();
-        
         $.ajax({
             url: `${url}/metting/selectCountNum`,
             data: {
@@ -147,8 +149,8 @@
             type: "POST",
             success(res) {
                 console.log(res)
-                $('.count1').html(res.count1)
-                $('.count2').html(res.count2)
+                $('.count1').html(res.count2)
+                $('.count2').html(res.count1)
                 $('.count3').html(res.count3)
                 if (localStorage.getItem('scienceState') == '已获审核') {
                     $('.autonym').html('已实名').css('color','green');
@@ -162,13 +164,70 @@
                 } else {
                     $('.docName').html(localStorage.getItem('docName'))
                 }
-                if (localStorage.getItem('docPhoto') == "null") {
-                    $('.photo img').attr('src', '../image/patient.jpg')
+                if (localStorage.getItem('docPhoto') == null) {
+                    $('.photo img').attr('src', '../image/doctor.png')
                 } else {
-                    $('.photo img').attr('src', `https://imuts.oss-cn-shenzhen.aliyuncs.com/${localStorage.getItem('photo')}`)
+                    $('.photo img').attr('src', `https://imuts.oss-cn-shenzhen.aliyuncs.com/${localStorage.getItem('docPhoto')}`)
                 }
             }
         })
+        // 退出
+        $('.exit').on('click',()=>{
+            $.ajax({
+                url :`${url}/outLogin`,
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success (res){
+                    if(res.msg == '安全退出成功'){
+                        // 如果记住密码
+                        window.location.href = 'login/login1.html'
+                        if(localStorage.ifRember == '记住密码'){
+                            let obj = {
+                                ifRember:localStorage.ifRember,
+                                input_phone:localStorage.input_phone,
+                                input_pass:localStorage.input_pass
+                            }
+                            localStorage.clear();
+                            localStorage.ifRember = obj.ifRember;
+                            localStorage.input_phone = obj.input_phone;
+                            localStorage.input_pass = obj.input_pass;
+                        }else{
+                            localStorage.clear();
+                        }
+                    }else{
+                        $.alert(`${res.msg}`,'提示',()=>{
+                            window.location.href = 'login/login1.html'
+                        })
+                    }
+                }
+            })
+        })
+    
+        // 判断有没有认证
+        if( localStorage.getItem('scienceState') !=='已获审核' ){
+            $('.unFail').on('click',function(){
+                window.location.href = 'fail.html'
+            })
+        }else{
+            $('.acdemic').on('click',()=>{
+                window.location.href= "academic-conference.html"
+            })
+            $('.pagerecord').on('click',()=>{
+                window.locationhref="two-pagerecord.html" 
+            })
+            $('.pagediagnosis').on('click',()=>{
+                window.location.href="two-pagediagnosis.html"
+            })
+
+             $('.pagegroup').on('click',()=>{
+                window.location.href="two-pagegroup.html"
+            })
+            $('.balance').on('click',()=>{
+                window.location.href="balance.html"
+            })
+        }
     });
 </script>
 

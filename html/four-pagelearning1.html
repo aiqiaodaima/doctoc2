@@ -198,8 +198,9 @@
             endTime = $(this).val()
         })
         $('.applyMoney').on('change', function () {
-            $(this).val() = $(this).val() + '元'
-            applyMoney = $(this).val()
+            $(this).val($(this).val() + '元');
+            // console.log(typeof($(this).val()))
+            applyMoney = $(this).val().slice(0,$(this).val().length-1)
         })
         $('.explain').on('change', function () {
             explain = $(this).val()

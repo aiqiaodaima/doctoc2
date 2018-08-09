@@ -116,3 +116,20 @@ img{
     letter-spacing: 0.2rem;
 	color: #ffffff;
 }
+.exit{
+    padding: 0.67rem 1rem 0;
+    background: #f7f7f7;
+}
+.exit a{
+    display: block;
+    width: 100%;
+    height: 2.87rem;
+	background-color: #ffffff;
+    border-radius: 0.33rem;
+    font-family: MicrosoftYaHei;
+    font-size: 1.07rem;
+    letter-spacing: 0.21rem;
+    color: #ff7200;
+    text-align: center;
+    line-height: 2.87rem;
+}
