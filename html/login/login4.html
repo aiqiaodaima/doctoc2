@@ -31,13 +31,13 @@
                 </li>
                 <li class="login_pass">
                     <span>新密码</span>
-                    <input type="text" class="input_pass">
+                    <input class="input_pass" type="password">
                     <img src="../../image/login_pass.png" alt="">
                 </li>
                 <li class="login_pass">
                     <span>确认密码</span>
-                    <input type="text" class="input_pass2">
-                    <img src="../../image/login_pass2.png" alt="">
+                    <input class="input_pass2" type="password">
+                    <img src="../../image/login_pass.png" alt="">
                 </li>
             </ul>
             <div class="btn_sign">
@@ -52,6 +52,15 @@
 <script>
     $(function () {
         var url = Public.url();
+        $('img').on('click',function(){
+            if($(this).attr('src') == '../../image/login_pass.png'){
+                $(this).attr('src','../../image/login_pass2.png');
+                $(this).siblings('input').removeAttr('type','password')
+            }else{
+                $(this).siblings('input').attr('type','password')
+                $(this).attr('src','../../image/login_pass.png');
+            }
+        })
         $('.input_phone').on('change', function () {
             input_phone = $(this).val();
         })
@@ -103,6 +112,25 @@
     
         // 忘记
         $('.btn_sign').on('click', function () {
+            if (!(/^1[3|4|5|7|8][0-9]\d{4,8}$/.test($('.input_phone').val()))) {
+                $.alert("请先填写正确手机号");
+            } else {
+                if(!(/^\d{6}$/.test($('.input_gain').val()))){
+                    $.alert("请先填写6位验证码");
+                }else{
+                    if(!(/^[0-9a-zA-Z]{6,16}$/.test($('.input_pass').val()))){
+                        $.alert("密码须为6-16位数字或字母");
+                    }else{
+                        if($('.input_pass').val() !== $('.input_pass2').val()){
+                            $.alert("密码输入不一致");
+                        }else{
+                            sign();
+                        }
+                    }
+                }
+            }  
+        })
+        function sign(){
             $.ajax({
                 url: `${url}/forgetPassword`,
                 data: {
@@ -118,7 +146,7 @@
                 type: 'POST',
                 success(res) {
                     console.log(res)    
-                    if (res.msg == '注册成功') {
+                    if (res.msg == '修改成功!') {
                         localStorage.setItem('applyState', res.applyState)
                         window.location = "login3.html";
                     } else {
@@ -126,7 +154,7 @@
                     }
                 }
             })
-        })
+        }
     });
 </script>
 
