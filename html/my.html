@@ -69,7 +69,7 @@
                         </span>
                     </a>
                     <div class="weui-panel__ft unFail">
-                        <a href="two-pagescientific.html" class="weui-cell weui-cell_access weui-cell_link">
+                        <a class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">科研课题</div>
                             <span class="weui-cell__ft"></span>
                         </a>
@@ -211,6 +211,9 @@
                 window.location.href = 'fail.html'
             })
         }else{
+            $('.pagescientific').on('click',()=>{
+                window.location.href= "two-pagescientific.html"
+            })
             $('.acdemic').on('click',()=>{
                 window.location.href= "academic-conference.html"
             })
