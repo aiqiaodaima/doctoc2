@@ -47,7 +47,7 @@
 			return `
                 <div class="scientific_title title_fail">
 		            <span class="title_word">您的科研课题申请未获批复</span>
-		            <a href="pagescientific3result2.html">详情</a>
+		            <a href="pagescientific3result2.html?${encodeURI(encodeURI(data.reason))}">详情</a>
 		        </div>
 		        <div class="result_content">
 		            <div class="weui-cells">
@@ -123,17 +123,12 @@
 		                    </div>
 		                    <div class="next_item">${data.capital}</div>
 		                </div>
-		                <div class="weui-cell weui-cell_switch" style="display:${data.taskType == '博士后' ? 'flex' : 'none'}">
-		                    <div class="weui-cell__hd">
-		                        <label class="weui-label">博士后流动站</label>
-		                    </div>
-		                    <div class="weui-cell__ft">
-		                        <label for="switchCP" class="weui-switch-cp">
-		                            <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked">
-		                            <div class="weui-switch-cp__box"></div>
-		                        </label>
-		                    </div>
-		                </div>
+		                <div class="weui-cell">
+	                    <div class="weui-cell__bd">
+	                        <p>博士后流动站</p>
+	                    </div>
+	                    <div class="weui-cell__ft"> ${data.taskType == '博士后' ? '有' : '无'}</div>
+	                </div>
 		            </div>
 		            <div class="weui-cells moving"  style="display:${data.taskType == '博士后' ? 'block' : 'none'}">
 		                <div class="weui-cell">

@@ -17,8 +17,8 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
 <script src="../js/public.js"></script>
-<script>    
-    $(function () {     
+<script>
+    $(function () {
         $('#J_Slider').slider({
             speed: 1000,
             autoplay: 3000,
@@ -37,38 +37,38 @@
                 localStorage.setItem('docPhoto',res.user.photo);
                 localStorage.setItem('docName',res.user.name);
                 localStorage.setItem('applyState',res.doctor.applyState);
+                if( localStorage.getItem('scienceState') !=='已获审核' ){
+                    $('.weui-grids').on('click',function(){
+                        window.location.href = 'fail.html'
+                    })
+                }else{
+                    $('.one').on('click',()=>{
+                        window.location.href =" two-pagescientific.html";
+                    })
+                    $('.two').on('click',()=>{
+                        window.location.href = "two-pagelearning.html";
+                    })
+                    $('.three').on('click',()=>{
+                        window.location.href = "two-pagebasics.html";
+                    })
+                    $('.four').on('click',()=>{
+                        window.location.href = "two-pagepractice.html";
+                    })
+                    $('.five').on('click',()=>{
+                        window.location.href = "two-pagerecord.html";
+                    })
+                    $('.six').on('click',()=>{
+                        window.location.href = "two-pagediagnosis.html";
+                    })
+                    $('.seven').on('click',()=>{
+                        window.location.href = "two-pageshare.html";
+                    })
+                    $('.eight').on('click',()=>{
+                        window.location.href = "two-pagegroup.html";
+                    })
+                }
             }
         })
-        if( localStorage.getItem('scienceState') !=='已获审核' ){
-            $('.weui-grids').on('click',function(){
-                window.location.href = 'fail.html'
-            })
-        }else{
-            $('.one').on('click',()=>{
-                window.location.href =" two-pagescientific.html";
-            })
-            $('.two').on('click',()=>{
-                window.location.href = "two-pagelearning.html";
-            })
-            $('.three').on('click',()=>{
-                window.location.href = "two-pagebasics.html";
-            })
-            $('.four').on('click',()=>{
-                window.location.href = "two-pagepractice.html";
-            })
-            $('.five').on('click',()=>{
-                window.location.href = "two-pagerecord.html";
-            })
-            $('.six').on('click',()=>{
-                window.location.href = "two-pagediagnosis.html";
-            })
-            $('.seven').on('click',()=>{
-                window.location.href = "two-pageshare.html";
-            })
-            $('.eight').on('click',()=>{
-                window.location.href = "two-pagegroup.html";
-            })
-        }
 
     });
 
@@ -87,12 +87,12 @@
                             </a>
                         </div>
                         <div class="slider-item">
-                            <a href="three-pagescientific.html">
+                            <a href="banner-intro2.html">
                                 <img src="../image/banner2.png" alt="">
                             </a>
                         </div>
                         <div class="slider-item">
-                            <a href="Certification.html">
+                            <a href="banner-intro3.html">
                                 <img src="../image/banner3.png" alt="">
                             </a>
                         </div>
@@ -190,7 +190,7 @@
                 <div class="weui-tabbar__icon">
                     <img src="../image/ico_cloud.png" alt="">
                 </div>
-                <p class="weui-tabbar__label">云盘</p>
+                <p class="weui-tabbar__label">消息</p>
             </a>
             <a href="my.html" class="weui-tabbar__item">
                 <div class="weui-tabbar__icon">

@@ -9,6 +9,8 @@
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <link href="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/photoswipe/4.1.1/default-skin/default-skin.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="../css/index.css"> -->
     <link rel="stylesheet" href="../../css/ydui.css">
     <!-- 通用样式 -->
@@ -18,36 +20,30 @@
 
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
-        <div class="weui-cells cells_border">
+        <div id="loadInfo" class="weui-cells cells_border">
             <div class="weui-cell cell_item">
                 <div class="weui-cell__bd">
                     <p>就诊日期</p>
                 </div>
-                <div class="weui-cell__ft">2018/05/10</div>
+                <div class="weui-cell__ft"></div>
             </div>
             <div class="weui-cell cell_item">
                 <div class="weui-cell__bd">
                     <p>就诊医院</p>
                 </div>
-                <div class="weui-cell__ft">广州医学大附属第三分院</div>
+                <div class="weui-cell__ft"></div>
             </div>
             <div class="weui-cell cell_item" style="border-bottom: 1px solid #eaeaea;">
                 <div class="weui-cell__bd">
                     <p>接诊医生</p>
                 </div>
-                <div class="weui-cell__ft patient_date">陈琛琛</div>
+                <div class="weui-cell__ft patient_date"></div>
             </div>
             <div class="two_line">
-                <div class="line1">
-                    主要诊断
-                </div>
-                <div class="line2">
-                    粘膜病变粘膜病变粘膜病变粘膜病变粘膜病变粘膜病变粘膜病变粘膜病变
-                </div>
+                <div class="line1">主要诊断</div>
+                <div class="line2"></div>
             </div>
         </div>
-
-
         <div class="weui-cells weui-cells_form">
             <div class="weui-cell">
                 <div class="weui-cell__bd">
@@ -57,8 +53,8 @@
                             <!-- <div class="weui-uploader__info">0/2</div> -->
                         </div>
                         <div class="weui-uploader__bd">
-                            <ul class="weui-uploader__files" id="uploaderFiles">
-                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                            <div class="weui-uploader__files my-gallery" id="loadfiles1" data-pswp-uid="1">
+                                <!--<li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
@@ -68,8 +64,8 @@
                                 </li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
                                     <div class="weui-uploader__file-content">50%</div>
-                                </li>
-                            </ul>
+                                </li>-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -85,8 +81,8 @@
                             <!-- <div class="weui-uploader__info">0/2</div> -->
                         </div>
                         <div class="weui-uploader__bd">
-                            <ul class="weui-uploader__files" id="uploaderFiles">
-                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                            <div class="weui-uploader__files my-gallery" id="loadfiles2" data-pswp-uid="2">
+                                <!--<li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
@@ -96,8 +92,8 @@
                                 </li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
                                     <div class="weui-uploader__file-content">50%</div>
-                                </li>
-                            </ul>
+                                </li>-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -113,8 +109,8 @@
                             <!-- <div class="weui-uploader__info">0/2</div> -->
                         </div>
                         <div class="weui-uploader__bd">
-                            <ul class="weui-uploader__files" id="uploaderFiles">
-                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                            <div class="weui-uploader__files my-gallery" id="loadfiles3" data-pswp-uid="3">
+                                <!--<li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
@@ -124,8 +120,8 @@
                                 </li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
                                     <div class="weui-uploader__file-content">50%</div>
-                                </li>
-                            </ul>
+                                </li>-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -141,8 +137,8 @@
                             <!-- <div class="weui-uploader__info">0/2</div> -->
                         </div>
                         <div class="weui-uploader__bd">
-                            <ul class="weui-uploader__files" id="uploaderFiles">
-                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                            <div class="weui-uploader__files my-gallery" id="loadfiles4" data-pswp-uid="4">
+                                <!--<li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
@@ -152,8 +148,8 @@
                                 </li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
                                     <div class="weui-uploader__file-content">50%</div>
-                                </li>
-                            </ul>
+                                </li>-->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -168,8 +164,8 @@
                             <!-- <div class="weui-uploader__info">0/2</div> -->
                         </div>
                         <div class="weui-uploader__bd">
-                            <ul class="weui-uploader__files" id="uploaderFiles">
-                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                            <div class="weui-uploader__files my-gallery" id="loadfiles5" data-pswp-uid="5">
+                                <!--<li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
@@ -179,14 +175,14 @@
                                 </li>
                                 <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
                                     <div class="weui-uploader__file-content">50%</div>
-                                </li>
-                            </ul>
+                                </li>-->
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="patient_title">
+        <!--<div class="patient_title">
             就诊记录
         </div>
         <div class="patient_item">
@@ -214,16 +210,117 @@
                     </a>
                 </li>
             </ul>
-        </div>
+        </div>-->
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+	        <div class="pswp__bg"></div>
+	        <div class="pswp__scroll-wrap">
+	            <div class="pswp__container">
+	                <div class="pswp__item"></div>
+	                <div class="pswp__item"></div>
+	                <div class="pswp__item"></div>
+	            </div>
+	            <div class="pswp__ui pswp__ui--hidden">
+	                <div class="pswp__top-bar">
+	                    <div class="pswp__counter"></div>
+	                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+	                    <!--<button class="pswp__button pswp__button&#45;&#45;share" title="Share"></button>-->
+	                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+	                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+	                    <div class="pswp__preloader">
+	                        <div class="pswp__preloader__icn">
+	                            <div class="pswp__preloader__cut">
+	                                <div class="pswp__preloader__donut"></div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+	                    <div class="pswp__share-tooltip"></div>
+	                </div>
+	                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+	                </button>
+	                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+	                </button>
+	                <div class="pswp__caption">
+	                    <div class="pswp__caption__center"></div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.js"></script>
+<script src="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe-ui-default.js"></script>
+<script src="../../js/public.js"></script>
 <script>
     $(function () {
+    	var url = Public.url();
+    	var timeTo = Public.timeTo();
         $('.patient_name').html(localStorage.getItem('patient_name'));
         $('.patient_content').html(localStorage.getItem('patient_content'));
         $('.patient_date').html(localStorage.getItem('patient_date'));
+        $.ajax({
+        	url: `${url}/cases/selectPatientCaseFile`,
+        	type: "post",
+        	data:{
+        		caseId: localStorage.caseId
+        	},
+        	success(data){
+        		console.log(data);
+        		$("#loadInfo").html(htmltemp_info(data.pc||{}));
+        		var htmllist_Src = "";
+    			var pfList=data.pfList&&data.pfList.length?data.pfList:[{}];
+    			pfList.forEach((json)=>{
+    				htmllist_Src=htmltemp_Src(json||{});
+        			$("#loadfiles"+json.fileName).append(htmllist_Src||{});
+    			});
+    			Public.initPhotoSwipeFromDOM(".my-gallery");
+        	}
+        })
+        function htmltemp_info(data) {
+        	return `
+        		<div class="weui-cell cell_item">
+	                <div class="weui-cell__bd">
+	                    <p>就诊日期</p>
+	                </div>
+	                <div class="weui-cell__ft">${data.caseTime?timeTo(data.caseTime).split(" ")[0]:""}</div>
+	            </div>
+	            <div class="weui-cell cell_item">
+	                <div class="weui-cell__bd">
+	                    <p>就诊医院</p>
+	                </div>
+	                <div class="weui-cell__ft">${data.hospital||""}</div>
+	            </div>
+	            <div class="weui-cell cell_item" style="border-bottom: 1px solid #eaeaea;">
+	                <div class="weui-cell__bd">
+	                    <p>接诊医生</p>
+	                </div>
+	                <div class="weui-cell__ft patient_date">${data.docName||""}</div>
+	            </div>
+	            <div class="two_line">
+	                <div class="line1">
+	                    主要诊断
+	                </div>
+	                <div class="line2">
+	                    ${data.cases||""}
+	                </div>
+            	</div>
+        	`;
+        }
+        function htmltemp_Src(data) {
+        	return `
+                <figure class="weui-uploader__file">
+                	<div>
+		                <a href="https://imuts.oss-cn-shenzhen.aliyuncs.com/${data.fileUrl?data.fileUrl.replace(/\s/g,''):''}" itemprop="contentUrl">
+		                    <img src="https://imuts.oss-cn-shenzhen.aliyuncs.com/${data.fileUrl?data.fileUrl.replace(/\s/g,''):''}" itemprop="thumbnail" alt="图片加载失败" />
+		                </a>
+		            </div>
+			        <figcaption style="display:none;"></figcaption>
+                </figure>
+        	`;
+        }
     });
 </script>
 

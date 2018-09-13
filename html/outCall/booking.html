@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>预约详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/order-request.css">
+</head>
+        
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="booking_title order_title">
+            出诊请求
+        </div>
+        <div class="booking_item order_content">
+            <ul class="detail_item" id="loadbox"></ul>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/public.js"></script>
+<script>
+    $(function () {
+        let url = Public.url();
+        let timeTo = Public.timeTo();
+    	$.ajax({
+            url: `${url}/cases/selectOutPatientCase`,
+            data: {
+                dtrId: localStorage.userId,
+                status: 1,
+                type: 2,
+                caseTime: localStorage.caseTime
+            },
+            type: 'POST',
+            success (res){
+            	console.log(res);
+            	var pcList = res.pcList&&res.pcList.length ? res.pcList:[{}];
+            	pcList.forEach((json)=>{
+            		$("#loadbox").append(htmltemp(json||{}));
+            	})
+            }
+        })
+    	function htmltemp(data) {
+        	/*计算年龄*/
+        	var nowDate = timeTo(new Date());
+//      	if(nowDate >= data.user.birthdate) {
+//				if(nowDate.substr(5,5) >= data.user.birthdate.substr(5,5)) {
+//					data.user.age = nowDate.substr(0, 4) - data.user.birthdate.substr(0, 4);
+//				} else {
+//					data.user.age = nowDate.substr(0, 4) - data.user.birthdate.substr(0, 4) - 1;
+//				}
+//			}
+    		return `
+    			<li class="content_item">
+                    <a href="booking-detail.html?${data.pttId||''}_${data.id||''}">
+                        <div class="item_img">
+                            <div class="img_left">
+                                <img src="../../image/order.png" alt="">
+                            </div>
+                            <div class="img_right">
+                                <span>${data.caseTime ? timeTo(data.caseTime).replace(/(:\d{2})$/g,""):""}</span>
+                                <span>${data.site||""}</span>
+                            </div>
+                        </div>
+                        <div class="item_word">
+                            <span>姓名</span>
+                            <span>${data.ptName||""}</span>
+                        </div>
+                        <div class="item_word">
+                            <span>性别</span>
+                            <span>${data.ptSex||""}</span>
+                        </div>
+                        <div class="item_word">
+                            <span>年龄</span>
+                            <span>${data.ptAge||""}</span>
+                        </div>
+                        <div class="item_word">
+                            <span>主要诉求</span>
+                            <span>${data.sketch||""}</span>
+                        </div>
+                    </a>
+                </li>
+    		`;
+    	}
+    });
+</script>
+
+</html>

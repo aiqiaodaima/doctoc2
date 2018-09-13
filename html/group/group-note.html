@@ -58,8 +58,9 @@
 	        	type: 'post',
 	        	data: {
 	        		prnIds: $("textarea").val(),
-	        		pttId: localStorage.doctorPttId,
-	        		dtrId: localStorage.userId
+	        		userId: localStorage.doctorPttId,
+	        		dtrId: localStorage.userId,
+	        		hplSection: localStorage.hplSection
 	        	},
 	        	success(data) {
 	        		if (data.msg=="发送成功") {

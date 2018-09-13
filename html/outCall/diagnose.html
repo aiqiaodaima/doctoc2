@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>预约详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/diagnose.css">
+    <link rel="stylesheet" href="../../css/message.css">
+</head>
+
+<body ontouchstart>
+    <div class="weui-tab">
+        <div class="weui-tab__bd">
+            <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <div class="page__bd meassage5" style="height: 100%;">
+                    <div class="doctor_item">
+                        <div class="item_left">
+                            <div class="img_circle">
+                                <img src="../../image/patient.png" alt="">
+                            </div>
+                            <div class="left_word">
+                                <div class="word_top">
+                                    <span class='docName'></span>
+                                    <span class="docWork"></span>
+                                </div>
+                                <div class="word_bottom docHospital"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tip_word">
+                        <span>专业擅长</span>
+                        <span class="adept"></span>
+                    </div>
+                    <div class="doctor_time clinicTime"></div>
+                    <div class="diagnose_data">
+                        <div class="data_header">
+                            <div class="header_left">点击日期，查看预约</div>
+                            <!-- <a href="javascript:void(0)">设置</a> -->
+                        </div>
+                        <div class="data_month">
+                            <a href="javascript:void(0)" class="prev_month">&lt;</a>
+                            <div class="month_word">2018年04月</div>
+                            <a href="javascript:void(0)" class="next_month">&gt;</a>
+                        </div>
+                        <div class="data_content">
+                            <ul class="content_week">
+                                <li>一</li>
+                                <li>二</li>
+                                <li>三</li>
+                                <li>四</li>
+                                <li>五</li>
+                                <li>六</li>
+                                <li>日</li>
+                            </ul>
+                            <ul class="content_day"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/public.js"></script>
+<script>
+    $(function () {
+        let url = Public.url();
+        let timeTo = Public.timeTo();
+        let year_month = "";
+        function createMonthDay(j) {
+            let daysOfMonth = [];
+            let fullYear = new Date().getFullYear();
+            let today = new Date().getDate();
+            var month = new Date().getMonth() + 1 + j;
+            let day = new Date(fullYear, month - 1, 1).getDay();
+            let num = day == 0 ? 7 : day;
+            for (let i = 1; i <= num - 1; i++) {
+                let lis = document.createElement("li");
+                lis.setAttribute("class", "day_none")
+                $(".content_day").append(lis)
+            }
+            var month = month < 10 ? "0" + month : month;
+            let lastDayOfMonth = new Date(fullYear, month, 0).getDate();
+            for (let i = 1; i <= lastDayOfMonth; i++) {
+                let lis = document.createElement("li");
+                lis.setAttribute("class", "day_have")
+                if (i == today && j == 0) {
+                    lis.setAttribute("class", "toady_have");
+                }
+                let spans = document.createElement("span");
+                spans.innerHTML = i >= 10 ? i:("0"+i);
+                let as = document.createElement("p");
+                as.innerHTML = radromObject()
+                lis.appendChild(spans);
+                lis.appendChild(as);
+                $(".content_day").append(lis)
+                daysOfMonth.push(fullYear + '-' + month + '-' + i);
+                year_month = `${fullYear}年${month}月`;
+                $(".month_word").html(`${fullYear}年${month}月`);
+            };
+            // 显示今天
+
+            return {
+                daysOfMonth: daysOfMonth,
+                year_month: year_month
+            }
+            // return daysOfMonth;
+        }
+        function radromObject() {
+            const arr1 = ["1人", "休诊", "2人", "3人", "4人", '5人', '6人', '7人', '8人'];
+            let j = Math.random() * arr1.length; // 获取随机的下标值
+            j = ~~j; // 取整
+            return arr1[j];
+        }
+        let num = 0;
+        createMonthDay(num);
+        /*加载执行ajax数据渲染*/
+        loadajax();
+        $(".next_month").on("click", function () {
+            if (num < 12 - new Date().getMonth() - 1) {
+                num++
+                $(".content_day").html("");
+                $(".month_word").html(createMonthDay(num).year_month);
+				loadajax(year_month.replace(/(\d{4})(年)(\d{2})(月)/g,"$1-$3"));
+            }
+            // same_monthf()
+        })
+        $(".prev_month").on("click", function () {
+            if (num > 0) {
+                num--
+                $(".content_day").html("");
+                $(".month_word").html(createMonthDay(num).year_month);
+                loadajax(year_month.replace(/(\d{4})(年)(\d{2})(月)/g,"$1-$3"));
+            }
+            // same_monthf()
+        })
+        function same_monthf() {
+            let month = new Date().getMonth() + 1;
+            let same_month = $(".month_word").html().indexOf(month) == -1 ? false : true;
+            if (same_month) {
+                $(".prev_month").css("visibility", "hidden");
+                $(".next_month").css("visibility", "visible")
+            } else {
+                $(".next_month").css("visibility", "hidden");
+                $(".prev_month").css("visibility", "visible");
+            }
+        }
+        localStorage.removeItem("caseTime");
+        $(".content_day").on('click', "li", function () {
+        	var txt = $(this).children("p").text().trim();
+        	var caseTime = year_month.replace(/(\d{4})(年)(\d{2})(月)/g,"$1-$3") + "-" + $(this).children("span").text().trim();
+	        if (txt!="休诊") {
+               
+                const itemNum = $(this)[0].lastChild.innerHTML.slice(0,1);
+                console.log(itemNum)
+	            localStorage.setItem("itemNum",itemNum);
+	            if(itemNum>0){
+                    console.log(2)
+	            	localStorage.caseTime = timeTo(caseTime).split(" ")[0];
+	                window.location.href = "booking.html"
+	            }
+	        }
+        })
+        /*加载数据ajax*/
+        function loadajax(date){
+        	$.ajax({
+	            url: `${url}/cases/selectTypePatientCase`,
+	            data: {
+	                dtrId: localStorage.userId,
+	                type: "2",
+	                date: date||""
+	            },
+	            type: 'POST',
+	            success (res){
+	                console.log(res)
+	                var doctor = res.doctor?res.doctor:false;
+	                var user = res.user?res.user:false;
+	                if (doctor&&user) {
+	                	$(".img_circle img").attr("src","https://imuts.oss-cn-shenzhen.aliyuncs.com/"+user.photo);
+		                $(".docName").text(user.name||"");
+		                $(".docWork").text((doctor.hplSection||"")+" "+(user.job||""));
+		                $(".docHospital").text((doctor.hospital||"")+(doctor.hplSection||""));
+		                $(".adept").text(doctor.adept||"");
+		                $(".clinicTime").text("门诊时间："+(doctor.clinicTime||""));
+	                }
+	                var str = res.str&&res.str.length?res.str:[];
+	                str.forEach((el,i)=>{
+	                	$(".content_day li p").eq(i).text(el);
+	                })
+	            }
+	
+	        })
+        }
+    });
+</script>
+
+</html>

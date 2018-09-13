@@ -48,6 +48,7 @@
   top: 1.17rem;
 }
 .group_content ul li.content_item{
+  width: 100%;
   display: flex;
   align-content: center;
   padding: 0.57rem 1rem;
@@ -57,12 +58,13 @@
 }
 .group_content ul li.content_item .group_group {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
+  width: 100%;
 }
 .group_content ul li.content_item .group_group .item_click {
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  /* height: 1rem; */
   margin-right: 0.5rem;
 }
 .group_content ul li.content_item .group_group .item_group {
@@ -70,16 +72,10 @@
   height: 4rem;
   border-radius: 0.13rem;
   margin-right: 0.33rem;
-  position: relative;
 }
-.group_content ul li.content_item .group_group .item_group img {
-  width: auto;
-  max-width: 4rem;
-  max-height: 4rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
+.group_content ul li.content_item .group_group .item_name{
+  /* width: 100%; */
+  width: 16rem;
 }
 .group_content ul li.content_item .group_group .item_name span {
   display: block;
@@ -124,8 +120,8 @@
   margin-right: 0.2rem;
 }
 .group_btn .btn_left .left_1 img {
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  /*height: 1rem;*/
 }
 .group_btn .btn_left .left_2 {
   font-family: MicrosoftYaHei;

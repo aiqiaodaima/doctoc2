@@ -19,13 +19,13 @@
 
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
-        <div class="item_margin">
-            <ul>
+        <div class="item_margin item">
+            <ul class="taskAdd">
                 <li class="balance_item  item_1">
                     <span> 提取科研课题资金</span>
                     <img src="../image/icon-down.png" alt="">
                 </li>
-                <li class="item_extend item_11">
+                <!-- <li class="item_extend item_11">
                     <a href="javascript:void(0)">
                         <div class="extend_content">
                             <div class="content_title">FDI，自主创新对于国家卫生医疗的推进</div>
@@ -41,33 +41,17 @@
                             </div>
                         </div>
                     </a>
-                </li>
-                <li class="item_extend item_11">
-                    <a href="javascript:void(0)">
-                        <div class="extend_content">
-                            <div class="content_title">FDI，自主创新对于国家卫生医疗的推进</div>
-                            <div class="content_card">
-                                <div class="card_left">
-                                    <span>20000</span>
-                                    <span>获得资金</span>
-                                </div>
-                                <div class="card_right">
-                                    <span>8728</span>
-                                    <span>可提现</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
+                </li> -->
             </ul>
         </div>
-        <div>
-            <ul>
+        <div class="item">
+            <ul class="mettingAdd">
                 <li class="balance_item item_2">
-                    <span> 提取科研课题资金</span>
+                    <span> 提取学术会议资金</span>
                     <img src="../image/icon-down.png" alt="">
                 </li>
-                <li class="item_extend item_22">
+
+                <!-- <li class="item_extend item_22">
                     <a href="javascript:void(0)">
                         <div class="extend_content">
                             <div class="content_title">FDI，自主创新对于国家卫生医疗的推进</div>
@@ -83,73 +67,59 @@
                             </div>
                         </div>
                     </a>
-                </li>
-                <li class="item_extend item_22">
-                    <a href="javascript:void(0)">
-                        <div class="extend_content">
-                            <div class="content_title">FDI，自主创新对于国家卫生医疗的推进</div>
-                            <div class="content_card">
-                                <div class="card_left">
-                                    <span>20000</span>
-                                    <span>获得资金</span>
-                                </div>
-                                <div class="card_right">
-                                    <span>8728</span>
-                                    <span>可提现</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
+                </li> -->
             </ul>
         </div>
-
-        <div class="popups_item" style="display: none"> 
-            <div class="item_title">
-                <a href="javascript:void(0)" class="cancel">取消</a>
-                <span>资金提现</span>
-                <a href="javascript:void(0)" class="sure">确定</a>
-            </div>
-            <div class="item_content">
-                <div class="content_input">
-                    <input type="text" placeholder="请输入银行卡号" class="number_input" disabled="true">
+        <div class="maskPop">
+            <div class="popups_item">
+                <div class="item_title">
+                    <a href="javascript:void(0)" class="cancel">取消</a>
+                    <span>资金提现</span>
+                    <a href="javascript:void(0)" class="sure">确定</a>
                 </div>
-                <div class="content_title">
+                <div class="item_content">
+                    <div class="content_input">
+                        <input type="text" placeholder="请输入银行卡号" class="number_input" disabled="true">
+                    </div>
+                    <div class="content_title">
+                        <ul>
+                            <li class="titleG">金额限定为总金额的50%</li>
+                            <li class="titleB taskName">FDI，自主创新对于国家卫生医疗的推进</li>
+                            <li class="titleB canMoney">可提现：8728</li>
+                            <li class="titleB giveMoney">获得资金：20000</li>
+                            <li class="titleB leaveMoney">剩余金额：2000</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="item_number">
                     <ul>
-                        <li class="titleG">金额限定为总金额的50%</li>
-                        <li class="titleB">FDI，自主创新对于国家卫生医疗的推进</li>
-                        <li class="titleB">可提现：8728</li>
-                        <li class="titleB">获得资金：20000</li>
-                        <li class="titleB">剩余金额：2000</li>
+                        <li class="number_num">1</li>
+                        <li class="number_num">2</li>
+                        <li class="number_num">3</li>
+                        <li class="number_num">4</li>
+                        <li class="number_num">5</li>
+                        <li class="number_num">6</li>
+                        <li class="number_num">7</li>
+                        <li class="number_num">8</li>
+                        <li class="number_num">9</li>
+                        <li class="number_num">.</li>
+                        <li class="number_num">0</li>
+                        <li class="number_delete">
+                            <img src="../image/delete.png" alt="">
+                        </li>
                     </ul>
                 </div>
-            </div>
-            <div class="item_number">
-                <ul>
-                    <li class="number_num">1</li>
-                    <li class="number_num">2</li>
-                    <li class="number_num">3</li>
-                    <li class="number_num">4</li>
-                    <li class="number_num">5</li>
-                    <li class="number_num">6</li>
-                    <li class="number_num">7</li>
-                    <li class="number_num">8</li>
-                    <li class="number_num">9</li>
-                    <li class="number_num">.</li>
-                    <li class="number_num">0</li>
-                    <li class="number_delete">
-                        <img src="../image/delete.png" alt="">
-                    </li>
-                </ul>
             </div>
         </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
 <script src="../js/ydui.js"></script>
 <script>
     $(function () {
+        let num = ''
         $('.item_1').on('click', function () {
             $('.item_11').slideToggle(500);
             $('.item_1 img').toggleClass("add_transform");
@@ -161,39 +131,259 @@
         var pro = {
             el: null,
             num: '',
-            init: function (config){
+            init: function (config) {
                 this.el = $(config.class);
                 return this;
             },
-            pop: function (){
+            pop: function () {
                 var that = this;
-                this.el.on('click',function (){
-                    $('.popups_item').slideToggle(500);
+                this.el.on('click', function () {
+                    $('.maskPop').slideToggle(500);
                     that.num = '';
                     $('.number_input').val(that.num);
-                })
+                });
             },
-            add: function (){
-                var that = this;            
-                this.el.on('click',function (){
-                    that.num = that.num + $(this).text();
-                    console.log(that.num)
-                    $('.number_input').val(that.num);
-                })
-            },
-            delete: function (){
+            add: function () {
                 var that = this;
-                this.el.on('click',function (){
-                    that.num = that.num.substring(0,that.num.length-1)
+                this.el.on('click', function () {
+                    that.num = that.num + $(this).text();
+                    num = that.num;
+                    $('.number_input').val(that.num);
+                    return false;
+                })
+            },
+            delete: function () {
+                var that = this;
+                this.el.on('click', function () {
+                    that.num = that.num.substring(0, that.num.length - 1)
                     $('.number_input').val(that.num)
                 })
             }
         }
-        pro.init({class:'.card_right'}).pop();
-        pro.init({class:'.cancel'}).pop();
-        pro.init({class:'.sure'}).pop();
-        pro.init({class:'.number_num'}).add();
-        pro.init({class:'.number_delete'}).delete();
+
+        pro.init({ class: '.cancel' }).pop();
+
+        pro.init({ class: '.number_num' }).add();
+        pro.init({ class: '.number_delete' }).delete();
+        // pro.init({class:'.card_right'}).pop();  
+        let url = Public.url();
+        // ajax 获取 科研课题提现
+        function ajaxUrl1() {
+            $.ajax({
+                url: `${url}/task/selectDoctorTaskMoney`,
+                type: 'POST',
+                data: {
+                    userId: localStorage.userId
+                },
+                success(res) {
+                    if (res.doctorTask.length > 0) {
+                        res.doctorTask.forEach(el => {
+                            console.log(el)
+                            let obj = {
+                                taskName: el.taskName.replace(/\s+/g, '111'),
+                                giveMoney: el.giveMoney,
+                                canMoney: el.giveMoney / 2,
+                                leaveMoney: el.giveMoney  - el.drawingsMoney,
+                                typeId: el.id,
+                                type: 2,
+                                dtrId: el.dtrId,
+                                dealType: 2
+                            }
+                            let lis = `
+                            <li class="item_extend item_11">
+                                <a href="javascript:void(0)">
+                                    <div class="extend_content">
+                                        <div class="content_title">${el.taskName}</div>
+                                        <div class="content_card">
+                                            <div class="card_left">
+                                                <span>${el.giveMoney}</span>
+                                                <span>获得资金</span>
+                                            </div>
+                                            <div class="card_right card_right1" data-list = ${JSON.stringify(obj)}>
+                                                <span>${el.giveMoney == el.drawingsMoney ? 0 : el.giveMoney * 0.5}</span>
+                                                <span>可提现</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            `
+                            $('.taskAdd').append(lis);
+                        });
+                        // pro.init({class:'.card_right'}).pop();
+                        $('.card_right1').on('click', function () {
+                            window.el22 = $(this).data('list');
+                            console.log(el22)
+                            if (el22.leaveMoney > 0) {
+                                $('.maskPop').show(500);
+                                $('.taskName').text($(this).data('list').taskName.replace(/111/g, ' '));
+                                $('.canMoney').text('可提现：' + $(this).data('list').canMoney);
+                                $('.giveMoney').text('获得资金：' + $(this).data('list').giveMoney);
+                                $('.leaveMoney').text('剩余金额：' + $(this).data('list').leaveMoney);
+                            } else {
+                                $.alert('您已经没有余额可以提现')
+                            }
+
+                        })
+                    }
+                }
+            })
+        }
+        // 学术会议提现
+        function ajaxUrl2() {
+            $.ajax({
+                url: `${url}/metting/selectDoctorMettingMoney`,
+                type: 'POST',
+                data: {
+                    userId: localStorage.userId
+                },
+                success(res) {
+                    if (res.doctorMetting.length > 0) {
+                        res.doctorMetting.forEach(el => {
+                            let obj1 = {
+                                taskName: el.metName.replace(/\s+/g, '111'),
+                                giveMoney: el.giveMoney,
+                                canMoney: el.giveMoney / 2,
+                                leaveMoney: el.giveMoney - el.drawingsMoney,
+                                typeId: el.id,
+                                type: 1,
+                                dtrId: el.dtrId,
+                                drawingsMoney: el.drawingsMoney,
+                                dealType: 1
+                            }
+                            let lis = `
+                            <li class="item_extend item_22">
+                                <a href="javascript:void(0)">
+                                    <div class="extend_content">
+                                        <div class="content_title">${el.metName}</div>
+                                        <div class="content_card">
+                                            <div class="card_left">
+                                                <span>${el.giveMoney}</span>
+                                                <span>获得资金</span>
+                                            </div>
+                                            <div class="card_right card_right2" data-list = ${JSON.stringify(obj1)}>
+                                                <span>${el.giveMoney == el.drawingsMoney == 0 ? el.giveMoney * 0.5 : 0}</span>
+                                                <span>可提现</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            `
+                            $('.mettingAdd').append(lis);
+                            $('.card_right2').on('click', function () {
+                                console.log($(this).attr('data-list'), obj1.leaveMoney)
+                                if (obj1.leaveMoney > 0) {
+                                    $('.maskPop').slideUp(500);
+                                    window.el22 = $(this).data('list');
+                                    console.log(el22)
+                                    $('.taskName').text($(this).data('list').taskName.replace(/111/g, ' '));
+                                    $('.canMoney').text('可提现：' + $(this).data('list').canMoney);
+                                    $('.giveMoney').text('获得资金：' + $(this).data('list').giveMoney);
+                                    $('.leaveMoney').text('剩余金额：' + $(this).data('list').leaveMoney);
+                                } else {
+                                    $.alert('您已经没有余额可以提现')
+                                }
+                            });
+                        });
+                    }
+                    if (res.dmProposerMoney.length > 0) {
+                        // console.log(res)
+                        res.dmProposerMoney.forEach(el => {
+                            console.log(el)
+                            let obj1 = {
+                                taskName: el.name.replace(/\s+/g, '111'),
+                                giveMoney: el.giveMoney,
+                                canMoney: el.giveMoney / 2,
+                                leaveMoney: el.giveMoney - el.drawingsMoney,
+                                typeId: el.id,
+                                type: 1,
+                                dtrId: el.dtrId,
+                                drawingsMoney: el.drawingsMoney,
+                                dealType: 3
+                            }
+                            let lis = `
+                            <li class="item_extend item_22">
+                                <a href="javascript:void(0)">
+                                    <div class="extend_content">
+                                        <div class="content_title">${el.name}</div>
+                                        <div class="content_card">
+                                            <div class="card_left">
+                                                <span>${el.giveMoney}</span>
+                                                <span>获得资金</span>
+                                            </div>
+                                            <div class="card_right card_right2" data-list = ${JSON.stringify(obj1)}>
+                                                <span>${el.giveMoney == el.drawingsMoney == 0 ?  el.giveMoney * 0.5 :0}</span>
+                                                <span>可提现</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            `
+                            $('.mettingAdd').append(lis);
+
+                        });
+                    }
+                    $('.card_right2').on('click', function () {
+                        console.log($(this).attr('data-list'))
+                        window.el22 = $(this).data('list');
+                        if (el22.leaveMoney > 0) {
+                            $('.maskPop').show(500);
+                            console.log(el22)
+                            $('.taskName').text($(this).data('list').taskName.replace(/111/g, ' '));
+                            $('.canMoney').text('可提现：' + $(this).data('list').canMoney);
+                            $('.giveMoney').text('获得资金：' + $(this).data('list').giveMoney);
+                            $('.leaveMoney').text('剩余金额：' + $(this).data('list').leaveMoney);
+
+                        } else {
+                            $.alert('您已经没有余额可以提现')
+                        }
+                    });
+                    $('.sure').on('click', () => {
+                        sureAjax(el22)
+                    })
+                }
+            })
+        }
+        ajaxUrl1();
+        ajaxUrl2();
+        function sureAjax(args) {
+            if(num){
+                let arg = {
+                    typeId: el22.typeId,
+                    type: 3,
+                    price: el22.canMoney,
+                    dtrId: el22.dtrId,
+                    account: num,
+                    adverse: 1,
+                    // drawingsMoney: (el.giveMoney - el.drawingsMoney)/2,
+                    dealType: el22.dealType
+                    // verifyMoney: 
+                }
+                if (num.length > 18 || num.length < 15 || num.indexOf(".") >= 0) {
+                //     $.alert('请输入正确的银行卡号')
+                // } else {
+                    $.ajax({
+                        url: `${url}/deal/insertDoctorDeal`,
+                        type: 'POST',
+                        data: arg,
+                        success(res) {
+                            console.log(res)
+                            pro.init({ class: '.sure' }).pop();
+                            if (res.msg == '操作成功') {
+                                $.alert('您已成功发起提现，请耐心等待5-7个工作日', () => {
+                                    window.location.href = 'balance.html';
+                                })
+                            }
+    
+                        }
+                    })
+                }
+            }else{
+                $.alert('请先输入卡号')
+            }
+        }
     });
 </script>
 

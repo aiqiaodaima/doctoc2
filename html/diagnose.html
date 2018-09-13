@@ -14,27 +14,33 @@
     <!-- 通用样式 -->
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/diagnose.css">
+    <link rel="stylesheet" href="../css/message.css">
 </head>
 
 <body ontouchstart>
     <div class="weui-tab">
         <div class="weui-tab__bd">
             <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
-                <div class="page__bd" style="height: 100%;">
-                    <div class="weui-flex">
-                        <div class="weui-flex__item weui-flex_diagnose">
-                            <div class="photo" style="overflow: hidden;">
-                                <img src="../image/patient.jpg" alt="">
+                <div class="page__bd meassage5" style="height: 100%;">
+                    <div class="doctor_item">
+                        <div class="item_left">
+                            <div class="img_circle">
+                                <img src="../image/patient.png" alt="">
                             </div>
-                            <div class="name">
-                                <span class="diagnose_name">张章</span>
-                                <span class="diagnose_room">正畸科</span>
-                            </div>
-                            <div class="diagnose_hospital">
-                                中山大学附属第三医院
+                            <div class="left_word">
+                                <div class="word_top">
+                                    <span class='docName'></span>
+                                    <span class="docWork"></span>
+                                </div>
+                                <div class="word_bottom docHospital"></div>
                             </div>
                         </div>
                     </div>
+                    <div class="tip_word">
+                        <span>专业擅长</span>
+                        <span class="adept"></span>
+                    </div>
+                    <div class="doctor_time clinicTime"></div>
                     <div class="diagnose_data">
                         <div class="data_header">
                             <div class="header_left">点击日期，查看预约</div>
@@ -55,9 +61,7 @@
                                 <li>六</li>
                                 <li>日</li>
                             </ul>
-                            <ul class="content_day">
-
-                            </ul>
+                            <ul class="content_day"></ul>
                         </div>
                     </div>
                 </div>
@@ -67,11 +71,14 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
 <script>
     $(function () {
+        let url = Public.url();
+        let timeTo = Public.timeTo();
+        let year_month = "";
         function createMonthDay(j) {
             let daysOfMonth = [];
-            let year_month = "";
             let fullYear = new Date().getFullYear();
             let today = new Date().getDate();
             var month = new Date().getMonth() + 1 + j;
@@ -91,7 +98,7 @@
                     lis.setAttribute("class", "toady_have");
                 }
                 let spans = document.createElement("span");
-                spans.innerHTML = i;
+                spans.innerHTML = i >= 10 ? i:("0"+i);
                 let as = document.createElement("p");
                 as.innerHTML = radromObject()
                 lis.appendChild(spans);
@@ -116,13 +123,15 @@
             return arr1[j];
         }
         let num = 0;
-        createMonthDay(num)
+        createMonthDay(num);
+        /*加载执行ajax数据渲染*/
+        loadajax();
         $(".next_month").on("click", function () {
             if (num < 12 - new Date().getMonth() - 1) {
                 num++
                 $(".content_day").html("");
                 $(".month_word").html(createMonthDay(num).year_month);
-
+				loadajax(year_month.replace(/(\d{4})(年)(\d{2})(月)/g,"$1-$3"));
             }
             // same_monthf()
         })
@@ -131,6 +140,7 @@
                 num--
                 $(".content_day").html("");
                 $(".month_word").html(createMonthDay(num).year_month);
+                loadajax(year_month.replace(/(\d{4})(年)(\d{2})(月)/g,"$1-$3"));
             }
             // same_monthf()
         })
@@ -145,13 +155,49 @@
                 $(".prev_month").css("visibility", "visible");
             }
         }
+        localStorage.removeItem("caseTime");
         $(".content_day").on('click', "li", function () {
-            const itemNum = $(this)[0].lastChild.innerHTML.slice(0,1);
-            localStorage.setItem("itemNum",itemNum)
-            if(itemNum>0){
-                window.location.href = "booking.html"
-            }           
+        	var txt = $(this).children("p").text().trim();
+        	var caseTime = year_month.replace(/(\d{4})(年)(\d{2})(月)/g,"$1-$3") + "-" + $(this).children("span").text().trim();
+	        if (txt!="休诊") {
+	        	const itemNum = $(this)[0].lastChild.innerHTML.slice(0,1);
+	            localStorage.setItem("itemNum",itemNum);
+	            if(itemNum>0){
+	            	localStorage.caseTime = timeTo(caseTime).split(" ")[0];
+	                window.location.href = "booking.html"
+	            }
+	        }
         })
+        /*加载数据ajax*/
+        function loadajax(date){
+        	$.ajax({
+	            url: `${url}/cases/selectAllPatientCase`,
+	            data: {
+	                dtrId: localStorage.userId,
+	                type: "1",
+	                date: date||""
+	            },
+	            type: 'POST',
+	            success (res){
+	                console.log(res)
+	                var doctor = res.doctor?res.doctor:false;
+	                var user = res.user?res.user:false;
+	                if (doctor&&user) {
+	                	$(".img_circle img").attr("src","https://imuts.oss-cn-shenzhen.aliyuncs.com/"+user.photo);
+		                $(".docName").text(user.name||"");
+		                $(".docWork").text((doctor.hplSection||"")+" "+(user.job||""));
+		                $(".docHospital").text((doctor.hospital||"")+(doctor.hplSection||""));
+		                $(".adept").text(doctor.adept||"");
+		                $(".clinicTime").text("门诊时间："+(doctor.clinicTime||""));
+	                }
+	                var str = res.str&&res.str.length?res.str:[];
+	                str.forEach((el,i)=>{
+	                	$(".content_day li p").eq(i).text(el);
+	                })
+	            }
+	
+	        })
+        }
     });
 </script>
 

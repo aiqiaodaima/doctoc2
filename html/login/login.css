@@ -192,6 +192,8 @@ input {
   letter-spacing: 0.03rem;
   color: #ffffff;
   text-align: center;
+  outline: none;
+  border: none;
 }
 .login2 ul .login_pass {
   align-items: center;
@@ -225,6 +227,28 @@ input {
   height: 1rem;
   right: 2rem;
   top: 1rem;
+}
+.login2 .tips_word {
+  padding: 0 1rem 1rem;
+  display: flex;
+  align-items: center;
+}
+.login2 .tips_word img {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 5px;
+}
+.login2 .tips_word .protocol span {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #999999;
+}
+.login2 .tips_word .protocol a {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #5f98ff;
 }
 .login2 .btn_sign {
   padding: 0 1rem;

@@ -130,7 +130,7 @@
                     <label class="weui-label">申请资助</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input money" type="text" placeholder="请输入申请金额（元）">
+                    <input class="weui-input money" type="number" placeholder="请输入申请金额（元）">
                 </div>
             </div>
             <div class="weui-cell">
@@ -175,23 +175,23 @@
             }
         });
         
-        $('.metName').on('keyup',() =>{                    
+        $('.metName').on('change',() =>{                    
             window.metName  =  $('.metName').val();     
         })
         $('.nature').on('change',() =>{                    
             window.nature  =  $('.nature').val();     
         })
-        $('.scale').on('keyup',() =>{                    
+        $('.scale').on('change',() =>{                    
             window.maxPerson  =  $('.scale').val();     
         }) 
-        $('.sponsor').on('keyup',() =>{                    
+        $('.sponsor').on('change',() =>{                    
             window.sponsor  =  $('.sponsor').val();     
         }) 
-        $('.budgetMoney').on('keyup',() =>{                    
+        $('.budgetMoney').on('change',() =>{                    
             window.budgetMoney  =  $('.budgetMoney').val();     
         })
         // 已获金额 
-        $('.gainMoney').on('keyup',() =>{                    
+        $('.gainMoney').on('change',() =>{                    
             window.gainMoney  =  $('.gainMoney').val();     
         }) 
         $('.startTime').on('change',() =>{                    
@@ -200,10 +200,10 @@
         $('.endTime').on('change',() =>{                    
             window.endTime  =  $('.endTime').val();     
         }) 
-        $('.money').on('keyup',() =>{                    
+        $('.money').on('change',() =>{                    
             window.money  =  $('.money').val();     
         })
-        $('.reason').on('keyup',() =>{                    
+        $('.reason').on('change',() =>{                    
             window.reason  =  $('.reason').val();     
         })    
         let url = Public.url();
@@ -236,7 +236,7 @@
                 })
             })
             p.then(res=>{
-                window.location = 'audit.html'
+                window.location = 'audit2.html'
             },res=>{
                $.alert('请先填写资料')
             })

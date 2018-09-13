@@ -38,9 +38,7 @@
         	},
         	success(data) {
         		var htmllist = "";
-        		if (data.doctorTask&&typeof data.doctorTask == "object") {
-	        		htmllist += htmltemp(data.doctorTask);
-        		}
+	        	htmllist += htmltemp(data.doctorTask||{});
         		$("#loadbox").html(htmllist);
         	}
         })
@@ -54,84 +52,85 @@
 	                    <div class="weui-cell__bd">
 	                        <p>分类</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.taskType}</div>
+	                    <div class="weui-cell__ft">${data.taskType||""}</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>课题名称</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.taskName}</div>
+	                    <div class="weui-cell__ft">${data.taskName||""}</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>拟申报</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.declare}</div>
+	                    <div class="weui-cell__ft">${data.declare||""}</div>
+	                </div>
+	                <div class="weui-cell" style="display:${data.tissue ? 'flex' : 'none'}">
+	                    <div class="weui-cell__bd">
+	                        <p>部委/机构名</p>
+	                    </div>
+	                    <div class="weui-cell__ft">${data.tissue||""}</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>已有级别</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.rank}</div>
+	                    <div class="weui-cell__ft">${data.rank||""}</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>性质</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.nature}</div>
+	                    <div class="weui-cell__ft">${data.nature||""}</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>研究水平</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.standard}</div>
+	                    <div class="weui-cell__ft">${data.standard||""}</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>预算金额</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.budgetMoney}元</div>
+	                    <div class="weui-cell__ft">${data.budgetMoney||""}元</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>已获得资助金额</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.gainMoney}元</div>
+	                    <div class="weui-cell__ft">${data.gainMoney||""}元</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>开题时间</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.tkStartTime}</div>
+	                    <div class="weui-cell__ft">${data.tkStartTime||""}</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>结题时间</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.tkEndTime}</div>
+	                    <div class="weui-cell__ft">${data.tkEndTime||""}</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>申请资助</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.applicatMoney}元</div>
+	                    <div class="weui-cell__ft">${data.applicatMoney||""}元</div>
 	                </div>
 	                <div class="weui-cell second_item">
 	                    <div class="weui-cell__bd first_item">
 	                        <p>资金用途说明</p>
 	                    </div>
-	                    <div class="next_item">${data.capital}</div>
-	                </div>
-	                <div class="weui-cell weui-cell_switch" style="display:${data.taskType == '博士后' ? 'flex' : 'none'}">
-	                    <div class="weui-cell__hd">
-	                        <label class="weui-label">博士后流动站</label>
+	                    <div class="next_item">${data.capital||""}</div>
+					</div>
+					<div class="weui-cell">
+	                    <div class="weui-cell__bd">
+	                        <p>博士后流动站</p>
 	                    </div>
-	                    <div class="weui-cell__ft">
-	                        <label for="switchCP" class="weui-switch-cp">
-	                            <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked">
-	                            <div class="weui-switch-cp__box"></div>
-	                        </label>
-	                    </div>
+	                    <div class="weui-cell__ft"> ${data.taskType == '博士后' ? '有' : '无'}</div>
 	                </div>
 	            </div>
 	            <div class="weui-cells" style="display:${data.taskType == '博士后' ? 'block' : 'none'}">
@@ -139,19 +138,19 @@
 	                    <div class="weui-cell__bd">
 	                        <p>流动站名称</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.bachelors}</div>
+	                    <div class="weui-cell__ft">${data.bachelors||""}</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>入站时间</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.bhlStartTime}</div>
+	                    <div class="weui-cell__ft">${data.bhlStartTime||""}</div>
 	                </div>
 	                <div class="weui-cell">
 	                    <div class="weui-cell__bd">
 	                        <p>出站时间</p>
 	                    </div>
-	                    <div class="weui-cell__ft">${data.bhlEndTime}</div>
+	                    <div class="weui-cell__ft">${data.bhlEndTime||""}</div>
 	                </div>
 	            </div>`;
 		})

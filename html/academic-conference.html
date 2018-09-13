@@ -91,6 +91,13 @@
             autoplay: 3000,
             lazyLoad: true
         });
+
+        if( localStorage.getItem('scienceState') !=='已获审核' ){
+            $(document).on('click',function(){
+                window.location.href = 'fail.html'
+            })
+        }
+
         $('.item_success').on("click", function () {
             window.location.href = "invitation.html"
         })
@@ -100,6 +107,7 @@
         let add = 'https://imuts.oss-cn-shenzhen.aliyuncs.com/';
         let url = Public.url();
         function fn(data) {
+            // console.log(data)
             if(data.metName.length>18){
                 data.metName = data.metName.substring(0,18) + '...'
             }

@@ -20,8 +20,8 @@
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="scientific_title title_success">
-            <span class="title_word">您的组织发起资助申请已获批复</span>
-            <a href="pagescientific3result.html">详情</a>
+            <span class="title_word">您的组织发起会议资助申请已获批复</span>
+            <a href="pagelearingresult3.html">详情</a>
         </div>
         <div class="science_content">
             <ul>
@@ -31,11 +31,11 @@
                 </li>
                 <li class="content_item">
                     <div class="item_left">获得金额：</div>
-                    <div class="item_right giveMoney">3万元</div>
+                    <div class="item_right giveMoney"></div>
                 </li>
                 <li class="content_item">
                     <div class="item_left">资金用途：</div>
-                    <div class="item_right reason">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
+                    <div class="item_right reason"></div>
                 </li>
             </ul>
         </div>
@@ -79,8 +79,8 @@
 <script>
     $(function () {
         $(function () {
-        var word = `您的开会资助申请已获批复`
-        $('.title_word').text(word)
+        // var word = `您的开会资助申请已获批复`
+        // $('.title_word').text(word)
         let url = Public.url();
         $.ajax({
             url:`${url}/metting/selectDoctorMettingById`,
@@ -93,7 +93,8 @@
                 $('.metName').html(res.doctorMeeting.metName)
                 $('.giveMoney').html(res.doctorMeeting.giveMoney+'元')
                 $('.reason').html(res.doctorMeeting.reason)
-                $('.twoCode img').attr('src',"https://imuts.oss-cn-shenzhen.aliyuncs.com/"+res.doctorMeeting.twoCode)
+                $('.twoCode img').attr('src',"https://imuts.oss-cn-shenzhen.aliyuncs.com/"+res.doctorMeeting.twoCode);
+                localStorage.learing_reason = res.doctorMeeting.result
             }
         })
     });

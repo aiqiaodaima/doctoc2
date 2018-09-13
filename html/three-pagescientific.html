@@ -42,7 +42,7 @@
     $(function () {
         $("#apply_btn").click(function () {
     		if (localStorage.applyState!="已获审核") {
-    			$.alert("你还没有深度认证");
+    			window.location.href = "information_updating.html";
     		} else {
     			window.location.href = "four-taskapply.html";
     		}
@@ -58,8 +58,9 @@
         	success(data) {
         		console.log(data);
         		var htmllist = "";
+        		var pmList = data.pmList&&data.pmList.length ? data.pmList:[{}];
         		data.pmList.forEach((json)=>{
-        			htmllist += htmltemp(json);
+        			htmllist += htmltemp(json||{});
         		})
         		$("#loadbox").html(htmllist);
         	}
@@ -71,12 +72,12 @@
 			(data.state == "审核当中" ? (item_left="待获批复数量",styleColor="orange") : (item_left="未获批复数量",styleColor="light_red")));
 			return `<li>
 		                <div class="item_left">
-		                    <span>${item_left}</span>
-		                    <span class="${styleColor}">${data.number}</span>
+		                    <span>${item_left||""}</span>
+		                    <span class="${styleColor}">${data.number||data.number==0?data.number:""}</span>
 		                </div>
 		                <div class="item_middle">
 		                    <span>金额（元）</span>
-		                    <span class="${styleColor}">${data.money}</span>
+		                    <span class="${styleColor}">${data.money||data.money==0?data.money:""}</span>
 		                </div>
 		                <div class="item_right">
 		                    <a href="three-pagescientific11.html" onclick="localStorage.taskState = '${data.state}';">查看详情</a>

@@ -22,14 +22,15 @@
             <div class="weui-flex">
                 <div class="weui-flex__item weui-flex_me">
                     <div class="photo">
-                        <img src="../image/patient.jpg" alt="">
+                        <img src="" alt="" class="myImg">
+                        <input type="file" class="myPhoto">
                     </div>
                     <div class="docName">
                     </div>
                 </div>
             </div>
             <div class="weui-grids my_weuigrids">
-                <a href="three-pagescientific3.html" class="weui-grid js_grid me_message">
+                <a href="three-pagescientific.html" class="weui-grid js_grid me_message">
                     <div class="me_messageTop count1">
 
                     </div>
@@ -43,13 +44,12 @@
 
                     </div>
                     <p class="me_messageBot">
-                        学术会议
+                        参会申请
                     </p>
                 </a>
                 <div class="my_weuigridshr"></div>
-                <a href="booking.html" class="weui-grid js_grid me_message">
+                <a href="orderRequest/order-request.html" class="weui-grid js_grid me_message">
                     <div class="me_messageTop count3">
-
                     </div>
                     <p class="me_messageBot">
                         预约请求
@@ -57,7 +57,7 @@
                 </a>
             </div>
             <div class="weui-panel weui-panel_access">
-                <div class="weui-panel__ft style="overflow: scroll;>
+                <div class="weui-panel__ft">
                     <a href="Certification.html" class="weui-cell weui-cell_access weui-cell_link ifCert">
                         <div class="weui-cell__bd">实名认证</div>
                         <span class="weui-cell__ft autonym">未实名</span>
@@ -68,32 +68,38 @@
                             <img src="../image/successQR.png" alt="" style="width: 1.13rem;height: 1.13rem; margin-right: 0.55rem">
                         </span>
                     </a>
-                    <div class="weui-panel__ft unFail">
+                    <div class="weui-panel__ft unFail pagescientific">
                         <a class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">科研课题</div>
                             <span class="weui-cell__ft"></span>
                         </a>
                     </div>
-                    <div class="weui-panel__ft unFail acdemic">
-                        <a  class="weui-cell weui-cell_access weui-cell_link">
+                    <div class="weui-panel__ft acdemic">
+                        <a href="academic-conference.html" class="weui-cell weui-cell_access weui-cell_link">
+                            <div class="weui-cell__bd">会议计划</div>
+                            <span class="weui-cell__ft"></span>
+                        </a>
+                    </div>
+                    <div class="weui-panel__ft acdemic">
+                        <a href="two-pagelearning.html" class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">学术会议</div>
                             <span class="weui-cell__ft"></span>
                         </a>
                     </div>
                     <div class="weui-panel__ft unFail pagerecord">
-                        <a  class="weui-cell weui-cell_access weui-cell_link">
+                        <a class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">档案管理</div>
                             <span class="weui-cell__ft"></span>
                         </a>
                     </div>
                     <div class="weui-panel__ft unFail pagediagnosis">
-                        <a  class="weui-cell weui-cell_access weui-cell_link">
+                        <a class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">诊疗助手</div>
                             <span class="weui-cell__ft"></span>
                         </a>
                     </div>
                     <div class="weui-panel__ft unFail pagegroup">
-                        <a  class="weui-cell weui-cell_access weui-cell_link">
+                        <a class="weui-cell weui-cell_access weui-cell_link">
                             <div class="weui-cell__bd">患群管理</div>
                             <span class="weui-cell__ft"></span>
                         </a>
@@ -137,6 +143,7 @@
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="http://gosspublic.alicdn.com/aliyun-oss-sdk-4.4.4.min.js"></script>
 <script src="../js/public.js"></script>
 <script>
     $(function () {
@@ -153,82 +160,174 @@
                 $('.count2').html(res.count1)
                 $('.count3').html(res.count3)
                 if (localStorage.getItem('scienceState') == '已获审核') {
-                    $('.autonym').html('已实名').css('color','green');
-                    $('.qr').css({'display':'block','display':'flex'});
+                    $('.autonym').html('已实名').css('color', 'green');
+                    $('.qr').css({ 'display': 'block', 'display': 'flex' });
                 } else {
                     $('.autonym').html('未实名')
-                    $('.qr').css('display','none');
-                }
-                if (localStorage.getItem('docName') == "null") {
-                    $('.docName').html('尚未认证')
-                } else {
-                    $('.docName').html(localStorage.getItem('docName'))
-                }
-                if (localStorage.getItem('docPhoto') == null) {
-                    $('.photo img').attr('src', '../image/doctor.png')
-                } else {
-                    $('.photo img').attr('src', `https://imuts.oss-cn-shenzhen.aliyuncs.com/${localStorage.getItem('docPhoto')}`)
+                    $('.qr').css('display', 'none');
                 }
             }
         })
         // 退出
-        $('.exit').on('click',()=>{
-            $.ajax({
-                url :`${url}/outLogin`,
-                xhrFields: {
-                    withCredentials: true
-                },
-                crossDomain: true,
-                success (res){
-                    if(res.msg == '安全退出成功'){
-                        // 如果记住密码
+        $('.exit').on('click', () => {
+            $.confirm("是否退出", function () {
+                $.ajax({
+                    url: `${url}/outLogin`,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    crossDomain: true,
+                    success(res) {
                         window.location.href = 'login/login1.html'
-                        if(localStorage.ifRember == '记住密码'){
+                        if (localStorage.ifRember == '记住密码') {
                             let obj = {
-                                ifRember:localStorage.ifRember,
-                                input_phone:localStorage.input_phone,
-                                input_pass:localStorage.input_pass
+                                ifRember: localStorage.ifRember,
+                                input_phone: localStorage.input_phone,
+                                input_pass: localStorage.input_pass
                             }
                             localStorage.clear();
                             localStorage.ifRember = obj.ifRember;
                             localStorage.input_phone = obj.input_phone;
                             localStorage.input_pass = obj.input_pass;
-                        }else{
+                        } else {
                             localStorage.clear();
                         }
-                    }else{
-                        $.alert(`${res.msg}`,'提示',()=>{
-                            window.location.href = 'login/login1.html'
-                        })
                     }
-                }
+                })
             })
         })
-    
+        $.ajax({
+            url : `${url}/user/selectUser`,
+            data :{
+                id: localStorage.getItem('userId')
+            },
+            type: 'POST',
+            success (res){
+                console.log(res)
+                $('.docName').html(res.user.name || '尚未认证');
+                $('.photo img').attr('src', `https://imuts.oss-cn-shenzhen.aliyuncs.com/${res.user.photo}` || '../img/patient.png')
+            }
+        })
+        
+        $('.myPhoto').on('change', function () {
+        	var $this = this;
+            if (!$(this).val()) {
+                $.alert('没有选择头像');
+                return;
+            }
+            const file = this.files;
+            // const file = $(this).prop('files');
+            const size = file.size;
+
+            console.log(file)
+            // 文件大小限制
+            if (size >= 1 * 1024 * 1024) {
+                $.alert('文件大于1兆不行!');
+                return false;
+            }
+            // 文件类型限制
+            // if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif') {
+            //     alert('不是有效的图片文件!');
+            //     return;
+            // }
+            // 获取base64
+            var reader = new FileReader();
+            const img = new Image();
+            reader.readAsDataURL(file[0])
+            reader.onload = function (e) {
+                console.log(e)
+                let data = e.target.result;//'data:image/jpeg;base64,/9j/4AAQSk...(base64编码)...}' 
+                console.log(data);
+                img.src = e.target.result;
+                // 缩放图片需要的canvas
+                var canvas = document.createElement('canvas');
+                var context = canvas.getContext('2d');
+                // 显示图片
+                $('.myImg').attr('src',data)
+                // 上传OSS
+                function toBlob(urlData, fileType) {
+                    var bytes = window.atob(urlData),
+                        n = bytes.length,
+                        u8arr = new Uint8Array(n);
+                    while (n--) {
+                        u8arr[n] = bytes.charCodeAt(n);
+                    }
+                    return new Blob([u8arr], { type: fileType });
+                }
+                var dataUrl = e.target.result;
+                var base64 = dataUrl.split(',')[1];
+                var fileType = dataUrl.split(';')[0].split(':')[1];
+                var blob = toBlob(base64, fileType);
+                var reader = new FileReader();
+                reader.readAsArrayBuffer(blob);
+                reader.onload = function (event) {
+
+                    // 配置
+                    var client = new OSS.Wrapper({
+                        region: 'oss-cn-shenzhen',
+                        accessKeyId: 'LTAIFSHcWupSdU9C',
+                        accessKeySecret: 'HefnQDo4RGM9NXpWMACA62K9UAs1MR',
+                        bucket: 'imuts'
+                    });
+
+                    // 文件名
+                    var date = new Date();
+                    var time = '' + date.getFullYear() + date.getMonth() + 1 + date.getDate();
+                    var storeAs = 'doctorGroup/doctorFile/' + date.getTime() + '.' + blob.type.split('/')[1];
+
+                    // arrayBuffer转Buffer
+                    var buffer = new OSS.Buffer(event.target.result);
+
+                    // 上传
+                    client.put(storeAs, buffer).then(function (result){
+                        console.log(result)
+                        let img_url = result.name;
+                        let obj = {
+                            id: localStorage.userId,
+                            photo: img_url
+                        }
+                        changePhoto(obj)
+                    }).catch(function (err) {
+                        console.log(err);
+                    });
+                }
+
+            };
+            // console.log(file);
+        })
+        
+        // 修改图片
+        function changePhoto(obj){
+            $.ajax({
+                url: `${url}/user/insertOrUpdateUser`,
+                type: 'post',
+                data: obj,
+                success(res) {
+                    console.log(res)
+                }
+            })
+        }
         // 判断有没有认证
-        if( localStorage.getItem('scienceState') !=='已获审核' ){
-            $('.unFail').on('click',function(){
+        if (localStorage.getItem('scienceState') !== '已获审核') {
+            $('.unFail').on('click', function () {
                 window.location.href = 'fail.html'
             })
-        }else{
-            $('.pagescientific').on('click',()=>{
-                window.location.href= "two-pagescientific.html"
+        } else {
+            $('.pagescientific').on('click', () => {
+                window.location.href = "two-pagescientific.html"
             })
-            $('.acdemic').on('click',()=>{
-                window.location.href= "academic-conference.html"
+            $('.pagerecord').on('click', () => {
+                window.locationhref = "two-pagerecord.html"
             })
-            $('.pagerecord').on('click',()=>{
-                window.locationhref="two-pagerecord.html" 
-            })
-            $('.pagediagnosis').on('click',()=>{
-                window.location.href="two-pagediagnosis.html"
+            $('.pagediagnosis').on('click', () => {
+                window.location.href = "two-pagediagnosis.html"
             })
 
-             $('.pagegroup').on('click',()=>{
-                window.location.href="two-pagegroup.html"
+            $('.pagegroup').on('click', () => {
+                window.location.href = "two-pagegroup.html"
             })
-            $('.balance').on('click',()=>{
-                window.location.href="balance.html"
+            $('.balance').on('click', () => {
+                window.location.href = "balance.html"
             })
         }
     });

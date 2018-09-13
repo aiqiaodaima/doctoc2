@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>出诊详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../../css/booking-detail.css">
+    <link rel="stylesheet" href="../../css/four-taskapply.css">
+    <link rel="stylesheet" href="booking.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="detail_tips"></div>
+        <div class="detail_content">
+            <ul class="content_card">
+                <!-- <li class="content_item">
+                    <a href="javascript:void(0)">
+                        <div class="item_img">
+                            <div class="img_left">
+                                <img src="../../image/order.png" alt="">
+                            </div>
+                            <div class="img_right">
+                                <span>2018/08/17</span>
+                                <span>广东省广州市华侨医院正畸科</span>
+                            </div>
+                        </div>
+                        <div class="item_word">
+                            <span>姓名</span>
+                            <span>朱佩琪</span>
+                        </div>
+                        <div class="item_word">
+                            <span>性别</span>
+                            <span>女</span>
+                        </div>
+                        <div class="item_word">
+                            <span>年龄</span>
+                            <span>朱佩琪</span>
+                        </div>
+                        <div class="item_word">
+                            <span>主要诉求</span>
+                            <span>锁骨右侧红肿，按压有疼痛感，挤压会有白色分泌物。</span>
+                        </div>
+                    </a>
+                </li> -->
+                <!-- <li>
+                    <div class="order_title">
+                        病情简述
+                    </div>  
+                </li>
+                <li class="content_item">
+                    <a class="item_word">
+                        你还未填写收费相关事宜，确认同意该出诊安排吗？若同意，医生集团将派专人与您联系，确认出诊安排事宜。
+                    </a>
+                </li> -->
+
+            </ul>
+        </div>
+        <div class="patient_tips">
+            经过沟通，您本次出诊费用和时间如下：
+        </div>
+        <div class="patient_item">
+            <div class="tips_word">
+                实际出诊费用
+            </div>
+            <ul class="item_ul">
+                <!-- <li>
+                    <span>医事服务费</span>
+                    <span>3000元</span>
+                </li>
+                <li>
+                    <span>特殊器材使用费</span>
+                    <span>3000元</span>
+                </li>
+                <li>
+                    <span>其他费用</span>
+                    <span>3000元</span>
+                </li>
+                <li>
+                    <span>实际天数</span>
+                    <span>3000元</span>
+                </li>
+                <li>
+                    <span>总计</span>
+                    <span>3000元</span>
+                </li> -->
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/public.js"></script>
+<script>
+    $(function () {
+        // console.log(location.search)
+        let url = Public.url();
+        let timeTo = Public.timeTo();
+        //  
+        $.ajax({
+            url: `${url}/cases/selectPcById`,
+            type: 'POST',
+            data: {
+                caseId: location.search.split("_")[1]
+            },
+            success(res) {
+                res.pc = res.pc || false;
+                console.log(res.pc)
+                if(res.pc){
+                    let lis = `<li>
+                        <span>医事服务费</span>
+                        <span>${res.pc.finalMedicalMoney || 0}元</span>
+                    </li>
+                    <li>
+                        <span>特殊器材使用费</span>
+                        <span>${res.pc.finalKitMoney || 0}元</span>
+                    </li>
+                    <li>
+                        <span>其他费用</span>
+                        <span>${res.pc.finalRestMoney || 0}元</span>
+                    </li>
+                    <li>
+                        <span>实际天数</span>
+                        <span>${res.pc.finalDayNum || 0}天</span>
+                    </li>
+                    <li>
+                        <span>总计</span>
+                        <span>${res.pc.finalFees || 0}元</span>
+                    </li>`
+                    $('.item_ul').append(lis);
+                    if(res.pc.state == 6){
+                        if(res.pc.onState == 4){
+                            $('.detail_tips').text('出诊服务完成');
+                            $('.detail_tips').css('backgroundColor','#1fc7a1')                       
+                        }
+                    }else if(res.pc.state == 7){
+                        $('.detail_tips').text('出诊预约关闭');
+                        $('.detail_tips').css('backgroundColor','#ff6c2b')
+                    }else if(res.pc.state == 5){
+                        $('.detail_tips').text('已达成预约，等待出诊');
+                        $('.detail_tips').css('backgroundColor','#ffbf44')
+                    }
+                }
+                
+            }
+        })
+        $.ajax({
+            url: `${url}/cases/selectOutPatientCase`,
+            type: 'POST',
+            data: {
+                dtrId: localStorage.userId,
+                status: 1
+            },
+            success(res) {
+                console.log(res)
+                res.pcList.forEach(el => {
+                    if (location.search.split('_')[1] == el.id) {
+                        let el1 = ` <li class="content_item">
+                                <a>
+                                    <div class="item_img">
+			                            <div class="img_left">
+			                                <img src="../../image/order.png" alt="">
+			                            </div>
+			                            <div class="img_right">
+			                                <span>${el.caseTime ? timeTo(el.caseTime).replace(/(:\d{2})$/g, "") : ""}</span>
+			                                <span>${el.hospital || ""}</span>
+			                            </div>
+			                        </div>
+			                        <div class="item_word">
+			                            <span>姓名</span>
+			                            <span>${el.ptName || ""}</span>
+			                        </div>
+			                        <div class="item_word">
+			                            <span>性别</span>
+			                            <span>${el.ptSex || ""}</span>
+			                        </div>
+			                        <div class="item_word">
+			                            <span>年龄</span>
+			                            <span>${el.ptAge || ""}</span>
+			                        </div>
+			                        <div class="item_word">
+			                            <span>主要诉求</span>
+			                            <span>${el.sketch || ""}</span>
+			                        </div>
+                                </a>
+                            </li>`
+                        $('.content_card').append(el1);
+                    }
+                });
+            }
+        })
+    });
+</script>
+
+</html>

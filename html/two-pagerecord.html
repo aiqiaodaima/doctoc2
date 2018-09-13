@@ -44,7 +44,8 @@
             <div class="helper_four">
                 <ul>
                     <li>
-                        <a href="record-patient.html">
+                        <a class="notDone">
+                            <!-- <a href="record-patient.html"> -->
                             <div class="four_img">
                                 <img src="../image/two-pagerecord1.png" alt="">
                             </div>
@@ -52,25 +53,28 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../html/recordManage/scientific-record.html">
+                        <a class="notDone">
+                            <!-- <a href="../html/recordManage/scientific-record.html"> -->
                             <div class="four_img">
-                                    <img src="../image/two-pagerecord2.png" alt="">
+                                <img src="../image/two-pagerecord2.png" alt="">
                             </div>
                             <div class="four_word">科研档案</div>
                         </a>
                     </li>
                     <li>
-                        <a href="../html/recordManage/teacher-record.html">
+                        <a class="notDone">
+                            <!-- <a href="../html/recordManage/teacher-record.html"> -->
                             <div class="four_img">
-                                    <img src="../image/two-pagerecord3.png" alt="">
+                                <img src="../image/two-pagerecord3.png" alt="">
                             </div>
                             <div class="four_word">教学档案</div>
                         </a>
                     </li>
                     <li>
-                        <a href="../html/recordManage/other-add.html">
+                        <a class="notDone">
+                            <!-- <a href="../html/recordManage/other-add.html"> -->
                             <div class="four_img">
-                                    <img src="../image/two-pagerecord4.png" alt="">
+                                <img src="../image/two-pagerecord4.png" alt="">
                             </div>
                             <div class="four_word">其他档案</div>
                         </a>
@@ -95,19 +99,19 @@
                         <a href="two-pagerecord.html" class="active">档案管理</a>
                     </li>
                     <li>
-                        <a href="two-pagediagnosis.html" >诊疗助手</a>
+                        <a href="two-pagediagnosis.html">诊疗助手</a>
                     </li>
                     <li>
                         <a href="two-pageshare.html">分享交流</a>
                     </li>
                     <li>
-                        <a href="two-pagegroup.html" >患群管理</a>
+                        <a href="two-pagegroup.html">患群管理</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="weui-tabbar">
-           
+
             <a href="index.html" class="weui-tabbar__item">
                 <div class="weui-tabbar__icon">
                     <img src="../image/tabbar_ico_home_nor.png" alt="">
@@ -140,6 +144,9 @@
             autoplay: 2000,
             lazyLoad: true
         });
+        $('.notDone').on('click', () => {
+            $.toast("该功能正在开发", "text");
+        })
     });
 </script>
 

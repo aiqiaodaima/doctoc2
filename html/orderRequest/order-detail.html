@@ -15,16 +15,17 @@
     <link rel="stylesheet" href="../../css/public.css">
     <link rel="stylesheet" href="../../css/order-request.css">
     <link rel="stylesheet" href="../../css/four-taskapply.css">
+    <link rel="stylesheet" href="../recordManage/patient-record.css">
 </head>
 
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="order_title">
-            出诊请求
+            复诊请求
         </div>
         <div class="order_content">
-            <ul>
-                <li class="content_item">
+            <ul class="content_card">
+                <!-- <li class="content_item">
                     <a href="javascript:void(0)">
                         <div class="item_img">
                             <div class="img_left">
@@ -32,7 +33,7 @@
                             </div>
                             <div class="img_right">
                                 <span>2018/08/17</span>
-                                <span>广东省广州市华侨医院</span>
+                                <span>广东省广州市华侨医院正畸科</span>
                             </div>
                         </div>
                         <div class="item_word">
@@ -52,139 +53,206 @@
                             <span>锁骨右侧红肿，按压有疼痛感，挤压会有白色分泌物。</span>
                         </div>
                     </a>
-                </li>
-
-                <li>
-                    <div class="weui-cells weui-cells_form">
-                        <div class="weui-cell weui-cell_select weui-cell_select-after">
-                            <div class="weui-cell__hd">
-                                <label for="" class="weui-label">住宿安排</label>
-                            </div>
-                            <div class="weui-cell__bd">
-                                <select class="weui-select select1" name="select1">
-                                    <option value="0">请选择</option>
-                                    <option value="1">五星级及以上</option>
-                                    <option value="2">四星级</option>
-                                    <option value="3">三星级及以下</option>
-                                    <option value="4">自费</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="weui-cell weui-cell_select weui-cell_select-after">
-                            <div class="weui-cell__hd">
-                                <label for="" class="weui-label">交通安排</label>
-                            </div>
-                            <div class="weui-cell__bd">
-                                <select class="weui-select select1" name="select2">
-                                    <option value="0">请选择</option>
-                                    <option value="1">专车接送</option>
-                                    <option value="2">自费</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="weui-cell weui-cell_select weui-cell_select-after">
-                            <div class="weui-cell__hd">
-                                <label for="" class="weui-label">其他费用</label>
-                            </div>
-                            <div class="weui-cell__bd">
-                                <select class="weui-select select1" name="select3">
-                                    <option value="0">请选择</option>
-                                    <option value="1">膳食及其他费用</option>
-                                    <option value="2">自费</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <div class="order_title">
-                        出诊请求
-                    </div>
+                        病情简述
+                    </div>  
                 </li>
-                <li>
-                    <div class="weui-cells weui-cells_form">
-                        <div class="weui-cell">
-                            <div class="weui-cell__hd">
-                                <label class="weui-label">医事服务费</label>
-                            </div>
-                            <div class="weui-cell__bd">
-                                <input class="weui-input" type="number" placeholder="请输入医事服务费">
-                            </div>
-                        </div>
-                        <div class="weui-cell">
-                            <div class="weui-cell__hd">
-                                <label class="weui-label">特殊器材使用费</label>
-                            </div>
-                            <div class="weui-cell__bd">
-                                <input class="weui-input" type="number" placeholder="请输入特殊器材使用费">
-                            </div>
-                        </div>
-                        <div class="weui-cell">
-                            <div class="weui-cell__hd">
-                                <label class="weui-label">其他收费</label>
-                            </div>
-                            <div class="weui-cell__bd">
-                                <input class="weui-input" type="number" placeholder="请输入其他收费">
-                            </div>
-                        </div>
-                        <div class="weui-cell">
-                            <div class="weui-cell__hd">
-                                <label class="weui-label">总计天数</label>
-                            </div>
-                            <div class="weui-cell__bd">
-                                <input class="weui-input" type="number" placeholder="请输入总计天数">
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="order_title" style="font-weight: normal;">
-                        请务必详细确认出诊费用，以免造成不必要的损失
-                    </div>
-                </li>
-                <li>
-                    <div class="weui-cells weui-cells_form">
-                        <div class="weui-cell">
-                            <div class="weui-cell__hd">
-                                <label class="weui-label">总计</label>
-                            </div>
-                            <div class="weui-cell__bd">
-                                <input class="weui-input" type="number" placeholder="请输入医事服务费">
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <li class="content_item">
+                    <a class="item_word">
+                        你还未填写收费相关事宜，确认同意该出诊安排吗？若同意，医生集团将派专人与您联系，确认出诊安排事宜。
+                    </a>
+                </li> -->
+
             </ul>
         </div>
-        <div class="order_btn">
+        <div class="patient_title">
+            就诊记录
+        </div>
+        <div class="patient_item">
+            <ul class="item_ul">
+                <!-- <li>
+                    <a href="pRcord-detail.html">
+                        <div class="two_title">
+                            <span>正畸专家  张大仙</span>
+                            <span>2018/05/07</span>
+                        </div>
+                        <div class="one_title">
+                            牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="pRcord-detail.html">
+                        <div class="two_title">
+                            <span>正畸专家  张大仙</span>
+                            <span>2018/05/07</span>
+                        </div>
+                        <div class="one_title">
+                            牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
+                        </div>
+                    </a>
+                </li> -->
+            </ul>
+        </div>
+        <div class="btn_top"></div>
+        <div class="order_btn btn1">
             <div class="btn_refuse">
                 <a href="javascript:void(0)">拒绝</a>
             </div>
-           <div class="btn_agree">
+            <div class="btn_agree">
                 <a href="javascript:void(0)">同意</a>
-           </div>
+            </div>
+        </div>
+        <div class="item_btn">
+            <a href="../index.html">返回首页</a>
         </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
-<script src="../../js/ydui.js"></script>
+<script src="../../js/public.js"></script>
 <script>
+    $('.item_btn').hide();
     $(function () {
-        var dialog = window.YDUI.dialog;
-        $('.weui-select').on('change', function () {
-            $(this).css('color', '#666');
-        })
+        // console.log(location.search)
         $('.btn_refuse').on('click', function () {
-            dialog.confirm('提示', '是否拒绝该预约请求', function () {
-                window.location.href = 'order-request.html'
+            $.confirm('是否拒绝该预约请求', '提示', function () {
+                ifArgee(3)
+                // window.location.href = 'order-request.html?'+Math.random(0,1);
             });
         });
         $('.btn_agree').on('click', function () {
-            dialog.confirm('提示', '你还未填写收费相关事宜，确认同意该出诊安排吗？若同意，医生集团将派专人与您联系，确认出诊安排事宜。', function () {
-                window.location.href = 'audit.html'
+            $.confirm('是否同意该预约请求', '提示', function () {
+                ifArgee(2)
+                // window.location.href = 'audit.html'
             });
         });
+        let url = Public.url();
+        let timeTo = Public.timeTo();
+        function fuzheng(){
+            $.ajax({
+                url: `${url}/cases/selectDoctorFuZheng`,
+                type: 'POST',
+                data: {
+                    dtrId: localStorage.userId,
+                    pttId: location.href.split('?')[1].split('&')[0],
+                    pttsId: location.href.split('?')[1].split('&')[2]
+                },
+                success(res) {
+                    console.log(res)
+                    if (res.puList.length !== 0) {
+                        res.puList.forEach(el => {
+                            let el2 = ` <li>
+                        <a href="pRcord-detail.html?${el.id }">
+                            <div class="two_title">
+                                <span>${el.hplSection}专家  ${el.docName}</span>
+                                <span>${timeTo(el.caseTime).slice(0, 10)}</span>
+                            </div>
+                            <div class="one_title">
+                                ${el.cases||'您尚未诊断'}
+                            </div>
+                        </a>
+                    </li>`
+                            $('.item_ul').append(el2)
+                        });
+                    }
+                }
+            })
+        }
+        $.ajax({
+            url: `${url}/cases/selectPatientCase`,
+            type: 'POST',
+            data: {
+                dtrId: localStorage.userId
+            },
+            success(res) {
+                console.log(res)
+                console.log(location.href.split('?')[1].split('&'))
+                if(res.pcList.length !== 0){
+                    res.pcList.forEach(el => {
+                        if (location.href.split('?')[1].split('&')[1] == el.id) {
+                                el.caseTime = timeTo(el.caseTime).replace(/(\:\d{2})$/g,"");
+                                let el1 = ` <li class="content_item">
+                                        <a>
+                                            <div class="item_img">
+                                                <div class="img_left">
+                                                    <img src="../../image/order.png" alt="">
+                                                </div>
+                                                <div class="img_right">
+                                                    <span>${el.caseTime}</span>
+                                                    <span>${el.hospital}&nbsp;&nbsp;${el.hplSection}</span>
+                                                </div>
+                                            </div>
+                                            <div class="item_word">
+                                                <span>姓名</span>
+                                                <span>${el.ptName}</span>
+                                            </div>
+                                            <div class="item_word">
+                                                <span>性别</span>
+                                                <span>${el.ptSex}</span>
+                                            </div>
+                                            <div class="item_word">
+                                                <span>年龄</span>
+                                                <span>${el.ptAge}</span>
+                                            </div>
+                                            <div class="item_word">
+                                                <span>主要诉求</span>
+                                                <span>${el.sketch}</span>
+                                            </div>
+                                        </a>
+                                    </li>`
+                                    $('.content_card').append(el1)         
+                            }
+                    });
+                    fuzheng(
+
+                    )
+                }else{
+                    let lis = `<li>
+                        <div class="order_title" style ='color:black'>
+                           您暂无预约请求
+                        </div>  
+                    </li>`
+                    $('.content_card').append(lis)
+                    $('.patient_title').hide();
+                    $('.order_btn').hide();
+                    $('.item_btn').show();
+                }
+            }
+        })
+        
+        // 同意或拒绝
+        function ifArgee(i) {
+            $.ajax({
+                url: `${url}/cases/updatePay`,
+                type: 'POST',
+                data: {
+                    dtrId: localStorage.userId,
+                    pttId: location.href.split('?')[1].split('&')[0],
+                    id: location.href.split('?')[1].split('&')[1],
+                    state: i
+                },
+                success(res) {
+                    console.log(res)
+                    if(res.msg == "操作成功"){
+                        // 拒绝
+                        if(i == 3){
+                            window.location.href = 'order-request.html'
+                        }else{
+                            window.location.href = 'audit.html'
+                        }                        
+                    }else{
+                        $.alert(`${res.msg}`)
+                    }
+                },
+                error (res){
+                    $.alert('服务器错误')
+                }
+            })
+        }
+        
     });
 </script>
 

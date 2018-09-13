@@ -44,8 +44,8 @@
         htmltemp=((data)=>{
 			return `
 		        <div class="scientific_title title_success">
-		            <span class="title_word">您的资助申请已获批复</span>
-		            <a href="pagescientific3result.html">详情</a>
+		            <span class="title_word">您的科研课题申请已获批复</span>
+		            <a href="pagescientific3result.html?${encodeURI(encodeURI(data.reason))}">详情</a>
 		        </div>
 		        <div class="science_content">
 		            <ul>

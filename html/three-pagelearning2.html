@@ -25,7 +25,7 @@
         </div>
         <div class="top" style="height: 100px;"></div>
         <div class="scientific_btn">
-            <a href="four-pagelearning2.html">
+            <a>
                 <img src="../image/apply_btn1.png" alt="">
             </a>
         </div>
@@ -39,6 +39,14 @@
         if (localStorage.getItem("title2")) {
             document.title = localStorage.getItem("title2");
         }
+        $('.scientific_btn').on('click', () => {
+            if (localStorage.applyState == '已获审核') { 
+                window.location.href = 'four-pagelearning2.html'
+            }else{
+                $.alert('您尚未成功深度认证')
+                window.location.href = 'information_updating.html'
+            }
+        })
         let url = Public.url();
         $.ajax({
             url: `${url}/metting/selectDoctorMeetingByDtrId`,

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>会议详情</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/conference-item.css">
+    <link rel="stylesheet" href="../css/conference-itemsuccess.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?a4dfa8dd42423e32b7790e020083b697";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/ydui.js"></script>
+<script src="../js/public.js"></script>
+<script>
+    $(function () {
+        if ($('body').width() < 375) {
+            for (var i = 0; i < $('.title_work').length; i++) {
+                if ($('.title_work').eq(i).text().length > 13) {
+                    $('.title_work').eq(i).addClass('disnone');
+                    // $(this).addClass('disnone');
+                }
+            }
+            // console.log($('.title_work:last'))
+            // $('.title_work:last').eq(0).addClass('disnone');
+        };
+        $('#J_Slider').slider({
+            speed: 1000,
+            autoplay: 3000,
+            lazyLoad: true
+        });
+        let url = Public.url();
+        let ossUrl = Public.ossUrl();
+        var id = window.location.search.split('?')[window.location.search.split('?').length - 1].substr(3);
+        id = id.length == 0 ? localStorage.getItem('meId') : id
+        console.log(id)
+        $.ajax({
+            url: `${url}/metting/selectAllMetting`,
+            type: 'POST',
+            data: {
+                meId: id,
+            },
+            success(res) {
+                console.log(res);
+                res.mdc = res.mdc == null ? '' : res.mdc;
+                if (res.msg == "数据为空") {
+                    $.alert('该会议数据已被删除');
+                    return;
+                }
+                let el0G = ` <div class="tips_word going">
+                <span> 您的参会申请审核当中</span>
+                    </div>`
+                let el0S = `<div class="tips_word success">
+                <span>您的参会申请已获批复</span>
+                <a href=pagelearingresult.html?>详情</a>
+            </div><div class="success_item">
+                    <div class="invite_title">邀请函</div>
+                    <div class="invite_name">尊敬的&nbsp;&nbsp;&nbsp;&nbsp;先生/女生</div>
+                    <div class="invite_content">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${res.mdc.preface}</div>
+                </div>
+            </div>
+            <div class="invite_li">
+                    <ul>
+                        <li class="list_item">
+                            <span class="item_left">会议时间：</span>
+                            <span class="item_right">${res.dm.startTime}-${res.dm.endTime}</span>
+                        </li>
+                        <li class="list_item">
+                            <span class="item_left">会议地点：</span>
+                            <span class="item_right">${res.dm.city}</span>
+                        </li>
+                        <!-- <li class="list_item">
+                            <a href="guest-time.html">
+                                <span class="item_left">会议安排</span>
+                                <img src="../image/ico_more.png" alt="">
+                            </a>
+                        </li> -->  
+                    </ul>
+                </div>`
+                let el0F = `<div class="tips_word fail">
+                <span>您的参会申请未获批复</span>
+                <a href="pagelearingresult.html">详情</a>
+            </div>`
+                let el1 = ` <div class="body_bg">
+                    <div class="item_header">
+                        ${res.dm.metName}
+                    </div>
+                    <div class="item_title">
+                        <ul>
+                            <li class="title_one">
+                                <span style="font-weight: 600; color: #333333;">主办方：</span>
+                                <img src="${ossUrl}/${res.dm.sponsorLogo || ''}" alt="">
+                                <span>${res.dm.sponsor}</span>
+                            </li>
+                            <li class="title_two">
+                                <div class="width_6">
+                                    <img src="../image/ico_clock.svg" alt="" class="img_time">
+                                    <span class="word_time">${res.dm.startTime}-${res.dm.endTime}</span>
+                                </div>
+                                <div class="width_4">
+                                    <img src="../image/ico_star.svg" alt="" class="img_star">
+                                    <span class="word_star">${res.dm.nature}</span>
+                                </div>
+                            </li>
+                            <li class="title_three">
+                                <div class="width_6">
+                                    <img src="../image/ico_ pos.svg" alt="" class="img_pos">
+                                    <span class="word_pos">${res.dm.city}</span>
+                                </div>
+                                <div class="width_4">
+                                    <img src="../image/ico_people.svg" alt="" class="img_people">
+                                    <span class="word_people">${res.dm.examine}</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>`;
+                let el2 = ` <div class="item_carousel">
+            <div class="m-slider" id="J_Slider">
+                <div class="slider-wrapper">
+                    <div class="slider-item">
+                        <a href="#">
+                            <img src="../image/banner.png" alt="">
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a href="#">
+                            <img src="../image/banner2.png" alt="">
+                        </a>
+                    </div>
+                    <div class="slider-item">
+                        <a href="#">
+                            <img src="../image/banner3.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="slider-pagination"></div>
+            </div>
+        </div>`
+                if (res.dmct !== null) {
+                    var el3 = `
+                <div class="item_content">
+                <div class="content_title">会议简介</div>
+                <div class="content_word">
+                    ${res.dm.details}
+                </div>
+            </div>
+            `
+                } else {
+                    var el3 = `
+                <div class="item_content">
+                <div class="content_title">会议简介</div>
+                <div class="content_word">
+                   您尚未上传会议简介
+                </div>
+            </div>
+            `
+                }
+                let el4 = ` <div class="item_patient">
+            <div class="patient_title">特邀嘉宾</div>
+            <div class="patient_photo">
+                <ul class="el4">                   
+                    
+                </ul>
+                <!-- <div class="photo_more">
+                    <a href="javascript:void(0)">查看全部</a>
+                    <div class="more_img">
+                        <img src="../image/icon-up.png" alt="">
+                    </div>
+                </div> -->
+            </div>
+        </div>`
+                if (res.dmct !== null) {
+                    var el5 = ` <div class="meeting_item">
+            <div class="meeting_title">会议内容及交流形式</div>
+            <div class="meeting_word">
+                ${res.dmct.content}
+            </div>
+        </div>`
+                } else {
+                    var el5 = ` <div class="meeting_item">
+            <div class="meeting_title">会议内容及交流形式</div>
+            <div class="meeting_word">
+                您尚未上传会议内容及交流形式
+            </div>
+        </div>`
+                }
+
+                let el6 = `<div class="meeting_item">
+            <div class="meeting_title">组织机构</div>
+            <div class="meeting_word el6">
+            </div>
+        </div>`
+                if (res.dmcwList.length == 0) {
+                    var el7 = `<div class="meeting_item">
+            <div class="meeting_title">联系方式</div>
+            <div class="meeting_word">
+               
+            </div>
+        </div>`
+                } else {
+                    var el7 = `<div class="meeting_item">
+            <div class="meeting_title">联系会务</div>
+            <div class="meeting_word">
+                <span>联系人：${res.dmcwList[0].name}</span>
+                <span>电话：${res.dmcwList[0].phone}</span>
+                <span>单位：${res.dmcwList[0].hospital}</span>
+                <span>职务：${res.dmcwList[0].job}</span>
+            </div>
+        </div>`
+                }
+                let el8 = `<div class="btn_top"></div>
+        <div class="item_btn">
+            <a href="javascript:void(0)" id='show-confirm'>
+                申请参会
+            </a>
+        </div>`
+                let elS = `<div class="meeting_item">
+            <div class="meeting_title">缴费须知</div>
+            <div class="meeting_word">${res.mdc.aware}</div>
+        
+        </div>
+        <div class="meeting_item">
+            <div class="meeting_title">会费详情</div>
+            <div class="meeting_word">${res.mdc.employ}</div>
+        </div>
+        <div class="meeting_item">
+            <div class="meeting_title">二维码</div>
+            <div class="meeting_word">
+                <img src= ${Public.ossUrl()}/${res.dm.twoCode} alt="">
+            </div>
+        </div>`
+
+                $('.page__bd').append(el1).append(el2).append(el3).append(el4).append(el5).append(el6).append(el7).append(el8);
+                setTimeout(() => {
+
+                    for (let i = 0; i < res.dmtList.length; i++) {
+                        if (res.dmtList[i].unit.length > 18) {
+                            res.dmtList[i].unit = res.dmtList[i].unit.substring(0, 18) + '...'
+                        }
+                        let spans = `<span>${res.dmtList[i].type}：${res.dmtList[i].unit}</span>`
+                        $('.el6').append(spans)
+                    }
+                    for (let i = 0; i < res.dmiList.length; i++) {
+                        let lis = `<li class="photo_item" data-docId = ${res.dmiList[i].id}>
+                            <a href="guest.html">
+                                <div class="item_left">
+                                    <img src= 'https://imuts.oss-cn-shenzhen.aliyuncs.com/${res.dmiList[i].photo}' alt="">
+                                </div>
+                                <div class="item_right ell4">
+                                    <div class="right_title">
+                                        <span class="title_name">${res.dmiList[i].name}</span>
+                                        <span class="title_work">${res.dmiList[i].job}</span>
+                                    </div>
+                                    
+                                </div>
+                            </a>
+                        </li>`
+                        var arr = res.dmiList[i].actor.replace('，', ',').split(',');
+                        // console.log(arr)
+                        for (var j = 0; j < arr.length; j++) {
+                            arr[j] = arr[j].length > 16 ? arr[j].substring(0, 16) + '...' : arr[j]
+                            let divs = `<div class="title_work">${arr[j]}</div>`;
+                            setTimeout(function () {
+                                $('.ell4').eq(i).append(divs);
+                            }, 10)
+
+                        }
+
+                        $('.el4').append(lis)
+                    }
+                }, 100)
+                // $('.page__bd').append(el1).append(el2).append(el3).append(el4).append(el5).append(el6).append(el7).append(el8);
+                if (res.dm.applyState !== '允许') {
+                    $('#show-confirm').css({ 'background-color': "#333" }).attr('disabled', true);
+                }
+                $('.patient_photo>ul>li').on('click', function () {
+                    window.location.href = 'guest.html'
+                });
+                $(document).on("click", "#show-confirm", function () {
+                    console.log(localStorage.getItem('userId'))
+                    if (localStorage.getItem('userId')) {
+                        console.log(1)
+                        if (res.dm.applyState == '允许') {
+                            $.confirm("确定提交参会申请", "提示", function () {
+                                //   $.toast("文件已经删除!");
+                                $.ajax({
+                                    url: `${url}/metting/insertDmp`,
+                                    type: 'POST',
+                                    data: {
+                                        meId: id,
+                                        dtrId: localStorage.getItem('userId')
+                                    },
+                                    success(res) {
+                                        console.log(res)
+                                        if (res.msg == "操作成功") {
+                                            window.location.href = 'refuse1.html'
+                                        }
+                                        else {
+                                            $.alert(`${res.msg}`)
+                                        }
+                                    },
+                                    error(res) {
+                                        $.alert('系统异常')
+                                    }
+                                })
+
+                            }, function () {
+                                //取消操作
+                            });
+                        } else {
+                            $.alert('该会议不允许自主参会')
+                        }
+                    } else {
+                        $.confirm("请您先登陆再申请参会", "提示", function () {
+
+                            window.location.href = 'index_login.html'
+                        }, function () {
+                            //取消操作
+                        });
+
+                    }
+                });
+            },
+            error(res) {
+
+            }
+        })
+        $(document).on('click', '.photo_item', function () {
+            localStorage.setItem('docId', $(this).attr('data-docId'))
+        })
+    });
+</script>
+
+</html>

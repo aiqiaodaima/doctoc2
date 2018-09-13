@@ -50,101 +50,179 @@
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="weui-cells__title">以下每一项均为必填</div>
-        <div class="weui-cells weui-cells_form">
-            <div class="weui-cell">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">姓名</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <input class="weui-input input_name" type="text" placeholder="请输入姓名">
-                </div>
-            </div>
-            <div class="weui-cell weui-cell_select weui-cell_select-after">
-                <div class="weui-cell__hd">
-                    <label for="" class="weui-label">性别</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <select class="weui-select input_sex" name="select2">
-                        <option value="0">请选择</option>
-                        <option value="男">男</option>
-                        <option value="女">女</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="weui-cell">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">年龄</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <input class="weui-input input_age" type="number" pattern="[0-9]*" placeholder="请输入年龄">
-                </div>
-            </div>
-
-            <div class="weui-cell weui-cell_select weui-cell_select-after">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">学历</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <select class="weui-select input_education">
-                        <option value="0">请选择</option>
-                        <option value="专科">专科</option>
-                        <option value="本科">本科</option>
-                        <option value="研究生">研究生</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="weui-cell weui-cell_select weui-cell_select-after">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">学位</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <select class="weui-select input_education2">
-                        <option value="0">请选择</option>
-                        <option value="学士">学士</option>
-                        <option value="双学士">双学士</option>
-                        <option value="硕士">硕士</option>
-                        <option value="博士">博士</option>
-                    </select>
-                </div>
-            </div>
-            <div class="weui-cell">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">授予院校</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <input class="weui-input input_school" type="text" placeholder="请输入授予院校">
-                </div>
-            </div>
-            <div class="weui-cell weui-cell_switch">
-                <div class="weui-cell__bd">博士后经历</div>
-                <div class="weui-cell__ft">
-                    <label for="switchCP" class="weui-switch-cp">
-                        <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked">
-                        <div class="weui-switch-cp__box"></div>
-                    </label>
-                </div>
-            </div>
-            <div class="weui-cell station_switch moving">
-                <div class="weui-cell__hd">
-                    <label class="weui-label">流动站名称</label>
-                </div>
-                <div class="weui-cell__bd">
-                    <input class="weui-input input_moving" type="text" placeholder="请输入流动站名称">
-                </div>
-            </div>
-        </div>
-
-        <div class="weui-cells ">
-            <a class="weui-cell weui-cell_access" href="patient-going.html">
-                <div class="weui-cell__bd">
-                    <p>工作情况</p>
-                </div>
-                <div class="weui-cell__ft">
-                </div>
-            </a>
-        </div>
+	    <form id="formdata">
+	    	<div class="weui-cells weui-cells_form">
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">姓名</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input input_name" type="text" name="name" placeholder="请输入姓名">
+	                </div>
+	            </div>
+	            <div class="weui-cell weui-cell_select weui-cell_select-after">
+	                <div class="weui-cell__hd">
+	                    <label for="" class="weui-label">性别</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <select class="weui-select input_sex" name="sex">
+	                        <option value="">请选择</option>
+	                        <option value="男">男</option>
+	                        <option value="女">女</option>
+	                    </select>
+	                </div>
+	            </div>
+	
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">出生日期</label>
+	                </div>
+	                <div class="weui-cell__bd">
+			            <input class="weui-input input_birthdate" type="text" id='datetime-picker' name="birthdate" placeholder="请选择"/>
+	                </div>
+	            </div>
+	
+	            <div class="weui-cell weui-cell_select weui-cell_select-after">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">学历</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <select class="weui-select input_education" name="education">
+	                        <option value="">请选择</option>
+	                        <option value="专科">专科</option>
+	                        <option value="本科">本科</option>
+	                        <option value="研究生">研究生</option>
+	                    </select>
+	                </div>
+	            </div>
+	
+	            <div class="weui-cell weui-cell_select weui-cell_select-after">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">学位</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <select class="weui-select input_education2" name="highestDegree">
+	                        <option value="">请选择</option>
+	                        <option value="学士">学士</option>
+	                        <option value="双学士">双学士</option>
+	                        <option value="硕士">硕士</option>
+	                        <option value="博士">博士</option>
+	                    </select>
+	                </div>
+	            </div>
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">授予院校</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input input_school" type="text" name="school" placeholder="请输入授予院校">
+	                </div>
+	            </div>
+	            <div class="weui-cell weui-cell_switch">
+	                <div class="weui-cell__bd">博士后经历</div>
+	                <div class="weui-cell__ft">
+	                    <label for="switchCP" class="weui-switch-cp">
+	                        <input id="switchCP" class="weui-switch-cp__input" type="checkbox" checked="checked">
+	                        <div class="weui-switch-cp__box"></div>
+	                    </label>
+	                </div>
+	            </div>
+	            <div class="weui-cell station_switch moving">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">流动站名称</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input input_moving" type="text" name="bachelors" placeholder="请输入流动站名称">
+	                </div>
+	            </div>
+	        </div>
+	        <div class="weui-cells ">
+	            <!--<a class="weui-cell weui-cell_access" href="patient-going.html">-->
+	            <div class="weui-cell weui-cell_access">
+	                <div class="weui-cell__bd">
+	                    <p>工作情况</p>
+	                </div>
+	                <!--<div class="weui-cell__ft">
+	                </div>-->
+	            </div>
+	            <div class="weui-cell weui-cell_select weui-cell_select-after">
+	                <div class="weui-cell__hd">
+	                    <label for="" class="weui-label">工作性质</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <select class="weui-select input_industry" name="industry">
+	                        <option value="">请选择</option>
+	                        <option value="医生">医生</option>
+	                        <option value="护士">护士</option>
+	                    </select>
+	                </div>
+	            </div>
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">所在医院</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input input_hospital" type="text" name="hospital" placeholder="请输入所在医院">
+	                </div>
+	            </div>
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">所在专科</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input input_hplSection" type="text" name="hplSection" placeholder="请输入所在专科">
+	                </div>
+	            </div>
+	
+	            <div class="weui-cell weui-cell_select weui-cell_select-after">
+	                <div class="weui-cell__hd">
+	                    <label for="" class="weui-label">职称</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <select class="weui-select input_job" name="job">
+	                        <option value="">请选择</option>
+	                        <option value="高级职称">高级职称</option>
+	                        <option value="副高级职称">副高级职称</option>
+	                        <option value="中级职称">中级职称</option>
+	                        <option value="初级职称">初级职称</option>
+	                    </select>
+	                </div>
+	            </div>
+	
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">专业擅长</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input input_adept" type="text" name="adept" placeholder="请输入专业擅长">
+	                </div>
+	            </div>
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">门诊时间</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input input_clinicTime" type="text" name="clinicTime" placeholder="请输入门诊时间">
+	                </div>
+	            </div>
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">医院电话</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input input_hplPhone" type="text" name="hplPhone" placeholder="请输入医院电话">
+	                </div>
+	            </div>
+	            <div class="weui-cell">
+	                <div class="weui-cell__hd">
+	                    <label class="weui-label">工作电话</label>
+	                </div>
+	                <div class="weui-cell__bd">
+	                    <input class="weui-input input_jobPhone" type="text" name="jobPhone" placeholder="请输入工作电话">
+	                </div>
+	            </div>
+	        </div>
+		</form>
         <div class="btn_top"></div>
         <div class="item_btn">
             <a href="javascript:void(0)" class="btn_agree">确认提交</a>
@@ -154,7 +232,7 @@
         <div id="full" class='weui-popup__container'>
             <div class="weui-popup__overlay"></div>
             <div class="weui-popup__modal">
-                <img src="../image/clause.svg" alt="">
+                <img src="../image/clause.png" alt="">
                 <div class="clause_button">
                     <a href="Certification.html">不同意</a>
                     <a href="javascript:void(0)" class="clause_affirm" style="color: #5B86E5;">同意</a>
@@ -169,10 +247,21 @@
 <script src="../js/public.js"></script>
 <script>
     $(function () {
-        if (!localStorage.getItem('industry')) {
+		$("#datetime-picker").datetimePicker({
+			times: function() {
+				return [];
+			},
+			onChange: function(picker, values, displayValues) {
+				console.log(values);
+			}
+		});
+		$('.weui-select').on('change', function() {
+			$(this).css('color', '#666');
+		});
+        //if (!localStorage.getItem('industry')) {
             $("#full").popup();
-        }
-        let url = Public.url()
+        //}
+        let url = Public.url();
         $('.clause_affirm').on('click', function () {
             var id = localStorage.getItem("userId");
             console.log(localStorage.getItem("userId"))
@@ -185,34 +274,18 @@
                     type: 'POST',
                     success(res) {
                         console.log(res)
-                        if (res.user.name !== null) {
-                            localStorage.setItem('input_name', res.user.name);
-                        }
-                        if (res.user.sex !== null) {
-                            localStorage.setItem('input_sex', res.user.sex);
-                        }
-                        if (res.user.age !== null) {
-                            localStorage.setItem('input_age', res.user.age);
-                        }
-                        if (res.doctor.education !== null) {
-                            localStorage.setItem('input_education', res.doctor.education);
-                        }
-                        if (res.doctor.highestDegree !== null) {
-                            localStorage.setItem('input_education2', res.doctor.highestDegree);
-                        }
-                        if (res.doctor.school !== null) {
-                            localStorage.setItem('input_school', res.doctor.school);
-                        }
-                        if (res.doctor.bachelors !== null) {
-                            localStorage.setItem('input_moving', res.doctor.bachelors);
-                        }
-                        $('.input_name').val(localStorage.getItem('input_name'));
-                        $('.input_sex').val(localStorage.getItem('input_sex'));
-                        $('.input_age').val(localStorage.getItem('input_age'));
-                        $('.input_education').val(localStorage.getItem('input_education'));
-                        $('.input_education2').val(localStorage.getItem('input_education2'));
-                        $('.input_school').val(localStorage.getItem('input_school'));
-                        $('.input_moving').val(localStorage.getItem('input_moving'));
+                        var user = res.user?res.user:{};
+                        var doctor = res.doctor?res.doctor:{};
+                        $("#formdata [name]").each(function () {
+                        	var nameVal = $(this).attr("name");
+                        	var val = user[nameVal] ? user[nameVal]:(doctor[nameVal] ? doctor[nameVal]:"");
+                            localStorage.setItem('input_' + nameVal, val);
+                            if ("bachelors" == nameVal&&val=="") {
+                                $('.moving').slideToggle(1);
+                                $('#switchCP').attr('checked', false);
+                            }
+                            $(this).val(val);
+                        });
                     },
                     error(res) {
                         console.log(res)
@@ -221,86 +294,64 @@
             }
             $.closePopup()
         })
-        $('.input_name').on('blur', function () {
-            const input_name = $(this).val();
-            localStorage.setItem('input_name', input_name);
+        
+        $('#formdata [name]').on('blur change', function () {
+        	var nameVal = $(this).attr("name");
+        	var val = $(this).val().trim();
+            localStorage.setItem('input_' + nameVal, val);
+            $(this).val(val);
         })
-        $('.input_sex').on('blur', function () {
-            const input_sex = $(this).val();
-            localStorage.setItem('input_sex', input_sex);
-        })
-        $('.input_age').on('blur', function () {
-            const input_age = $(this).val();
-            localStorage.setItem('input_age', input_age);
-        })
-        $('.input_education').on('blur', function () {
-            const input_education = $(this).val();
-            localStorage.setItem('input_education', input_education);
-        })
-        $('.input_education2').on('blur', function () {
-            const input_education2 = $(this).val();
-            localStorage.setItem('input_education2', input_education2);
-        })
-        $('.input_school').on('blur', function () {
-            const input_school = $(this).val();
-            localStorage.setItem('input_school', input_school);
-        })
-        $('.input_moving').on('blur', function () {
-            const input_moving = $(this).val();
-            localStorage.setItem('input_moving', input_moving);
-        })
-        $('.input_phone').on('blur', function () {
-            const input_phone = $(this).val();
-            localStorage.setItem('input_phone', input_phone);
-        })
-        $('.input_pass').on('blur', function () {
-            const input_pass = $(this).val();
-            localStorage.setItem('input_pass', input_pass);
-        })
-        $('.input_name').val(localStorage.getItem('input_name'));
-        $('.input_sex').val(localStorage.getItem('input_sex'));
-        $('.input_age').val(localStorage.getItem('input_age'));
-        $('.input_education').val(localStorage.getItem('input_education'));
-        $('.input_education2').val(localStorage.getItem('input_education2'));
-        $('.input_school').val(localStorage.getItem('input_school'));
-        $('.input_moving').val(localStorage.getItem('input_moving'));
-
+        
+        $('#formdata [name]').each(function () {
+        	var nameVal = $(this).attr("name");
+        	var val = localStorage.getItem('input_' + nameVal);
+        	$(this).val(val);
+        });
+        
+		var ifD = '';
         $('.weui-switch-cp__input').on('change', function () {
-            $('.moving').slideToggle(300)
-        })
-
+        	var checked = $(this).prop("checked");
+        	if (checked) {
+                ifD = '是';
+        	} else{
+                ifD = '否';
+                $("[name=bachelors]").val("").change();
+        	}
+            $('.moving').slideToggle(300);
+        });
         $('.btn_agree').on('click', () => {
-            $.ajax({
+        	var returnVal = false;
+        	$("#formdata").find("[name]").each(function () {
+        		var $this = $(this);
+        		var val = $(this).val().trim();
+        		var txt = $(this).closest(".weui-cell").find("label").text().trim();
+        		var display = $(this).closest(".weui-cell").css("display");
+        		if (val==""&&display!="none") {
+        			$.alert("请输入" + txt,function () {
+        				$this.focus();
+        			});
+        			returnVal = true;
+        			return false;
+        		}
+        	})
+        	if (returnVal) {
+        		return false;
+        	};
+        	$.ajax({
                 url: `${url}/user/insertDoctorUser`,
                 type: 'POST',
-                data: {
-                    name: localStorage.getItem('input_name'),
-                    sex: localStorage.getItem('input_sex'),
-                    age: localStorage.getItem('input_age'),
-                    education: localStorage.getItem('input_education'),
-                    highestDegree: localStorage.getItem('input_education2'),
-                    school: localStorage.getItem('input_school'),
-                    postdoctor: '是',
-                    bachelors: localStorage.getItem('input_moving'),
-                    industry: localStorage.getItem('industry'),
-                    job: localStorage.getItem('job'),
-                    hospital: localStorage.getItem('hospital'),
-                    hplSection: localStorage.getItem('hplSection'),
-                    hplPhone: localStorage.getItem('hplPhone'),
-                    jobPhone: localStorage.getItem('jobPhone'),
-                    dtrId: localStorage.getItem('userId')
-                },
+                data: $("#formdata").serialize() + `&postdoctor=${ifD}&dtrId=${localStorage.getItem('userId')}`,
                 success(res) {
                     console.log(res)
-                    if (res.msg == '操作成功');
-                    $.alert('您的认证信息已经提交', () => {
-                        window.location.href = 'index.html'
-                    })
-                },
-                error(res) {
-                    console.log(res)
+                    if (res.msg == '操作成功'){
+                        $.alert('您的认证信息已经提交', () => {
+                            window.location.href = 'index.html';
+                        })
+                    }else{
+                        $.alert(res.msg);
+                    }  
                 }
-            })
+            });
         })
     });
 </script>

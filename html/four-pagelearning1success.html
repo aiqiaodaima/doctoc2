@@ -21,7 +21,7 @@
     <div class="page__bd" style="height: 100%;">
         <div class="scientific_title title_success">
             <span class="title_word">您本次受邀参会资助申请已获批复</span>
-            <a href="pagescientific3result.html">详情</a>
+            <a href="pagelearingresult.html">详情</a>
         </div>
         <div class="science_content">
             <ul>
@@ -82,7 +82,10 @@
                 console.log(res)  
                 $('.metName').html(res.dmpm.name)
                 $('.giveMoney').html(res.dmpm.giveMoney+'元')
-                $('.reason').html(res.dmpm.explain)
+                $('.reason').html(res.dmpm.explain);
+                localStorage.learing_reason = res.dmpm.result
+                // let el = `<a href="pagelearingresult.html">详情</a>`
+                // $('.title_success').append(el);
             }
         })
     });

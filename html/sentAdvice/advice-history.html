@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>历史医嘱</title>
+    <title>医嘱发送</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
     <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
     <!-- <link rel="stylesheet" href="../css/index.css"> -->
@@ -17,103 +17,62 @@
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="input_search">
-            <input type="text" placeholder="请输入关键字" class="seach">
+            <input type="text" placeholder="请输入关键字" id="searchMsg" class="seach">
             <img src="../../image/search.png" alt="">
         </div>
         <div class="group_content">
-            <ul>
-                <li class="content_item">
-                        <div class="group_group">
-                            <div class="item_click">
-                                <img src="../../image/click1.png" alt="">
-                            </div>
-                            <div class="item_group">
-                                <img src="../../image/patient_1.png" alt="">
-                            </div>
-                            <div class="item_name">
-                                <span>朱佩琪</span>
-                                <span>京溪南方大学附属第三医院 </span>
-                                <span>黏膜病变</span>
-                            </div>
+            <ul id="loadbox">
+                <!--<li class="content_item">
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" alt="">
                         </div>
-                        <div class="item_time">
-                            <span>2018/05/26</span>
-                            <span>口腔科</span>
+                        <div class="item_group">
+                            <img src="../../image/patient_1.png" alt="">
                         </div>
-                    
+                        <div class="item_name" style="width: auto">
+                            <span>朱佩琪</span>
+                            <span>京溪南方大学附属第三医院 </span>
+                            <span>黏膜病变</span>
+                        </div>
+                    </div>
+                    <div class="item_time">
+                        <span>2018/05/26</span>
+                        <span>口腔科</span>
+                    </div>
+
                 </li>
                 <li class="content_item">
-                        <div class="group_group">
-                            <div class="item_click">
-                                <img src="../../image/click1.png" alt="">
-                            </div>
-                            <div class="item_group">
-                                <img src="../../image/patient_1.png" alt="">
-                            </div>
-                            <div class="item_name">
-                                <span>朱佩琪</span>
-                                <span>京溪南方大学附属第三医院 </span>
-                                <span>黏膜病变</span>
-                            </div>
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" alt="">
                         </div>
-                        <div class="item_time">
-                            <span>2018/05/26</span>
-                            <span>口腔科</span>
+                        <div class="item_group">
+                            <img src="../../image/patient_1.png" alt="">
                         </div>
-                </li>
-                <li class="content_item">
-                        <div class="group_group">
-                            <div class="item_click">
-                                <img src="../../image/click1.png" alt="">
-                            </div>
-                            <div class="item_group">
-                                <img src="../../image/patient_1.png" alt="">
-                            </div>
-                            <div class="item_name">
-                                <span>朱佩琪</span>
-                                <span>京溪南方大学附属第三医院 </span>
-                                <span>黏膜病变</span>
-                            </div>
+                        <div class="item_name" style="width: auto">
+                            <span>朱佩琪</span>
+                            <span>京溪南方大学附属第三医院 </span>
+                            <span>黏膜病变</span>
                         </div>
-                        <div class="item_time">
-                            <span>2018/05/26</span>
-                            <span>口腔科</span>
-                        </div>
-                </li>
-                <li class="content_item">
-                        <div class="group_group">
-                            <div class="item_click">
-                                <img src="../../image/click1.png" alt="">
-                            </div>
-                            <div class="item_group">
-                                <img src="../../image/patient_1.png" alt="">
-                            </div>
-                            <div class="item_name">
-                                <span>朱佩琪</span>
-                                <span>京溪南方大学附属第三医院 </span>
-                                <span>黏膜病变</span>
-                            </div>
-                        </div>
-                        <div class="item_time">
-                            <span>2018/05/26</span>
-                            <span>口腔科</span>
-                        </div>
-                </li>
+                    </div>
+                    <div class="item_time">
+                        <span>2018/05/26</span>
+                        <span>口腔科</span>
+                    </div>
+                </li>-->
             </ul>
         </div>
+        <div class="btn_top"></div>
         <div class="group_btn">
             <div class="btn_left">
                 <div class="left_1">
                     <img src="../../image/click1.png" alt="">
                 </div>
-                <div class="left_2">
-                    全选
-                </div>
+                <div class="left_2">全选</div>
             </div>
             <div class="btn_right">
-                <a href="group-note.html" class="right_2">
-                    发送消息
-                </a>
+                <a id="sendMsg" class="right_2">发送消息</a>
             </div>
         </div>
     </div>
@@ -121,6 +80,7 @@
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../../js/ydui.js"></script>
+<script src="../../js/public.js"></script>
 <script>
     var click1 = {
         el: null,
@@ -139,19 +99,60 @@
         },
         change: function (that) {
             if (that.src.indexOf('click1.png') > -1) {
+            	var pttId = $(that).closest("li").data("pttid");
+            	var caseId = $(that).closest("li").data("caseid");
+            	var sendMsg = $(".right_2");
+            	var sendMsgPttId = sendMsg.data("pttid");
+            	var sendMsgCaseId = sendMsg.data("caseid");
+            	if (!sendMsgPttId) {
+            		sendMsg.data("pttid",pttId+"_").data("caseid",caseId+"_");
+            	} else{
+    				sendMsg.data("pttid",sendMsgPttId+pttId+"_")
+    				sendMsg.data("caseid",sendMsgCaseId+caseId+"_");
+            	}
                 $(that).attr('src', "../../image/click2.png");
             } else {
+            	var pttId = $(that).closest("li").data("pttid");
+            	var sendMsg = $(".right_2");
+            	var reg = new RegExp(pttId+"\_","g");
+            	var pttId = sendMsg.data("pttid").replace(reg,"");
+            	var caseId = sendMsg.data("caseid").replace(reg,"");
+    			sendMsg.data("pttid",pttId).data("caseid",caseId);
                 $(that).attr('src', "../../image/click1.png")
             }
+            console.log(sendMsg.data("pttid"),sendMsg.data("caseid"));
         },
         all: function () {
             this.el.on('click', function () {
-                if (this.src.indexOf('click1.png') > -1) {
-                    $(this).attr('src', "../../image/click2.png");
-                    $(click1.init({ class: '.item_click img' }).el).attr('src', "../../image/click2.png");
+                var img = $(this).find("img")[0];
+                if (img.src.indexOf('click1.png') > -1) {
+                    $(img).attr('src', "../../image/click2.png");
+                    //$(click1.init({ class: '.item_click img' }).el).attr('src', "../../image/click2.png");
+                    $(click1.init({ class: '.item_click img' }).el).each(function () {
+                    	var pttId = $(this).closest("li").data("pttid");
+                    	var caseId = $(this).closest("li").data("caseid");
+                    	var sendMsg = $(".right_2");
+                    	var sendMsgPttId = sendMsg.data("pttid");
+                    	var sendMsgCaseId = sendMsg.data("caseid");
+                    	if (!sendMsgPttId) {
+                    		sendMsg.data("pttid",pttId+"_").data("caseid",caseId+"_");
+                    	} else{
+            				sendMsg.data("pttid",sendMsgPttId+pttId+"_").data("caseid",sendMsgCaseId+caseId+"_");
+                    	}
+                    	$(this).attr('src', "../../image/click2.png");
+                    });
                 } else {
-                    $(this).attr('src', "../../image/click1.png");
-                    $(click1.init({ class: '.item_click img' }).el).attr('src', "../../image/click1.png");
+                    $(img).attr('src', "../../image/click1.png");
+                    //$(click1.init({ class: '.item_click img' }).el).attr('src', "../../image/click1.png");
+                    $(click1.init({ class: '.item_click img' }).el).each(function () {
+                    	var pttId = $(this).closest("li").data("pttid");
+                    	var sendMsg = $(".right_2");
+                    	var reg = new RegExp(pttId+"\_","g");
+                    	var pttId = sendMsg.data("pttid").replace(reg,"");
+                    	var caseId = sendMsg.data("caseid").replace(reg,"");
+            			sendMsg.data("pttid",pttId).data("caseid",caseId);
+                    	$(this).attr('src', "../../image/click1.png");
+                    });
                 }
             })
         }
@@ -173,31 +174,125 @@
         }
     };
     $(function () {
-        click1.init({ class: '.item_click img' }).bind();
-        click1.init({ class: '.left_1 img' }).all();
+        /*click1.init({ class: '.item_click img' }).bind();
+        click1.init({ class: '.left_1 img' }).all();*/
         // delete1.init({class: '.right_1'}).remove();
         var dialog = window.YDUI.dialog;
-        $('.right_1').on('click', function () {
-            $('.item_click img').each(function () {
-                console.log($(this).attr('src').indexOf("click2.png"))
-                if ($(this).attr('src').indexOf("click2.png") == -1) {
-                    dialog.toast('请先选择患者', 'none', 1000);
-                } else {
-                    dialog.confirm('确定将该患者从您的患群移除吗？移除后该患者将无法继续预约。', function () {
-                        delete1.init({ class: '.right_1' }).remove();
-                    });
-                }
-            })
+        let url = Public.url();
+        let timeTo = Public.timeTo();
+        localStorage.removeItem("doctorPttId");
+        localStorage.removeItem("doctorCaseId");
+        localStorage.removeItem("msgPttId");
+        loadajax();
+        $("#searchMsg").on("keyup change",function () {
+        	var val = $(this).val().trim();
+        	loadajax(val);
         });
-        $('.item_group').on('click',function(){
-            window.location.href = 'group-patient.html'
-        })
-        $('.item_name').on('click',function(){
-            window.location.href = 'group-patient.html'
-        })
-        $('.item_time').on('click',function(){
-            window.location.href = 'group-patient.html'
-        })
+        function loadajax(name) {
+        	$.ajax({
+	            url: `${url}/cases/selectPrnState`,
+	            type: 'post',
+	            data: {
+	                dtrId: localStorage.userId,
+	                ptName: name||"",
+	                prnType: "是"
+	            },
+	            success(data) {
+	                console.log(data);
+	                $("#sendMsg").data("hplsection",data.stateList[0]&&data.stateList[0].hplSection||"");
+	                var htmllist = "";
+	                var stateList = data.stateList && data.stateList.length ? data.stateList:[];
+	                stateList.forEach((json) => {
+	                    htmllist += htmltemp(json||{});
+	                })
+	                /*var pmfList2 = data.pmfList2 && data.pmfList2.length ? data.pmfList:[];
+	                pmfList2.forEach((json) => {
+	                    htmllist += htmltemp2(json||{});
+	                })*/
+	                $("#loadbox").html(htmllist);
+	                click1.init({ class: '.item_click img' }).bind();
+	                click1.init({ class: '.btn_left' }).all();
+	                $('.group_group .item_group,.group_group .item_name,.item_time').on('click',function (){
+	                    var pttid = $(this).closest("li").data("pttid");
+	                    localStorage.msgPttId = pttid;
+	                    window.location.href = '../recordManage/patient-record.html';
+	                })
+	                /*发送消息*/
+	                $("#sendMsg").click(function () {
+	                    var returnVal = true;
+	                    $(".item_click img").each(function () {
+	                        if (this.src.search('click1.png') == -1) {
+	                            returnVal = false;
+	                            return false;
+	                        }
+	                    });
+	                    if (returnVal) {
+	                        $.alert("未选择患者，不能发送消息");
+	                        return false;
+	                    }
+	                    var pttId = $(this).data("pttid");
+	                    var caseId = $(this).data("caseid");
+	                    var hplSection = $(this).data("hplsection");
+	                    localStorage.doctorPttId = pttId;
+	                    localStorage.doctorCaseId = caseId;
+	                    localStorage.hplSection = hplSection;
+	                    window.location.href = "group-note.html";
+	                });
+	            }
+	        })
+        }
+        function htmltemp(data){
+            return `
+		        <li class="content_item" data-pttid="${data.pttId||''}" data-caseid="${data.id||''}">
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" alt="">
+                        </div>
+                        <div class="item_group">
+                            <img src="../../image/patient_1.png" alt="">
+                        </div>
+                        <div class="item_name" style="width: auto;">
+                            <span>${data.ptName||""}</span>
+                            <span>${data.ptSex||""}</span>
+                            <span>${data.ptAge&&data.ptAge!=0 ? data.ptAge:""}</span>
+                        </div>
+                    </div>
+                    <div class="item_time">
+                        <span style="white-space: nowrap;">${data.caseTime?timeTo(data.caseTime).split(" ")[0]:""}</span>
+                        <span>${data.hplSection}</span>
+                    </div>
+                </li>
+            `;
+        }
+        function htmltemp2(data){
+            /*return `
+		        <li class="content_item">
+                    <div class="group_group">
+                        <div class="item_click">
+                            <img src="../../image/click1.png" data-pttid="${data.pttId || ''}" alt="">
+                        </div>
+                        <div class="item_group">
+                            <img src="https://imuts.oss-cn-shenzhen.aliyuncs.com/${data.user.photo}" alt="">
+                        </div>
+                        <div class="item_name">
+                            <span>${data.name || ""}的家庭组</span>
+                            <span>
+                            	${
+                ((data.pmfSet[0].tolerant || "") + "、" +
+                    (data.pmfSet[1] && data.pmfSet[1].tolerant || "") + "、" +
+                    (data.pmfSet[2] && data.pmfSet[2].tolerant || "") + "等" +
+                    (data.pmfSet.length || "") + "人").replace(/(\、+等)/, "等")
+                }
+                            </span>
+                        </div>
+                    </div>
+                    <!--<div class="item_time">
+                        <span>${data.start_time || ""}</span>
+                        <span>口腔科</span>
+                    </div>-->
+                </li>
+            `;*/
+        }
     })
 </script>
 

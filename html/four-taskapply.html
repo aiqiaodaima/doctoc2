@@ -190,7 +190,7 @@
 	                </div>
 	            </div>
 	        </form>
-        	<form id="formdata5">
+        	 <form id="formdata5">
 	            <div class="weui-cell">
 	                <div class="weui-cell__hd">
 	                    <label class="weui-label">开题时间</label>
@@ -273,7 +273,7 @@
             }
         })
         $('.selector_12').on('change', function () {
-        	var reg = /国家发改委|国务院相关部委|省发改委|市辖主管|市相关部委|市相关结构|本院/g
+        	var reg = /国务院相关部委|国务院相关机构|市相关部委|市相关结构|本院|校相关机构/g;
         	if ($('.selector_12').val().search(reg) != -1) {
                 $('.selector_add').slideDown('fast');
                 verifyform.push("#formdata2");

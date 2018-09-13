@@ -14,10 +14,12 @@
     margin: 1rem auto 0;
     height:1.13rem;
     font-size:1.13rem;
+  
     font-family:PingFangSC-Medium;
     color:rgba(110,214,67,1);
     line-height:1.13rem;
     text-align: center;
+    /* line-break: auto? */
 }
 .audit_word2{
     padding: 0 2.88rem;
@@ -27,6 +29,8 @@
     letter-spacing: 0.04rem;
     color: #6d7a95;
     margin-top: 2rem;
+    display: flex;
+    justify-content: center;
 }
 .audit_buttom a{
     display: block;

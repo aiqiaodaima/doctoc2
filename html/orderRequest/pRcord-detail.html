@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>患者档案</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <link href="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.css" rel="stylesheet">
+    <link href="http://cdn.bootcss.com/photoswipe/4.1.1/default-skin/default-skin.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../../css/public.css">
+    <link rel="stylesheet" href="../recordManage/patient-record.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="weui-cells cells_border" id="loadInfo">
+            <div class="weui-cell cell_item">
+                <div class="weui-cell__bd">
+                    <p>就诊日期</p>
+                </div>
+                <div class="weui-cell__ft  clinicTime"></div>
+            </div>
+            <div class="weui-cell cell_item">
+                <div class="weui-cell__bd">
+                    <p>就诊医院</p>
+                </div>
+                <div class="weui-cell__ft clinicHospital"></div>
+            </div>
+            <div class="weui-cell cell_item" style="border-bottom: 1px solid #eaeaea;">
+                <div class="weui-cell__bd">
+                    <p>接诊医生</p>
+                </div>
+                <div class="weui-cell__ft patient_date clinicDoctor"></div>
+            </div>
+            <div class="two_line">
+                <div class="line1">主要诊断</div>
+                <div class="line2 clinicSketch"></div>
+            </div>
+        </div>
+
+
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">挂号单</p>
+                            <!-- <div class="weui-uploader__info">0/2</div> -->
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <div class="weui-uploader__files my-gallery" id="loadfiles1" data-pswp-uid="1">
+                                <!--<li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file" style="background-image:url(../../image/patient.png)"></li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
+                                    <div class="weui-uploader__file-content">
+                                        <i class="weui-icon-warn"></i>
+                                    </div>
+                                </li>
+                                <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(../../image/patient.png)">
+                                    <div class="weui-uploader__file-content">50%</div>
+                                </li>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">病例</p>
+                            <!-- <div class="weui-uploader__info">0/2</div> -->
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <div class="weui-uploader__files my-gallery" id="loadfiles2" data-pswp-uid="2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">检查检验单据及结果</p>
+                            <!-- <div class="weui-uploader__info">0/2</div> -->
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <div class="weui-uploader__files my-gallery" id="loadfiles3" data-pswp-uid="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">付费单据</p>
+                            <!-- <div class="weui-uploader__info">0/2</div> -->
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <div class="weui-uploader__files my-gallery" id="loadfiles4" data-pswp-uid="4"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="weui-cells weui-cells_form">
+            <div class="weui-cell">
+                <div class="weui-cell__bd">
+                    <div class="weui-uploader">
+                        <div class="weui-uploader__hd">
+                            <p class="weui-uploader__title">其他资料</p>
+                            <!-- <div class="weui-uploader__info">0/2</div> -->
+                        </div>
+                        <div class="weui-uploader__bd">
+                            <div class="weui-uploader__files my-gallery" id="loadfiles5" data-pswp-uid="5"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="patient_title">
+            就诊记录
+        </div>
+        <div class="patient_item">
+            <ul>
+                <li>
+                    <a href="pRcord-detail.html">
+                        <div class="two_title">
+                            <span>正畸专家  张大仙</span>
+                            <span>2018/05/07</span>
+                        </div>
+                        <div class="one_title">
+                            牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="pRcord-detail.html">
+                        <div class="two_title">
+                            <span>正畸专家  张大仙</span>
+                            <span>2018/05/07</span>
+                        </div>
+                        <div class="one_title">
+                            牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>-->
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+	        <div class="pswp__bg"></div>
+	        <div class="pswp__scroll-wrap">
+	            <div class="pswp__container">
+	                <div class="pswp__item"></div>
+	                <div class="pswp__item"></div>
+	                <div class="pswp__item"></div>
+	            </div>
+	            <div class="pswp__ui pswp__ui--hidden">
+	                <div class="pswp__top-bar">
+	                    <div class="pswp__counter"></div>
+	                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+	                    <!--<button class="pswp__button pswp__button&#45;&#45;share" title="Share"></button>-->
+	                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+	                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+	                    <div class="pswp__preloader">
+	                        <div class="pswp__preloader__icn">
+	                            <div class="pswp__preloader__cut">
+	                                <div class="pswp__preloader__donut"></div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+	                    <div class="pswp__share-tooltip"></div>
+	                </div>
+	                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+	                </button>
+	                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+	                </button>
+	                <div class="pswp__caption">
+	                    <div class="pswp__caption__center"></div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe.js"></script>
+<script src="http://cdn.bootcss.com/photoswipe/4.1.1/photoswipe-ui-default.js"></script>
+<script src="../../js/public.js"></script>
+<script>
+    $(function () {
+        let url = Public.url();
+        let timeTo = Public.timeTo();
+        $('.patient_name').html(localStorage.getItem('patient_name'));
+        $('.patient_content').html(localStorage.getItem('patient_content'));
+        $('.patient_date').html(localStorage.getItem('patient_date'));
+        $.ajax({
+        	url: `${url}/cases/selectPatientCaseFile`,
+        	type: "post",
+        	data:{
+        		caseId: location.search.split('?')[1]
+        	},
+        	success(data){
+        		console.log(data);
+        		$("#loadInfo").html(htmltemp_info(data.pc||{}));
+        		var htmllist_Src = "";
+    			var pfList=data.pfList&&data.pfList.length?data.pfList:[];
+    			pfList.forEach((json)=>{
+    				htmllist_Src=htmltemp_Src(json||{});
+        			$("#loadfiles"+json.fileName).append(htmllist_Src||{});
+    			});
+    			Public.initPhotoSwipeFromDOM(".my-gallery");
+        	}
+        })
+        function htmltemp_info(data) {
+        	return `
+        		<div class="weui-cell cell_item">
+	                <div class="weui-cell__bd">
+	                    <p>就诊日期</p>
+	                </div>
+	                <div class="weui-cell__ft">${data.caseTime?timeTo(data.caseTime).split(" ")[0]:""}</div>
+	            </div>
+	            <div class="weui-cell cell_item">
+	                <div class="weui-cell__bd">
+	                    <p>就诊医院</p>
+	                </div>
+	                <div class="weui-cell__ft">${data.hospital||""}</div>
+	            </div>
+	            <div class="weui-cell cell_item" style="border-bottom: 1px solid #eaeaea;">
+	                <div class="weui-cell__bd">
+	                    <p>接诊医生</p>
+	                </div>
+	                <div class="weui-cell__ft patient_date">${data.docName||""}</div>
+	            </div>
+	            <div class="two_line">
+	                <div class="line1">
+	                    主要诊断
+	                </div>
+	                <div class="line2">
+	                    ${data.cases||""}
+	                </div>
+            	</div>
+        	`;
+        }
+        function htmltemp_Src(data) {
+        	return `
+                <figure class="weui-uploader__file">
+                	<div>
+		                <a href="https://imuts.oss-cn-shenzhen.aliyuncs.com/${data.fileUrl?data.fileUrl.replace(/\s/g,''):''}" itemprop="contentUrl">
+		                    <img src="https://imuts.oss-cn-shenzhen.aliyuncs.com/${data.fileUrl?data.fileUrl.replace(/\s/g,''):''}" itemprop="thumbnail" alt="图片加载失败" />
+		                </a>
+		            </div>
+			        <figcaption style="display:none;"></figcaption>
+                </figure>
+        	`;
+        }
+    });
+</script>
+
+</html>

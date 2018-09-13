@@ -18,65 +18,153 @@
 
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
-        <div class="weui-cells" style="margin-top: 0">
-            <div class="weui-cell">
-                <div class="weui-cell__bd">
-                    <p>姓名</p>
-                </div>
-                <div class="weui-cell__ft patient_name"></div>
-            </div>
-            <div class="weui-cell">
-                <div class="weui-cell__bd">
-                    <p>性别</p>
-                </div>
-                <div class="weui-cell__ft">女</div>
-            </div>
-            <div class="weui-cell">
-                <div class="weui-cell__bd">
-                    <p>年龄</p>
-                </div>
-                <div class="weui-cell__ft patient_date"></div>
-            </div>
-        </div>
+        <div id="patientInfo" class="weui-cells" style="margin-top: 0"></div>
         <div class="patient_title">
             就诊记录
         </div>
         <div class="patient_item">
-            <ul>
-                <li>
+            <ul id="patientCase">
+                <!--<li>
                     <a href="pRcord-detail.html">
                         <div class="two_title">
                             <span>正畸专家  张大仙</span>
                             <span>2018/05/07</span>
                         </div>
                         <div class="one_title">
-                            牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
+                        	牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
                         </div>
                     </a>
-                </li>
-                <li>
-                    <a href="pRcord-detail.html">
+                </li>-->
+            </ul>
+        </div>
+        <div class="patient_title">
+            历史消息
+        </div>
+        <div class="patient_item">
+            <ul id="patientHis">
+                <!--<li>
+                    <a>
                         <div class="two_title">
                             <span>正畸专家  张大仙</span>
                             <span>2018/05/07</span>
                         </div>
                         <div class="one_title">
-                            牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
+                        	牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
                         </div>
                     </a>
                 </li>
+                <li>
+                    <a>
+                        <div class="two_title">
+                            <span>正畸专家  张大仙</span>
+                            <span>2018/05/07</span>
+                        </div>
+                        <div class="one_title">
+                        	牙齿正畸期间不要使用粘性太强的食物，以免贴片掉落。
+                        </div>
+                    </a>
+                </li>-->
             </ul>
         </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../../js/public.js"></script>
 <script>
     $(function () {
-        document.title = `患者${localStorage.getItem('patient_name')}就医档案`
+    	var url = Public.url();
+    	var timeTo = Public.timeTo();
+    	localStorage.removeItem("caseId");
         $('.patient_name').html(localStorage.getItem('patient_name'));
         $('.patient_content').html(localStorage.getItem('patient_content'));
         $('.patient_date').html(localStorage.getItem('patient_date'));
+        $.ajax({
+        	url: `${url}/cases/selectPatientByPttId`,
+        	type: "post",
+        	data:{
+        		pttId: localStorage.msgPttId,
+        		pttsId: localStorage.msgPttsId
+        	},
+        	success(data){
+        		console.log(data);
+        		$("#patientInfo").html(htmltemp_patientInfo(data.user||{}));
+        		var htmllist_patientCase = "";
+        		var htmllist_patientHis = "";
+    			var pcList = data.pcList&&data.pcList.length ? data.pcList:[];
+    			pcList.forEach((json)=>{
+    				htmllist_patientCase=htmltemp_patientCase(json||{});
+        			$("#patientCase").append(htmllist_patientCase);
+    			})
+    			var ppsList = data.ppsList&&data.ppsList.length ? data.ppsList:[];
+    			ppsList.forEach((json)=>{
+    				htmllist_patientHis+=htmltemp_patientHis(json||{});
+    			})
+        		$("#patientHis").html(htmllist_patientHis);
+        	}
+        })
+        function htmltemp_patientInfo(data) {
+        	console.log(data.age)
+        	document.title = `患者${data.name}就医档案`;
+        	/*计算年龄*/
+        	var nowDate = timeTo(new Date());
+        	if(nowDate >= data.birthdate) {
+				if(nowDate.substr(5,5) >= data.birthdate.substr(5,5)) {
+					data.age = nowDate.substr(0, 4) - data.birthdate.substr(0, 4);
+				} else {
+					data.age = nowDate.substr(0, 4) - data.birthdate.substr(0, 4) - 1;
+				}
+			}
+        	return `
+        		<div class="weui-cell">
+	                <div class="weui-cell__bd">
+	                    <p>姓名</p>
+	                </div>
+	                <div class="weui-cell__ft patient_name">${data.name||""}</div>
+	            </div>
+	            <div class="weui-cell">
+	                <div class="weui-cell__bd">
+	                    <p>性别</p>
+	                </div>
+	                <div class="weui-cell__ft">${data.sex||""}</div>
+	            </div>
+	            <div class="weui-cell">
+	                <div class="weui-cell__bd">
+	                    <p>年龄</p>
+	                </div>
+	                <div class="weui-cell__ft patient_date">${isNaN(data.age)?"":data.age}</div>
+	            </div>
+        	`;
+        }
+        function htmltemp_patientCase(data) {
+        	return `
+        		<li>
+                    <a href="pRcord-detail.html" onclick="localStorage.caseId=${data.id||''}">
+                        <div class="two_title">
+                            <span>${data.hplSection||""}  ${data.docName||""}</span>
+                            <span>${data.caseTime ? timeTo(data.caseTime).split(" ")[0]:""}</span>
+                        </div>
+                        <div class="one_title">
+                            ${data.cases||""}
+                        </div>
+                    </a>
+                </li>
+        	`;
+        }
+        function htmltemp_patientHis(data) {
+        	return `
+        		<li>
+                    <a>
+                        <div class="two_title">
+                            <span>${data.prnIds||""}</span>
+                        </div>
+                        <div class="one_title">
+                            ${data.sendTime?timeTo(data.sendTime):""}
+                        </div>
+                    </a>
+                </li>
+        	`;
+        }
     });
 </script>
 

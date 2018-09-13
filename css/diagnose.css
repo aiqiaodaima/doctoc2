@@ -87,24 +87,21 @@ ul li{
     height: 2.75rem;
     display: flex;
     justify-content: center;
-    padding-top: 0.75rem;
+    align-items: center;
     border-bottom: 1px solid #eaeaea;
 }
-/* .data_month a:nth-child(1){
-    margin-left: 7.69rem;
-} */
 .data_month .month_word{
     margin: 0 1.32rem;
 }
-.data_month .month_word,.data_month p{
+.data_month .month_word,.data_month a{
     height:0.81rem;
-    font-size:0.81rem;
+    font-size:1.2rem;
     font-family:PingFangSC-Regular;
     color:rgba(153,153,153,1);
     line-height:0.81rem;
 }
-.data_month p{
-    font-size:1rem;
+.data_month a{
+    font-size:1.2rem;
 }
 .data_content{
     background:rgba(255,255,255,1);

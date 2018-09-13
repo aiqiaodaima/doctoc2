@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>审核结果</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.0/css/jquery-weui.min.css">
+    <!-- <link rel="stylesheet" href="../css/index.css"> -->
+    <link rel="stylesheet" href="../css/ydui.css">
+    <!-- 通用样式 -->
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/pagescientific3result.css">
+</head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+        <div class="result_title">您本次受邀参会资助申请未获批复</div>
+        <div id="loadbox" class="result_content">
+            <span class="content_result">专家对您这次的申请建议与评价:</span>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    $(function () {
+        let spans = ` <span class="content_word">${localStorage.learing_reason}</span>`;
+        $("#loadbox").append(spans)
+		// let url = Public.url();
+        // $.ajax({
+        // 	url : `${url}/metting/selectDoctorMettingById`,
+        // 	type: 'post',
+        // 	data: {
+        // 		id: window.location.href.split('?')[1]
+        // 	},
+        // 	success(data) {
+        //         console.log(data)
+        // 		var htmllist = "",
+        // 			txt = data.doctorMeeting.result ||"";
+        // 		$("#loadbox").append(`<span class="content_word">${txt}</span>`);
+        // 	}
+        // })
+    });
+</script>
+
+</html>

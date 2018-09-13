@@ -22,7 +22,7 @@
                 </div>
                 <div class="weui-cell__bd">
                     <select class="weui-select industry" name="select1">
-                        <option value="0">请选择</option>
+                        <option value="">请选择</option>
                         <option value="医生">医生</option>
                         <option value="护士">护士</option>
                     </select>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="weui-cell__bd">
                     <select class="weui-select job" name="select2">
-                        <option value="0">请选择</option>
+                        <option value="">请选择</option>
                         <option value="高级职称">高级职称</option>
                         <option value="副高级职称">副高级职称</option>
                         <option value="中级职称">中级职称</option>
@@ -60,6 +60,22 @@
                 </div>
             </div>
 
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">专业擅长</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input adept" type="text" placeholder="请输入专业擅长">
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">门诊时间</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <input class="weui-input clinicTime" type="text" placeholder="请输入门诊时间">
+                </div>
+            </div>
             <div class="weui-cell">
                 <div class="weui-cell__hd">
                     <label class="weui-label">医院电话</label>
@@ -80,9 +96,7 @@
         </div>
         <div class="btn_top"></div>
         <div class="item_btn">
-            <a href="patient-id.html">
-               保存
-            </a>
+            <a id="apply_btn" href="javascript:;">保存</a>
         </div>
     </div>
 </body>
@@ -90,10 +104,13 @@
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script>
     $(function(){
+    	localStorage.industryBool = "true";
         $('.industry').val(localStorage.getItem('industry'));
         $('.job').val(localStorage.getItem('job'));
         $('.hospital').val(localStorage.getItem('hospital'));
         $('.hplSection').val(localStorage.getItem('hplSection'));
+        $('.adept').val(localStorage.getItem('adept'));
+        $('.clinicTime').val(localStorage.getItem('clinicTime'));
         $('.jobPhone').val(localStorage.getItem('jobPhone'));
         $('.hplPhone').val(localStorage.getItem('hplPhone'));
         $('.industry').on('change',function(){
@@ -108,13 +125,34 @@
         $('.hplSection').on('change',function(){
            localStorage.setItem('hplSection',$(this).val())
         })
+        $('.adept').on('change',function(){
+           localStorage.setItem('adept',$(this).val())
+        })
+        $('.clinicTime').on('change',function(){
+           localStorage.setItem('clinicTime',$(this).val())
+        })
         $('.hplPhone').on('change',function(){
            localStorage.setItem('hplPhone',$(this).val())
         })
         $('.jobPhone').on('change',function(){
            localStorage.setItem('jobPhone',$(this).val())
         })
-       
+        $("#apply_btn").on("click",function () {
+        	var returnVal = false;
+        	$(".weui-select,.weui-input").each(function () {
+        		var val = $(this).val().trim();
+        		var txt = $(this).closest(".weui-cell").find("label").text();
+        		if (!val) {
+        			returnVal = true;
+        			$.alert(`请输入${txt}`);
+        			return false;
+        		}
+        	})
+        	if (returnVal) {
+        		return false;
+        	}
+        	history.back();
+        })
     });
 </script>
 </html>

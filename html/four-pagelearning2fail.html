@@ -22,8 +22,8 @@
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="scientific_title title_fail">
-            <span class="title_word">您的组织发起资助申请未获批复</span>
-            <a href="pagescientific3result2.html">详情</a>
+            <span class="title_word">您的组织发起会议资助申请未获批复</span>
+            <a href="pagelearingresult4.html">详情</a>
         </div>
         <div class="science_content">
             <ul>
@@ -36,13 +36,13 @@
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">会议名称</div>
-                        <div class="cell-right metName">2019年科隆口腔牙科展</div>
+                        <div class="cell-right metName"></div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">会议性质</div>
-                        <div class="cell-right nature">国家大型</div>
+                        <div class="cell-right nature"></div>
                     </div>
                 </li>
             </ul>
@@ -52,25 +52,25 @@
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">预计规模</div>
-                        <div class="cell-right maxPerson">3000人</div>
+                        <div class="cell-right maxPerson"></div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">组织机构</div>
-                        <div class="cell-right sponsor">国家卫生健康委员会</div>
+                        <div class="cell-right sponsor"></div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">预算金额</div>
-                        <div class="cell-right budgetMoney">3万元</div>
+                        <div class="cell-right budgetMoney"></div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">已获资助</div>
-                        <div class="cell-right gainMoney">1万元</div>
+                        <div class="cell-right gainMoney"></div>
                     </div>
                 </li>
             </ul>
@@ -80,24 +80,24 @@
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">会议开始时间</div>
-                        <div class="cell-right startTime">2019.07.08</div>
+                        <div class="cell-right startTime"></div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">会议结束时间</div>
-                        <div class="cell-right endTime">2019.07.10</div>
+                        <div class="cell-right endTime"></div>
                     </div>
                 </li>
                 <li class="content_item">
                     <div class="cell-item list_item">
                         <div class="cell-left">申请资助</div>
-                        <div class="cell-right money">2万元</div>
+                        <div class="cell-right money"></div>
                     </div>
                 </li>
                 <li class="add_content">
                     <div class="item_top">资金用途说明:</div>
-                    <div class="item_bottom explain">用于购买课题研究所需器材及其研究样本，用于购买课题研究所需器材及其研究样本及其研究样本（限50字）</div>
+                    <div class="item_bottom reason"></div>
                 </li>
             </ul>
         </div>
@@ -127,7 +127,8 @@
                 $('.startTime').html(res.doctorMeeting.startTime)
                 $('.endTime').html(res.doctorMeeting.endTime)
                 $('.money').html(res.doctorMeeting.money+'元')
-                $('.explain').html(res.doctorMeeting.explain)
+                $('.reason').html(res.doctorMeeting.reason);
+                localStorage.learing_reason = res.doctorMeeting.result;
             }
         });
     })

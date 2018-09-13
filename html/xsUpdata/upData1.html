@@ -23,35 +23,35 @@
                 <li>资助统计</li>
                 <li class="item_list">
                     <span>申请资助总数</span>
-                    <span class="count">15</span>
+                    <span class="count">0</span>
                 </li>
                 <li class="item_list">
                     <span>批复资助总数</span>
-                    <span class="startTime">15</span>
+                    <span class="startTime">0</span>
                 </li>
                 <li class="item_list">
                     <span>申请资助总额</span>
-                    <span class="applyMoney">14,000.00</span>
+                    <span class="applyMoney">0.00</span>
                 </li>
                 <li class="item_list">
                     <span>批复资助总额</span>
-                    <span class="giveMoney">14,000.00</span>
+                    <span class="giveMoney">0.00</span>
                 </li>
                 <li class="item_list">
                     <span>提款总额</span>
-                    <span class="drawMoney">14,000.00</span>
+                    <span class="drawMoney">0.00</span>
                 </li>
                 <li class="item_list">
                     <span>剩余总额</span>
-                    <span class="surplusMoney">14,000.00</span>
+                    <span class="surplusMoney">0.00</span>
                 </li>
                 <li class="item_list">
                     <span>已核销总额</span>
-                    <span class="verifyMoney">14,000.00</span>
+                    <span class="verifyMoney">0.00</span>
                 </li>
                 <li class="item_list">
                     <span>未核销总额</span>
-                    <span class="notVerifyMoney">14,000.00</span>
+                    <span class="notVerifyMoney">0.00</span>
                 </li>
             </ul>
         </div>
@@ -178,14 +178,14 @@
                 dtrId: localStorage.getItem('userId')
             },
             success(res) {
-                $('.count').html(res.count);
-                $('.startTime').html(res.dmpm.startTime);
-                $('.drawMoney').html(res.dmpm.drawMoney);
-                $('.giveMoney').html(res.dmpm.giveMoney);
-                $('.applyMoney').html(res.dmpm.applyMoney);
-                $('.surplusMoney').html(res.dmpm.surplusMoney);
-                $('.verifyMoney').html(res.dmpm.verifyMoney);
-                $('.notVerifyMoney').html(res.dmpm.notVerifyMoney);
+                // $('.count').html(res.count);
+                // $('.startTime').html(res.dmpm.startTime);
+                // $('.drawMoney').html(res.dmpm.drawMoney);
+                // $('.giveMoney').html(res.dmpm.giveMoney);
+                // $('.applyMoney').html(res.dmpm.applyMoney);
+                // $('.surplusMoney').html(res.dmpm.surplusMoney);
+                // $('.verifyMoney').html(res.dmpm.verifyMoney);
+                // $('.notVerifyMoney').html(res.dmpm.notVerifyMoney);
             }
         })
         $('#files').on('change', function () {

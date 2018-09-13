@@ -82,7 +82,7 @@
                     <label class="weui-label">预算金额</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input budgetMoney" type="number" pattern="[0-9]*" placeholder="请输入预算金额">
+                    <input class="weui-input budgetMoney" type="number" pattern="[0-9]*" placeholder="请输入预算金额（元）">
                 </div>
             </div>
             <div class="weui-cell">
@@ -90,7 +90,7 @@
                     <label class="weui-label">已获资助金额</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input gainMoney" type="number" pattern="[0-9]*" placeholder="请输入已获取资助金额">
+                    <input class="weui-input gainMoney" type="number" pattern="[0-9]*" placeholder="请输入已获取资助金额（元）">
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
                     <label class="weui-label">申请资助金额</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input applyMoney" type="text" placeholder="请输入申请资助">
+                    <input class="weui-input applyMoney" type="number" placeholder="请输入申请资助（元）">
                 </div>
             </div>
             <div class="weui-cell">
@@ -125,7 +125,7 @@
                     <label class="weui-label">资金用途说明</label>
                 </div>
                 <div class="weui-cell__bd">
-                    <input class="weui-input explain" placeholder="请输入资金用途说明">
+                    <input class="weui-input explain" type="text" placeholder="请输入资金用途说明">
                 </div>
             </div>
             <div class="weui-cell weui-cell_select weui-cell_select-after">
@@ -198,9 +198,10 @@
             endTime = $(this).val()
         })
         $('.applyMoney').on('change', function () {
-            $(this).val($(this).val() + '元');
+            applyMoney =  $(this).val()
+            // $(this).val($(this).val());
             // console.log(typeof($(this).val()))
-            applyMoney = $(this).val().slice(0,$(this).val().length-1)
+            // applyMoney = $(this).val().slice(0,$(this).val().length-1)
         })
         $('.explain').on('change', function () {
             explain = $(this).val()

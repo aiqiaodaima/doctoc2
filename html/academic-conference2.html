@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>医生集团</title>
+    <title>参会申请</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0,viewport-fit=cover">
     <!-- 引入样式 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.2/style/weui.min.css">
@@ -49,8 +49,7 @@
             type: 'POST',
             data: {
                 dtrId : localStorage.getItem('userId'),
-                // dtrId : 11,
-                
+                // dtrId : 11, 
             },
             success (res){
                 console.log(res)
@@ -59,7 +58,7 @@
                     el = el.doctorMeeting
                     console.log(el)
                     el.metName = el.metName.length>12?el.metName.substring(0,12)+'...':el.metName;
-                    el.city = el.city == null? '暂无':el.city;
+                    // el.city = el.city == null? '暂无':el.city;
                     if(el.state == '已获批复'){
                         let divs = `<div class="my_card item_success" data-meId = ${meId}>
                         <div class="card_item">

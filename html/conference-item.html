@@ -15,7 +15,22 @@
     <link rel="stylesheet" href="../css/public.css">
     <link rel="stylesheet" href="../css/conference-item.css">
     <link rel="stylesheet" href="../css/conference-itemsuccess.css">
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?a4dfa8dd42423e32b7790e020083b697";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
+
+<body ontouchstart>
+    <div class="page__bd" style="height: 100%;">
+
+    </div>
+</body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
 <script src="../js/ydui.js"></script>
@@ -38,19 +53,19 @@
             lazyLoad: true
         });
         let url = Public.url();
+        let ossUrl = Public.ossUrl();
         var id = window.location.search.split('?')[window.location.search.split('?').length - 1].substr(3);
-        id = id.length == 0?localStorage.getItem('data-id'):id
-        console.log(id.length)
+        id = id.length == 0 ? localStorage.getItem('meId') : id
+        console.log(id)
         $.ajax({
             url: `${url}/metting/selectAllMetting`,
             type: 'POST',
             data: {
                 meId: id,
-                // meId: localStorage.getItem('data-id')
             },
             success(res) {
                 console.log(res);
-                res.mdc = res.mdc == null?'': res.mdc;
+                res.mdc = res.mdc == null ? '' : res.mdc;
                 if (res.msg == "数据为空") {
                     $.alert('该会议数据已被删除');
                     return;
@@ -60,7 +75,7 @@
                     </div>`
                 let el0S = `<div class="tips_word success">
                 <span>您的参会申请已获批复</span>
-                <a href="pagescientific3result.html">详情</a>
+                <a href=pagelearingresult.html?>详情</a>
             </div><div class="success_item">
                     <div class="invite_title">邀请函</div>
                     <div class="invite_name">尊敬的&nbsp;&nbsp;&nbsp;&nbsp;先生/女生</div>
@@ -87,7 +102,7 @@
                 </div>`
                 let el0F = `<div class="tips_word fail">
                 <span>您的参会申请未获批复</span>
-                <a href="pagescientific3result.html">详情</a>
+                <a href="pagelearingresult.html">详情</a>
             </div>`
                 let el1 = ` <div class="body_bg">
                     <div class="item_header">
@@ -96,9 +111,9 @@
                     <div class="item_title">
                         <ul>
                             <li class="title_one">
-                                <span style="font-weight: 600; color: #333333;">主办方：</span>
-                                <img src="" alt="">
-                                <span>医生集团</span>
+                                <span style="font-weight: 600; color: #333333;">主办方</span>
+                                <img src="${ossUrl}/${res.dm.sponsorLogo || ''}" alt="">
+                                <span>${res.dm.sponsor}</span>
                             </li>
                             <li class="title_two">
                                 <div class="width_6">
@@ -107,7 +122,7 @@
                                 </div>
                                 <div class="width_4">
                                     <img src="../image/ico_star.svg" alt="" class="img_star">
-                                    <span class="word_star">${res.dm.site}</span>
+                                    <span class="word_star">${res.dm.nature}</span>
                                 </div>
                             </li>
                             <li class="title_three">
@@ -170,12 +185,12 @@
                 <ul class="el4">                   
                     
                 </ul>
-                <div class="photo_more">
+                <!-- <div class="photo_more">
                     <a href="javascript:void(0)">查看全部</a>
                     <div class="more_img">
                         <img src="../image/icon-up.png" alt="">
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>`
                 if (res.dmct !== null) {
@@ -235,7 +250,7 @@
         <div class="meeting_item">
             <div class="meeting_title">二维码</div>
             <div class="meeting_word">
-                <img src="../image/qrcode.jpg" alt="">
+                <img src= ${Public.ossUrl()}/${res.dm.twoCode} alt="">
             </div>
         </div>`
 
@@ -252,26 +267,26 @@
                     },
                     success(res) {
                         console.log(res);
-
+                        localStorage.setItem('learing_reason', res.reason);
                         if (res.msg == '还未申请参会该学术会议') {
                             console.log(11)
                             $('.page__bd').append(el1).append(el2).append(el3).append(el4).append(el5).append(el6).append(el7).append(el8);
-                        } else if (res.msg == '审核当中'){
+                        } else if (res.msg == '审核当中') {
 
                             $('.page__bd').append(el0G).append(el1).append(el2).append(el3).append(el4).append(el5).append(el6).append(el7);
-                        } else if (res.msg == '已获批复'){
+                        } else if (res.msg == '已获批复') {
 
                             $('.page__bd').append(el0S).append(el5).append(el6).append(el7).append(elS);
-                            $('.invite_name').html(`尊敬的${res.name    }先生/女生`)
-                        }else if (res.msg == '未获批复'){
+                            $('.invite_name').html(`尊敬的${res.name}先生/女生`)
+                        } else if (res.msg == '未获批复') {
 
                             $('.page__bd').append(el0F).append(el1).append(el2).append(el3).append(el4).append(el5).append(el6).append(el7);
                         }
-                    
-                        }
+
+                    }
 
                 })
-                setTimeout(()=>{
+                setTimeout(() => {
 
                     for (let i = 0; i < res.dmtList.length; i++) {
                         if (res.dmtList[i].unit.length > 18) {
@@ -294,8 +309,8 @@
                                     
                                 </div>
                             </a>
-                        </li>` 
-                        var arr = res.dmiList[i].actor.replace('，',',').split(',');
+                        </li>`
+                        var arr = res.dmiList[i].actor.replace('，', ',').split(',');
                         // console.log(arr)
                         for (var j = 0; j < arr.length; j++) {
                             arr[j] = arr[j].length > 16 ? arr[j].substring(0, 16) + '...' : arr[j]
@@ -303,12 +318,12 @@
                             setTimeout(function () {
                                 $('.ell4').eq(i).append(divs);
                             }, 10)
-    
+
                         }
-    
+
                         $('.el4').append(lis)
                     }
-                },100)
+                }, 100)
                 // $('.page__bd').append(el1).append(el2).append(el3).append(el4).append(el5).append(el6).append(el7).append(el8);
                 if (res.dm.applyState !== '允许') {
                     $('#show-confirm').css({ 'background-color': "#333" }).attr('disabled', true);
@@ -371,10 +386,5 @@
     });
 </script>
 
-<body ontouchstart>
-    <div class="page__bd" style="height: 100%;">
-       
-    </div>
-</body>
 
 </html>

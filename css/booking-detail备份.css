@@ -1,0 +1,63 @@
+.detail_title {
+  height: 2.67rem;
+  width: 100%;
+  line-height: 2.67rem;
+  text-align: center;
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #b3b3b3;
+}
+.detail_money {
+  margin-bottom: 5px;
+  background: #fff;
+  padding: 0 1rem;
+}
+.detail_money .money_item {
+  height: 4rem;
+  line-height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eaeaea;
+}
+.detail_money .money_item:nth-last-child(1) {
+  border: none;
+}
+.detail_money .money_item .item_right {
+  font-family: MicrosoftYaHei;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+}
+.detail_money .money_item .item_left {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  letter-spacing: 0.04rem;
+  color: #666666;
+}
+.detail_money .special_item {
+  padding: 1.43rem 0;
+  border-bottom: 1px solid #eaeaea;
+}
+.detail_money .special_item .special_title {
+  font-family: MicrosoftYaHei;
+  font-size: 1.07rem;
+  letter-spacing: 0.04rem;
+  color: #333333;
+  margin-bottom: 1.27rem;
+}
+.detail_money .special_item ul li {
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  line-height: 1.33rem;
+  letter-spacing: 0.04rem;
+  color: #666666;
+}
+.booking_tips {
+  padding: 1rem;
+  font-family: MicrosoftYaHei;
+  font-size: 0.93rem;
+  line-height: 1.33rem;
+  letter-spacing: 0.04rem;
+  color: #6d7a95;
+}

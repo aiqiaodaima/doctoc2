@@ -19,38 +19,8 @@
 <body ontouchstart>
     <div class="page__bd" style="height: 100%;">
         <div class="detail_content">
-            <ul>
-                <li class="content_item">
-                    <ul>
-                        <li class="item_title">
-                            FDI，自主创新对于国家卫生...
-                        </li>
-                        <li class="item_money">
-                            <span class="money_left">获得参会资助</span>
-                            <span class="money_right money_add">+10086</span>
-                        </li>
-                        <li class="item_date">
-                            <span class="date_left">2018年08月19日 14：10</span>
-                            <span class="date_right">已发放</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="content_item">
-                    <ul>
-                        <li class="item_title">
-                            FDI，自主创新对于国家卫生...
-                        </li>
-                        <li class="item_money">
-                            <span class="money_left">获得参会资助</span>
-                            <span class="money_right money_reduce">-1086</span>
-                        </li>
-                        <li class="item_date">
-                            <span class="date_left">2018年08月19日 14：10</span>
-                            <span class="date_right">已发放</span>
-                        </li>
-                    </ul>
-                </li>
-                <li class="content_item">
+            <ul class="liAdd">
+                <!-- <li class="content_item">
                     <ul>
                         <li class="item_title">
                             FDI，自主创新对于国家卫生...
@@ -64,16 +34,56 @@
                             <span class="date_right">已发放</span>
                         </li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
 </body>
 <script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/jquery-weui/1.2.0/js/jquery-weui.min.js"></script>
+<script src="../js/public.js"></script>
 <script>
+    let url = Public.url();
+    let timeTo = Public.timeTo();
+    function ajaxUrl() {
+        $.ajax({
+            url: `${url}/deal/selectDoctorDealDetail`,
+            type: 'POST',
+            data:{
+                dtrId: localStorage.userId
+            },
+            success(res) {
+                console.log(res)
+                if (res.msg.length > 0) {
+                    res.msg.forEach(el => {
+                        let lis = `
+                        <li class="content_item">
+                            <ul>
+                                <li class="item_title">
+                                    ${el.result || '无会议名字'}
+                                </li>
+                                <li class="item_money">
+                                    <span class="money_left">${el.type == 1?'获得参会资助':'提取参会资助'}</span>
+                                    <span class="money_right money_reduce" style='color:${el.type == 1?'#ffbf44':'#333'}'>${el.type == 1?'+':'-'}${el.price}</span>
+                                </li>
+                                <li class="item_date">
+                                    <span class="date_left">${timeTo(el.startTime)}</span>
+                                    <span class="date_right">${el.state == 1?'提现中':el.state == 2?'已到账':'提现失败'}</span>
+                                </li>
+                            </ul>
+                        </li>
+                        `
+                        $('.liAdd').append(lis)
+                    });
+                } else {
+                    $.alert(`暂无数据`)
+                }
+            }
+        })
+    }
+    // state 1 待处理 2已发放  3 收款失败 
     $(function () {
-
+        ajaxUrl();
     });
 </script>
 

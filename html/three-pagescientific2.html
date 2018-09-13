@@ -45,7 +45,7 @@
 			},
 			success(data) {
 				console.log(data);
-				if (data.dtpfList.length == 0) {
+				if (!data.dtpfList&&data.dtpfList.length == 0) {
 					let el = `<div class="emptyStatus">
 						<img src="../image/emptyStatus.png" alt="">
 						<div class="tips_word">您还未添加过科研计划，请点击按钮进行添加。</div>
